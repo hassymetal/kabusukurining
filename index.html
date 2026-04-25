@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="株スクリーニングツールを徹底比較。初心者から上級者まで、無料で使えるものから高機能ツールまで、あなたに合った銘柄スクリーナーが見つかります。">
+<title>株スクリーニングツール おすすめ完全比較【2026年最新版】</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue-dark: #1d4ed8;
+    --blue-main: #2563eb;
+    --blue-light: #3b82f6;
+    --blue-pale: #eff6ff;
+    --blue-border: #bfdbfe;
+    --text-dark: #0f172a;
+    --text-mid: #475569;
+    --text-muted: #94a3b8;
+    --bg-page: #f0f6ff;
+    --bg-white: #ffffff;
+    --border: #e2e8f0;
+    --green: #16a34a;
+    --green-pale: #f0fdf4;
+    --green-border: #bbf7d0;
+    --red: #dc2626;
+    --red-pale: #fef2f2;
+    --red-border: #fecaca;
+    --amber: #d97706;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--bg-page);
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+
+  /* ========== HEADER ========== */
+  header {
+    background: var(--bg-white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+  .logo {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--blue-main);
+    text-decoration: none;
+  }
+  .header-nav { display: flex; gap: 1.5rem; }
+  .header-nav a {
+    font-size: .83rem;
+    color: var(--text-mid);
+    text-decoration: none;
+  }
+  .header-nav a:hover { color: var(--blue-main); }
+
+  /* ========== HERO ========== */
+  .hero {
+    background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 55%, #3b82f6 100%);
+    color: #fff;
+    padding: 4rem 1.5rem 4.5rem;
+    text-align: center;
+  }
+  .hero-inner { max-width: 640px; margin: 0 auto; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    border: 1px solid rgba(255,255,255,.35);
+    color: #fff;
+    font-size: 11px;
+    padding: 4px 16px;
+    border-radius: 20px;
+    margin-bottom: 1.2rem;
+    letter-spacing: .08em;
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.45;
+    margin-bottom: 1rem;
+  }
+  .hero h1 em {
+    font-style: normal;
+    background: rgba(255,255,255,.22);
+    border-radius: 6px;
+    padding: 0 8px;
+  }
+  .hero p {
+    font-size: .93rem;
+    color: rgba(255,255,255,.85);
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+  .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; }
+  .btn-white {
+    background: #fff;
+    color: var(--blue-dark);
+    border: none;
+    padding: 13px 30px;
+    border-radius: 9px;
+    font-size: .93rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: transform .15s, box-shadow .15s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-white:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,.15); }
+  .btn-outline-w {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255,255,255,.6);
+    padding: 13px 30px;
+    border-radius: 9px;
+    font-size: .93rem;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .stat-num { font-size: 1.6rem; font-weight: 700; }
+  .stat-label { font-size: .75rem; color: rgba(255,255,255,.72); margin-top: 2px; }
+
+  /* ========== SECTIONS ========== */
+  .section { padding: 3rem 1.5rem; background: var(--bg-white); }
+  .section.alt { background: var(--bg-page); }
+  .section-inner { max-width: 900px; margin: 0 auto; }
+  .sec-label {
+    font-size: 11px;
+    color: var(--blue-main);
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: .4rem;
+  }
+  .sec-title { font-size: 1.35rem; font-weight: 700; color: var(--text-dark); margin-bottom: .4rem; }
+  .sec-sub { font-size: .88rem; color: var(--text-mid); line-height: 1.65; margin-bottom: 1.8rem; }
+
+  /* ========== TOOLS GRID ========== */
+  .filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .filter-btn {
+    padding: 6px 18px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--bg-white);
+    font-size: .82rem;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--text-mid);
+    transition: all .15s;
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--blue-main);
+    color: #fff;
+    border-color: var(--blue-main);
+  }
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .tool-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.4rem;
+    position: relative;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .tool-card:hover {
+    border-color: var(--blue-border);
+    box-shadow: 0 6px 24px rgba(37,99,235,.1);
+  }
+  .tool-card.featured { border: 2px solid var(--blue-main); }
+  .featured-badge {
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--blue-main);
+    color: #fff;
+    font-size: 11px;
+    padding: 3px 16px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-weight: 700;
+  }
+  .tool-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .tool-icon {
+    width: 42px; height: 42px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+  .tool-name { font-size: .95rem; font-weight: 700; color: var(--text-dark); }
+  .tool-cat { font-size: .75rem; color: var(--text-muted); margin-top: 2px; }
+  .tool-desc { font-size: .83rem; color: var(--text-mid); line-height: 1.6; margin-bottom: 10px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
+  .tag {
+    font-size: 11px; padding: 3px 10px;
+    border-radius: 20px; border: 1px solid var(--border); color: var(--text-mid);
+  }
+  .tag.free { color: var(--green); border-color: var(--green-border); background: var(--green-pale); }
+  .tag.paid { color: var(--blue-main); border-color: var(--blue-border); background: var(--blue-pale); }
+  .tag.hot { color: var(--red); border-color: var(--red-border); background: var(--red-pale); }
+  .stars { color: #f59e0b; font-size: 13px; margin-bottom: 10px; }
+  .review-count { font-size: .78rem; color: var(--text-muted); margin-left: 4px; }
+  .reward-box {
+    background: var(--blue-pale);
+    border-radius: 8px;
+    padding: 9px 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 11px;
+  }
+  .reward-label { font-size: .78rem; color: var(--blue-light); }
+  .reward-amount { font-size: .95rem; font-weight: 700; color: var(--blue-dark); }
+  .aff-btn {
+    display: block; width: 100%;
+    background: var(--blue-main);
+    color: #fff; border: none;
+    padding: 11px; border-radius: 8px;
+    font-size: .87rem; font-weight: 700;
+    cursor: pointer; font-family: inherit;
+    text-align: center; text-decoration: none;
+    transition: background .15s;
+  }
+  .aff-btn:hover { background: var(--blue-dark); }
+
+  /* ========== RANKING ========== */
+  .rank-list { display: flex; flex-direction: column; gap: 10px; }
+  .rank-item {
+    background: var(--bg-white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .rank-num { font-size: 1.4rem; font-weight: 700; min-width: 32px; text-align: center; }
+  .rn1 { color: #d97706; }
+  .rn2 { color: #94a3b8; }
+  .rn3 { color: #b45309; }
+  .rn4 { font-size: 1rem; color: var(--text-muted); }
+  .rank-info { flex: 1; }
+  .rank-name { font-size: .93rem; font-weight: 700; color: var(--text-dark); }
+  .rank-note { font-size: .78rem; color: var(--text-muted); margin-top: 2px; }
+  .rank-reward { font-size: .95rem; font-weight: 700; color: var(--blue-main); white-space: nowrap; }
+
+  /* ========== HOW TO ========== */
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+  .step-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.4rem;
+    text-align: center;
+  }
+  .step-num {
+    width: 40px; height: 40px;
+    background: var(--blue-main);
+    color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; font-weight: 700;
+    margin: 0 auto 12px;
+  }
+  .step-title { font-size: .93rem; font-weight: 700; margin-bottom: 6px; }
+  .step-desc { font-size: .82rem; color: var(--text-mid); line-height: 1.6; }
+
+  /* ========== FAQ ========== */
+  .faq-list { display: flex; flex-direction: column; }
+  .faq-item { border-bottom: 1px solid var(--border); padding: 1.1rem 0; }
+  .faq-q { font-size: .92rem; font-weight: 700; color: var(--blue-dark); margin-bottom: .5rem; }
+  .faq-q::before { content: 'Q. '; color: var(--blue-main); }
+  .faq-a { font-size: .84rem; color: var(--text-mid); line-height: 1.7; }
+  .faq-a::before { content: 'A. '; font-weight: 700; color: var(--text-muted); }
+
+  /* ========== CTA BANNER ========== */
+  .cta-banner {
+    background: linear-gradient(135deg, #1e40af, #2563eb);
+    padding: 3rem 1.5rem;
+    text-align: center;
+    color: #fff;
+  }
+  .cta-banner h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: .6rem; }
+  .cta-banner p { font-size: .88rem; color: rgba(255,255,255,.82); margin-bottom: 1.6rem; line-height: 1.7; }
+
+  /* ========== FOOTER ========== */
+  footer {
+    background: #1e293b;
+    color: #94a3b8;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    font-size: .8rem;
+    line-height: 1.8;
+  }
+  footer a { color: #93c5fd; text-decoration: none; }
+  .footer-links { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.2rem; }
+  .disclaimer {
+    border-top: 1px solid #334155;
+    padding-top: 1.2rem;
+    margin-top: 1rem;
+    font-size: .75rem;
+    color: #64748b;
+    line-height: 1.8;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 600px) {
+    .header-nav { display: none; }
+    .hero { padding: 3rem 1rem 3.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">📊 株スクリーニング比較</a>
+    <nav class="header-nav">
+      <a href="#tools">ツール比較</a>
+      <a href="#ranking">ランキング</a>
+      <a href="#howto">使い方</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">✓ 2026年最新版 編集部が徹底比較</div>
+    <h1>初心者でも使える<br><em>株スクリーニングツール</em><br>おすすめ完全比較</h1>
+    <p>銘柄探しを効率化するスクリーニングツールを徹底比較。<br>無料で使えるものから上級者向けまで、あなたに合ったツールが見つかります。</p>
+    <div class="hero-btns">
+      <a href="#tools" class="btn-white">ツールを比較する</a>
+      <a href="#ranking" class="btn-outline-w">ランキングを見る</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">12+</div><div class="stat-label">比較ツール数</div></div>
+      <div class="stat"><div class="stat-num">3万+</div><div class="stat-label">月間読者数</div></div>
+      <div class="stat"><div class="stat-num">毎月</div><div class="stat-label">情報更新</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="section" id="tools">
+  <div class="section-inner">
+    <div class="sec-label">tool comparison</div>
+    <div class="sec-title">主要スクリーニングツール 比較</div>
+    <div class="sec-sub">目的別・レベル別に最適なツールを選ぼう。まずは無料プランから試してみましょう。</div>
+    <div class="filter-row">
+      <button class="filter-btn active">すべて</button>
+      <button class="filter-btn">無料</button>
+      <button class="filter-btn">国内株</button>
+      <button class="filter-btn">米国株</button>
+      <button class="filter-btn">初心者向け</button>
+    </div>
+    <div class="tools-grid">
+
+      <div class="tool-card featured">
+        <div class="featured-badge">編集部おすすめ No.1</div>
+        <div class="tool-header">
+          <div class="tool-icon" style="background:#eff6ff">📊</div>
+          <div>
+            <div class="tool-name">株探スクリーニング</div>
+            <div class="tool-cat">国内株・初心者向け</div>
+          </div>
+        </div>
+        <div class="tool-desc">PER・PBR・配当利回りなど基本指標でスクリーニング。日本語で使いやすく初心者に最適。会員登録だけで主要機能が無料で使えます。</div>
+        <div class="tags">
+          <span class="tag free">無料プランあり</span>
+          <span class="tag hot">人気No.1</span>
+        </div>
+        <div class="stars">★★★★★<span class="review-count">(1,240件)</span></div>
+        <div class="reward-box">
+          <span class="reward-label">口座開設アフィリ報酬</span>
+          <span class="reward-amount">最大 ¥10,000</span>
+        </div>
+        <a href="#" class="aff-btn">無料で始める →</a>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-icon" style="background:#f0fdf4">🔍</div>
+          <div>
+            <div class="tool-name">SBI証券 スクリーナー</div>
+            <div class="tool-cat">国内・海外株対応</div>
+          </div>
+        </div>
+        <div class="tool-desc">国内最大手証券のスクリーナー。口座開設で無料利用可。ETF・外国株にも対応しており幅広い投資スタイルに対応。</div>
+        <div class="tags">
+          <span class="tag free">口座開設で無料</span>
+          <span class="tag paid">海外株対応</span>
+        </div>
+        <div class="stars">★★★★☆<span class="review-count">(892件)</span></div>
+        <div class="reward-box">
+          <span class="reward-label">口座開設アフィリ報酬</span>
+          <span class="reward-amount">最大 ¥8,000</span>
+        </div>
+        <a href="#" class="aff-btn">詳細を見る →</a>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-icon" style="background:#fef3c7">🌐</div>
+          <div>
+            <div class="tool-name">Finviz</div>
+            <div class="tool-cat">米国株・中級〜上級</div>
+          </div>
+        </div>
+        <div class="tool-desc">米国株スクリーニングの定番ツール。100以上の指標でフィルタリング可能。ヒートマップ機能も人気で世界中のトレーダーが愛用。</div>
+        <div class="tags">
+          <span class="tag free">無料プランあり</span>
+          <span class="tag paid">Elite版あり</span>
+        </div>
+        <div class="stars">★★★★★<span class="review-count">(654件)</span></div>
+        <div class="reward-box">
+          <span class="reward-label">紹介アフィリ報酬</span>
+          <span class="reward-amount">最大 $30</span>
+        </div>
+        <a href="#" class="aff-btn">詳細を見る →</a>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-icon" style="background:#fdf4ff">⚡</div>
+          <div>
+            <div class="tool-name">TradingView</div>
+            <div class="tool-cat">チャート＋スクリーナー</div>
+          </div>
+        </div>
+        <div class="tool-desc">世界5,000万人が使うチャートツール。スクリーナーとチャート分析が一体化。SNS機能で他のトレーダーの考えも参考にできる。</div>
+        <div class="tags">
+          <span class="tag free">無料プランあり</span>
+          <span class="tag hot">上級者人気</span>
+        </div>
+        <div class="stars">★★★★★<span class="review-count">(2,100件)</span></div>
+        <div class="reward-box">
+          <span class="reward-label">有料プラン紹介報酬</span>
+          <span class="reward-amount">30%継続報酬</span>
+        </div>
+        <a href="#" class="aff-btn">詳細を見る →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RANKING -->
+<section class="section alt" id="ranking">
+  <div class="section-inner">
+    <div class="sec-label">affiliate ranking</div>
+    <div class="sec-title">アフィリエイト報酬 人気ランキング</div>
+    <div class="sec-sub">成約しやすく報酬単価が高いサービス順に紹介します</div>
+    <div class="rank-list">
+      <div class="rank-item">
+        <div class="rank-num rn1">🥇</div>
+        <div class="rank-info">
+          <div class="rank-name">松井証券 口座開設</div>
+          <div class="rank-note">成約率が高い・初心者に大人気・キャンペーン豊富</div>
+        </div>
+        <div class="rank-reward">最大 ¥10,000</div>
+      </div>
+      <div class="rank-item">
+        <div class="rank-num rn2">🥈</div>
+        <div class="rank-info">
+          <div class="rank-name">SBI証券 口座開設</div>
+          <div class="rank-note">国内最大手・信頼感で成約しやすい</div>
+        </div>
+        <div class="rank-reward">最大 ¥8,000</div>
+      </div>
+      <div class="rank-item">
+        <div class="rank-num rn3">🥉</div>
+        <div class="rank-info">
+          <div class="rank-name">TradingView 有料プラン</div>
+          <div class="rank-note">継続課金で毎月安定した報酬が発生</div>
+        </div>
+        <div class="rank-reward">30%/月 継続</div>
+      </div>
+      <div class="rank-item">
+        <div class="rank-num rn4">4</div>
+        <div class="rank-info">
+          <div class="rank-name">楽天証券 口座開設</div>
+          <div class="rank-note">楽天ユーザーに刺さりやすい・楽天ポイント連携が人気</div>
+        </div>
+        <div class="rank-reward">最大 ¥6,000</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO -->
+<section class="section" id="howto">
+  <div class="section-inner">
+    <div class="sec-label">how to start</div>
+    <div class="sec-title">スクリーニングツールの始め方</div>
+    <div class="sec-sub">4ステップで今日から銘柄スクリーニングを始めよう</div>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-title">ツールを選ぶ</div>
+        <div class="step-desc">上の比較表から自分のレベルと目的に合ったツールを選びましょう。初心者なら「株探」がおすすめ。</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-title">無料登録する</div>
+        <div class="step-desc">まずは無料プランで登録。証券口座の開設も無料でできます。</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-title">条件を設定する</div>
+        <div class="step-desc">PER・配当利回りなど自分が重視する指標を設定してフィルタリング。</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <div class="step-title">候補を分析する</div>
+        <div class="step-desc">絞り込んだ銘柄を詳しく調べて、投資判断を自分で行いましょう。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section alt" id="faq">
+  <div class="section-inner">
+    <div class="sec-label">faq</div>
+    <div class="sec-title">よくある質問</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">スクリーニングツールは本当に無料で使えますか？</div>
+        <div class="faq-a">株探・SBI証券スクリーナーなど、無料で十分な機能が使えるツールは多数あります。まず無料から始めて、必要に応じて有料プランを検討しましょう。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">初心者には何から始めればいいですか？</div>
+        <div class="faq-a">国内株なら「株探スクリーニング」が日本語でわかりやすくおすすめです。米国株に興味があれば「Finviz」の無料版から試してみましょう。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">スクリーニングした銘柄は必ず上がりますか？</div>
+        <div class="faq-a">スクリーニングはあくまで候補を絞り込むツールです。投資判断はご自身で行い、必ず自己責任でお願いします。当サイトの情報は投資助言ではありません。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">このサイトはどうやって運営されていますか？</div>
+        <div class="faq-a">当サイトはアフィリエイトプログラムを通じた紹介報酬で運営しています。紹介料はサービス提供会社から支払われ、読者の方への追加費用は一切ありません。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">国内株と米国株どちらから始めるべきですか？</div>
+        <div class="faq-a">初めての方は情報が豊富で日本語で調べやすい国内株からスタートするのがおすすめです。慣れてきたら米国株にも挑戦しましょう。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <h2>まずは無料のツールから始めよう</h2>
+  <p>口座開設・ツール登録はすべて無料。<br>今すぐ始めて自分に合ったスクリーナーを見つけよう。</p>
+  <a href="#tools" class="btn-white">おすすめツールを見る</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="#">トップ</a>
+    <a href="#tools">ツール比較</a>
+    <a href="#ranking">ランキング</a>
+    <a href="#faq">FAQ</a>
+    <a href="#">プライバシーポリシー</a>
+    <a href="#">お問い合わせ</a>
+  </div>
+  <p>© 2026 株スクリーニング比較サイト</p>
+  <div class="disclaimer">
+    ※当サイトはアフィリエイト広告（A8.net・もしもアフィリエイト等）を掲載しています。<br>
+    ※掲載情報は作成時点のものです。最新情報は各サービス公式サイトをご確認ください。<br>
+    ※投資は元本割れのリスクがあります。投資判断はご自身の責任で行ってください。当サイトの情報は投資助言ではありません。
+  </div>
+</footer>
+
+<script>
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
