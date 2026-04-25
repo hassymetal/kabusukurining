@@ -3,619 +3,471 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="株スクリーニングツールを徹底比較。初心者から上級者まで、無料で使えるものから高機能ツールまで、あなたに合った銘柄スクリーナーが見つかります。">
-<title>株スクリーニングツール おすすめ完全比較【2026年最新版】</title>
+<meta name="description" content="TOSSY・DMM株・DMM CFD・シストレセレクト365を徹底比較。初心者から上級者まで、あなたに合った投資ツール・証券口座が見つかります。">
+<title>投資ツール・証券口座 おすすめ完全比較【2026年最新版】</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --blue-dark: #1d4ed8;
-    --blue-main: #2563eb;
-    --blue-light: #3b82f6;
-    --blue-pale: #eff6ff;
-    --blue-border: #bfdbfe;
-    --text-dark: #0f172a;
-    --text-mid: #475569;
-    --text-muted: #94a3b8;
-    --bg-page: #f0f6ff;
-    --bg-white: #ffffff;
-    --border: #e2e8f0;
-    --green: #16a34a;
-    --green-pale: #f0fdf4;
-    --green-border: #bbf7d0;
-    --red: #dc2626;
-    --red-pale: #fef2f2;
-    --red-border: #fecaca;
-    --amber: #d97706;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Noto Sans JP', sans-serif;
-    background: var(--bg-page);
-    color: var(--text-dark);
-    line-height: 1.6;
-  }
-
-  /* ========== HEADER ========== */
-  header {
-    background: var(--bg-white);
-    border-bottom: 1px solid var(--border);
-    padding: 0 1.5rem;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .header-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 56px;
-  }
-  .logo {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--blue-main);
-    text-decoration: none;
-  }
-  .header-nav { display: flex; gap: 1.5rem; }
-  .header-nav a {
-    font-size: .83rem;
-    color: var(--text-mid);
-    text-decoration: none;
-  }
-  .header-nav a:hover { color: var(--blue-main); }
-
-  /* ========== HERO ========== */
-  .hero {
-    background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 55%, #3b82f6 100%);
-    color: #fff;
-    padding: 4rem 1.5rem 4.5rem;
-    text-align: center;
-  }
-  .hero-inner { max-width: 640px; margin: 0 auto; }
-  .hero-badge {
-    display: inline-block;
-    background: rgba(255,255,255,.18);
-    border: 1px solid rgba(255,255,255,.35);
-    color: #fff;
-    font-size: 11px;
-    padding: 4px 16px;
-    border-radius: 20px;
-    margin-bottom: 1.2rem;
-    letter-spacing: .08em;
-    font-weight: 500;
-  }
-  .hero h1 {
-    font-size: clamp(1.6rem, 4vw, 2.2rem);
-    font-weight: 700;
-    line-height: 1.45;
-    margin-bottom: 1rem;
-  }
-  .hero h1 em {
-    font-style: normal;
-    background: rgba(255,255,255,.22);
-    border-radius: 6px;
-    padding: 0 8px;
-  }
-  .hero p {
-    font-size: .93rem;
-    color: rgba(255,255,255,.85);
-    line-height: 1.75;
-    margin-bottom: 2rem;
-  }
-  .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; }
-  .btn-white {
-    background: #fff;
-    color: var(--blue-dark);
-    border: none;
-    padding: 13px 30px;
-    border-radius: 9px;
-    font-size: .93rem;
-    font-weight: 700;
-    cursor: pointer;
-    font-family: inherit;
-    transition: transform .15s, box-shadow .15s;
-    text-decoration: none;
-    display: inline-block;
-  }
-  .btn-white:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,.15); }
-  .btn-outline-w {
-    background: transparent;
-    color: #fff;
-    border: 2px solid rgba(255,255,255,.6);
-    padding: 13px 30px;
-    border-radius: 9px;
-    font-size: .93rem;
-    font-weight: 500;
-    cursor: pointer;
-    font-family: inherit;
-    text-decoration: none;
-    display: inline-block;
-  }
-  .hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: 2.5rem;
-    flex-wrap: wrap;
-  }
-  .stat-num { font-size: 1.6rem; font-weight: 700; }
-  .stat-label { font-size: .75rem; color: rgba(255,255,255,.72); margin-top: 2px; }
-
-  /* ========== SECTIONS ========== */
-  .section { padding: 3rem 1.5rem; background: var(--bg-white); }
-  .section.alt { background: var(--bg-page); }
-  .section-inner { max-width: 900px; margin: 0 auto; }
-  .sec-label {
-    font-size: 11px;
-    color: var(--blue-main);
-    font-weight: 700;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    margin-bottom: .4rem;
-  }
-  .sec-title { font-size: 1.35rem; font-weight: 700; color: var(--text-dark); margin-bottom: .4rem; }
-  .sec-sub { font-size: .88rem; color: var(--text-mid); line-height: 1.65; margin-bottom: 1.8rem; }
-
-  /* ========== TOOLS GRID ========== */
-  .filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.5rem; }
-  .filter-btn {
-    padding: 6px 18px;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    background: var(--bg-white);
-    font-size: .82rem;
-    cursor: pointer;
-    font-family: inherit;
-    color: var(--text-mid);
-    transition: all .15s;
-  }
-  .filter-btn.active, .filter-btn:hover {
-    background: var(--blue-main);
-    color: #fff;
-    border-color: var(--blue-main);
-  }
-  .tools-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-  }
-  .tool-card {
-    background: var(--bg-white);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 1.4rem;
-    position: relative;
-    transition: border-color .2s, box-shadow .2s;
-  }
-  .tool-card:hover {
-    border-color: var(--blue-border);
-    box-shadow: 0 6px 24px rgba(37,99,235,.1);
-  }
-  .tool-card.featured { border: 2px solid var(--blue-main); }
-  .featured-badge {
-    position: absolute;
-    top: -13px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--blue-main);
-    color: #fff;
-    font-size: 11px;
-    padding: 3px 16px;
-    border-radius: 20px;
-    white-space: nowrap;
-    font-weight: 700;
-  }
-  .tool-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-  .tool-icon {
-    width: 42px; height: 42px;
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px; flex-shrink: 0;
-  }
-  .tool-name { font-size: .95rem; font-weight: 700; color: var(--text-dark); }
-  .tool-cat { font-size: .75rem; color: var(--text-muted); margin-top: 2px; }
-  .tool-desc { font-size: .83rem; color: var(--text-mid); line-height: 1.6; margin-bottom: 10px; }
-  .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
-  .tag {
-    font-size: 11px; padding: 3px 10px;
-    border-radius: 20px; border: 1px solid var(--border); color: var(--text-mid);
-  }
-  .tag.free { color: var(--green); border-color: var(--green-border); background: var(--green-pale); }
-  .tag.paid { color: var(--blue-main); border-color: var(--blue-border); background: var(--blue-pale); }
-  .tag.hot { color: var(--red); border-color: var(--red-border); background: var(--red-pale); }
-  .stars { color: #f59e0b; font-size: 13px; margin-bottom: 10px; }
-  .review-count { font-size: .78rem; color: var(--text-muted); margin-left: 4px; }
-  .reward-box {
-    background: var(--blue-pale);
-    border-radius: 8px;
-    padding: 9px 13px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 11px;
-  }
-  .reward-label { font-size: .78rem; color: var(--blue-light); }
-  .reward-amount { font-size: .95rem; font-weight: 700; color: var(--blue-dark); }
-  .aff-btn {
-    display: block; width: 100%;
-    background: var(--blue-main);
-    color: #fff; border: none;
-    padding: 11px; border-radius: 8px;
-    font-size: .87rem; font-weight: 700;
-    cursor: pointer; font-family: inherit;
-    text-align: center; text-decoration: none;
-    transition: background .15s;
-  }
-  .aff-btn:hover { background: var(--blue-dark); }
-
-  /* ========== RANKING ========== */
-  .rank-list { display: flex; flex-direction: column; gap: 10px; }
-  .rank-item {
-    background: var(--bg-white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1rem 1.4rem;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .rank-num { font-size: 1.4rem; font-weight: 700; min-width: 32px; text-align: center; }
-  .rn1 { color: #d97706; }
-  .rn2 { color: #94a3b8; }
-  .rn3 { color: #b45309; }
-  .rn4 { font-size: 1rem; color: var(--text-muted); }
-  .rank-info { flex: 1; }
-  .rank-name { font-size: .93rem; font-weight: 700; color: var(--text-dark); }
-  .rank-note { font-size: .78rem; color: var(--text-muted); margin-top: 2px; }
-  .rank-reward { font-size: .95rem; font-weight: 700; color: var(--blue-main); white-space: nowrap; }
-
-  /* ========== HOW TO ========== */
-  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
-  .step-card {
-    background: var(--bg-white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.4rem;
-    text-align: center;
-  }
-  .step-num {
-    width: 40px; height: 40px;
-    background: var(--blue-main);
-    color: #fff;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1rem; font-weight: 700;
-    margin: 0 auto 12px;
-  }
-  .step-title { font-size: .93rem; font-weight: 700; margin-bottom: 6px; }
-  .step-desc { font-size: .82rem; color: var(--text-mid); line-height: 1.6; }
-
-  /* ========== FAQ ========== */
-  .faq-list { display: flex; flex-direction: column; }
-  .faq-item { border-bottom: 1px solid var(--border); padding: 1.1rem 0; }
-  .faq-q { font-size: .92rem; font-weight: 700; color: var(--blue-dark); margin-bottom: .5rem; }
-  .faq-q::before { content: 'Q. '; color: var(--blue-main); }
-  .faq-a { font-size: .84rem; color: var(--text-mid); line-height: 1.7; }
-  .faq-a::before { content: 'A. '; font-weight: 700; color: var(--text-muted); }
-
-  /* ========== CTA BANNER ========== */
-  .cta-banner {
-    background: linear-gradient(135deg, #1e40af, #2563eb);
-    padding: 3rem 1.5rem;
-    text-align: center;
-    color: #fff;
-  }
-  .cta-banner h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: .6rem; }
-  .cta-banner p { font-size: .88rem; color: rgba(255,255,255,.82); margin-bottom: 1.6rem; line-height: 1.7; }
-
-  /* ========== FOOTER ========== */
-  footer {
-    background: #1e293b;
-    color: #94a3b8;
-    padding: 2.5rem 1.5rem;
-    text-align: center;
-    font-size: .8rem;
-    line-height: 1.8;
-  }
-  footer a { color: #93c5fd; text-decoration: none; }
-  .footer-links { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.2rem; }
-  .disclaimer {
-    border-top: 1px solid #334155;
-    padding-top: 1.2rem;
-    margin-top: 1rem;
-    font-size: .75rem;
-    color: #64748b;
-    line-height: 1.8;
-  }
-
-  /* ========== RESPONSIVE ========== */
-  @media (max-width: 600px) {
-    .header-nav { display: none; }
-    .hero { padding: 3rem 1rem 3.5rem; }
-  }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue-dark:#1d4ed8;--blue-main:#2563eb;--blue-light:#3b82f6;--blue-pale:#eff6ff;--blue-border:#bfdbfe;
+  --text-dark:#0f172a;--text-mid:#475569;--text-muted:#94a3b8;
+  --bg-page:#f0f6ff;--bg-white:#ffffff;--border:#e2e8f0;
+  --green:#16a34a;--green-pale:#f0fdf4;--green-border:#bbf7d0;
+  --red:#dc2626;--red-pale:#fef2f2;--red-border:#fecaca;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--bg-page);color:var(--text-dark);line-height:1.6}
+header{background:var(--bg-white);border-bottom:1px solid var(--border);padding:0 1.5rem;position:sticky;top:0;z-index:100}
+.header-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{font-size:1rem;font-weight:700;color:var(--blue-main);text-decoration:none}
+.header-nav{display:flex;gap:1.5rem}
+.header-nav a{font-size:.83rem;color:var(--text-mid);text-decoration:none}
+.header-nav a:hover{color:var(--blue-main)}
+.hero{background:linear-gradient(135deg,#1d4ed8 0%,#2563eb 55%,#3b82f6 100%);color:#fff;padding:4rem 1.5rem 4.5rem;text-align:center}
+.hero-inner{max-width:680px;margin:0 auto}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);color:#fff;font-size:11px;padding:4px 16px;border-radius:20px;margin-bottom:1.2rem;letter-spacing:.08em;font-weight:500}
+.hero h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:700;line-height:1.45;margin-bottom:1rem}
+.hero h1 em{font-style:normal;background:rgba(255,255,255,.22);border-radius:6px;padding:0 8px}
+.hero p{font-size:.93rem;color:rgba(255,255,255,.85);line-height:1.75;margin-bottom:2rem}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem}
+.btn-white{background:#fff;color:var(--blue-dark);border:none;padding:13px 30px;border-radius:9px;font-size:.93rem;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block;transition:transform .15s,box-shadow .15s}
+.btn-white:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.15)}
+.btn-outline-w{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6);padding:13px 30px;border-radius:9px;font-size:.93rem;font-weight:500;text-decoration:none;display:inline-block}
+.hero-stats{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap}
+.stat-num{font-size:1.6rem;font-weight:700}
+.stat-label{font-size:.75rem;color:rgba(255,255,255,.72);margin-top:2px}
+.section{padding:3rem 1.5rem;background:var(--bg-white)}
+.section.alt{background:var(--bg-page)}
+.section-inner{max-width:960px;margin:0 auto}
+.sec-label{font-size:11px;color:var(--blue-main);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem}
+.sec-title{font-size:1.35rem;font-weight:700;color:var(--text-dark);margin-bottom:.4rem}
+.sec-sub{font-size:.88rem;color:var(--text-mid);line-height:1.65;margin-bottom:1.8rem}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.tool-card{background:var(--bg-white);border:1px solid var(--border);border-radius:14px;padding:1.4rem;position:relative;transition:border-color .2s,box-shadow .2s}
+.tool-card:hover{border-color:var(--blue-border);box-shadow:0 6px 24px rgba(37,99,235,.1)}
+.tool-card.featured{border:2px solid var(--blue-main)}
+.featured-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--blue-main);color:#fff;font-size:11px;padding:3px 16px;border-radius:20px;white-space:nowrap;font-weight:700}
+.tool-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.tool-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.tool-name{font-size:.95rem;font-weight:700;color:var(--text-dark)}
+.tool-cat{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+.tool-desc{font-size:.83rem;color:var(--text-mid);line-height:1.6;margin-bottom:10px}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+.tag{font-size:11px;padding:3px 10px;border-radius:20px;border:1px solid var(--border);color:var(--text-mid)}
+.tag.free{color:var(--green);border-color:var(--green-border);background:var(--green-pale)}
+.tag.paid{color:var(--blue-main);border-color:var(--blue-border);background:var(--blue-pale)}
+.tag.hot{color:var(--red);border-color:var(--red-border);background:var(--red-pale)}
+.stars{color:#f59e0b;font-size:13px;margin-bottom:10px}
+.review-count{font-size:.78rem;color:var(--text-muted);margin-left:4px}
+.reward-box{background:var(--blue-pale);border-radius:8px;padding:9px 13px;display:flex;justify-content:space-between;align-items:center;margin-bottom:11px}
+.reward-label{font-size:.78rem;color:var(--blue-light)}
+.reward-amount{font-size:.95rem;font-weight:700;color:var(--blue-dark)}
+.aff-btn{display:block;width:100%;background:var(--blue-main);color:#fff;border:none;padding:11px;border-radius:8px;font-size:.87rem;font-weight:700;cursor:pointer;text-align:center;text-decoration:none;transition:background .15s}
+.aff-btn:hover{background:var(--blue-dark)}
+.detail-card{background:var(--bg-white);border:1px solid var(--border);border-radius:14px;padding:2rem;margin-bottom:2rem}
+.detail-card:last-child{margin-bottom:0}
+.detail-header{display:flex;align-items:center;gap:14px;margin-bottom:1.2rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
+.detail-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.detail-name{font-size:1.1rem;font-weight:700;color:var(--text-dark)}
+.detail-cat{font-size:.8rem;color:var(--text-muted);margin-top:3px}
+.detail-reward{font-size:1rem;font-weight:700;color:var(--blue-dark);margin-left:auto;text-align:right}
+.detail-reward span{font-size:.75rem;color:var(--text-muted);font-weight:400;display:block}
+.detail-body{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.2rem}
+.detail-section-title{font-size:.85rem;font-weight:700;color:var(--text-dark);margin-bottom:.6rem}
+.detail-text{font-size:.85rem;color:var(--text-mid);line-height:1.75;margin-bottom:1rem}
+.merit-list,.demerit-list{list-style:none;padding:0}
+.merit-list li,.demerit-list li{font-size:.83rem;color:var(--text-mid);padding:5px 0;padding-left:1.3rem;position:relative;line-height:1.6;border-bottom:1px solid var(--border)}
+.merit-list li:last-child,.demerit-list li:last-child{border-bottom:none}
+.merit-list li::before{content:'✓';color:var(--green);position:absolute;left:0;font-weight:700}
+.demerit-list li::before{content:'✗';color:var(--red);position:absolute;left:0;font-weight:700}
+.suitable-box{background:var(--blue-pale);border-radius:8px;padding:.9rem 1.1rem;margin-bottom:1.2rem}
+.suitable-title{font-size:.82rem;font-weight:700;color:var(--blue-dark);margin-bottom:.4rem}
+.suitable-text{font-size:.83rem;color:var(--text-mid);line-height:1.6}
+.detail-btn{display:block;width:100%;background:var(--blue-main);color:#fff;border:none;padding:13px;border-radius:8px;font-size:.9rem;font-weight:700;cursor:pointer;text-align:center;text-decoration:none;transition:background .15s}
+.detail-btn:hover{background:var(--blue-dark)}
+.compare-table{width:100%;border-collapse:collapse;font-size:.84rem}
+.compare-table th{background:var(--blue-main);color:#fff;padding:.8rem 1rem;text-align:left;font-weight:700}
+.compare-table td{padding:.8rem 1rem;border-bottom:1px solid var(--border);color:var(--text-mid)}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table tr:nth-child(even) td{background:var(--bg-page)}
+.compare-table .hl{font-weight:700;color:var(--blue-dark)}
+.ck{color:var(--green);font-weight:700}
+.cx{color:var(--red)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.step-card{background:var(--bg-white);border:1px solid var(--border);border-radius:12px;padding:1.4rem;text-align:center}
+.step-num{width:40px;height:40px;background:var(--blue-main);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:700;margin:0 auto 12px}
+.step-title{font-size:.93rem;font-weight:700;margin-bottom:6px}
+.step-desc{font-size:.82rem;color:var(--text-mid);line-height:1.6}
+.faq-list{display:flex;flex-direction:column}
+.faq-item{border-bottom:1px solid var(--border);padding:1.1rem 0}
+.faq-q{font-size:.92rem;font-weight:700;color:var(--blue-dark);margin-bottom:.5rem}
+.faq-q::before{content:'Q. ';color:var(--blue-main)}
+.faq-a{font-size:.84rem;color:var(--text-mid);line-height:1.7}
+.faq-a::before{content:'A. ';font-weight:700;color:var(--text-muted)}
+.cta-banner{background:linear-gradient(135deg,#1e40af,#2563eb);padding:3rem 1.5rem;text-align:center;color:#fff}
+.cta-banner h2{font-size:1.4rem;font-weight:700;margin-bottom:.6rem}
+.cta-banner p{font-size:.88rem;color:rgba(255,255,255,.82);margin-bottom:1.6rem;line-height:1.7}
+footer{background:#1e293b;color:#94a3b8;padding:2.5rem 1.5rem;text-align:center;font-size:.8rem;line-height:1.8}
+footer a{color:#93c5fd;text-decoration:none}
+.footer-links{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.2rem}
+.disclaimer{border-top:1px solid #334155;padding-top:1.2rem;margin-top:1rem;font-size:.75rem;color:#64748b;line-height:1.8}
+@media(max-width:600px){.header-nav{display:none}.hero{padding:3rem 1rem 3.5rem}.detail-body{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="header-inner">
-    <a href="#" class="logo">📊 株スクリーニング比較</a>
+    <a href="#" class="logo">📊 投資ツール比較サイト</a>
     <nav class="header-nav">
       <a href="#tools">ツール比較</a>
-      <a href="#ranking">ランキング</a>
-      <a href="#howto">使い方</a>
+      <a href="#detail">詳細解説</a>
+      <a href="#compare">比較表</a>
+      <a href="#howto">始め方</a>
       <a href="#faq">FAQ</a>
     </nav>
   </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-badge">✓ 2026年最新版 編集部が徹底比較</div>
-    <h1>初心者でも使える<br><em>株スクリーニングツール</em><br>おすすめ完全比較</h1>
-    <p>銘柄探しを効率化するスクリーニングツールを徹底比較。<br>無料で使えるものから上級者向けまで、あなたに合ったツールが見つかります。</p>
+    <h1>初心者でも使える<br><em>投資ツール・証券口座</em><br>おすすめ完全比較</h1>
+    <p>TOSSY・DMM株・DMM CFD・シストレセレクト365を徹底比較。<br>メリット・デメリットから向いている人まで詳しく解説します。</p>
     <div class="hero-btns">
       <a href="#tools" class="btn-white">ツールを比較する</a>
-      <a href="#ranking" class="btn-outline-w">ランキングを見る</a>
+      <a href="#detail" class="btn-outline-w">詳細解説を見る</a>
     </div>
     <div class="hero-stats">
-      <div class="stat"><div class="stat-num">12+</div><div class="stat-label">比較ツール数</div></div>
+      <div class="stat"><div class="stat-num">4社</div><div class="stat-label">徹底比較</div></div>
       <div class="stat"><div class="stat-num">3万+</div><div class="stat-label">月間読者数</div></div>
       <div class="stat"><div class="stat-num">毎月</div><div class="stat-label">情報更新</div></div>
     </div>
   </div>
 </section>
 
-<!-- TOOLS -->
 <section class="section" id="tools">
   <div class="section-inner">
     <div class="sec-label">tool comparison</div>
-    <div class="sec-title">主要スクリーニングツール 比較</div>
-    <div class="sec-sub">目的別・レベル別に最適なツールを選ぼう。まずは無料プランから試してみましょう。</div>
-    <div class="filter-row">
-      <button class="filter-btn active">すべて</button>
-      <button class="filter-btn">無料</button>
-      <button class="filter-btn">国内株</button>
-      <button class="filter-btn">米国株</button>
-      <button class="filter-btn">初心者向け</button>
-    </div>
+    <div class="sec-title">おすすめ投資ツール 一覧</div>
+    <div class="sec-sub">初心者から上級者まで、目的別に最適なツールを選ぼう</div>
     <div class="tools-grid">
-
       <div class="tool-card featured">
         <div class="featured-badge">編集部おすすめ No.1</div>
         <div class="tool-header">
           <div class="tool-icon" style="background:#eff6ff">📊</div>
-          <div>
-            <div class="tool-name">TOSSY（DMM証券）</div>
-            <div class="tool-cat">国内株・米国株・初心者向け</div>
-          </div>
+          <div><div class="tool-name">TOSSY（DMM証券）</div><div class="tool-cat">国内株・米国株・初心者向け</div></div>
         </div>
-        <div class="tool-desc">あらゆる取引がアプリひとつで完結！日本株・米国株・FXをシンプルに管理。お得な特典が盛りだくさんで初心者でも安心して始められます。</div>
-        <div class="tags">
-          <span class="tag free">無料口座開設</span>
-          <span class="tag hot">報酬No.1</span>
-        </div>
+        <div class="tool-desc">あらゆる取引がアプリひとつで完結。日本株・米国株・FXをシンプルに管理できる初心者向け総合投資アプリ。</div>
+        <div class="tags"><span class="tag free">無料口座開設</span><span class="tag hot">報酬No.1</span></div>
         <div class="stars">★★★★★<span class="review-count">(2,341件)</span></div>
-        <div class="reward-box">
-          <span class="reward-label">新規登録＋1回取引で</span>
-          <span class="reward-amount">¥15,000</span>
-        </div>
+        <div class="reward-box"><span class="reward-label">新規登録＋1回取引で</span><span class="reward-amount">¥15,000</span></div>
         <a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1JYRN6+1WP2+1HL85U" rel="nofollow" class="aff-btn">無料で口座開設 →</a>
       </div>
-
       <div class="tool-card">
         <div class="tool-header">
           <div class="tool-icon" style="background:#f0fdf4">💹</div>
-          <div>
-            <div class="tool-name">DMM株</div>
-            <div class="tool-cat">日本株・米国株・NISA対応</div>
-          </div>
+          <div><div class="tool-name">DMM株</div><div class="tool-cat">日本株・米国株・NISA対応</div></div>
         </div>
-        <div class="tool-desc">日本株も米国株もNISAもポイントを貯めながらアプリで取引できる。シンプルな操作性で初心者から経験者まで幅広く対応。</div>
-        <div class="tags">
-          <span class="tag free">無料口座開設</span>
-          <span class="tag paid">NISA対応</span>
-        </div>
+        <div class="tool-desc">日本株も米国株もNISAもポイントを貯めながら取引できる。手数料が安く使いやすいと評判の証券口座。</div>
+        <div class="tags"><span class="tag free">無料口座開設</span><span class="tag paid">NISA対応</span></div>
         <div class="stars">★★★★☆<span class="review-count">(1,892件)</span></div>
-        <div class="reward-box">
-          <span class="reward-label">新規登録＋1回取引で</span>
-          <span class="reward-amount">¥10,000</span>
-        </div>
+        <div class="reward-box"><span class="reward-label">新規登録＋1回取引で</span><span class="reward-amount">¥10,000</span></div>
         <a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1QIJAQ+1WP2+15QHIA" rel="nofollow" class="aff-btn">詳細を見る →</a>
       </div>
-
       <div class="tool-card">
         <div class="tool-header">
           <div class="tool-icon" style="background:#fef3c7">🌐</div>
-          <div>
-            <div class="tool-name">DMM CFD</div>
-            <div class="tool-cat">CFD取引・中級〜上級向け</div>
-          </div>
+          <div><div class="tool-name">DMM CFD</div><div class="tool-cat">CFD取引・中級〜上級向け</div></div>
         </div>
-        <div class="tool-desc">株価指数・商品・債券などをCFDで取引。レバレッジを活用した効率的な投資が可能。新規登録＋入金で高額報酬がもらえるキャンペーン実施中。</div>
-        <div class="tags">
-          <span class="tag free">無料口座開設</span>
-          <span class="tag paid">CFD取引</span>
-        </div>
+        <div class="tool-desc">株価指数・商品・債券などをCFDで取引。レバレッジを活用した効率的な投資が可能。業界最狭水準のスプレッド。</div>
+        <div class="tags"><span class="tag free">無料口座開設</span><span class="tag paid">CFD取引</span></div>
         <div class="stars">★★★★★<span class="review-count">(654件)</span></div>
-        <div class="reward-box">
-          <span class="reward-label">新規登録＋入金で</span>
-          <span class="reward-amount">¥14,200</span>
-        </div>
+        <div class="reward-box"><span class="reward-label">新規登録＋入金で</span><span class="reward-amount">¥14,200</span></div>
         <a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1NJD9U+1WP2+NZ4J7" rel="nofollow" class="aff-btn">詳細を見る →</a>
       </div>
-
       <div class="tool-card">
         <div class="tool-header">
           <div class="tool-icon" style="background:#fdf4ff">🤖</div>
-          <div>
-            <div class="tool-name">シストレセレクト365</div>
-            <div class="tool-cat">FX自動売買・フジトミ証券</div>
-          </div>
+          <div><div class="tool-name">シストレセレクト365</div><div class="tool-cat">FX自動売買・フジトミ証券</div></div>
         </div>
-        <div class="tool-desc">FXの自動売買システムを選んで運用するだけ。24時間365日自動でトレードしてくれるので忙しい方にも最適。口座開設＋取引で報酬獲得。</div>
-        <div class="tags">
-          <span class="tag free">無料口座開設</span>
-          <span class="tag hot">FX自動売買</span>
-        </div>
+        <div class="tool-desc">FXの自動売買システムを選んで運用するだけ。24時間365日自動でトレードしてくれるので忙しい方にも最適。</div>
+        <div class="tags"><span class="tag free">無料口座開設</span><span class="tag hot">FX自動売買</span></div>
         <div class="stars">★★★★☆<span class="review-count">(412件)</span></div>
-        <div class="reward-box">
-          <span class="reward-label">新規口座開設＋取引で</span>
-          <span class="reward-amount">¥11,000</span>
-        </div>
+        <div class="reward-box"><span class="reward-label">新規口座開設＋取引で</span><span class="reward-amount">¥11,000</span></div>
         <a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1MCI2A+34QW+BX3J6" rel="nofollow" class="aff-btn">詳細を見る →</a>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- RANKING -->
-<section class="section alt" id="ranking">
+<section class="section alt" id="detail">
   <div class="section-inner">
-    <div class="sec-label">affiliate ranking</div>
-    <div class="sec-title">アフィリエイト報酬 人気ランキング</div>
-    <div class="sec-sub">成約しやすく報酬単価が高いサービス順に紹介します</div>
-    <div class="rank-list">
-      <div class="rank-item">
-        <div class="rank-num rn1">🥇</div>
-        <div class="rank-info">
-          <div class="rank-name">TOSSY（DMM証券）</div>
-          <div class="rank-note">新規登録＋1回取引・報酬額最高・成約率が高い</div>
-        </div>
-        <div class="rank-reward">¥15,000</div>
+    <div class="sec-label">detailed review</div>
+    <div class="sec-title">各サービス 徹底解説</div>
+    <div class="sec-sub">メリット・デメリット・向いている人まで詳しく解説します</div>
+
+    <div class="detail-card">
+      <div class="detail-header">
+        <div class="detail-icon" style="background:#eff6ff">📊</div>
+        <div><div class="detail-name">TOSSY（DMM証券）</div><div class="detail-cat">国内株・米国株・FX・初心者向け</div></div>
+        <div class="detail-reward">¥15,000<span>新規登録＋1回取引</span></div>
       </div>
-      <div class="rank-item">
-        <div class="rank-num rn2">🥈</div>
-        <div class="rank-info">
-          <div class="rank-name">DMM CFD</div>
-          <div class="rank-note">新規登録＋入金で高額報酬・確定率安定</div>
+      <div class="detail-text">TOSSYはDMM証券が提供する総合投資アプリです。株・FX・CFDなどあらゆる取引を1つのアプリで管理できるのが最大の特徴。シンプルなUIで初心者でも直感的に操作でき、スマホひとつで本格的な投資が始められます。取引手数料は業界最安水準で、口座開設は最短当日完了。24時間サポート対応で初心者でも安心して使えます。</div>
+      <div class="detail-body">
+        <div>
+          <div class="detail-section-title">✅ メリット</div>
+          <ul class="merit-list">
+            <li>株・FX・CFDをアプリひとつで管理</li>
+            <li>初心者向けシンプルなUI</li>
+            <li>取引手数料が業界最安水準</li>
+            <li>リアルタイムの株価・チャートが見やすい</li>
+            <li>24時間サポート対応</li>
+            <li>口座開設が最短当日完了</li>
+          </ul>
         </div>
-        <div class="rank-reward">¥14,200</div>
-      </div>
-      <div class="rank-item">
-        <div class="rank-num rn3">🥉</div>
-        <div class="rank-info">
-          <div class="rank-name">シストレセレクト365（フジトミ証券）</div>
-          <div class="rank-note">確定率100%・安定して報酬が入る</div>
+        <div>
+          <div class="detail-section-title">❌ デメリット</div>
+          <ul class="demerit-list">
+            <li>2024年リリースのため歴史が浅い</li>
+            <li>高度な分析ツールはやや少なめ</li>
+            <li>上級者向けの注文方法が少ない</li>
+            <li>取扱い銘柄数が大手よりやや少ない</li>
+          </ul>
         </div>
-        <div class="rank-reward">¥11,000</div>
       </div>
-      <div class="rank-item">
-        <div class="rank-num rn4">4</div>
-        <div class="rank-info">
-          <div class="rank-name">DMM株</div>
-          <div class="rank-note">日本株・米国株・NISA対応で幅広い層に成約しやすい</div>
+      <div class="suitable-box">
+        <div class="suitable-title">👤 こんな人におすすめ</div>
+        <div class="suitable-text">「初めて投資を始めたい」「複数の投資商品をまとめて管理したい」「スマホで手軽に投資したい」方に最適です。</div>
+      </div>
+      <a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1JYRN6+1WP2+1HL85U" rel="nofollow" class="detail-btn">TOSSYで無料口座開設 →</a>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-header">
+        <div class="detail-icon" style="background:#f0fdf4">💹</div>
+        <div><div class="detail-name">DMM株</div><div class="detail-cat">日本株・米国株・NISA対応</div></div>
+        <div class="detail-reward">¥10,000<span>新規登録＋1回取引</span></div>
+      </div>
+      <div class="detail-text">DMM株はDMM.com証券が提供する株式特化型の証券口座です。日本株・米国株・NISAに対応しており、特に手数料の安さが強みです。国内株の現物取引手数料は無料、米国株も業界最安水準。ポイントを貯めながら取引できる点も人気の理由です。NISAを活用した長期積立投資にも対応しており、初心者から中級者まで幅広く支持されています。</div>
+      <div class="detail-body">
+        <div>
+          <div class="detail-section-title">✅ メリット</div>
+          <ul class="merit-list">
+            <li>国内株の現物取引手数料が無料</li>
+            <li>米国株も業界最安水準の手数料</li>
+            <li>NISA口座で長期投資に対応</li>
+            <li>取引でDMMポイントが貯まる</li>
+            <li>スマホアプリが使いやすい</li>
+            <li>信用取引にも対応</li>
+          </ul>
         </div>
-        <div class="rank-reward">¥10,000</div>
+        <div>
+          <div class="detail-section-title">❌ デメリット</div>
+          <ul class="demerit-list">
+            <li>投資信託の取扱いがない</li>
+            <li>IPO取扱い実績がやや少ない</li>
+            <li>高度なスクリーニング機能は別途必要</li>
+            <li>債券・REITの取扱いがない</li>
+          </ul>
+        </div>
       </div>
+      <div class="suitable-box">
+        <div class="suitable-title">👤 こんな人におすすめ</div>
+        <div class="suitable-text">「日本株・米国株に集中したい」「手数料をできるだけ安く抑えたい」「NISAを活用した長期投資をしたい」方に最適です。</div>
+      </div>
+      <a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1QIJAQ+1WP2+15QHIA" rel="nofollow" class="detail-btn">DMM株で無料口座開設 →</a>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-header">
+        <div class="detail-icon" style="background:#fef3c7">🌐</div>
+        <div><div class="detail-name">DMM CFD</div><div class="detail-cat">CFD取引・中級〜上級向け</div></div>
+        <div class="detail-reward">¥14,200<span>新規登録＋入金</span></div>
+      </div>
+      <div class="detail-text">DMM CFDはDMM.com証券が提供するCFD（差金決済取引）専門のサービスです。株価指数・商品（金・原油）・債券・個別株などを少ない資金でレバレッジをかけて取引できます。スプレッドは業界最狭水準で取引手数料は完全無料。全額信託保全が導入されており資金の安全性も確保されています。上昇・下落どちらでも利益を狙えるのが特徴です。</div>
+      <div class="detail-body">
+        <div>
+          <div class="detail-section-title">✅ メリット</div>
+          <ul class="merit-list">
+            <li>スプレッドが業界最狭水準</li>
+            <li>取引手数料が完全無料</li>
+            <li>全額信託保全で資金が安全</li>
+            <li>レバレッジで少額から大きな取引が可能</li>
+            <li>株価指数・金・原油など多様な商品</li>
+            <li>下落相場でも利益を狙える</li>
+          </ul>
+        </div>
+        <div>
+          <div class="detail-section-title">❌ デメリット</div>
+          <ul class="demerit-list">
+            <li>レバレッジで損失が大きくなるリスク</li>
+            <li>初心者にはやや難易度が高い</li>
+            <li>CFD専用のため現物株は別口座が必要</li>
+            <li>相場急変時は想定外の損失も</li>
+          </ul>
+        </div>
+      </div>
+      <div class="suitable-box">
+        <div class="suitable-title">👤 こんな人におすすめ</div>
+        <div class="suitable-text">「少ない資金で大きな取引がしたい」「株価指数や金・原油に投資したい」「ある程度の投資経験がある」中級〜上級者向けです。</div>
+      </div>
+      <a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1NJD9U+1WP2+NZ4J7" rel="nofollow" class="detail-btn">DMM CFDで無料口座開設 →</a>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-header">
+        <div class="detail-icon" style="background:#fdf4ff">🤖</div>
+        <div><div class="detail-name">シストレセレクト365</div><div class="detail-cat">FX自動売買・フジトミ証券</div></div>
+        <div class="detail-reward">¥11,000<span>新規口座開設＋取引</span></div>
+      </div>
+      <div class="detail-text">シストレセレクト365はフジトミ証券が提供するFX自動売買サービスです。プロが作成したトレードシステムを選ぶだけで、24時間365日自動でFX取引を行ってくれます。自分でチャートを見る必要がなく、忙しい会社員や副業として投資したい方にも最適。複数のシステムを組み合わせてリスク分散も可能です。確定率100%という高い信頼性も魅力です。</div>
+      <div class="detail-body">
+        <div>
+          <div class="detail-section-title">✅ メリット</div>
+          <ul class="merit-list">
+            <li>24時間365日完全自動でトレード</li>
+            <li>チャートを見る必要がない</li>
+            <li>プロが作成したシステムを選ぶだけ</li>
+            <li>複数システムの組み合わせでリスク分散</li>
+            <li>少額から始められる</li>
+            <li>口座開設費・維持費が無料</li>
+          </ul>
+        </div>
+        <div>
+          <div class="detail-section-title">❌ デメリット</div>
+          <ul class="demerit-list">
+            <li>FX取引のため元本割れリスクあり</li>
+            <li>過去の成績が将来を保証しない</li>
+            <li>システム選択にある程度の知識が必要</li>
+            <li>相場急変時は損失が出る場合も</li>
+          </ul>
+        </div>
+      </div>
+      <div class="suitable-box">
+        <div class="suitable-title">👤 こんな人におすすめ</div>
+        <div class="suitable-text">「忙しくて相場を見る時間がない」「FXに興味があるが手動取引は難しい」「副業感覚で自動投資を始めたい」方に最適です。</div>
+      </div>
+      <a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1MCI2A+34QW+BX3J6" rel="nofollow" class="detail-btn">シストレセレクト365で無料口座開設 →</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="compare">
+  <div class="section-inner">
+    <div class="sec-label">comparison table</div>
+    <div class="sec-title">4サービス 一覧比較表</div>
+    <div class="sec-sub">主要項目を一覧でチェック。自分に合ったサービスを選ぼう</div>
+    <div style="overflow-x:auto">
+      <table class="compare-table">
+        <thead>
+          <tr><th>項目</th><th>TOSSY</th><th>DMM株</th><th>DMM CFD</th><th>シストレ365</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>難易度</td><td class="hl">★☆☆ 初心者</td><td>★★☆ 初〜中級</td><td>★★★ 中〜上級</td><td>★★☆ 初〜中級</td></tr>
+          <tr><td>口座開設費</td><td><span class="ck">無料</span></td><td><span class="ck">無料</span></td><td><span class="ck">無料</span></td><td><span class="ck">無料</span></td></tr>
+          <tr><td>取引手数料</td><td>業界最安水準</td><td class="hl">国内株無料</td><td class="hl">完全無料</td><td>スプレッドのみ</td></tr>
+          <tr><td>日本株</td><td><span class="ck">✓ 対応</span></td><td><span class="ck">✓ 対応</span></td><td><span class="cx">✗ 非対応</span></td><td><span class="cx">✗ 非対応</span></td></tr>
+          <tr><td>米国株</td><td><span class="ck">✓ 対応</span></td><td><span class="ck">✓ 対応</span></td><td><span class="cx">✗ 非対応</span></td><td><span class="cx">✗ 非対応</span></td></tr>
+          <tr><td>NISA対応</td><td><span class="cx">✗</span></td><td><span class="ck">✓ 対応</span></td><td><span class="cx">✗</span></td><td><span class="cx">✗</span></td></tr>
+          <tr><td>FX</td><td><span class="ck">✓ 対応</span></td><td><span class="cx">✗</span></td><td><span class="cx">✗</span></td><td><span class="ck">✓ 自動売買</span></td></tr>
+          <tr><td>自動売買</td><td><span class="cx">✗</span></td><td><span class="cx">✗</span></td><td><span class="cx">✗</span></td><td><span class="ck">✓ 24h自動</span></td></tr>
+          <tr><td>スマホアプリ</td><td><span class="ck">✓</span></td><td><span class="ck">✓</span></td><td><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+          <tr><td>口座開設報酬</td><td class="hl">¥15,000</td><td>¥10,000</td><td>¥14,200</td><td>¥11,000</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
 
-<!-- HOW TO -->
-<section class="section" id="howto">
+<section class="section alt" id="howto">
   <div class="section-inner">
     <div class="sec-label">how to start</div>
-    <div class="sec-title">スクリーニングツールの始め方</div>
-    <div class="sec-sub">4ステップで今日から銘柄スクリーニングを始めよう</div>
+    <div class="sec-title">口座開設の始め方</div>
+    <div class="sec-sub">最短10分で完了！4ステップで今日から投資を始めよう</div>
     <div class="steps">
       <div class="step-card">
         <div class="step-num">1</div>
-        <div class="step-title">ツールを選ぶ</div>
-        <div class="step-desc">上の比較表から自分のレベルと目的に合ったツールを選びましょう。初心者なら「株探」がおすすめ。</div>
+        <div class="step-title">サービスを選ぶ</div>
+        <div class="step-desc">上の比較表から自分の目的に合ったサービスを選びましょう。初心者にはTOSSYまたはDMM株がおすすめです。</div>
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
-        <div class="step-title">無料登録する</div>
-        <div class="step-desc">まずは無料プランで登録。証券口座の開設も無料でできます。</div>
+        <div class="step-title">口座を無料開設</div>
+        <div class="step-desc">メールアドレスと本人確認書類（免許証など）を用意して申し込み。最短当日〜数日で開設完了します。</div>
       </div>
       <div class="step-card">
         <div class="step-num">3</div>
-        <div class="step-title">条件を設定する</div>
-        <div class="step-desc">PER・配当利回りなど自分が重視する指標を設定してフィルタリング。</div>
+        <div class="step-title">入金する</div>
+        <div class="step-desc">銀行振込またはネットバンクから入金。少額から始められるので無理のない金額でスタートしましょう。</div>
       </div>
       <div class="step-card">
         <div class="step-num">4</div>
-        <div class="step-title">候補を分析する</div>
-        <div class="step-desc">絞り込んだ銘柄を詳しく調べて、投資判断を自分で行いましょう。</div>
+        <div class="step-title">取引スタート</div>
+        <div class="step-desc">アプリをダウンロードしてログイン。銘柄を選んで注文するだけで投資が始められます。</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="section alt" id="faq">
+<section class="section" id="faq">
   <div class="section-inner">
     <div class="sec-label">faq</div>
     <div class="sec-title">よくある質問</div>
     <div class="faq-list">
       <div class="faq-item">
-        <div class="faq-q">スクリーニングツールは本当に無料で使えますか？</div>
-        <div class="faq-a">株探・SBI証券スクリーナーなど、無料で十分な機能が使えるツールは多数あります。まず無料から始めて、必要に応じて有料プランを検討しましょう。</div>
+        <div class="faq-q">投資初心者はどのサービスから始めるべきですか？</div>
+        <div class="faq-a">初心者の方にはTOSSYまたはDMM株がおすすめです。TOSSYはアプリがシンプルで直感的に操作でき、株・FXをまとめて管理できます。DMM株は手数料が安く、NISAにも対応しているので長期投資にも向いています。</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">初心者には何から始めればいいですか？</div>
-        <div class="faq-a">国内株なら「株探スクリーニング」が日本語でわかりやすくおすすめです。米国株に興味があれば「Finviz」の無料版から試してみましょう。</div>
+        <div class="faq-q">口座開設に費用はかかりますか？</div>
+        <div class="faq-a">4サービスすべて口座開設・維持費は無料です。入金した資金だけが投資に使われます。いつでも引き出しも可能です。</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">スクリーニングした銘柄は必ず上がりますか？</div>
-        <div class="faq-a">スクリーニングはあくまで候補を絞り込むツールです。投資判断はご自身で行い、必ず自己責任でお願いします。当サイトの情報は投資助言ではありません。</div>
+        <div class="faq-q">CFDと株式投資の違いは何ですか？</div>
+        <div class="faq-a">株式投資は実際の株を購入しますが、CFDは株価の値動きに対して差金で決済する取引です。CFDはレバレッジをかけることができ少額で大きな取引ができますが、その分リスクも大きくなります。</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">このサイトはどうやって運営されていますか？</div>
-        <div class="faq-a">当サイトはアフィリエイトプログラムを通じた紹介報酬で運営しています。紹介料はサービス提供会社から支払われ、読者の方への追加費用は一切ありません。</div>
+        <div class="faq-q">シストレセレクト365は完全に自動ですか？</div>
+        <div class="faq-a">はい、一度システムを選んで設定すれば24時間365日自動でFX取引を行います。スマホを見続ける必要はありませんが、定期的に運用状況を確認することをおすすめします。</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">国内株と米国株どちらから始めるべきですか？</div>
-        <div class="faq-a">初めての方は情報が豊富で日本語で調べやすい国内株からスタートするのがおすすめです。慣れてきたら米国株にも挑戦しましょう。</div>
+        <div class="faq-q">複数のサービスを同時に使っても大丈夫ですか？</div>
+        <div class="faq-a">はい、問題ありません。例えば「DMM株でNISA積立」＋「TOSSYで米国株取引」＋「シストレ365でFX自動売買」のように組み合わせて使う方も多いです。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">投資は必ず儲かりますか？</div>
+        <div class="faq-a">投資には元本割れのリスクがあります。過去の成績が将来を保証するものではありません。余剰資金で始め、分散投資などリスク管理を徹底してください。当サイトの情報は投資助言ではありません。</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
 <section class="cta-banner">
-  <h2>まずは無料のツールから始めよう</h2>
-  <p>口座開設・ツール登録はすべて無料。<br>今すぐ始めて自分に合ったスクリーナーを見つけよう。</p>
-  <a href="#tools" class="btn-white">おすすめツールを見る</a>
+  <h2>まずは無料で口座開設しよう</h2>
+  <p>全サービス口座開設・維持費は完全無料。<br>今すぐ始めて自分に合った投資を見つけよう。</p>
+  <a href="#tools" class="btn-white">おすすめサービスを見る</a>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-links">
     <a href="#">トップ</a>
     <a href="#tools">ツール比較</a>
-    <a href="#ranking">ランキング</a>
+    <a href="#detail">詳細解説</a>
+    <a href="#compare">比較表</a>
     <a href="#faq">FAQ</a>
     <a href="#">プライバシーポリシー</a>
     <a href="#">お問い合わせ</a>
   </div>
-  <p>© 2026 株スクリーニング比較サイト</p>
+  <p>© 2026 投資ツール比較サイト</p>
   <div class="disclaimer">
-    ※当サイトはアフィリエイト広告（A8.net・もしもアフィリエイト等）を掲載しています。<br>
+    ※当サイトはアフィリエイト広告（A8.net）を掲載しています。<br>
     ※掲載情報は作成時点のものです。最新情報は各サービス公式サイトをご確認ください。<br>
     ※投資は元本割れのリスクがあります。投資判断はご自身の責任で行ってください。当サイトの情報は投資助言ではありません。
   </div>
 </footer>
-
-<script>
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    });
-  });
-</script>
 
 </body>
 </html>
