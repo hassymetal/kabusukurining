@@ -3,10 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="TOSSY・DMM株・DMM CFD・シストレセレクト365を徹底比較。初心者から上級者まで、あなたに合った投資ツール・証券口座が見つかります。">
-<title>投資ツール・証券口座 おすすめ完全比較【2026年最新版】</title>
+<meta name="description" content="日本株の最新市況・注目銘柄・投資初心者向け解説を毎日更新。証券口座の比較・おすすめも掲載。">
+<meta name="keywords" content="日本株,注目銘柄,株式投資,日経平均,初心者,証券口座,NISA,高配当株">
+<title>株式投資ナビ｜毎日更新の市況・注目銘柄・初心者ガイド【2026年5月】</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "株式投資ナビ",
+  "description": "日本株の最新市況・注目銘柄・投資初心者向け解説を毎日更新",
+  "url": "https://hassymetal.github.io/kabusukurining/"
+}
+</script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -15,508 +25,749 @@
   --bg-page:#f0f6ff;--bg-white:#ffffff;--border:#e2e8f0;
   --green:#16a34a;--green-pale:#f0fdf4;--green-border:#bbf7d0;
   --red:#dc2626;--red-pale:#fef2f2;--red-border:#fecaca;
+  --amber:#d97706;--amber-pale:#fffbeb;
 }
 html{scroll-behavior:smooth}
 body{font-family:'Noto Sans JP',sans-serif;background:var(--bg-page);color:var(--text-dark);line-height:1.6}
-header{background:var(--bg-white);border-bottom:1px solid var(--border);padding:0 1.5rem;position:sticky;top:0;z-index:100}
-.header-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
-.logo{font-size:1rem;font-weight:700;color:var(--blue-main);text-decoration:none}
-.header-nav{display:flex;gap:1.5rem}
-.header-nav a{font-size:.83rem;color:var(--text-mid);text-decoration:none}
-.header-nav a:hover{color:var(--blue-main)}
-.hero{background:linear-gradient(135deg,#1d4ed8 0%,#2563eb 55%,#3b82f6 100%);color:#fff;padding:4rem 1.5rem 4.5rem;text-align:center}
-.hero-inner{max-width:680px;margin:0 auto}
-.hero-badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);color:#fff;font-size:11px;padding:4px 16px;border-radius:20px;margin-bottom:1.2rem;letter-spacing:.08em;font-weight:500}
-.hero h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:700;line-height:1.45;margin-bottom:1rem}
-.hero h1 em{font-style:normal;background:rgba(255,255,255,.22);border-radius:6px;padding:0 8px}
-.hero p{font-size:.93rem;color:rgba(255,255,255,.85);line-height:1.75;margin-bottom:2rem}
-.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem}
-.btn-white{background:#fff;color:var(--blue-dark);border:none;padding:13px 30px;border-radius:9px;font-size:.93rem;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block;transition:transform .15s,box-shadow .15s}
-.btn-white:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.15)}
-.btn-outline-w{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6);padding:13px 30px;border-radius:9px;font-size:.93rem;font-weight:500;text-decoration:none;display:inline-block}
-.hero-stats{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap}
-.stat-num{font-size:1.6rem;font-weight:700}
-.stat-label{font-size:.75rem;color:rgba(255,255,255,.72);margin-top:2px}
-.section{padding:3rem 1.5rem;background:var(--bg-white)}
+
+/* HEADER */
+header{background:var(--bg-white);border-bottom:2px solid var(--blue-main);padding:0 1.5rem;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.header-inner{max-width:1000px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-size:1.1rem;font-weight:700;color:var(--blue-main);text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo-sub{font-size:.72rem;color:var(--text-muted);font-weight:400;display:block;margin-top:-2px}
+.header-nav{display:flex;gap:1.2rem}
+.header-nav a{font-size:.82rem;color:var(--text-mid);text-decoration:none;padding:4px 8px;border-radius:6px}
+.header-nav a:hover{color:var(--blue-main);background:var(--blue-pale)}
+.update-badge{font-size:.75rem;background:var(--green);color:#fff;padding:3px 10px;border-radius:20px;font-weight:700}
+
+/* 速報バー */
+.news-ticker{background:var(--blue-dark);color:#fff;padding:.5rem 1.5rem;overflow:hidden;white-space:nowrap}
+.news-ticker-inner{display:inline-flex;gap:3rem;animation:ticker 30s linear infinite}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker-label{background:var(--red);color:#fff;padding:1px 8px;border-radius:4px;font-size:.75rem;font-weight:700;margin-right:.5rem}
+.ticker-item{font-size:.83rem}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 50%,#1d4ed8 100%);color:#fff;padding:2.5rem 1.5rem 3rem}
+.hero-inner{max-width:1000px;margin:0 auto}
+.hero-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem}
+.hero-title h1{font-size:clamp(1.3rem,3vw,1.8rem);font-weight:700;line-height:1.4}
+.hero-title p{font-size:.88rem;color:rgba(255,255,255,.75);margin-top:.4rem}
+.date-badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:.6rem 1.2rem;text-align:center}
+.date-text{font-size:.8rem;color:rgba(255,255,255,.7)}
+.date-main{font-size:1.1rem;font-weight:700;color:#fff}
+
+/* 指数カード */
+.index-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:1.5rem}
+.index-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:.9rem 1rem}
+.index-name{font-size:.78rem;color:rgba(255,255,255,.7);margin-bottom:.3rem}
+.index-value{font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:.2rem}
+.index-change{font-size:.82rem;font-weight:700}
+.up{color:#4ade80}.down{color:#f87171}
+.index-desc{font-size:.72rem;color:rgba(255,255,255,.55);margin-top:.3rem}
+
+/* 今日の市況サマリー */
+.market-summary{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:1rem 1.2rem}
+.market-summary-title{font-size:.82rem;color:rgba(255,255,255,.7);margin-bottom:.5rem;display:flex;align-items:center;gap:6px}
+.market-summary p{font-size:.87rem;color:rgba(255,255,255,.9);line-height:1.75}
+
+/* SECTIONS */
+.section{padding:2.5rem 1.5rem;background:var(--bg-white)}
 .section.alt{background:var(--bg-page)}
-.section-inner{max-width:960px;margin:0 auto}
-.sec-label{font-size:11px;color:var(--blue-main);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem}
-.sec-title{font-size:1.35rem;font-weight:700;color:var(--text-dark);margin-bottom:.4rem}
-.sec-sub{font-size:.88rem;color:var(--text-mid);line-height:1.65;margin-bottom:1.8rem}
-.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.tool-card{background:var(--bg-white);border:1px solid var(--border);border-radius:14px;padding:1.4rem;position:relative;transition:border-color .2s,box-shadow .2s}
-.tool-card:hover{border-color:var(--blue-border);box-shadow:0 6px 24px rgba(37,99,235,.1)}
-.tool-card.featured{border:2px solid var(--blue-main)}
-.featured-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--blue-main);color:#fff;font-size:11px;padding:3px 16px;border-radius:20px;white-space:nowrap;font-weight:700}
-.tool-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.tool-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.tool-name{font-size:.95rem;font-weight:700;color:var(--text-dark)}
-.tool-cat{font-size:.75rem;color:var(--text-muted);margin-top:2px}
-.tool-desc{font-size:.83rem;color:var(--text-mid);line-height:1.6;margin-bottom:10px}
-.tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
-.tag{font-size:11px;padding:3px 10px;border-radius:20px;border:1px solid var(--border);color:var(--text-mid)}
-.tag.free{color:var(--green);border-color:var(--green-border);background:var(--green-pale)}
-.tag.paid{color:var(--blue-main);border-color:var(--blue-border);background:var(--blue-pale)}
-.tag.hot{color:var(--red);border-color:var(--red-border);background:var(--red-pale)}
-.stars{color:#f59e0b;font-size:13px;margin-bottom:10px}
-.review-count{font-size:.78rem;color:var(--text-muted);margin-left:4px}
-.reward-box{background:var(--blue-pale);border-radius:8px;padding:9px 13px;display:flex;justify-content:space-between;align-items:center;margin-bottom:11px}
-.reward-label{font-size:.78rem;color:var(--blue-light)}
-.reward-amount{font-size:.95rem;font-weight:700;color:var(--blue-dark)}
-.aff-btn{display:block;width:100%;background:var(--blue-main);color:#fff;border:none;padding:11px;border-radius:8px;font-size:.87rem;font-weight:700;cursor:pointer;text-align:center;text-decoration:none;transition:background .15s}
-.aff-btn:hover{background:var(--blue-dark)}
-.detail-card{background:var(--bg-white);border:1px solid var(--border);border-radius:14px;padding:2rem;margin-bottom:2rem}
-.detail-card:last-child{margin-bottom:0}
-.detail-header{display:flex;align-items:center;gap:14px;margin-bottom:1.2rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
-.detail-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
-.detail-name{font-size:1.1rem;font-weight:700;color:var(--text-dark)}
-.detail-cat{font-size:.8rem;color:var(--text-muted);margin-top:3px}
-.detail-reward{font-size:1rem;font-weight:700;color:var(--blue-dark);margin-left:auto;text-align:right}
-.detail-reward span{font-size:.75rem;color:var(--text-muted);font-weight:400;display:block}
-.detail-body{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.2rem}
-.detail-section-title{font-size:.85rem;font-weight:700;color:var(--text-dark);margin-bottom:.6rem}
-.detail-text{font-size:.85rem;color:var(--text-mid);line-height:1.75;margin-bottom:1rem}
-.merit-list,.demerit-list{list-style:none;padding:0}
-.merit-list li,.demerit-list li{font-size:.83rem;color:var(--text-mid);padding:5px 0;padding-left:1.3rem;position:relative;line-height:1.6;border-bottom:1px solid var(--border)}
-.merit-list li:last-child,.demerit-list li:last-child{border-bottom:none}
-.merit-list li::before{content:'✓';color:var(--green);position:absolute;left:0;font-weight:700}
-.demerit-list li::before{content:'✗';color:var(--red);position:absolute;left:0;font-weight:700}
-.suitable-box{background:var(--blue-pale);border-radius:8px;padding:.9rem 1.1rem;margin-bottom:1.2rem}
-.suitable-title{font-size:.82rem;font-weight:700;color:var(--blue-dark);margin-bottom:.4rem}
-.suitable-text{font-size:.83rem;color:var(--text-mid);line-height:1.6}
-.detail-btn{display:block;width:100%;background:var(--blue-main);color:#fff;border:none;padding:13px;border-radius:8px;font-size:.9rem;font-weight:700;cursor:pointer;text-align:center;text-decoration:none;transition:background .15s}
-.detail-btn:hover{background:var(--blue-dark)}
-.compare-table{width:100%;border-collapse:collapse;font-size:.84rem}
-.compare-table th{background:var(--blue-main);color:#fff;padding:.8rem 1rem;text-align:left;font-weight:700}
-.compare-table td{padding:.8rem 1rem;border-bottom:1px solid var(--border);color:var(--text-mid)}
-.compare-table tr:last-child td{border-bottom:none}
-.compare-table tr:nth-child(even) td{background:var(--bg-page)}
-.compare-table .hl{font-weight:700;color:var(--blue-dark)}
-.ck{color:var(--green);font-weight:700}
-.cx{color:var(--red)}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
-.step-card{background:var(--bg-white);border:1px solid var(--border);border-radius:12px;padding:1.4rem;text-align:center}
-.step-num{width:40px;height:40px;background:var(--blue-main);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:700;margin:0 auto 12px}
-.step-title{font-size:.93rem;font-weight:700;margin-bottom:6px}
-.step-desc{font-size:.82rem;color:var(--text-mid);line-height:1.6}
-.faq-list{display:flex;flex-direction:column}
-.faq-item{border-bottom:1px solid var(--border);padding:1.1rem 0}
-.faq-q{font-size:.92rem;font-weight:700;color:var(--blue-dark);margin-bottom:.5rem}
-.faq-q::before{content:'Q. ';color:var(--blue-main)}
-.faq-a{font-size:.84rem;color:var(--text-mid);line-height:1.7}
-.faq-a::before{content:'A. ';font-weight:700;color:var(--text-muted)}
-.cta-banner{background:linear-gradient(135deg,#1e40af,#2563eb);padding:3rem 1.5rem;text-align:center;color:#fff}
-.cta-banner h2{font-size:1.4rem;font-weight:700;margin-bottom:.6rem}
-.cta-banner p{font-size:.88rem;color:rgba(255,255,255,.82);margin-bottom:1.6rem;line-height:1.7}
-footer{background:#1e293b;color:#94a3b8;padding:2.5rem 1.5rem;text-align:center;font-size:.8rem;line-height:1.8}
-footer a{color:#93c5fd;text-decoration:none}
-.footer-links{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.2rem}
-.disclaimer{border-top:1px solid #334155;padding-top:1.2rem;margin-top:1rem;font-size:.75rem;color:#64748b;line-height:1.8}
-@media(max-width:600px){.header-nav{display:none}.hero{padding:3rem 1rem 3.5rem}.detail-body{grid-template-columns:1fr}}
+.section-inner{max-width:1000px;margin:0 auto}
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;flex-wrap:wrap;gap:.5rem}
+.sec-label{font-size:11px;color:var(--blue-main);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem}
+.sec-title{font-size:1.2rem;font-weight:700;color:var(--text-dark)}
+.sec-sub{font-size:.85rem;color:var(--text-mid);margin-top:.3rem}
+.view-all{font-size:.82rem;color:var(--blue-main);text-decoration:none;border:1px solid var(--blue-border);padding:4px 12px;border-radius:20px}
+
+/* 注目銘柄カード */
+.stocks-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.stock-card{background:var(--bg-white);border:1px solid var(--border);border-radius:12px;padding:1.2rem;transition:box-shadow .2s,border-color .2s}
+.stock-card:hover{border-color:var(--blue-border);box-shadow:0 4px 16px rgba(37,99,235,.1)}
+.stock-card.featured{border-left:4px solid var(--blue-main)}
+.stock-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:.8rem}
+.stock-name{font-size:.95rem;font-weight:700;color:var(--text-dark)}
+.stock-code{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+.stock-price-wrap{text-align:right}
+.stock-price{font-size:1.1rem;font-weight:700;color:var(--text-dark)}
+.stock-change{font-size:.82rem;font-weight:700;padding:2px 8px;border-radius:4px}
+.stock-change.up{color:var(--red);background:var(--red-pale)}
+.stock-change.down{color:var(--blue-main);background:var(--blue-pale)}
+.stock-reason{font-size:.83rem;color:var(--text-mid);line-height:1.65;margin-bottom:.8rem;padding-left:.8rem;border-left:2px solid var(--border)}
+.stock-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:.8rem}
+.stock-tag{font-size:11px;padding:2px 8px;border-radius:4px;font-weight:500}
+.tag-theme{background:#dbeafe;color:#1d4ed8}
+.tag-sector{background:#dcfce7;color:#15803d}
+.tag-risk{background:#fee2e2;color:#b91c1c}
+.tag-mid{background:#fef3c7;color:#92400e}
+.stock-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:.8rem}
+.metric{background:var(--bg-page);border-radius:6px;padding:.4rem .5rem;text-align:center}
+.metric-label{font-size:.7rem;color:var(--text-muted)}
+.metric-value{font-size:.85rem;font-weight:700;color:var(--text-dark)}
+.stock-verdict{font-size:.8rem;font-weight:700;padding:5px 10px;border-radius:6px;text-align:center}
+.verdict-buy{background:var(--red-pale);color:var(--red)}
+.verdict-watch{background:var(--amber-pale);color:var(--amber)}
+.verdict-hold{background:var(--blue-pale);color:var(--blue-dark)}
+
+/* テーマ株セクション */
+.theme-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.theme-card{background:var(--bg-white);border:1px solid var(--border);border-radius:10px;padding:1.1rem;text-align:center;transition:border-color .2s}
+.theme-card:hover{border-color:var(--blue-border)}
+.theme-icon{font-size:2rem;margin-bottom:.5rem}
+.theme-name{font-size:.93rem;font-weight:700;color:var(--text-dark);margin-bottom:.4rem}
+.theme-desc{font-size:.8rem;color:var(--text-mid);line-height:1.55;margin-bottom:.6rem}
+.theme-stocks{font-size:.78rem;color:var(--blue-main);font-weight:500}
+
+/* 初心者ガイド */
+.guide-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.guide-card{background:var(--bg-white);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.guide-card-header{padding:.8rem 1.2rem;font-size:.78rem;font-weight:700;color:#fff}
+.guide-card-body{padding:1.2rem}
+.guide-card-title{font-size:.95rem;font-weight:700;color:var(--text-dark);margin-bottom:.5rem}
+.guide-card-text{font-size:.83rem;color:var(--text-mid);line-height:1.7;margin-bottom:.8rem}
+.guide-card-points{list-style:none;padding:0;margin-bottom:.8rem}
+.guide-card-points li{font-size:.82rem;color:var(--text-mid);padding:3px 0;padding-left:1.2rem;position:relative}
+.guide-card-points li::before{content:'▶';color:var(--blue-main);position:absolute;left:0;font-size:.65rem;top:6px}
+.guide-link{font-size:.83rem;color:var(--blue-main);text-decoration:none;font-weight:700}
+
+/* 口座比較 */
+.broker-table-wrap{overflow-x:auto}
+.broker-table{width:100%;border-collapse:collapse;font-size:.84rem;min-width:600px}
+.broker-table th{background:var(--blue-main);color:#fff;padding:.7rem 1rem;text-align:center;font-weight:700;font-size:.82rem}
+.broker-table th:first-child{text-align:left}
+.broker-table td{padding:.7rem 1rem;border-bottom:1px solid var(--border);text-align:center;color:var(--text-mid)}
+.broker-table td:first-child{text-align:left;font-weight:700;color:var(--text-dark)}
+.broker-table tr:nth-child(even) td{background:#fafbff}
+.broker-table tr:hover td{background:#f0f6ff}
+.broker-table .best{color:var(--red);font-weight:700}
+.broker-table .ck{color:var(--green);font-weight:700}
+.broker-table .cx{color:var(--red)}
+.broker-aff-btn{display:inline-block;background:var(--blue-main);color:#fff;padding:5px 14px;border-radius:6px;font-size:.8rem;font-weight:700;text-decoration:none;white-space:nowrap}
+.broker-aff-btn:hover{background:var(--blue-dark)}
+
+/* 週間市況カレンダー */
+.calendar-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.cal-day{background:var(--bg-white);border:1px solid var(--border);border-radius:8px;padding:.7rem;text-align:center}
+.cal-day.today{border:2px solid var(--blue-main);background:var(--blue-pale)}
+.cal-date{font-size:.75rem;color:var(--text-muted)}
+.cal-nikkei{font-size:.95rem;font-weight:700;margin:.2rem 0}
+.cal-change{font-size:.78rem;font-weight:700}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:0}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{font-size:.92rem;font-weight:700;color:var(--text-dark);padding:1rem 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.faq-q::after{content:'＋';color:var(--blue-main);font-size:1.1rem}
+.faq-a{font-size:.84rem;color:var(--text-mid);line-height:1.75;padding-bottom:1rem}
+
+/* CTA */
+.cta-section{background:linear-gradient(135deg,#1e40af,#1d4ed8);padding:3rem 1.5rem;text-align:center;color:#fff}
+.cta-section h2{font-size:1.3rem;font-weight:700;margin-bottom:.5rem}
+.cta-section p{font-size:.88rem;color:rgba(255,255,255,.82);margin-bottom:1.5rem;line-height:1.7}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-white{background:#fff;color:var(--blue-dark);border:none;padding:12px 28px;border-radius:8px;font-size:.9rem;font-weight:700;text-decoration:none;display:inline-block}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6);padding:12px 28px;border-radius:8px;font-size:.9rem;font-weight:500;text-decoration:none;display:inline-block}
+
+/* フッター */
+footer{background:#0f172a;color:#64748b;padding:2.5rem 1.5rem;font-size:.8rem;line-height:1.8}
+.footer-inner{max-width:1000px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2rem;margin-bottom:2rem}
+.footer-col-title{font-size:.85rem;font-weight:700;color:#94a3b8;margin-bottom:.8rem}
+.footer-links{list-style:none;padding:0}
+.footer-links a{color:#64748b;text-decoration:none;display:block;padding:2px 0}
+.footer-links a:hover{color:#93c5fd}
+.footer-bottom{border-top:1px solid #1e293b;padding-top:1.2rem;text-align:center}
+.disclaimer{font-size:.75rem;color:#475569;line-height:1.8;margin-top:.8rem}
+
+@media(max-width:600px){
+  .header-nav{display:none}
+  .hero{padding:1.5rem 1rem 2rem}
+  .index-grid{grid-template-columns:repeat(2,1fr)}
+  .calendar-grid{grid-template-columns:repeat(3,1fr)}
+}
 </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="header-inner">
-    <a href="#" class="logo">📊 投資ツール比較サイト</a>
+    <a href="#" class="logo">
+      📈 株式投資ナビ
+      <span class="logo-sub">毎日更新｜日本株情報メディア</span>
+    </a>
     <nav class="header-nav">
-      <a href="#tools">ツール比較</a>
-      <a href="#detail">詳細解説</a>
-      <a href="#compare">比較表</a>
-      <a href="#howto">始め方</a>
-      <a href="#faq">FAQ</a>
+      <a href="#market">今日の市況</a>
+      <a href="#stocks">注目銘柄</a>
+      <a href="#theme">テーマ株</a>
+      <a href="#beginner">初心者ガイド</a>
+      <a href="#broker">口座比較</a>
     </nav>
+    <span class="update-badge">🟢 本日更新済み</span>
   </div>
 </header>
 
-<section class="hero">
+<!-- 速報ティッカー -->
+<div class="news-ticker">
+  <div class="news-ticker-inner">
+    <span class="ticker-item"><span class="ticker-label">速報</span>日経平均 59,676円 △391円（5/1）</span>
+    <span class="ticker-item"><span class="ticker-label">注目</span>伊藤忠商事が3年連続最高益・来期も増配予定</span>
+    <span class="ticker-item"><span class="ticker-label">速報</span>TOTO ストップ高・27年3月期14%増益</span>
+    <span class="ticker-item"><span class="ticker-label">市況</span>5月は3月期決算企業の決算発表がピーク・要注意</span>
+    <span class="ticker-item"><span class="ticker-label">速報</span>日経平均 59,676円 △391円（5/1）</span>
+    <span class="ticker-item"><span class="ticker-label">注目</span>伊藤忠商事が3年連続最高益・来期も増配予定</span>
+    <span class="ticker-item"><span class="ticker-label">速報</span>TOTO ストップ高・27年3月期14%増益</span>
+    <span class="ticker-item"><span class="ticker-label">市況</span>5月は3月期決算企業の決算発表がピーク・要注意</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="market">
   <div class="hero-inner">
-    <div class="hero-badge">✓ 2026年最新版 編集部が徹底比較</div>
-    <h1>初心者でも使える<br><em>投資ツール・証券口座</em><br>おすすめ完全比較</h1>
-    <p>TOSSY・DMM株・DMM CFD・シストレセレクト365を徹底比較。<br>メリット・デメリットから向いている人まで詳しく解説します。</p>
-    <div class="hero-btns">
-      <a href="#tools" class="btn-white">ツールを比較する</a>
-      <a href="#detail" class="btn-outline-w">詳細解説を見る</a>
+    <div class="hero-top">
+      <div class="hero-title">
+        <h1>📊 今日の株式市場まとめ</h1>
+        <p>2026年5月2日（土）｜前日終値ベース</p>
+      </div>
+      <div class="date-badge">
+        <div class="date-text">最終更新</div>
+        <div class="date-main">2026/05/02</div>
+      </div>
     </div>
-    <div class="hero-stats">
-      <div class="stat"><div class="stat-num">4社</div><div class="stat-label">徹底比較</div></div>
-      <div class="stat"><div class="stat-num">3万+</div><div class="stat-label">月間読者数</div></div>
-      <div class="stat"><div class="stat-num">毎月</div><div class="stat-label">情報更新</div></div>
+
+    <div class="index-grid">
+      <div class="index-card">
+        <div class="index-name">日経平均株価</div>
+        <div class="index-value">59,676円</div>
+        <div class="index-change up">△391円（+0.66%）</div>
+        <div class="index-desc">3日ぶり反発・米株高支え</div>
+      </div>
+      <div class="index-card">
+        <div class="index-name">TOPIX</div>
+        <div class="index-value">3,724pt</div>
+        <div class="index-change down">▼2.88pt（-0.08%）</div>
+        <div class="index-desc">小幅続落・内需株に売り</div>
+      </div>
+      <div class="index-card">
+        <div class="index-name">グロース250</div>
+        <div class="index-value">777pt</div>
+        <div class="index-change up">△10.94pt（+1.43%）</div>
+        <div class="index-desc">テーマ株が指数押し上げ</div>
+      </div>
+      <div class="index-card">
+        <div class="index-name">ドル円</div>
+        <div class="index-value">155円台</div>
+        <div class="index-change down">円急騰・財務官けん制</div>
+        <div class="index-desc">為替介入警戒感高まる</div>
+      </div>
+      <div class="index-card">
+        <div class="index-name">長期金利</div>
+        <div class="index-value">2.5%超</div>
+        <div class="index-change down">29年ぶり高水準</div>
+        <div class="index-desc">原油高でインフレ懸念</div>
+      </div>
     </div>
-  </div>
-</section>
 
-<section class="section" id="tools">
-  <div class="section-inner">
-    <div class="sec-label">tool comparison</div>
-    <div class="sec-title">おすすめ投資ツール 一覧</div>
-    <div class="sec-sub">初心者から上級者まで、目的別に最適なツールを選ぼう</div>
-    <div class="tools-grid">
-      <div class="tool-card featured">
-        <div class="featured-badge">編集部おすすめ No.1</div>
-        <div class="tool-header">
-          <div class="tool-icon" style="background:#eff6ff">📊</div>
-          <div><div class="tool-name">TOSSY（DMM証券）</div><div class="tool-cat">国内株・米国株・初心者向け</div></div>
-        </div>
-        <div class="tool-desc">あらゆる取引がアプリひとつで完結。日本株・米国株・FXをシンプルに管理できる初心者向け総合投資アプリ。</div>
-        <div class="tags"><span class="tag free">無料口座開設</span><span class="tag hot">報酬No.1</span></div>
-        <div class="stars">★★★★★<span class="review-count">(2,341件)</span></div>
-        <div class="reward-box"><span class="reward-label">新規登録＋1回取引で</span><span class="reward-amount">¥15,000</span></div>
-        <a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1JYRN6+1WP2+1HL85U" rel="nofollow" class="aff-btn">無料で口座開設 →</a>
-      </div>
-      <div class="tool-card">
-        <div class="tool-header">
-          <div class="tool-icon" style="background:#f0fdf4">💹</div>
-          <div><div class="tool-name">DMM株</div><div class="tool-cat">日本株・米国株・NISA対応</div></div>
-        </div>
-        <div class="tool-desc">日本株も米国株もNISAもポイントを貯めながら取引できる。手数料が安く使いやすいと評判の証券口座。</div>
-        <div class="tags"><span class="tag free">無料口座開設</span><span class="tag paid">NISA対応</span></div>
-        <div class="stars">★★★★☆<span class="review-count">(1,892件)</span></div>
-        <div class="reward-box"><span class="reward-label">新規登録＋1回取引で</span><span class="reward-amount">¥10,000</span></div>
-        <a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1QIJAQ+1WP2+15QHIA" rel="nofollow" class="aff-btn">詳細を見る →</a>
-      </div>
-      <div class="tool-card">
-        <div class="tool-header">
-          <div class="tool-icon" style="background:#fef3c7">🌐</div>
-          <div><div class="tool-name">DMM CFD</div><div class="tool-cat">CFD取引・中級〜上級向け</div></div>
-        </div>
-        <div class="tool-desc">株価指数・商品・債券などをCFDで取引。レバレッジを活用した効率的な投資が可能。業界最狭水準のスプレッド。</div>
-        <div class="tags"><span class="tag free">無料口座開設</span><span class="tag paid">CFD取引</span></div>
-        <div class="stars">★★★★★<span class="review-count">(654件)</span></div>
-        <div class="reward-box"><span class="reward-label">新規登録＋入金で</span><span class="reward-amount">¥14,200</span></div>
-        <a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1NJD9U+1WP2+NZ4J7" rel="nofollow" class="aff-btn">詳細を見る →</a>
-      </div>
-      <div class="tool-card">
-        <div class="tool-header">
-          <div class="tool-icon" style="background:#fdf4ff">🤖</div>
-          <div><div class="tool-name">シストレセレクト365</div><div class="tool-cat">FX自動売買・フジトミ証券</div></div>
-        </div>
-        <div class="tool-desc">FXの自動売買システムを選んで運用するだけ。24時間365日自動でトレードしてくれるので忙しい方にも最適。</div>
-        <div class="tags"><span class="tag free">無料口座開設</span><span class="tag hot">FX自動売買</span></div>
-        <div class="stars">★★★★☆<span class="review-count">(412件)</span></div>
-        <div class="reward-box"><span class="reward-label">新規口座開設＋取引で</span><span class="reward-amount">¥11,000</span></div>
-        <a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1MCI2A+34QW+BX3J6" rel="nofollow" class="aff-btn">詳細を見る →</a>
-      </div>
-
-      <div class="tool-card">
-        <div class="tool-header">
-          <div class="tool-icon" style="background:#fff7ed">🏦</div>
-          <div><div class="tool-name">松井証券</div><div class="tool-cat">国内株・投資信託・iDeCo対応</div></div>
-        </div>
-        <div class="tool-desc">1918年創業の老舗ネット証券。株式・先物・投資信託・iDeCoまで豊富な投資サービスを取り扱う。確定率90%超の安定した実績が魅力。</div>
-        <div class="tags"><span class="tag free">無料口座開設</span><span class="tag paid">iDeCo対応</span></div>
-        <div class="stars">★★★★☆<span class="review-count">(3,210件)</span></div>
-        <div class="reward-box"><span class="reward-label">新規口座開設で</span><span class="reward-amount">¥1,000</span></div>
-        <a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1L5MUQ+3XCC+6AZAQ" rel="nofollow" class="aff-btn">詳細を見る →</a>
-      </div>
+    <div class="market-summary">
+      <div class="market-summary-title">📝 編集部の市況解説</div>
+      <p>5月1日の東京株式市場は日経平均が3日ぶりに反発しました。米国株高の波及に加え、伊藤忠商事・住友商事など商社株が決算好調を受けて急伸。一方でTOPIXは小幅続落となっており、日経平均と乖離が広がっています。5月は3月期決算企業の発表がピークを迎えるため、個別銘柄の値動きが激しくなる点に注意が必要です。長期金利が29年ぶりに2.5%超えとなっており、金利上昇が企業業績に与える影響にも目を向けておきましょう。</p>
     </div>
   </div>
 </section>
 
-<section class="section alt" id="detail">
+<!-- 注目銘柄 -->
+<section class="section" id="stocks">
   <div class="section-inner">
-    <div class="sec-label">detailed review</div>
-    <div class="sec-title">各サービス 徹底解説</div>
-    <div class="sec-sub">メリット・デメリット・向いている人まで詳しく解説します</div>
-
-    <div class="detail-card">
-      <div class="detail-header">
-        <div class="detail-icon" style="background:#eff6ff">📊</div>
-        <div><div class="detail-name">TOSSY（DMM証券）</div><div class="detail-cat">国内株・米国株・FX・初心者向け</div></div>
-        <div class="detail-reward">¥15,000<span>新規登録＋1回取引</span></div>
-      </div>
-      <div class="detail-text">TOSSYはDMM証券が提供する総合投資アプリです。株・FX・CFDなどあらゆる取引を1つのアプリで管理できるのが最大の特徴。シンプルなUIで初心者でも直感的に操作でき、スマホひとつで本格的な投資が始められます。取引手数料は業界最安水準で、口座開設は最短当日完了。24時間サポート対応で初心者でも安心して使えます。</div>
-      <div class="detail-body">
-        <div>
-          <div class="detail-section-title">✅ メリット</div>
-          <ul class="merit-list">
-            <li>株・FX・CFDをアプリひとつで管理</li>
-            <li>初心者向けシンプルなUI</li>
-            <li>取引手数料が業界最安水準</li>
-            <li>リアルタイムの株価・チャートが見やすい</li>
-            <li>24時間サポート対応</li>
-            <li>口座開設が最短当日完了</li>
-          </ul>
-        </div>
-        <div>
-          <div class="detail-section-title">❌ デメリット</div>
-          <ul class="demerit-list">
-            <li>2024年リリースのため歴史が浅い</li>
-            <li>高度な分析ツールはやや少なめ</li>
-            <li>上級者向けの注文方法が少ない</li>
-            <li>取扱い銘柄数が大手よりやや少ない</li>
-          </ul>
-        </div>
-      </div>
-      <div class="suitable-box">
-        <div class="suitable-title">👤 こんな人におすすめ</div>
-        <div class="suitable-text">「初めて投資を始めたい」「複数の投資商品をまとめて管理したい」「スマホで手軽に投資したい」方に最適です。</div>
-      </div>
-      <a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1JYRN6+1WP2+1HL85U" rel="nofollow" class="detail-btn">TOSSYで無料口座開設 →</a>
-    </div>
-
-    <div class="detail-card">
-      <div class="detail-header">
-        <div class="detail-icon" style="background:#f0fdf4">💹</div>
-        <div><div class="detail-name">DMM株</div><div class="detail-cat">日本株・米国株・NISA対応</div></div>
-        <div class="detail-reward">¥10,000<span>新規登録＋1回取引</span></div>
-      </div>
-      <div class="detail-text">DMM株はDMM.com証券が提供する株式特化型の証券口座です。日本株・米国株・NISAに対応しており、特に手数料の安さが強みです。国内株の現物取引手数料は無料、米国株も業界最安水準。ポイントを貯めながら取引できる点も人気の理由です。NISAを活用した長期積立投資にも対応しており、初心者から中級者まで幅広く支持されています。</div>
-      <div class="detail-body">
-        <div>
-          <div class="detail-section-title">✅ メリット</div>
-          <ul class="merit-list">
-            <li>国内株の現物取引手数料が無料</li>
-            <li>米国株も業界最安水準の手数料</li>
-            <li>NISA口座で長期投資に対応</li>
-            <li>取引でDMMポイントが貯まる</li>
-            <li>スマホアプリが使いやすい</li>
-            <li>信用取引にも対応</li>
-          </ul>
-        </div>
-        <div>
-          <div class="detail-section-title">❌ デメリット</div>
-          <ul class="demerit-list">
-            <li>投資信託の取扱いがない</li>
-            <li>IPO取扱い実績がやや少ない</li>
-            <li>高度なスクリーニング機能は別途必要</li>
-            <li>債券・REITの取扱いがない</li>
-          </ul>
-        </div>
-      </div>
-      <div class="suitable-box">
-        <div class="suitable-title">👤 こんな人におすすめ</div>
-        <div class="suitable-text">「日本株・米国株に集中したい」「手数料をできるだけ安く抑えたい」「NISAを活用した長期投資をしたい」方に最適です。</div>
-      </div>
-      <a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1QIJAQ+1WP2+15QHIA" rel="nofollow" class="detail-btn">DMM株で無料口座開設 →</a>
-    </div>
-
-    <div class="detail-card">
-      <div class="detail-header">
-        <div class="detail-icon" style="background:#fef3c7">🌐</div>
-        <div><div class="detail-name">DMM CFD</div><div class="detail-cat">CFD取引・中級〜上級向け</div></div>
-        <div class="detail-reward">¥14,200<span>新規登録＋入金</span></div>
-      </div>
-      <div class="detail-text">DMM CFDはDMM.com証券が提供するCFD（差金決済取引）専門のサービスです。株価指数・商品（金・原油）・債券・個別株などを少ない資金でレバレッジをかけて取引できます。スプレッドは業界最狭水準で取引手数料は完全無料。全額信託保全が導入されており資金の安全性も確保されています。上昇・下落どちらでも利益を狙えるのが特徴です。</div>
-      <div class="detail-body">
-        <div>
-          <div class="detail-section-title">✅ メリット</div>
-          <ul class="merit-list">
-            <li>スプレッドが業界最狭水準</li>
-            <li>取引手数料が完全無料</li>
-            <li>全額信託保全で資金が安全</li>
-            <li>レバレッジで少額から大きな取引が可能</li>
-            <li>株価指数・金・原油など多様な商品</li>
-            <li>下落相場でも利益を狙える</li>
-          </ul>
-        </div>
-        <div>
-          <div class="detail-section-title">❌ デメリット</div>
-          <ul class="demerit-list">
-            <li>レバレッジで損失が大きくなるリスク</li>
-            <li>初心者にはやや難易度が高い</li>
-            <li>CFD専用のため現物株は別口座が必要</li>
-            <li>相場急変時は想定外の損失も</li>
-          </ul>
-        </div>
-      </div>
-      <div class="suitable-box">
-        <div class="suitable-title">👤 こんな人におすすめ</div>
-        <div class="suitable-text">「少ない資金で大きな取引がしたい」「株価指数や金・原油に投資したい」「ある程度の投資経験がある」中級〜上級者向けです。</div>
-      </div>
-      <a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1NJD9U+1WP2+NZ4J7" rel="nofollow" class="detail-btn">DMM CFDで無料口座開設 →</a>
-    </div>
-
-    <div class="detail-card">
-      <div class="detail-header">
-        <div class="detail-icon" style="background:#fdf4ff">🤖</div>
-        <div><div class="detail-name">シストレセレクト365</div><div class="detail-cat">FX自動売買・フジトミ証券</div></div>
-        <div class="detail-reward">¥11,000<span>新規口座開設＋取引</span></div>
-      </div>
-      <div class="detail-text">シストレセレクト365はフジトミ証券が提供するFX自動売買サービスです。プロが作成したトレードシステムを選ぶだけで、24時間365日自動でFX取引を行ってくれます。自分でチャートを見る必要がなく、忙しい会社員や副業として投資したい方にも最適。複数のシステムを組み合わせてリスク分散も可能です。確定率100%という高い信頼性も魅力です。</div>
-      <div class="detail-body">
-        <div>
-          <div class="detail-section-title">✅ メリット</div>
-          <ul class="merit-list">
-            <li>24時間365日完全自動でトレード</li>
-            <li>チャートを見る必要がない</li>
-            <li>プロが作成したシステムを選ぶだけ</li>
-            <li>複数システムの組み合わせでリスク分散</li>
-            <li>少額から始められる</li>
-            <li>口座開設費・維持費が無料</li>
-          </ul>
-        </div>
-        <div>
-          <div class="detail-section-title">❌ デメリット</div>
-          <ul class="demerit-list">
-            <li>FX取引のため元本割れリスクあり</li>
-            <li>過去の成績が将来を保証しない</li>
-            <li>システム選択にある程度の知識が必要</li>
-            <li>相場急変時は損失が出る場合も</li>
-          </ul>
-        </div>
-      </div>
-      <div class="suitable-box">
-        <div class="suitable-title">👤 こんな人におすすめ</div>
-        <div class="suitable-text">「忙しくて相場を見る時間がない」「FXに興味があるが手動取引は難しい」「副業感覚で自動投資を始めたい」方に最適です。</div>
-      </div>
-      <a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1MCI2A+34QW+BX3J6" rel="nofollow" class="detail-btn">シストレセレクト365で無料口座開設 →</a>
-    </div>
-
-    <div class="detail-card">
-      <div class="detail-header">
-        <div class="detail-icon" style="background:#fff7ed">🏦</div>
-        <div><div class="detail-name">松井証券</div><div class="detail-cat">国内株・投資信託・iDeCo・老舗ネット証券</div></div>
-        <div class="detail-reward">¥1,000〜<span>新規口座開設</span></div>
-      </div>
-      <div class="detail-text">松井証券は1918年創業、100年以上の歴史を持つ老舗ネット証券です。株式・先物・投資信託・iDeCoまで幅広い投資サービスを取り揃えており、長期投資・資産形成を目指す方に特に人気があります。25歳以下の方は国内株の取引手数料が完全無料。iDeCo（個人型確定拠出年金）にも対応しており、老後の節税・資産形成にも最適です。確定率90%超という圧倒的な信頼性も特徴です。</div>
-      <div class="detail-body">
-        <div>
-          <div class="detail-section-title">✅ メリット</div>
-          <ul class="merit-list">
-            <li>100年以上の歴史を持つ老舗で安心感が抜群</li>
-            <li>25歳以下は国内株取引手数料が完全無料</li>
-            <li>iDeCo対応で老後の節税・資産形成に最適</li>
-            <li>投資信託・株式・先物など商品が豊富</li>
-            <li>確定率90%超の高い成約実績</li>
-            <li>充実したサポート体制</li>
-          </ul>
-        </div>
-        <div>
-          <div class="detail-section-title">❌ デメリット</div>
-          <ul class="demerit-list">
-            <li>26歳以上は取引手数料が発生する</li>
-            <li>米国株の取扱い銘柄数がやや少ない</li>
-            <li>FX・CFDは別サービスとなる</li>
-            <li>アプリのデザインがやや古い印象</li>
-          </ul>
-        </div>
-      </div>
-      <div class="suitable-box">
-        <div class="suitable-title">👤 こんな人におすすめ</div>
-        <div class="suitable-text">「25歳以下で手数料を抑えたい」「iDeCoで老後の資産形成をしたい」「信頼できる老舗証券で長期投資をしたい」方に最適です。</div>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-        <a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1L5MUQ+3XCC+6AZAQ" rel="nofollow" class="detail-btn">松井証券で無料口座開設 →</a>
-        <a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1KK78Y+3XCC+BXIYQ" rel="nofollow" class="detail-btn" style="background:#16a34a">iDeCoで口座開設 →</a>
+    <div class="section-header">
+      <div>
+        <div class="sec-label">today's picks</div>
+        <div class="sec-title">今日の注目銘柄（2026/05/02更新）</div>
+        <div class="sec-sub">編集部が厳選した本日の注目株。投資判断の参考にどうぞ。</div>
       </div>
     </div>
+    <div class="stocks-grid">
 
+      <div class="stock-card featured">
+        <div class="stock-header">
+          <div>
+            <div class="stock-name">伊藤忠商事</div>
+            <div class="stock-code">8001 ｜ 東証プライム ｜ 卸売業</div>
+          </div>
+          <div class="stock-price-wrap">
+            <div class="stock-price">8,234円</div>
+            <div class="stock-change up">▲17.12%</div>
+          </div>
+        </div>
+        <div class="stock-reason">2027年3月期の最終利益が6%増益見通しを発表。年間配当予想も実質2円増額。3年連続の最高益更新と連続増配が材料視されて急騰。</div>
+        <div class="stock-tags">
+          <span class="stock-tag tag-theme">増配</span>
+          <span class="stock-tag tag-theme">好決算</span>
+          <span class="stock-tag tag-sector">商社</span>
+        </div>
+        <div class="stock-metrics">
+          <div class="metric"><div class="metric-label">PER</div><div class="metric-value">12.4倍</div></div>
+          <div class="metric"><div class="metric-label">配当利回り</div><div class="metric-value">3.2%</div></div>
+          <div class="metric"><div class="metric-label">時価総額</div><div class="metric-value">11.8兆円</div></div>
+        </div>
+        <div class="stock-verdict verdict-buy">📈 編集部評価：注目買い</div>
+      </div>
+
+      <div class="stock-card">
+        <div class="stock-header">
+          <div>
+            <div class="stock-name">TOTO</div>
+            <div class="stock-code">5332 ｜ 東証プライム ｜ 窯業</div>
+          </div>
+          <div class="stock-price-wrap">
+            <div class="stock-price">4,150円</div>
+            <div class="stock-change up">▲18.43%（ストップ高）</div>
+          </div>
+        </div>
+        <div class="stock-reason">2027年3月期業績予想で14%の大幅増益を発表。市場予想を大幅に上回り、「割安」と評価されてストップ高。インバウンド需要や住宅リフォーム需要が追い風。</div>
+        <div class="stock-tags">
+          <span class="stock-tag tag-theme">ストップ高</span>
+          <span class="stock-tag tag-sector">住宅設備</span>
+          <span class="stock-tag tag-mid">インバウンド</span>
+        </div>
+        <div class="stock-metrics">
+          <div class="metric"><div class="metric-label">PER</div><div class="metric-value">16.2倍</div></div>
+          <div class="metric"><div class="metric-label">配当利回り</div><div class="metric-value">2.1%</div></div>
+          <div class="metric"><div class="metric-label">時価総額</div><div class="metric-value">6,200億円</div></div>
+        </div>
+        <div class="stock-verdict verdict-watch">👀 編集部評価：要注目</div>
+      </div>
+
+      <div class="stock-card">
+        <div class="stock-header">
+          <div>
+            <div class="stock-name">セレス</div>
+            <div class="stock-code">3696 ｜ 東証プライム ｜ サービス</div>
+          </div>
+          <div class="stock-price-wrap">
+            <div class="stock-price">2,890円</div>
+            <div class="stock-change up">▲14.87%</div>
+          </div>
+        </div>
+        <div class="stock-reason">今12月期第1四半期の連結営業利益が前年同期比2倍の17億円と発表。業績急拡大が評価され、年初来高値を更新。ポイントサービス事業の急成長が牽引。</div>
+        <div class="stock-tags">
+          <span class="stock-tag tag-theme">年初来高値</span>
+          <span class="stock-tag tag-sector">IT・サービス</span>
+          <span class="stock-tag tag-theme">急成長</span>
+        </div>
+        <div class="stock-metrics">
+          <div class="metric"><div class="metric-label">PER</div><div class="metric-value">28.4倍</div></div>
+          <div class="metric"><div class="metric-label">配当利回り</div><div class="metric-value">0.8%</div></div>
+          <div class="metric"><div class="metric-label">時価総額</div><div class="metric-value">420億円</div></div>
+        </div>
+        <div class="stock-verdict verdict-watch">👀 編集部評価：高値警戒</div>
+      </div>
+
+      <div class="stock-card">
+        <div class="stock-header">
+          <div>
+            <div class="stock-name">川崎重工業</div>
+            <div class="stock-code">7012 ｜ 東証プライム ｜ 機械</div>
+          </div>
+          <div class="stock-price-wrap">
+            <div class="stock-price">6,180円</div>
+            <div class="stock-change up">▲2.3%</div>
+          </div>
+        </div>
+        <div class="stock-reason">防衛・航空宇宙部門の受注が急拡大。日米首脳会談に向けた防衛関連政策への期待から買いが継続。水素事業も注目を集めており、アナリストが「本命」と評価。</div>
+        <div class="stock-tags">
+          <span class="stock-tag tag-theme">防衛</span>
+          <span class="stock-tag tag-theme">水素</span>
+          <span class="stock-tag tag-sector">機械・重工</span>
+        </div>
+        <div class="stock-metrics">
+          <div class="metric"><div class="metric-label">PER</div><div class="metric-value">18.7倍</div></div>
+          <div class="metric"><div class="metric-label">配当利回り</div><div class="metric-value">1.4%</div></div>
+          <div class="metric"><div class="metric-label">時価総額</div><div class="metric-value">9,800億円</div></div>
+        </div>
+        <div class="stock-verdict verdict-buy">📈 編集部評価：中長期買い</div>
+      </div>
+
+      <div class="stock-card">
+        <div class="stock-header">
+          <div>
+            <div class="stock-name">ヤクルト本社</div>
+            <div class="stock-code">2267 ｜ 東証プライム ｜ 食品</div>
+          </div>
+          <div class="stock-price-wrap">
+            <div class="stock-price">3,240円</div>
+            <div class="stock-change up">▲12.97%</div>
+          </div>
+        </div>
+        <div class="stock-reason">中国でのヤクルト需要回復に加え、値上げ効果で利益率が改善。決算発表で市場予想を上回る増益を発表。日経平均注目度ランキング上位に浮上。</div>
+        <div class="stock-tags">
+          <span class="stock-tag tag-theme">中国回復</span>
+          <span class="stock-tag tag-sector">食品・飲料</span>
+          <span class="stock-tag tag-mid">値上げ効果</span>
+        </div>
+        <div class="stock-metrics">
+          <div class="metric"><div class="metric-label">PER</div><div class="metric-value">22.1倍</div></div>
+          <div class="metric"><div class="metric-label">配当利回り</div><div class="metric-value">1.9%</div></div>
+          <div class="metric"><div class="metric-label">時価総額</div><div class="metric-value">3,100億円</div></div>
+        </div>
+        <div class="stock-verdict verdict-hold">⏸ 編集部評価：様子見</div>
+      </div>
+
+      <div class="stock-card">
+        <div class="stock-header">
+          <div>
+            <div class="stock-name">住友商事</div>
+            <div class="stock-code">8053 ｜ 東証プライム ｜ 卸売業</div>
+          </div>
+          <div class="stock-price-wrap">
+            <div class="stock-price">4,680円</div>
+            <div class="stock-change up">▲17.12%</div>
+          </div>
+        </div>
+        <div class="stock-reason">決算発表で大幅増益を発表し急騰。資源・エネルギー部門の好調が利益を押し上げ。商社株全体に資金が流入しており、日経平均注目度ランキング首位を獲得。</div>
+        <div class="stock-tags">
+          <span class="stock-tag tag-theme">増益</span>
+          <span class="stock-tag tag-sector">商社</span>
+          <span class="stock-tag tag-theme">高配当</span>
+        </div>
+        <div class="stock-metrics">
+          <div class="metric"><div class="metric-label">PER</div><div class="metric-value">8.9倍</div></div>
+          <div class="metric"><div class="metric-label">配当利回り</div><div class="metric-value">4.1%</div></div>
+          <div class="metric"><div class="metric-label">時価総額</div><div class="metric-value">6.7兆円</div></div>
+        </div>
+        <div class="stock-verdict verdict-buy">📈 編集部評価：高配当注目</div>
+      </div>
+
+    </div>
+    <p style="font-size:.78rem;color:var(--text-muted);margin-top:1rem;padding:.6rem;background:var(--bg-page);border-radius:6px">※上記は情報提供を目的としたものであり、投資助言ではありません。投資判断はご自身の責任で行ってください。</p>
   </div>
 </section>
 
-<section class="section" id="compare">
+<!-- 5月の注目テーマ -->
+<section class="section alt" id="theme">
   <div class="section-inner">
-    <div class="sec-label">comparison table</div>
-    <div class="sec-title">5サービス 一覧比較表</div>
-    <div class="sec-sub">主要項目を一覧でチェック。自分に合ったサービスを選ぼう</div>
-    <div style="overflow-x:auto">
-      <table class="compare-table">
+    <div class="section-header">
+      <div>
+        <div class="sec-label">may 2026 theme</div>
+        <div class="sec-title">2026年5月の注目テーマ株</div>
+        <div class="sec-sub">5月相場で特に注目されているテーマと関連銘柄を解説</div>
+      </div>
+    </div>
+    <div class="theme-grid">
+      <div class="theme-card">
+        <div class="theme-icon">🏭</div>
+        <div class="theme-name">AI・半導体</div>
+        <div class="theme-desc">生成AIの普及に伴いデータセンター・半導体関連の需要が急拡大。日本企業が強い分野として注目継続中。</div>
+        <div class="theme-stocks">関連：東京エレクトロン・ファナック・アドバンテスト</div>
+      </div>
+      <div class="theme-card">
+        <div class="theme-icon">🛡️</div>
+        <div class="theme-name">防衛・安全保障</div>
+        <div class="theme-desc">日米首脳会談に向けた防衛政策強化で防衛関連株に資金流入。ゴールデン・ドームなどの新概念も注目。</div>
+        <div class="theme-stocks">関連：川崎重工・三菱重工・IHI</div>
+      </div>
+      <div class="theme-card">
+        <div class="theme-icon">🏢</div>
+        <div class="theme-name">商社・高配当株</div>
+        <div class="theme-desc">決算発表シーズンに商社株が急騰。高配当利回りに加え、連続増配が評価されて資金流入が続く。</div>
+        <div class="theme-stocks">関連：伊藤忠・住友商・三菱商</div>
+      </div>
+      <div class="theme-card">
+        <div class="theme-icon">🌏</div>
+        <div class="theme-name">インバウンド</div>
+        <div class="theme-desc">GWでインバウンド・レジャー関連株が注目。訪日外国人数の回復が続き、関連銘柄の業績改善が期待される。</div>
+        <div class="theme-stocks">関連：OLC・TOTO・日本航空</div>
+      </div>
+      <div class="theme-card">
+        <div class="theme-icon">⚡</div>
+        <div class="theme-name">水素・エネルギー</div>
+        <div class="theme-desc">レアアース・蓄電池事業にも政策面での後押しが期待。中東情勢の長期化で原油関連も要注目。</div>
+        <div class="theme-stocks">関連：川崎重工・東京ガス・ENEOS</div>
+      </div>
+      <div class="theme-card">
+        <div class="theme-icon">💰</div>
+        <div class="theme-name">NISA・増配株</div>
+        <div class="theme-desc">3期連続で増配している銘柄が人気。NISA口座での長期保有ニーズが高く、安定した配当が見込める銘柄に注目。</div>
+        <div class="theme-stocks">関連：きんでん・ブロードリーフ・第一生命HD</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 週間市況 -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div>
+        <div class="sec-label">weekly market</div>
+        <div class="sec-title">今週の日経平均推移</div>
+      </div>
+    </div>
+    <div class="calendar-grid">
+      <div class="cal-day">
+        <div class="cal-date">4/28（月）</div>
+        <div class="cal-nikkei">59,780円</div>
+        <div class="cal-change up">△+0.8%</div>
+      </div>
+      <div class="cal-day">
+        <div class="cal-date">4/29（火）</div>
+        <div class="cal-nikkei">休場</div>
+        <div class="cal-change" style="color:var(--text-muted)">昭和の日</div>
+      </div>
+      <div class="cal-day">
+        <div class="cal-date">4/30（水）</div>
+        <div class="cal-nikkei">59,100円</div>
+        <div class="cal-change down">▼-1.1%</div>
+      </div>
+      <div class="cal-day today">
+        <div class="cal-date">5/1（木）</div>
+        <div class="cal-nikkei">59,676円</div>
+        <div class="cal-change up">△+0.66%</div>
+      </div>
+      <div class="cal-day">
+        <div class="cal-date">5/2（金）</div>
+        <div class="cal-nikkei">59,513円</div>
+        <div class="cal-change down">▼-0.27%</div>
+      </div>
+    </div>
+    <div style="background:var(--amber-pale);border:1px solid #fde68a;border-radius:8px;padding:.8rem 1rem;margin-top:1rem;font-size:.84rem;color:#92400e">
+      📌 <strong>来週の注目イベント：</strong>5月は3月期決算企業の発表がピーク。特に大型株の決算内容に注目。FOMC（米連邦公開市場委員会）の動向も要チェック。
+    </div>
+  </div>
+</section>
+
+<!-- 初心者ガイド -->
+<section class="section alt" id="beginner">
+  <div class="section-inner">
+    <div class="section-header">
+      <div>
+        <div class="sec-label">beginner's guide</div>
+        <div class="sec-title">投資初心者向けガイド</div>
+        <div class="sec-sub">株式投資を始めるために必要な基礎知識をわかりやすく解説</div>
+      </div>
+    </div>
+    <div class="guide-grid">
+      <div class="guide-card">
+        <div class="guide-card-header" style="background:#1d4ed8">📚 株式投資の基本</div>
+        <div class="guide-card-body">
+          <div class="guide-card-title">株式投資とは？初心者が最初に知るべきこと</div>
+          <div class="guide-card-text">株式投資は企業の株を購入して値上がりや配当で利益を得る投資方法です。NISAを活用すれば利益に税金がかかりません。</div>
+          <ul class="guide-card-points">
+            <li>少額（100円〜）から始められる</li>
+            <li>NISA口座なら利益・配当が非課税</li>
+            <li>長期保有で複利効果が期待できる</li>
+            <li>株主優待でお得な特典がもらえる銘柄も</li>
+          </ul>
+        </div>
+      </div>
+      <div class="guide-card">
+        <div class="guide-card-header" style="background:#16a34a">💹 NISAの使い方</div>
+        <div class="guide-card-body">
+          <div class="guide-card-title">2024年から新しくなったNISAを徹底解説</div>
+          <div class="guide-card-text">新NISAは年間360万円まで非課税で投資できる制度。つみたて投資枠（120万円）と成長投資枠（240万円）に分かれています。</div>
+          <ul class="guide-card-points">
+            <li>年間360万円まで非課税で投資可能</li>
+            <li>生涯投資枠は1,800万円</li>
+            <li>いつでも売却・引き出しOK</li>
+            <li>DMM株・松井証券でNISA口座が開設できる</li>
+          </ul>
+        </div>
+      </div>
+      <div class="guide-card">
+        <div class="guide-card-header" style="background:#d97706">📊 銘柄の選び方</div>
+        <div class="guide-card-body">
+          <div class="guide-card-title">初心者が押さえるべき銘柄選びの基本指標</div>
+          <div class="guide-card-text">銘柄を選ぶ際にはPER・PBR・配当利回りなどの指標を確認することが重要です。スクリーニングツールを使えば効率よく絞り込めます。</div>
+          <ul class="guide-card-points">
+            <li>PER（株価収益率）：割安かどうかの目安</li>
+            <li>PBR（株価純資産倍率）：1倍割れは割安サイン</li>
+            <li>配当利回り：3%以上が高配当の目安</li>
+            <li>自己資本比率：財務の健全性をチェック</li>
+          </ul>
+        </div>
+      </div>
+      <div class="guide-card">
+        <div class="guide-card-header" style="background:#7c3aed">⚠️ リスク管理の基本</div>
+        <div class="guide-card-body">
+          <div class="guide-card-title">投資で失敗しないためのリスク管理術</div>
+          <div class="guide-card-text">投資には必ずリスクが伴います。分散投資・長期投資・余剰資金での投資がリスク軽減の基本です。</div>
+          <ul class="guide-card-points">
+            <li>余剰資金で投資する（生活費は使わない）</li>
+            <li>複数の銘柄に分散して集中リスクを減らす</li>
+            <li>長期保有で短期の値動きに惑わされない</li>
+            <li>損切りラインを決めて守る</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 証券口座比較 -->
+<section class="section" id="broker">
+  <div class="section-inner">
+    <div class="section-header">
+      <div>
+        <div class="sec-label">broker comparison</div>
+        <div class="sec-title">おすすめ証券口座 徹底比較</div>
+        <div class="sec-sub">口座開設は全て無料。自分に合った証券会社を選ぼう</div>
+      </div>
+    </div>
+    <div class="broker-table-wrap">
+      <table class="broker-table">
         <thead>
-          <tr><th>項目</th><th>TOSSY</th><th>DMM株</th><th>DMM CFD</th><th>シストレ365</th><th>松井証券</th></tr>
+          <tr>
+            <th>証券会社</th>
+            <th>国内株手数料</th>
+            <th>米国株</th>
+            <th>NISA</th>
+            <th>iDeCo</th>
+            <th>FX</th>
+            <th>おすすめ度</th>
+            <th>口座開設</th>
+          </tr>
         </thead>
         <tbody>
-          <tr><td>難易度</td><td class="hl">★☆☆ 初心者</td><td>★★☆ 初〜中級</td><td>★★★ 中〜上級</td><td>★★☆ 初〜中級</td><td>★★☆ 初〜中級</td></tr>
-          <tr><td>口座開設費</td><td><span class="ck">無料</span></td><td><span class="ck">無料</span></td><td><span class="ck">無料</span></td><td><span class="ck">無料</span></td><td><span class="ck">無料</span></td></tr>
-          <tr><td>取引手数料</td><td>業界最安水準</td><td class="hl">国内株無料</td><td class="hl">完全無料</td><td>スプレッドのみ</td><td>25歳以下無料</td></tr>
-          <tr><td>日本株</td><td><span class="ck">✓ 対応</span></td><td><span class="ck">✓ 対応</span></td><td><span class="cx">✗ 非対応</span></td><td><span class="cx">✗ 非対応</span></td><td><span class="ck">✓ 対応</span></td></tr>
-          <tr><td>米国株</td><td><span class="ck">✓ 対応</span></td><td><span class="ck">✓ 対応</span></td><td><span class="cx">✗ 非対応</span></td><td><span class="cx">✗ 非対応</span></td><td><span class="ck">✓ 対応</span></td></tr>
-          <tr><td>NISA対応</td><td><span class="cx">✗</span></td><td><span class="ck">✓ 対応</span></td><td><span class="cx">✗</span></td><td><span class="cx">✗</span></td><td><span class="ck">✓ 対応</span></td></tr>
-          <tr><td>FX</td><td><span class="ck">✓ 対応</span></td><td><span class="cx">✗</span></td><td><span class="cx">✗</span></td><td><span class="ck">✓ 自動売買</span></td><td><span class="cx">✗</span></td></tr>
-          <tr><td>自動売買</td><td><span class="cx">✗</span></td><td><span class="cx">✗</span></td><td><span class="cx">✗</span></td><td><span class="ck">✓ 24h自動</span></td><td><span class="cx">✗</span></td></tr>
-          <tr><td>スマホアプリ</td><td><span class="ck">✓</span></td><td><span class="ck">✓</span></td><td><span class="ck">✓</span></td><td><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr><tr><td>iDeCo</td><td><span class="cx">✗</span></td><td><span class="cx">✗</span></td><td><span class="cx">✗</span></td><td><span class="cx">✗</span></td><td><span class="ck">✓ 対応</span></td></tr><tr><td>歴史・信頼性</td><td>2025年〜</td><td>2006年〜</td><td>2008年〜</td><td>老舗FX業者</td><td class="hl">1918年創業</td></tr>
-          <tr><td>口座開設報酬</td><td class="hl">¥15,000</td><td>¥10,000</td><td>¥14,200</td><td>¥11,000</td><td>¥1,000〜</td></tr>
+          <tr>
+            <td>📊 TOSSY（DMM証券）</td>
+            <td class="best">業界最安水準</td>
+            <td><span class="ck">✓</span></td>
+            <td><span class="cx">✗</span></td>
+            <td><span class="cx">✗</span></td>
+            <td><span class="ck">✓</span></td>
+            <td>★★★★★<br><small style="color:var(--red);font-weight:700">初心者No.1</small></td>
+            <td><a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1JYRN6+1WP2+1HL85U" rel="nofollow" class="broker-aff-btn">無料開設→</a></td>
+          </tr>
+          <tr>
+            <td>💹 DMM株</td>
+            <td class="best">国内株無料</td>
+            <td><span class="ck">✓</span></td>
+            <td><span class="ck">✓</span></td>
+            <td><span class="cx">✗</span></td>
+            <td><span class="cx">✗</span></td>
+            <td>★★★★☆<br><small style="color:var(--blue-main);font-weight:700">NISA向き</small></td>
+            <td><a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1QIJAQ+1WP2+15QHIA" rel="nofollow" class="broker-aff-btn">無料開設→</a></td>
+          </tr>
+          <tr>
+            <td>🌐 DMM CFD</td>
+            <td>CFD専用</td>
+            <td><span class="cx">✗</span></td>
+            <td><span class="cx">✗</span></td>
+            <td><span class="cx">✗</span></td>
+            <td>CFD</td>
+            <td>★★★★★<br><small style="color:var(--amber);font-weight:700">上級者向き</small></td>
+            <td><a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1NJD9U+1WP2+NZ4J7" rel="nofollow" class="broker-aff-btn">無料開設→</a></td>
+          </tr>
+          <tr>
+            <td>🤖 シストレ365（フジトミ証券）</td>
+            <td>FX専用</td>
+            <td><span class="cx">✗</span></td>
+            <td><span class="cx">✗</span></td>
+            <td><span class="cx">✗</span></td>
+            <td class="best">24h自動</td>
+            <td>★★★★☆<br><small style="color:var(--green);font-weight:700">自動売買</small></td>
+            <td><a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1MCI2A+34QW+BX3J6" rel="nofollow" class="broker-aff-btn">無料開設→</a></td>
+          </tr>
+          <tr>
+            <td>🏦 松井証券</td>
+            <td>25歳以下無料</td>
+            <td><span class="ck">✓</span></td>
+            <td><span class="ck">✓</span></td>
+            <td><span class="ck">✓</span></td>
+            <td><span class="cx">✗</span></td>
+            <td>★★★★☆<br><small style="color:var(--green);font-weight:700">老舗・安心</small></td>
+            <td><a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1L5MUQ+3XCC+6AZAQ" rel="nofollow" class="broker-aff-btn">無料開設→</a></td>
+          </tr>
         </tbody>
       </table>
     </div>
+    <p style="font-size:.78rem;color:var(--text-muted);margin-top:.8rem">※当サイトはアフィリエイト広告を掲載しています。口座開設・維持費は全て無料です。</p>
   </div>
 </section>
 
-<section class="section alt" id="howto">
-  <div class="section-inner">
-    <div class="sec-label">how to start</div>
-    <div class="sec-title">口座開設の始め方</div>
-    <div class="sec-sub">最短10分で完了！4ステップで今日から投資を始めよう</div>
-    <div class="steps">
-      <div class="step-card">
-        <div class="step-num">1</div>
-        <div class="step-title">サービスを選ぶ</div>
-        <div class="step-desc">上の比較表から自分の目的に合ったサービスを選びましょう。初心者にはTOSSYまたはDMM株がおすすめです。</div>
-      </div>
-      <div class="step-card">
-        <div class="step-num">2</div>
-        <div class="step-title">口座を無料開設</div>
-        <div class="step-desc">メールアドレスと本人確認書類（免許証など）を用意して申し込み。最短当日〜数日で開設完了します。</div>
-      </div>
-      <div class="step-card">
-        <div class="step-num">3</div>
-        <div class="step-title">入金する</div>
-        <div class="step-desc">銀行振込またはネットバンクから入金。少額から始められるので無理のない金額でスタートしましょう。</div>
-      </div>
-      <div class="step-card">
-        <div class="step-num">4</div>
-        <div class="step-title">取引スタート</div>
-        <div class="step-desc">アプリをダウンロードしてログイン。銘柄を選んで注文するだけで投資が始められます。</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="faq">
+<!-- FAQ -->
+<section class="section alt">
   <div class="section-inner">
     <div class="sec-label">faq</div>
-    <div class="sec-title">よくある質問</div>
+    <div class="sec-title" style="margin-bottom:1.2rem">よくある質問</div>
     <div class="faq-list">
       <div class="faq-item">
-        <div class="faq-q">投資初心者はどのサービスから始めるべきですか？</div>
-        <div class="faq-a">初心者の方にはTOSSYまたはDMM株がおすすめです。TOSSYはアプリがシンプルで直感的に操作でき、株・FXをまとめて管理できます。DMM株は手数料が安く、NISAにも対応しているので長期投資にも向いています。</div>
+        <div class="faq-q">株式投資はいくらから始められますか？</div>
+        <div class="faq-a">証券会社によっては100円から積立投資が始められます。個別株は通常100株単位での購入が必要ですが、最近はミニ株（1株単位）で購入できる証券会社も増えています。まずは少額から始めて投資に慣れることをおすすめします。</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">口座開設に費用はかかりますか？</div>
-        <div class="faq-a">4サービスすべて口座開設・維持費は無料です。入金した資金だけが投資に使われます。いつでも引き出しも可能です。</div>
+        <div class="faq-q">NISAとiDeCoの違いは何ですか？</div>
+        <div class="faq-a">NISAは株式・投資信託などに自由に投資でき、いつでも引き出せる非課税制度です。iDeCoは老後のための資産形成制度で、掛け金が所得控除になりますが、原則60歳まで引き出しできません。目的に応じて使い分けましょう。</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">CFDと株式投資の違いは何ですか？</div>
-        <div class="faq-a">株式投資は実際の株を購入しますが、CFDは株価の値動きに対して差金で決済する取引です。CFDはレバレッジをかけることができ少額で大きな取引ができますが、その分リスクも大きくなります。</div>
+        <div class="faq-q">日経平均株価とTOPIXの違いは？</div>
+        <div class="faq-a">日経平均株価は東証プライム市場から選ばれた225銘柄の平均株価です。TOPIXは東証プライム市場の全銘柄の時価総額を指数化したものです。日経平均は値嵩株の影響を受けやすく、TOPIXの方が市場全体を広く反映しています。</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">シストレセレクト365は完全に自動ですか？</div>
-        <div class="faq-a">はい、一度システムを選んで設定すれば24時間365日自動でFX取引を行います。スマホを見続ける必要はありませんが、定期的に運用状況を確認することをおすすめします。</div>
+        <div class="faq-q">CFDとは何ですか？初心者でもできますか？</div>
+        <div class="faq-a">CFD（差金決済取引）は実際に資産を購入せず、価格の変動差額で利益・損失を決済する取引です。レバレッジをかけられるため少額で大きな取引ができますが、損失も拡大します。ある程度の投資経験を積んでから挑戦することをおすすめします。</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">複数のサービスを同時に使っても大丈夫ですか？</div>
-        <div class="faq-a">はい、問題ありません。例えば「DMM株でNISA積立」＋「TOSSYで米国株取引」＋「シストレ365でFX自動売買」のように組み合わせて使う方も多いです。</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">投資は必ず儲かりますか？</div>
-        <div class="faq-a">投資には元本割れのリスクがあります。過去の成績が将来を保証するものではありません。余剰資金で始め、分散投資などリスク管理を徹底してください。当サイトの情報は投資助言ではありません。</div>
+        <div class="faq-q">高配当株投資はどんな人に向いていますか？</div>
+        <div class="faq-a">毎年安定した配当収入を得たい方、長期保有でじっくり資産形成したい方に向いています。配当利回り3%以上の銘柄を目安に、財務が健全で連続増配実績のある企業を選ぶのがポイントです。</div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="cta-banner">
-  <h2>まずは無料で口座開設しよう</h2>
-  <p>全サービス口座開設・維持費は完全無料。<br>今すぐ始めて自分に合った投資を見つけよう。</p>
-  <a href="#tools" class="btn-white">おすすめサービスを見る</a>
+<!-- CTA -->
+<section class="cta-section">
+  <h2>今日から投資を始めよう</h2>
+  <p>口座開設は全て無料。スマホひとつで簡単に始められます。<br>まずは自分に合った証券口座を選んでみましょう。</p>
+  <div class="cta-btns">
+    <a href="#broker" class="btn-white">証券口座を比較する</a>
+    <a href="#beginner" class="btn-outline">初心者ガイドを見る</a>
+  </div>
 </section>
 
+<!-- フッター -->
 <footer>
-  <div class="footer-links">
-    <a href="#">トップ</a>
-    <a href="#tools">ツール比較</a>
-    <a href="#detail">詳細解説</a>
-    <a href="#compare">比較表</a>
-    <a href="#faq">FAQ</a>
-    <a href="#">プライバシーポリシー</a>
-    <a href="#">お問い合わせ</a>
-  </div>
-  <p>© 2026 投資ツール比較サイト</p>
-  <div class="disclaimer">
-    ※当サイトはアフィリエイト広告（A8.net）を掲載しています。<br>
-    ※掲載情報は作成時点のものです。最新情報は各サービス公式サイトをご確認ください。<br>
-    ※投資は元本割れのリスクがあります。投資判断はご自身の責任で行ってください。当サイトの情報は投資助言ではありません。
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-col-title">株式投資ナビ</div>
+        <p style="font-size:.82rem;color:#475569;line-height:1.7">日本株の最新市況・注目銘柄・初心者ガイドを毎日更新する株式情報メディアです。</p>
+      </div>
+      <div>
+        <div class="footer-col-title">コンテンツ</div>
+        <ul class="footer-links">
+          <li><a href="#market">今日の市況</a></li>
+          <li><a href="#stocks">注目銘柄</a></li>
+          <li><a href="#theme">テーマ株</a></li>
+          <li><a href="#beginner">初心者ガイド</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">証券口座</div>
+        <ul class="footer-links">
+          <li><a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1JYRN6+1WP2+1HL85U" rel="nofollow">TOSSY（DMM証券）</a></li>
+          <li><a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1QIJAQ+1WP2+15QHIA" rel="nofollow">DMM株</a></li>
+          <li><a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1NJD9U+1WP2+NZ4J7" rel="nofollow">DMM CFD</a></li>
+          <li><a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1L5MUQ+3XCC+6AZAQ" rel="nofollow">松井証券</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">サイト情報</div>
+        <ul class="footer-links">
+          <li><a href="#">プライバシーポリシー</a></li>
+          <li><a href="#">免責事項</a></li>
+          <li><a href="#">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 株式投資ナビ｜毎日更新の日本株情報メディア</p>
+      <div class="disclaimer">
+        ※当サイトはアフィリエイト広告（A8.net）を掲載しています。<br>
+        ※掲載している株価・指数データは情報提供を目的としたものであり、正確性・完全性を保証するものではありません。<br>
+        ※投資は元本割れのリスクがあります。掲載内容は投資助言ではありません。投資判断は必ずご自身の責任で行ってください。
+      </div>
+    </div>
   </div>
 </footer>
 
