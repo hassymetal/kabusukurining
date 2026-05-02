@@ -3,437 +3,417 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="AIが毎日自動更新する日本株情報サイト。今日の市況・注目銘柄・テーマ株を自動生成。">
-<meta name="keywords" content="日本株,注目銘柄,株式投資,日経平均,初心者,証券口座,NISA,高配当株,AI">
-<title>株式投資ナビAI｜AIが毎日自動更新する日本株情報</title>
+<meta name="description" content="AIが毎日自動更新する日本株情報サイト。市況・注目銘柄・テクニカル分析解説・スクリーニング条件・セクター動向を自動生成。">
+<meta name="keywords" content="日本株,テクニカル分析,RSI,MACD,ボリンジャーバンド,スクリーニング,セクター,注目銘柄,NISA,証券口座">
+<title>株式投資ナビAI｜テクニカル分析・スクリーニング・市況を毎日自動更新</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --blue:#2563eb;--blue-dark:#1d4ed8;--blue-pale:#eff6ff;
-  --green:#16a34a;--red:#dc2626;--amber:#d97706;
+  --blue:#2563eb;--blue-dark:#1d4ed8;--blue-pale:#eff6ff;--blue-border:#bfdbfe;
+  --green:#16a34a;--green-pale:#f0fdf4;
+  --red:#dc2626;--red-pale:#fef2f2;
+  --amber:#d97706;--amber-pale:#fffbeb;
+  --purple:#7c3aed;--purple-pale:#f5f3ff;
   --text:#0f172a;--text-mid:#475569;--text-muted:#94a3b8;
   --bg:#f8faff;--white:#fff;--border:#e2e8f0;
 }
 html{scroll-behavior:smooth}
-body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
 
-/* HEADER */
+/* NAV */
 header{background:var(--white);border-bottom:2px solid var(--blue);padding:0 1.5rem;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(37,99,235,.1)}
-.header-inner{max-width:1000px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:58px}
-.logo{font-size:1rem;font-weight:900;color:var(--blue);text-decoration:none;display:flex;align-items:center;gap:8px;letter-spacing:-.02em}
-.logo-badge{background:linear-gradient(135deg,#6366f1,#2563eb);color:#fff;font-size:.65rem;padding:2px 7px;border-radius:4px;font-weight:700;letter-spacing:.05em}
-.header-nav{display:flex;gap:1rem}
-.header-nav a{font-size:.82rem;color:var(--text-mid);text-decoration:none;padding:5px 10px;border-radius:6px;transition:all .15s}
+.header-inner{max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:58px}
+.logo{font-size:1rem;font-weight:900;color:var(--blue);text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo-badge{background:linear-gradient(135deg,#6366f1,#2563eb);color:#fff;font-size:.65rem;padding:2px 7px;border-radius:4px;font-weight:700}
+.header-nav{display:flex;gap:.6rem;overflow-x:auto}
+.header-nav a{font-size:.78rem;color:var(--text-mid);text-decoration:none;padding:5px 9px;border-radius:6px;white-space:nowrap}
 .header-nav a:hover{color:var(--blue);background:var(--blue-pale)}
-.ai-status{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--green);font-weight:700}
-.ai-dot{width:8px;height:8px;background:var(--green);border-radius:50%;animation:pulse 2s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.ai-status{display:flex;align-items:center;gap:6px;font-size:.75rem;color:var(--green);font-weight:700;white-space:nowrap}
+.ai-dot{width:7px;height:7px;background:var(--green);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 
-/* HERO ローディング状態 */
-.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 60%,#1d4ed8 100%);color:#fff;padding:2.5rem 1.5rem 3rem;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h60v60H0z' fill='none'/%3E%3Ccircle cx='30' cy='30' r='1' fill='rgba(255,255,255,.05)'/%3E%3C/svg%3E");pointer-events:none}
-.hero-inner{max-width:1000px;margin:0 auto;position:relative}
-.hero-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem}
-.hero-meta{font-size:.82rem;color:rgba(255,255,255,.6);margin-bottom:.4rem}
-.hero h1{font-size:clamp(1.3rem,3vw,1.9rem);font-weight:900;line-height:1.35;letter-spacing:-.02em}
-.hero h1 em{font-style:normal;color:#60a5fa}
+/* TICKER */
+.ticker{background:var(--blue-dark);color:#fff;padding:.45rem 0;overflow:hidden}
+.ticker-track{display:flex;animation:ticker 35s linear infinite;width:max-content}
+.ticker-track:hover{animation-play-state:paused}
+.ticker-item{padding:0 2.5rem;font-size:.8rem;display:flex;align-items:center;gap:.5rem;border-right:1px solid rgba(255,255,255,.15)}
+.ticker-badge{background:var(--red);color:#fff;font-size:.65rem;padding:1px 6px;border-radius:3px;font-weight:700}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* AIローディングUI */
-.ai-loading-box{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:1.5rem;text-align:center;margin:1rem 0}
-.ai-spinner{width:48px;height:48px;border:3px solid rgba(255,255,255,.2);border-top-color:#60a5fa;border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 1rem}
+/* HERO */
+.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 55%,#2563eb 100%);color:#fff;padding:2.5rem 1.5rem 3rem;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;right:-80px;top:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(99,102,241,.15),transparent 70%);pointer-events:none}
+.hero-inner{max-width:1040px;margin:0 auto;position:relative}
+.hero-meta{font-size:.8rem;color:rgba(255,255,255,.55);margin-bottom:.4rem}
+.hero h1{font-size:clamp(1.3rem,3vw,1.9rem);font-weight:900;line-height:1.4;letter-spacing:-.02em;margin-bottom:.5rem}
+.hero h1 em{font-style:normal;color:#93c5fd}
+.hero-sub{font-size:.85rem;color:rgba(255,255,255,.7);margin-bottom:1.5rem}
+
+/* ローディング */
+.ai-loading{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:1.5rem;text-align:center;margin-bottom:1rem}
+.spinner{width:44px;height:44px;border:3px solid rgba(255,255,255,.15);border-top-color:#93c5fd;border-radius:50%;animation:spin 1s linear infinite;margin:0 auto .8rem}
 @keyframes spin{to{transform:rotate(360deg)}}
-.ai-loading-text{font-size:.9rem;color:rgba(255,255,255,.8);margin-bottom:.4rem;font-weight:700}
-.ai-loading-sub{font-size:.78rem;color:rgba(255,255,255,.5)}
-.ai-progress{height:3px;background:rgba(255,255,255,.15);border-radius:2px;margin-top:1rem;overflow:hidden}
-.ai-progress-bar{height:100%;background:linear-gradient(90deg,#60a5fa,#818cf8);border-radius:2px;animation:progress 8s ease-in-out forwards}
-@keyframes progress{0%{width:0%}30%{width:35%}60%{width:65%}85%{width:85%}100%{width:95%}}
+.loading-text{font-size:.88rem;color:rgba(255,255,255,.75);font-weight:700;margin-bottom:.3rem}
+.loading-sub{font-size:.75rem;color:rgba(255,255,255,.45)}
+.prog{height:3px;background:rgba(255,255,255,.12);border-radius:2px;margin-top:.8rem;overflow:hidden}
+.prog-bar{height:100%;background:linear-gradient(90deg,#93c5fd,#818cf8);border-radius:2px;animation:prog 12s ease-in-out forwards}
+@keyframes prog{0%{width:0%}40%{width:40%}70%{width:72%}90%{width:88%}100%{width:94%}}
 
 /* 指数グリッド */
-.index-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:1.2rem}
-.index-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:.8rem 1rem}
-.index-name{font-size:.72rem;color:rgba(255,255,255,.6);margin-bottom:.3rem}
-.index-value{font-size:1.2rem;font-weight:700;color:#fff;font-family:'DM Mono',monospace}
-.index-change{font-size:.8rem;font-weight:700;margin-top:.2rem}
-.up{color:#4ade80}.down{color:#f87171}
-.index-note{font-size:.7rem;color:rgba(255,255,255,.45);margin-top:.2rem}
+.idx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px;margin-top:1rem}
+.idx-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:.75rem}
+.idx-name{font-size:.7rem;color:rgba(255,255,255,.55);margin-bottom:.25rem}
+.idx-val{font-size:1.15rem;font-weight:700;font-family:'DM Mono',monospace;color:#fff}
+.idx-chg{font-size:.78rem;font-weight:700;margin-top:.15rem}
+.up{color:#4ade80}.dn{color:#f87171}
+.idx-note{font-size:.68rem;color:rgba(255,255,255,.4);margin-top:.2rem}
 
-/* メインコンテンツ */
-.main{max-width:1000px;margin:0 auto;padding:2rem 1.5rem}
+/* MAIN */
+.main{max-width:1040px;margin:0 auto;padding:1.8rem 1.5rem}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+@media(max-width:700px){.two-col{grid-template-columns:1fr}}
 
-/* セクション */
-.section-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.6rem;margin-bottom:1.5rem;box-shadow:0 1px 4px rgba(0,0,0,.04)}
-.section-title{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:1rem;display:flex;align-items:center;gap:8px}
-.section-title-label{font-size:.7rem;background:var(--blue);color:#fff;padding:2px 8px;border-radius:4px;font-weight:700;letter-spacing:.05em}
+/* カード */
+.card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.4rem;margin-bottom:1.2rem;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.card-title{font-size:.97rem;font-weight:700;color:var(--text);margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+.card-label{font-size:.68rem;padding:2px 8px;border-radius:4px;font-weight:700;letter-spacing:.04em}
+.lbl-blue{background:var(--blue);color:#fff}
+.lbl-green{background:var(--green);color:#fff}
+.lbl-amber{background:var(--amber);color:#fff}
+.lbl-purple{background:var(--purple);color:#fff}
+.lbl-red{background:var(--red);color:#fff}
 
-/* AIコンテンツエリア */
-.ai-content{min-height:120px;position:relative}
-.skeleton{background:linear-gradient(90deg,#f0f4ff 25%,#e8eeff 50%,#f0f4ff 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:6px;margin-bottom:.6rem}
-@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
-.skeleton.h-line{height:16px}
-.skeleton.h-line.short{width:60%}
-.skeleton.h-box{height:80px}
+/* スケルトン */
+.skel{background:linear-gradient(90deg,#f0f4ff 25%,#e8eeff 50%,#f0f4ff 75%);background-size:200% 100%;animation:shim 1.5s infinite;border-radius:6px;margin-bottom:.5rem}
+@keyframes shim{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.skel.ln{height:15px}.skel.ln.s{width:55%}.skel.bx{height:70px}
 
-/* 注目銘柄カード */
-.stocks-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
-.stock-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:1.1rem;transition:border-color .2s,box-shadow .2s}
-.stock-card:hover{border-color:#93c5fd;box-shadow:0 4px 16px rgba(37,99,235,.08)}
-.stock-card.featured{border-left:3px solid var(--blue)}
-.stock-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.6rem}
-.stock-name{font-size:.92rem;font-weight:700}
-.stock-code{font-size:.72rem;color:var(--text-muted);margin-top:1px}
-.stock-price{font-size:1rem;font-weight:700;font-family:'DM Mono',monospace;text-align:right}
-.stock-chg{font-size:.75rem;font-weight:700;padding:2px 7px;border-radius:4px}
-.chg-up{color:var(--red);background:#fef2f2}
-.chg-dn{color:var(--blue);background:var(--blue-pale)}
-.stock-reason{font-size:.8rem;color:var(--text-mid);line-height:1.65;margin-bottom:.7rem;padding:.5rem .7rem;background:var(--white);border-radius:6px;border-left:2px solid var(--border)}
-.stock-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:.7rem}
-.stag{font-size:.7rem;padding:2px 7px;border-radius:4px;font-weight:500}
-.stag-b{background:#dbeafe;color:#1d4ed8}
-.stag-g{background:#dcfce7;color:#15803d}
-.stag-r{background:#fee2e2;color:#b91c1c}
-.stag-y{background:#fef3c7;color:#92400e}
-.stock-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:.7rem}
-.metric{background:var(--white);border-radius:5px;padding:.3rem .4rem;text-align:center;border:1px solid var(--border)}
-.metric-l{font-size:.65rem;color:var(--text-muted)}
-.metric-v{font-size:.8rem;font-weight:700;font-family:'DM Mono',monospace}
-.verdict{font-size:.75rem;font-weight:700;padding:5px;border-radius:6px;text-align:center}
-.verdict-buy{background:#fef2f2;color:var(--red)}
-.verdict-watch{background:#fffbeb;color:var(--amber)}
-.verdict-hold{background:var(--blue-pale);color:var(--blue-dark)}
+/* 市況解説 */
+.market-text{font-size:.86rem;color:var(--text-mid);line-height:1.85;border-left:3px solid var(--blue);padding-left:1rem}
+.alert-box{border-radius:8px;padding:.7rem 1rem;margin-top:.8rem;font-size:.82rem;line-height:1.6}
+.alert-amber{background:var(--amber-pale);border:1px solid #fde68a;color:#92400e}
+.alert-blue{background:var(--blue-pale);border:1px solid var(--blue-border);color:#1e40af}
 
-/* テーマカード */
-.theme-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
-.theme-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center}
-.theme-icon{font-size:1.8rem;margin-bottom:.4rem}
-.theme-name{font-size:.88rem;font-weight:700;margin-bottom:.3rem}
-.theme-desc{font-size:.75rem;color:var(--text-mid);line-height:1.55;margin-bottom:.4rem}
-.theme-stocks{font-size:.7rem;color:var(--blue);font-weight:500}
+/* 注目銘柄 */
+.stocks-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:13px}
+.stock{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:1.1rem;transition:border-color .2s,box-shadow .2s}
+.stock:hover{border-color:var(--blue-border);box-shadow:0 3px 14px rgba(37,99,235,.08)}
+.stock.top{border-left:3px solid var(--blue)}
+.stock-hd{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.6rem}
+.sname{font-size:.9rem;font-weight:700}
+.scode{font-size:.7rem;color:var(--text-muted);margin-top:1px}
+.sprice{font-size:.97rem;font-weight:700;font-family:'DM Mono',monospace;text-align:right}
+.schg{font-size:.72rem;font-weight:700;padding:2px 6px;border-radius:4px}
+.cu{color:var(--red);background:var(--red-pale)}.cd{color:var(--blue);background:var(--blue-pale)}
+.sreason{font-size:.78rem;color:var(--text-mid);line-height:1.65;margin-bottom:.6rem;padding:.4rem .7rem;background:var(--white);border-radius:6px;border-left:2px solid var(--border)}
+.stags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:.6rem}
+.stag{font-size:.68rem;padding:2px 7px;border-radius:4px;font-weight:500}
+.st-b{background:#dbeafe;color:#1d4ed8}.st-g{background:#dcfce7;color:#15803d}
+.st-r{background:#fee2e2;color:#b91c1c}.st-y{background:#fef3c7;color:#92400e}
+.smet{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:.6rem}
+.met{background:var(--white);border:1px solid var(--border);border-radius:5px;padding:.3rem;text-align:center}
+.ml{font-size:.63rem;color:var(--text-muted)}.mv{font-size:.78rem;font-weight:700;font-family:'DM Mono',monospace}
+.verd{font-size:.73rem;font-weight:700;padding:5px;border-radius:6px;text-align:center}
+.vb{background:var(--red-pale);color:var(--red)}.vw{background:var(--amber-pale);color:var(--amber)}.vh{background:var(--blue-pale);color:var(--blue-dark)}
 
-/* 証券口座テーブル */
-.broker-wrap{overflow-x:auto}
-.broker-table{width:100%;border-collapse:collapse;font-size:.82rem;min-width:580px}
-.broker-table th{background:var(--blue);color:#fff;padding:.65rem .9rem;text-align:center;font-weight:700;font-size:.78rem}
-.broker-table th:first-child{text-align:left}
-.broker-table td{padding:.65rem .9rem;border-bottom:1px solid var(--border);text-align:center;color:var(--text-mid)}
-.broker-table td:first-child{text-align:left;font-weight:700;color:var(--text)}
-.broker-table tr:nth-child(even) td{background:#fafbff}
-.broker-table tr:hover td{background:var(--blue-pale)}
-.bck{color:var(--green);font-weight:700}.bcx{color:var(--red)}
-.bbest{color:var(--red);font-weight:700}
-.broker-btn{display:inline-block;background:var(--blue);color:#fff;padding:5px 12px;border-radius:6px;font-size:.75rem;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .15s}
-.broker-btn:hover{background:var(--blue-dark)}
+/* テクニカル分析 */
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:1rem}
+.tech-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:1.1rem}
+.tech-icon{font-size:1.6rem;margin-bottom:.5rem}
+.tech-name{font-size:.9rem;font-weight:700;margin-bottom:.4rem;color:var(--text)}
+.tech-formula{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--text-muted);background:var(--white);padding:.3rem .5rem;border-radius:4px;margin-bottom:.6rem;line-height:1.5}
+.tech-signals{list-style:none;margin-bottom:.6rem}
+.tech-signals li{font-size:.78rem;color:var(--text-mid);padding:4px 0;border-bottom:1px dashed var(--border);line-height:1.55}
+.tech-signals li:last-child{border-bottom:none}
+.signal-buy{color:var(--red);font-weight:700}
+.signal-sell{color:var(--blue);font-weight:700}
+.signal-watch{color:var(--amber);font-weight:700}
+.tech-tip{font-size:.75rem;background:var(--blue-pale);border-radius:6px;padding:.5rem .7rem;color:#1e40af;line-height:1.6}
 
-/* 市況サマリー */
-.market-summary-text{font-size:.87rem;color:var(--text-mid);line-height:1.85;border-left:3px solid var(--blue);padding-left:1rem}
+/* テクニカル組み合わせ */
+.combo-table{width:100%;border-collapse:collapse;font-size:.8rem;margin-bottom:.8rem}
+.combo-table th{background:var(--blue);color:#fff;padding:.5rem .7rem;text-align:left;font-weight:700;font-size:.75rem}
+.combo-table td{padding:.5rem .7rem;border-bottom:1px solid var(--border);color:var(--text-mid);vertical-align:top}
+.combo-table tr:hover td{background:var(--blue-pale)}
+.signal-strong{font-weight:700;color:var(--green)}
+
+/* スクリーニング条件 */
+.screening-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.scr-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.scr-header{padding:.6rem 1rem;font-size:.78rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:6px}
+.scr-body{padding:1rem}
+.scr-title{font-size:.88rem;font-weight:700;margin-bottom:.5rem;color:var(--text)}
+.scr-desc{font-size:.78rem;color:var(--text-mid);line-height:1.6;margin-bottom:.7rem}
+.scr-conditions{list-style:none;margin-bottom:.7rem}
+.scr-conditions li{font-size:.76rem;color:var(--text-mid);padding:3px 0 3px 1rem;position:relative}
+.scr-conditions li::before{content:'▶';color:var(--blue);position:absolute;left:0;font-size:.6rem;top:6px}
+.scr-expected{font-size:.75rem;background:var(--green-pale);border:1px solid var(--green-border);border-radius:5px;padding:.4rem .6rem;color:var(--green);font-weight:500}
+.scr-btn{display:block;width:100%;text-align:center;margin-top:.6rem;background:var(--blue);color:#fff;padding:7px;border-radius:7px;font-size:.78rem;font-weight:700;text-decoration:none}
+.scr-btn:hover{background:var(--blue-dark)}
+
+/* セクター */
+.sector-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.sec-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:.9rem;text-align:center}
+.sec-icon{font-size:1.5rem;margin-bottom:.4rem}
+.sec-name{font-size:.85rem;font-weight:700;margin-bottom:.3rem}
+.sec-trend{font-size:.75rem;font-weight:700;padding:2px 8px;border-radius:4px;display:inline-block;margin-bottom:.4rem}
+.trend-up{background:var(--red-pale);color:var(--red)}
+.trend-dn{background:var(--blue-pale);color:var(--blue)}
+.trend-flat{background:var(--amber-pale);color:var(--amber)}
+.sec-desc{font-size:.74rem;color:var(--text-mid);line-height:1.55;margin-bottom:.4rem}
+.sec-stocks{font-size:.7rem;color:var(--blue);font-weight:500}
 
 /* 週間カレンダー */
 .week-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
-.day-card{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.6rem;text-align:center}
-.day-card.today{border:2px solid var(--blue);background:var(--blue-pale)}
-.day-date{font-size:.7rem;color:var(--text-muted)}
-.day-val{font-size:.9rem;font-weight:700;font-family:'DM Mono',monospace;margin:.2rem 0}
-.day-chg{font-size:.72rem;font-weight:700}
+.day{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.6rem;text-align:center}
+.day.today{border:2px solid var(--blue);background:var(--blue-pale)}
+.day-d{font-size:.68rem;color:var(--text-muted)}
+.day-v{font-size:.87rem;font-weight:700;font-family:'DM Mono',monospace;margin:.2rem 0}
+.day-c{font-size:.7rem;font-weight:700}
 
 /* 初心者ガイド */
 .guide-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-.guide-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;overflow:hidden}
-.guide-header{padding:.6rem 1rem;font-size:.75rem;font-weight:700;color:#fff}
-.guide-body{padding:1rem}
-.guide-title{font-size:.9rem;font-weight:700;margin-bottom:.4rem}
-.guide-text{font-size:.8rem;color:var(--text-mid);line-height:1.65;margin-bottom:.6rem}
-.guide-points{list-style:none}
-.guide-points li{font-size:.78rem;color:var(--text-mid);padding:3px 0 3px 1.1rem;position:relative}
-.guide-points li::before{content:'▶';color:var(--blue);position:absolute;left:0;font-size:.6rem;top:6px}
+.g-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.g-hd{padding:.55rem 1rem;font-size:.75rem;font-weight:700;color:#fff}
+.g-bd{padding:1rem}
+.g-title{font-size:.88rem;font-weight:700;margin-bottom:.4rem}
+.g-text{font-size:.78rem;color:var(--text-mid);line-height:1.65;margin-bottom:.5rem}
+.g-list{list-style:none}
+.g-list li{font-size:.76rem;color:var(--text-mid);padding:3px 0 3px 1rem;position:relative}
+.g-list li::before{content:'▶';color:var(--blue);position:absolute;left:0;font-size:.58rem;top:6px}
 
-/* 注意書き */
-.disclaimer-box{font-size:.75rem;color:var(--text-muted);background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.6rem .8rem;margin-top:.8rem;line-height:1.65}
+/* 口座比較 */
+.broker-wrap{overflow-x:auto}
+.broker-tbl{width:100%;border-collapse:collapse;font-size:.8rem;min-width:560px}
+.broker-tbl th{background:var(--blue);color:#fff;padding:.6rem .8rem;text-align:center;font-weight:700;font-size:.76rem}
+.broker-tbl th:first-child{text-align:left}
+.broker-tbl td{padding:.6rem .8rem;border-bottom:1px solid var(--border);text-align:center;color:var(--text-mid)}
+.broker-tbl td:first-child{text-align:left;font-weight:700;color:var(--text)}
+.broker-tbl tr:nth-child(even) td{background:#fafbff}
+.broker-tbl tr:hover td{background:var(--blue-pale)}
+.bck{color:var(--green);font-weight:700}.bcx{color:var(--red)}
+.bbest{color:var(--red);font-weight:700}
+.b-btn{display:inline-block;background:var(--blue);color:#fff;padding:4px 11px;border-radius:5px;font-size:.73rem;font-weight:700;text-decoration:none}
+.b-btn:hover{background:var(--blue-dark)}
+
+/* FAQ */
+.faq{display:flex;flex-direction:column}
+.faq-item{border-bottom:1px solid var(--border);padding:1rem 0}
+.fq{font-size:.9rem;font-weight:700;color:var(--text);margin-bottom:.4rem;display:flex;gap:8px}
+.fq::before{content:'Q';background:var(--blue);color:#fff;font-size:.72rem;padding:1px 7px;border-radius:4px;flex-shrink:0;height:fit-content;margin-top:2px}
+.fa{font-size:.82rem;color:var(--text-mid);line-height:1.75;display:flex;gap:8px}
+.fa::before{content:'A';background:var(--green);color:#fff;font-size:.72rem;padding:1px 7px;border-radius:4px;flex-shrink:0;height:fit-content;margin-top:2px}
 
 /* CTA */
-.cta-section{background:linear-gradient(135deg,#1e40af,#2563eb);border-radius:14px;padding:2rem 1.5rem;text-align:center;color:#fff;margin-bottom:1.5rem}
-.cta-section h2{font-size:1.2rem;font-weight:700;margin-bottom:.4rem}
-.cta-section p{font-size:.85rem;color:rgba(255,255,255,.82);margin-bottom:1.2rem;line-height:1.6}
+.cta{background:linear-gradient(135deg,#1e40af,#2563eb);border-radius:14px;padding:2rem 1.5rem;text-align:center;color:#fff;margin-bottom:1.2rem}
+.cta h2{font-size:1.15rem;font-weight:700;margin-bottom:.4rem}
+.cta p{font-size:.85rem;color:rgba(255,255,255,.8);margin-bottom:1.2rem;line-height:1.65}
 .cta-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.btn-white{background:#fff;color:var(--blue-dark);padding:10px 22px;border-radius:8px;font-size:.87rem;font-weight:700;text-decoration:none;display:inline-block}
-.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5);padding:10px 22px;border-radius:8px;font-size:.87rem;text-decoration:none;display:inline-block}
+.btn-w{background:#fff;color:var(--blue-dark);padding:10px 22px;border-radius:8px;font-size:.87rem;font-weight:700;text-decoration:none;display:inline-block}
+.btn-o{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5);padding:10px 22px;border-radius:8px;font-size:.87rem;text-decoration:none;display:inline-block}
 
 /* フッター */
-footer{background:#0f172a;color:#64748b;padding:2rem 1.5rem;font-size:.78rem;text-align:center;line-height:1.8}
-.footer-links{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;margin-bottom:1rem}
-.footer-links a{color:#64748b;text-decoration:none}
-.footer-links a:hover{color:#93c5fd}
-.footer-disc{font-size:.72rem;color:#475569;margin-top:.6rem;line-height:1.75}
+footer{background:#0f172a;color:#64748b;padding:2rem 1.5rem;font-size:.77rem;text-align:center;line-height:1.8}
+.f-links{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;margin-bottom:.8rem}
+.f-links a{color:#64748b;text-decoration:none}.f-links a:hover{color:#93c5fd}
+.f-disc{font-size:.7rem;color:#475569;margin-top:.6rem;line-height:1.75}
 
-/* エラー表示 */
-.error-box{background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:1rem;color:var(--red);font-size:.85rem}
+/* error */
+.err{background:var(--red-pale);border:1px solid var(--red-border);border-radius:8px;padding:.8rem;color:var(--red);font-size:.82rem}
+.disc{font-size:.73rem;color:var(--text-muted);background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.5rem .7rem;margin-top:.7rem;line-height:1.6}
 
-@media(max-width:600px){
-  .header-nav{display:none}
-  .hero{padding:1.5rem 1rem 2rem}
-  .week-grid{grid-template-columns:repeat(3,1fr)}
-  .main{padding:1.2rem 1rem}
-}
+@media(max-width:600px){.header-nav{display:none}.hero{padding:1.5rem 1rem 2rem}.week-grid{grid-template-columns:repeat(3,1fr)}.main{padding:1.2rem 1rem}}
 </style>
 </head>
 <body>
 
 <header>
   <div class="header-inner">
-    <a href="#" class="logo">
-      📈 株式投資ナビ
-      <span class="logo-badge">AI</span>
-    </a>
+    <a href="#" class="logo">📈 株式投資ナビ<span class="logo-badge">AI</span></a>
     <nav class="header-nav">
       <a href="#market">市況</a>
       <a href="#stocks">注目銘柄</a>
-      <a href="#theme">テーマ</a>
+      <a href="#technical">テクニカル</a>
+      <a href="#screening">スクリーニング</a>
+      <a href="#sector">セクター</a>
       <a href="#beginner">初心者</a>
       <a href="#broker">口座比較</a>
     </nav>
-    <div class="ai-status">
-      <div class="ai-dot"></div>
-      <span id="statusText">AI起動中...</span>
-    </div>
+    <div class="ai-status"><div class="ai-dot"></div><span id="statusText">AI起動中...</span></div>
   </div>
 </header>
 
+<div class="ticker">
+  <div class="ticker-track" id="tickerTrack">
+    <span class="ticker-item"><span class="ticker-badge">速報</span>日経平均 59,676円 △391円（5/1）</span>
+    <span class="ticker-item"><span class="ticker-badge">注目</span>伊藤忠商事・住友商事が決算急騰</span>
+    <span class="ticker-item"><span class="ticker-badge">速報</span>TOTO ストップ高・27年3月期14%増益</span>
+    <span class="ticker-item"><span class="ticker-badge">市況</span>5月は3月期決算発表ピーク・個別株の動きが激化</span>
+    <span class="ticker-item"><span class="ticker-badge">速報</span>長期金利一時2.5%超・29年ぶり高水準</span>
+    <span class="ticker-item"><span class="ticker-badge">速報</span>日経平均 59,676円 △391円（5/1）</span>
+    <span class="ticker-item"><span class="ticker-badge">注目</span>伊藤忠商事・住友商事が決算急騰</span>
+    <span class="ticker-item"><span class="ticker-badge">速報</span>TOTO ストップ高・27年3月期14%増益</span>
+    <span class="ticker-item"><span class="ticker-badge">市況</span>5月は3月期決算発表ピーク・個別株の動きが激化</span>
+    <span class="ticker-item"><span class="ticker-badge">速報</span>長期金利一時2.5%超・29年ぶり高水準</span>
+  </div>
+</div>
+
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-top">
-      <div>
-        <div class="hero-meta" id="heroDate">読み込み中...</div>
-        <h1>📊 今日の<em>日本株市場</em>まとめ<br>AIが自動生成・毎日更新</h1>
-      </div>
+    <div class="hero-meta" id="heroDate">読み込み中...</div>
+    <h1>📊 今日の<em>日本株市場</em>まとめ<br>テクニカル分析・スクリーニング・セクター動向をAIが自動生成</h1>
+    <p class="hero-sub">毎日ページを開くだけで最新情報に自動更新。投資判断の参考にどうぞ。</p>
+    <div id="heroLoading" class="ai-loading">
+      <div class="spinner"></div>
+      <div class="loading-text">🤖 AIが今日の市場情報・テクニカル分析を生成中...</div>
+      <div class="loading-sub">市況・注目銘柄・テクニカル・スクリーニング・セクターを一括生成しています</div>
+      <div class="prog"><div class="prog-bar"></div></div>
     </div>
-
-    <div id="heroLoading" class="ai-loading-box">
-      <div class="ai-spinner"></div>
-      <div class="ai-loading-text">🤖 AIが今日の市場情報を分析中...</div>
-      <div class="ai-loading-sub">最新の株式情報・指数データを取得しています</div>
-      <div class="ai-progress"><div class="ai-progress-bar"></div></div>
-    </div>
-
-    <div id="indexGrid" class="index-grid" style="display:none">
-      <!-- AIが生成 -->
-    </div>
+    <div id="idxGrid" class="idx-grid" style="display:none"></div>
   </div>
 </section>
 
 <div class="main">
 
   <!-- 市況解説 -->
-  <div class="section-card" id="market">
-    <div class="section-title">
-      <span class="section-title-label">TODAY</span>
-      📝 今日の市況解説
-    </div>
-    <div class="ai-content" id="marketContent">
-      <div class="skeleton h-line"></div>
-      <div class="skeleton h-line"></div>
-      <div class="skeleton h-line short"></div>
-      <div class="skeleton h-box" style="margin-top:.8rem"></div>
+  <div class="card" id="market">
+    <div class="card-title"><span class="card-label lbl-blue">TODAY</span>📝 今日の市況解説</div>
+    <div id="marketContent">
+      <div class="skel ln"></div><div class="skel ln"></div><div class="skel ln s"></div><div class="skel bx" style="margin-top:.7rem"></div>
     </div>
   </div>
 
   <!-- 注目銘柄 -->
-  <div class="section-card" id="stocks">
-    <div class="section-title">
-      <span class="section-title-label">PICKS</span>
-      🎯 今日の注目銘柄
-    </div>
-    <div class="ai-content" id="stocksContent">
-      <div class="skeleton h-line"></div>
-      <div class="skeleton h-line"></div>
-      <div class="skeleton h-box"></div>
-      <div class="skeleton h-box" style="margin-top:.6rem"></div>
+  <div class="card" id="stocks">
+    <div class="card-title"><span class="card-label lbl-red">PICKS</span>🎯 今日の注目銘柄</div>
+    <div id="stocksContent">
+      <div class="skel ln"></div><div class="skel bx"></div><div class="skel bx" style="margin-top:.5rem"></div>
     </div>
   </div>
 
-  <!-- テーマ株 -->
-  <div class="section-card" id="theme">
-    <div class="section-title">
-      <span class="section-title-label">THEME</span>
-      🔥 今月の注目テーマ株
+  <!-- テクニカル分析 -->
+  <div class="card" id="technical">
+    <div class="card-title"><span class="card-label lbl-purple">TECHNICAL</span>📉 テクニカル分析 完全解説</div>
+    <div id="technicalContent">
+      <div class="skel ln"></div><div class="skel bx"></div><div class="skel bx" style="margin-top:.5rem"></div>
     </div>
-    <div class="ai-content" id="themeContent">
-      <div class="skeleton h-line"></div>
-      <div class="skeleton h-box"></div>
+  </div>
+
+  <!-- スクリーニング -->
+  <div class="card" id="screening">
+    <div class="card-title"><span class="card-label lbl-green">SCREENING</span>🔍 今日のおすすめスクリーニング条件</div>
+    <div id="screeningContent">
+      <div class="skel ln"></div><div class="skel bx"></div>
+    </div>
+  </div>
+
+  <!-- セクター動向 -->
+  <div class="card" id="sector">
+    <div class="card-title"><span class="card-label lbl-amber">SECTOR</span>🏭 セクター別動向</div>
+    <div id="sectorContent">
+      <div class="skel ln"></div><div class="skel bx"></div>
     </div>
   </div>
 
   <!-- 週間カレンダー -->
-  <div class="section-card">
-    <div class="section-title">
-      <span class="section-title-label">WEEKLY</span>
-      📅 今週の日経平均推移
-    </div>
-    <div id="weekContent" class="ai-content">
-      <div class="skeleton h-box"></div>
-    </div>
+  <div class="card">
+    <div class="card-title"><span class="card-label lbl-blue">WEEKLY</span>📅 今週の日経平均推移</div>
+    <div id="weekContent"><div class="skel bx"></div></div>
   </div>
 
-  <!-- 初心者ガイド（固定コンテンツ） -->
-  <div class="section-card" id="beginner">
-    <div class="section-title">
-      <span class="section-title-label">GUIDE</span>
-      📚 投資初心者ガイド
-    </div>
+  <!-- 初心者ガイド（固定） -->
+  <div class="card" id="beginner">
+    <div class="card-title"><span class="card-label lbl-green">GUIDE</span>📚 投資初心者ガイド</div>
     <div class="guide-grid">
-      <div class="guide-card">
-        <div class="guide-header" style="background:#1d4ed8">📚 株式投資の基本</div>
-        <div class="guide-body">
-          <div class="guide-title">まず知るべき5つのこと</div>
-          <div class="guide-text">株式投資は企業の株を購入して値上がりや配当で利益を得る方法。NISAを使えば利益に税金がかかりません。</div>
-          <ul class="guide-points">
-            <li>100円〜少額から始められる</li>
-            <li>NISA口座なら利益・配当が非課税</li>
-            <li>長期保有で複利効果が期待できる</li>
-            <li>分散投資でリスクを減らす</li>
-          </ul>
+      <div class="g-card">
+        <div class="g-hd" style="background:#1d4ed8">📚 株式投資の基本</div>
+        <div class="g-bd">
+          <div class="g-title">まず知るべき5つのこと</div>
+          <div class="g-text">株式投資は企業の株を購入して値上がりや配当で利益を得る方法。NISAを使えば利益に税金がかかりません。</div>
+          <ul class="g-list"><li>100円〜少額から始められる</li><li>NISA口座なら利益・配当が非課税</li><li>長期保有で複利効果が期待できる</li><li>分散投資でリスクを減らす</li></ul>
         </div>
       </div>
-      <div class="guide-card">
-        <div class="guide-header" style="background:#16a34a">💹 NISAの使い方</div>
-        <div class="guide-body">
-          <div class="guide-title">新NISAを徹底解説</div>
-          <div class="guide-text">年間360万円まで非課税で投資できる制度。つみたて枠（120万）＋成長投資枠（240万）の2本立て。</div>
-          <ul class="guide-points">
-            <li>生涯投資枠は1,800万円</li>
-            <li>いつでも売却・引き出しOK</li>
-            <li>DMM株・松井証券でNISA開設可</li>
-            <li>配当・売却益ともに非課税</li>
-          </ul>
+      <div class="g-card">
+        <div class="g-hd" style="background:#16a34a">💹 NISAの使い方</div>
+        <div class="g-bd">
+          <div class="g-title">新NISAを徹底解説</div>
+          <div class="g-text">年間360万円まで非課税で投資できる制度。つみたて枠（120万）＋成長投資枠（240万）の2本立て。</div>
+          <ul class="g-list"><li>生涯投資枠は1,800万円</li><li>いつでも売却・引き出しOK</li><li>DMM株・松井証券でNISA開設可</li><li>配当・売却益ともに非課税</li></ul>
         </div>
       </div>
-      <div class="guide-card">
-        <div class="guide-header" style="background:#d97706">📊 銘柄の選び方</div>
-        <div class="guide-body">
-          <div class="guide-title">初心者が使う基本指標</div>
-          <div class="guide-text">PER・PBR・配当利回りを使って割安な銘柄を探しましょう。スクリーニングツールで効率よく絞り込めます。</div>
-          <ul class="guide-points">
-            <li>PER：低いほど割安の目安</li>
-            <li>PBR：1倍割れは割安サイン</li>
-            <li>配当利回り3%以上が高配当の目安</li>
-            <li>自己資本比率で財務健全性チェック</li>
-          </ul>
+      <div class="g-card">
+        <div class="g-hd" style="background:#d97706">📊 テクニカル指標の基本</div>
+        <div class="g-bd">
+          <div class="g-title">初心者が使う3大指標</div>
+          <div class="g-text">RSI・MACD・ボリンジャーバンドは初心者に人気の3大指標。複数を組み合わせると精度が上がります。</div>
+          <ul class="g-list"><li>RSI：売られすぎ・買われすぎを判断</li><li>MACD：トレンドの転換点を捉える</li><li>ボリンジャー：値動きの幅を把握する</li><li>複数指標の組み合わせが重要</li></ul>
         </div>
       </div>
-      <div class="guide-card">
-        <div class="guide-header" style="background:#7c3aed">⚠️ リスク管理</div>
-        <div class="guide-body">
-          <div class="guide-title">失敗しないための基本</div>
-          <div class="guide-text">投資には必ずリスクが伴います。余剰資金・分散投資・長期保有がリスク軽減の基本です。</div>
-          <ul class="guide-points">
-            <li>余剰資金でのみ投資する</li>
-            <li>複数銘柄に分散してリスク分散</li>
-            <li>短期の値動きに惑わされない</li>
-            <li>損切りラインを事前に決める</li>
-          </ul>
+      <div class="g-card">
+        <div class="g-hd" style="background:#7c3aed">⚠️ リスク管理</div>
+        <div class="g-bd">
+          <div class="g-title">失敗しないための基本</div>
+          <div class="g-text">投資には必ずリスクが伴います。余剰資金・分散投資・長期保有がリスク軽減の基本です。</div>
+          <ul class="g-list"><li>余剰資金でのみ投資する</li><li>複数銘柄に分散してリスク分散</li><li>短期の値動きに惑わされない</li><li>損切りラインを事前に決める</li></ul>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 証券口座比較 -->
-  <div class="section-card" id="broker">
-    <div class="section-title">
-      <span class="section-title-label">COMPARE</span>
-      🏦 おすすめ証券口座 比較
-    </div>
+  <!-- 証券口座比較（固定） -->
+  <div class="card" id="broker">
+    <div class="card-title"><span class="card-label lbl-blue">COMPARE</span>🏦 おすすめ証券口座 比較</div>
     <div class="broker-wrap">
-      <table class="broker-table">
+      <table class="broker-tbl">
         <thead>
-          <tr>
-            <th>証券会社</th>
-            <th>国内株手数料</th>
-            <th>米国株</th>
-            <th>NISA</th>
-            <th>iDeCo</th>
-            <th>FX</th>
-            <th>おすすめ</th>
-            <th>口座開設</th>
-          </tr>
+          <tr><th>証券会社</th><th>国内株手数料</th><th>米国株</th><th>NISA</th><th>iDeCo</th><th>FX</th><th>特徴</th><th>開設</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td>📊 TOSSY（DMM証券）</td>
-            <td class="bbest">業界最安水準</td>
-            <td><span class="bck">✓</span></td>
-            <td><span class="bcx">✗</span></td>
-            <td><span class="bcx">✗</span></td>
-            <td><span class="bck">✓</span></td>
-            <td style="font-size:.75rem;color:var(--red);font-weight:700">初心者No.1</td>
-            <td><a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1JYRN6+1WP2+1HL85U" rel="nofollow" class="broker-btn">無料開設→</a></td>
-          </tr>
-          <tr>
-            <td>💹 DMM株</td>
-            <td class="bbest">国内株無料</td>
-            <td><span class="bck">✓</span></td>
-            <td><span class="bck">✓</span></td>
-            <td><span class="bcx">✗</span></td>
-            <td><span class="bcx">✗</span></td>
-            <td style="font-size:.75rem;color:var(--blue);font-weight:700">NISA向き</td>
-            <td><a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1QIJAQ+1WP2+15QHIA" rel="nofollow" class="broker-btn">無料開設→</a></td>
-          </tr>
-          <tr>
-            <td>🌐 DMM CFD</td>
-            <td>CFD専用</td>
-            <td><span class="bcx">✗</span></td>
-            <td><span class="bcx">✗</span></td>
-            <td><span class="bcx">✗</span></td>
-            <td>CFD</td>
-            <td style="font-size:.75rem;color:var(--amber);font-weight:700">上級者向き</td>
-            <td><a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1NJD9U+1WP2+NZ4J7" rel="nofollow" class="broker-btn">無料開設→</a></td>
-          </tr>
-          <tr>
-            <td>🤖 シストレ365</td>
-            <td>FX専用</td>
-            <td><span class="bcx">✗</span></td>
-            <td><span class="bcx">✗</span></td>
-            <td><span class="bcx">✗</span></td>
-            <td class="bbest">24h自動</td>
-            <td style="font-size:.75rem;color:var(--green);font-weight:700">自動売買</td>
-            <td><a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1MCI2A+34QW+BX3J6" rel="nofollow" class="broker-btn">無料開設→</a></td>
-          </tr>
-          <tr>
-            <td>🏦 松井証券</td>
-            <td>25歳以下無料</td>
-            <td><span class="bck">✓</span></td>
-            <td><span class="bck">✓</span></td>
-            <td><span class="bck">✓</span></td>
-            <td><span class="bcx">✗</span></td>
-            <td style="font-size:.75rem;color:var(--green);font-weight:700">老舗・安心</td>
-            <td><a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1L5MUQ+3XCC+6AZAQ" rel="nofollow" class="broker-btn">無料開設→</a></td>
-          </tr>
+          <tr><td>📊 TOSSY（DMM証券）</td><td class="bbest">業界最安水準</td><td><span class="bck">✓</span></td><td><span class="bcx">✗</span></td><td><span class="bcx">✗</span></td><td><span class="bck">✓</span></td><td style="font-size:.73rem;color:var(--red);font-weight:700">初心者No.1</td><td><a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1JYRN6+1WP2+1HL85U" rel="nofollow" class="b-btn">無料→</a></td></tr>
+          <tr><td>💹 DMM株</td><td class="bbest">国内株無料</td><td><span class="bck">✓</span></td><td><span class="bck">✓</span></td><td><span class="bcx">✗</span></td><td><span class="bcx">✗</span></td><td style="font-size:.73rem;color:var(--blue);font-weight:700">NISA向き</td><td><a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1QIJAQ+1WP2+15QHIA" rel="nofollow" class="b-btn">無料→</a></td></tr>
+          <tr><td>🌐 DMM CFD</td><td>CFD専用</td><td><span class="bcx">✗</span></td><td><span class="bcx">✗</span></td><td><span class="bcx">✗</span></td><td>CFD</td><td style="font-size:.73rem;color:var(--amber);font-weight:700">上級者向き</td><td><a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1NJD9U+1WP2+NZ4J7" rel="nofollow" class="b-btn">無料→</a></td></tr>
+          <tr><td>🤖 シストレ365</td><td>FX専用</td><td><span class="bcx">✗</span></td><td><span class="bcx">✗</span></td><td><span class="bcx">✗</span></td><td class="bbest">24h自動</td><td style="font-size:.73rem;color:var(--green);font-weight:700">自動売買</td><td><a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1MCI2A+34QW+BX3J6" rel="nofollow" class="b-btn">無料→</a></td></tr>
+          <tr><td>🏦 松井証券</td><td>25歳以下無料</td><td><span class="bck">✓</span></td><td><span class="bck">✓</span></td><td><span class="bck">✓</span></td><td><span class="bcx">✗</span></td><td style="font-size:.73rem;color:var(--green);font-weight:700">老舗・安心</td><td><a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1L5MUQ+3XCC+6AZAQ" rel="nofollow" class="b-btn">無料→</a></td></tr>
         </tbody>
       </table>
     </div>
-    <div class="disclaimer-box">※当サイトはアフィリエイト広告を掲載しています。口座開設・維持費は全て無料です。</div>
+    <div class="disc">※当サイトはアフィリエイト広告を掲載しています。口座開設・維持費は全て無料です。</div>
+  </div>
+
+  <!-- FAQ（固定） -->
+  <div class="card">
+    <div class="card-title"><span class="card-label lbl-blue">FAQ</span>❓ よくある質問</div>
+    <div class="faq">
+      <div class="faq-item"><div class="fq">RSI・MACD・ボリンジャーバンドはどれから使えばいいですか？</div><div class="fa">初心者にはまずRSIから始めることをおすすめします。0〜100の数値で売られすぎ・買われすぎが直感的にわかりやすいためです。慣れてきたらMACDでトレンドを確認し、ボリンジャーバンドで値動きの幅を把握する順番が定番です。</div></div>
+      <div class="faq-item"><div class="fq">スクリーニングとは何ですか？</div><div class="fa">スクリーニングとは、大量の銘柄の中から特定の条件（PER・配当利回り・RSIなど）で絞り込む作業のことです。SBI証券・松井証券などの証券口座を持っていると無料でスクリーニングツールを使えます。</div></div>
+      <div class="faq-item"><div class="fq">テクニカル分析だけで株を買っても大丈夫ですか？</div><div class="fa">テクニカル分析は参考情報の一つです。単独で頼らず、企業業績（ファンダメンタルズ）・市場環境・ニュースと組み合わせて総合的に判断することが重要です。また投資は自己責任であり、損失が出る可能性もあります。</div></div>
+      <div class="faq-item"><div class="fq">NISAとiDeCoの違いは何ですか？</div><div class="fa">NISAはいつでも引き出せる非課税投資制度で、株式・投資信託に幅広く使えます。iDeCoは老後のための制度で、掛け金が所得控除になりますが原則60歳まで引き出せません。目的に合わせて使い分けましょう。</div></div>
+      <div class="faq-item"><div class="fq">証券口座はいくつ持っても良いですか？</div><div class="fa">はい、複数口座の開設は問題ありません。例えば「DMM株でNISA積立」＋「TOSSYでFX」＋「シストレ365で自動売買」のように使い分ける方も多いです。</div></div>
+    </div>
   </div>
 
   <!-- CTA -->
-  <div class="cta-section">
+  <div class="cta">
     <h2>今日から投資を始めよう</h2>
     <p>口座開設は全て無料。スマホひとつで簡単に始められます。</p>
     <div class="cta-btns">
-      <a href="#broker" class="btn-white">証券口座を比較する</a>
-      <a href="#beginner" class="btn-outline">初心者ガイドを見る</a>
+      <a href="#broker" class="btn-w">証券口座を比較する</a>
+      <a href="#technical" class="btn-o">テクニカル分析を学ぶ</a>
     </div>
   </div>
 
 </div>
 
 <footer>
-  <div class="footer-links">
-    <a href="#">トップ</a>
-    <a href="#market">今日の市況</a>
-    <a href="#stocks">注目銘柄</a>
-    <a href="#broker">口座比較</a>
+  <div class="f-links">
+    <a href="#">トップ</a><a href="#market">今日の市況</a><a href="#stocks">注目銘柄</a>
+    <a href="#technical">テクニカル</a><a href="#screening">スクリーニング</a><a href="#broker">口座比較</a>
     <a href="#">プライバシーポリシー</a>
   </div>
   <p>© 2026 株式投資ナビAI｜AIが毎日自動更新する日本株情報メディア</p>
-  <div class="footer-disc">
+  <div class="f-disc">
     ※当サイトはAIが生成した情報を掲載しています。掲載内容は情報提供を目的としており、投資助言ではありません。<br>
     ※投資は元本割れのリスクがあります。投資判断は必ずご自身の責任で行ってください。<br>
     ※当サイトはアフィリエイト広告（A8.net）を掲載しています。
@@ -441,381 +421,269 @@ footer{background:#0f172a;color:#64748b;padding:2rem 1.5rem;font-size:.78rem;tex
 </footer>
 
 <script>
-// ============================
-// 株式投資ナビAI - メインスクリプト
-// ============================
-
-const AFFILIATE_LINKS = {
-  tossy: "https://px.a8.net/svt/ejp?a8mat=4B1U9U+1JYRN6+1WP2+1HL85U",
-  dmm_kabu: "https://px.a8.net/svt/ejp?a8mat=4B1U9U+1QIJAQ+1WP2+15QHIA",
-  dmm_cfd: "https://px.a8.net/svt/ejp?a8mat=4B1U9U+1NJD9U+1WP2+NZ4J7",
-  systre: "https://px.a8.net/svt/ejp?a8mat=4B1U9U+1MCI2A+34QW+BX3J6",
-  matsui: "https://px.a8.net/svt/ejp?a8mat=4B1U9U+1L5MUQ+3XCC+6AZAQ",
-  matsui_ideco: "https://px.a8.net/svt/ejp?a8mat=4B1U9U+1KK78Y+3XCC+BXIYQ"
+const AFF = {
+  tossy:"https://px.a8.net/svt/ejp?a8mat=4B1U9U+1JYRN6+1WP2+1HL85U",
+  dmm_kabu:"https://px.a8.net/svt/ejp?a8mat=4B1U9U+1QIJAQ+1WP2+15QHIA",
+  dmm_cfd:"https://px.a8.net/svt/ejp?a8mat=4B1U9U+1NJD9U+1WP2+NZ4J7",
+  systre:"https://px.a8.net/svt/ejp?a8mat=4B1U9U+1MCI2A+34QW+BX3J6",
+  matsui:"https://px.a8.net/svt/ejp?a8mat=4B1U9U+1L5MUQ+3XCC+6AZAQ",
+  matsui_ideco:"https://px.a8.net/svt/ejp?a8mat=4B1U9U+1KK78Y+3XCC+BXIYQ"
 };
 
-// 今日の日付
-function getJapanDate() {
-  const now = new Date();
-  const jst = new Date(now.getTime() + (9 * 60 * 60 * 1000));
-  const y = jst.getUTCFullYear();
-  const m = jst.getUTCMonth() + 1;
-  const d = jst.getUTCDate();
-  const days = ['日','月','火','水','木','金','土'];
-  const day = days[jst.getUTCDay()];
-  return { y, m, d, day, str: `${y}年${m}月${d}日（${day}）` };
+function getJPDate(){
+  const n=new Date(),j=new Date(n.getTime()+9*3600000);
+  const days=['日','月','火','水','木','金','土'];
+  return{y:j.getUTCFullYear(),m:j.getUTCMonth()+1,d:j.getUTCDate(),day:days[j.getUTCDay()]};
 }
 
-// Claude API呼び出し
-async function callClaude(prompt, maxTokens = 2000) {
-  const response = await fetch("https://api.anthropic.com/v1/messages", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      model: "claude-sonnet-4-20250514",
-      max_tokens: maxTokens,
-      messages: [{ role: "user", content: prompt }]
-    })
+async function claude(prompt,max=2000){
+  const r=await fetch("https://api.anthropic.com/v1/messages",{
+    method:"POST",headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:max,messages:[{role:"user",content:prompt}]})
   });
-  if (!response.ok) throw new Error(`API Error: ${response.status}`);
-  const data = await response.json();
-  return data.content.map(b => b.text || "").join("");
+  if(!r.ok)throw new Error(r.status);
+  const d=await r.json();
+  return d.content.map(b=>b.text||"").join("");
 }
 
-// JSON安全パース
-function safeParseJSON(text) {
-  try {
-    const clean = text.replace(/```json|```/g, "").trim();
-    return JSON.parse(clean);
-  } catch(e) {
-    return null;
-  }
+function parseJSON(txt){
+  try{return JSON.parse(txt.replace(/```json|```/g,"").trim())}catch{return null}
 }
 
-// スケルトン生成
-function showSkeleton(el) {
-  el.innerHTML = `
-    <div class="skeleton h-line"></div>
-    <div class="skeleton h-line"></div>
-    <div class="skeleton h-line short"></div>
-    <div class="skeleton h-box" style="margin-top:.8rem"></div>
-  `;
-}
+async function init(){
+  const dt=getJPDate();
+  document.getElementById("heroDate").textContent=`${dt.y}年${dt.m}月${dt.d}日（${dt.day}）｜AI自動生成`;
+  document.title=`株式投資ナビAI｜${dt.m}月${dt.d}日の日本株・テクニカル分析`;
 
-// ===== メイン処理 =====
-async function init() {
-  const date = getJapanDate();
-  document.getElementById("heroDate").textContent = `${date.str} ｜ AI自動生成コンテンツ`;
-  document.title = `株式投資ナビAI｜${date.m}月${date.d}日の日本株情報`;
+  try{
+    document.getElementById("statusText").textContent="AI分析中...";
 
-  try {
-    document.getElementById("statusText").textContent = "AI分析中...";
-
-    // 並列でAI生成
-    const [marketData, stocksData, themeData, weekData] = await Promise.all([
-      generateMarket(date),
-      generateStocks(date),
-      generateThemes(date),
-      generateWeek(date)
+    const [mkt,stocks,tech,scr,sec,week]=await Promise.all([
+      genMarket(dt),genStocks(dt),genTechnical(dt),genScreening(dt),genSector(dt),genWeek(dt)
     ]);
 
-    // ヒーローの指数グリッド表示
-    renderIndexGrid(marketData);
+    renderIdx(mkt);
+    renderMarket(mkt);
+    renderStocks(stocks);
+    renderTechnical(tech);
+    renderScreening(scr);
+    renderSector(sec);
+    renderWeek(week);
 
-    // 各セクション描画
-    renderMarket(marketData);
-    renderStocks(stocksData);
-    renderThemes(themeData);
-    renderWeek(weekData);
-
-    document.getElementById("statusText").textContent = "本日更新済み ✓";
-    document.getElementById("heroLoading").style.display = "none";
-    document.getElementById("indexGrid").style.display = "grid";
-
-  } catch(e) {
+    document.getElementById("heroLoading").style.display="none";
+    document.getElementById("idxGrid").style.display="grid";
+    document.getElementById("statusText").textContent="本日更新済み ✓";
+  }catch(e){
     console.error(e);
-    document.getElementById("statusText").textContent = "オフラインモード";
+    document.getElementById("statusText").textContent="オフラインモード";
     renderFallback();
   }
 }
 
-// 市況データ生成
-async function generateMarket(date) {
-  const prompt = `
-あなたは日本株アナリストです。${date.str}の日本株市場の市況を作成してください。
-以下のJSON形式のみで返答してください（他のテキスト不要）:
+async function genMarket(dt){
+  const txt=await claude(`あなたは日本株アナリストです。${dt.y}年${dt.m}月${dt.d}日（${dt.day}）の日本株市場の状況をJSONのみで返してください（説明不要）:
+{"nikkei":{"value":"59,676","change":"+391","pct":"+0.66","dir":"up"},"topix":{"value":"3,724","change":"-2.88","pct":"-0.08","dir":"down"},"growth250":{"value":"777","change":"+10.94","pct":"+1.43","dir":"up"},"usdjpy":{"value":"155.20","dir":"down"},"longrate":{"value":"2.52","dir":"up"},"summary":"200字の市況解説（具体的な銘柄・数値・理由を含む）","nextweek":"来週の注目ポイント100字","mood":"強気/弱気/中立のいずれか"}
+${dt.m}月${dt.d}日らしい決算・季節・経済イベントを反映してください。`,700);
+  return parseJSON(txt)||defMkt();
+}
 
+async function genStocks(dt){
+  const txt=await claude(`日本株アナリストとして${dt.y}年${dt.m}月${dt.d}日の注目銘柄4つをJSONのみで返してください:
+[{"name":"伊藤忠商事","code":"8001","sector":"卸売業","market":"東証プライム","price":"8,234","change":"+17.12","dir":"up","reason":"注目理由80字","tags":["増配","好決算","商社"],"per":"12.4","yield":"3.2","cap":"11.8兆円","verdict":"buy","verdict_label":"注目買い","featured":true}]
+verdictはbuy/watch/hold。featuredはNo.1のみtrue。${dt.m}月の相場テーマ・決算シーズンを考慮。`,1000);
+  return parseJSON(txt)||defStocks();
+}
+
+async function genTechnical(dt){
+  const txt=await claude(`株式テクニカルアナリストとして${dt.y}年${dt.m}月${dt.d}日時点でのテクニカル分析情報をJSONのみで返してください:
 {
-  "nikkei": { "value": "59,676", "change": "+391", "pct": "+0.66", "direction": "up" },
-  "topix": { "value": "3,724", "change": "-2.88", "pct": "-0.08", "direction": "down" },
-  "growth250": { "value": "777", "change": "+10.94", "pct": "+1.43", "direction": "up" },
-  "usdjpy": { "value": "155.20", "change": "-0.80", "direction": "down" },
-  "longrate": { "value": "2.52", "change": "+0.05", "direction": "up" },
-  "summary": "今日の市況の解説文を200字程度で。具体的な数字・銘柄名・市場の動向を含めて専門的に書いてください。",
-  "nextweek": "来週の注目ポイントを100字で",
-  "mood": "強気" 
+  "indicators":[
+    {"name":"RSI（相対力指数）","icon":"📊","formula":"RS= 直近14日の平均上昇幅÷平均下落幅\\nRSI=100-(100÷(1+RS))","signals":[{"label":"買いシグナル","type":"buy","desc":"RSIが30%以下→売られすぎ、反発期待"},{"label":"売りシグナル","type":"sell","desc":"RSIが70%以上→買われすぎ、調整注意"},{"label":"ダイバージェンス","type":"watch","desc":"価格とRSIが逆方向→トレンド転換の前兆"}],"tip":"期間は14日が標準。単独より他指標と組み合わせると精度UP"},
+    {"name":"MACD（移動平均収束拡散法）","icon":"📈","formula":"MACD=EMA12-EMA26\\nシグナル=MACDの9日EMA\\nヒストグラム=MACD-シグナル","signals":[{"label":"ゴールデンクロス","type":"buy","desc":"MACDがシグナルを下から上抜け→買いサイン"},{"label":"デッドクロス","type":"sell","desc":"MACDがシグナルを上から下抜け→売りサイン"},{"label":"ヒストグラム拡大","type":"watch","desc":"バーが伸びる方向にモメンタムが強い"}],"tip":"トレンド系指標。RSIと組み合わせで精度向上"},
+    {"name":"ボリンジャーバンド","icon":"📉","formula":"中央線=20日移動平均\\n±1σ=標準偏差1つ分\\n±2σ=標準偏差2つ分","signals":[{"label":"順張りエントリー","type":"buy","desc":"+2σ上抜けでバンドウォーク→上昇トレンド継続"},{"label":"逆張りエントリー","type":"watch","desc":"-2σ以下に接触→反発の可能性（RSIで確認）"},{"label":"スクイーズ","type":"watch","desc":"バンドが収縮→大きな値動きの前兆"}],"tip":"±2σに価格が収まる確率は約95%。バンド幅でボラティリティを把握"}
+  ],
+  "combos":[
+    {"name":"RSI×MACD","signal":"ゴールデンクロス確認","desc":"MACDのゴールデンクロス＋RSIが50%超で上昇中→強い買いサイン","strength":"強"},
+    {"name":"RSI×ボリンジャーバンド","signal":"底打ち確認","desc":"RSI30%以下＋株価が-2σ以下→底打ちの可能性。RSIが50%超復帰で確定","strength":"強"},
+    {"name":"MACD×ボリンジャーバンド","signal":"トレンド転換","desc":"バンドが拡大中にMACDがゴールデンクロス→上昇トレンド発生の強いサイン","strength":"最強"}
+  ],
+  "current_market":"${dt.m}月時点の日経平均のテクニカル状況を100字で分析"
+}`,1400);
+  return parseJSON(txt)||defTech();
 }
 
-${date.m}月${date.d}日らしいリアルな内容にしてください。決算シーズン・季節・経済イベントを考慮してください。`;
-
-  const text = await callClaude(prompt, 800);
-  return safeParseJSON(text) || getDefaultMarket();
+async function genScreening(dt){
+  const txt=await claude(`株式アナリストとして${dt.y}年${dt.m}月${dt.d}日の相場に合ったスクリーニング条件を4つJSONのみで返してください:
+[{"title":"高配当×割安スクリーニング","icon":"💰","color":"#16a34a","desc":"配当利回りが高く、かつ割安な銘柄を探す基本条件","conditions":["配当利回り3%以上","PER15倍以下","PBR1.5倍以下","自己資本比率40%以上","時価総額500億円以上"],"expected":"財務健全・高配当で長期保有向きの銘柄が絞り込める","tool_name":"松井証券・DMM株スクリーナー","tool_link":"matsui"}]
+${dt.m}月の相場テーマ（決算・季節・経済）に合った条件にしてください。tool_linkはtossy/dmm_kabu/matsui/systreのいずれか。`,900);
+  return parseJSON(txt)||defScr();
 }
 
-// 注目銘柄生成
-async function generateStocks(date) {
-  const prompt = `
-あなたは日本株アナリストです。${date.str}の注目銘柄を4つ選んでJSON形式のみで返してください:
-
-[
-  {
-    "name": "伊藤忠商事",
-    "code": "8001",
-    "sector": "卸売業",
-    "market": "東証プライム",
-    "price": "8,234",
-    "change": "+17.12",
-    "direction": "up",
-    "reason": "注目理由を80字で具体的に",
-    "tags": ["増配", "好決算", "商社"],
-    "per": "12.4",
-    "yield": "3.2",
-    "cap": "11.8兆円",
-    "verdict": "buy",
-    "verdict_label": "注目買い",
-    "featured": true
-  }
-]
-
-${date.m}月の相場テーマ・決算シーズン・経済ニュースを考慮した実在しそうなリアルな銘柄4つを選んでください。
-verdictは buy/watch/hold のいずれか。featuredはtrue/falseでNo.1のみtrue。`;
-
-  const text = await callClaude(prompt, 1200);
-  return safeParseJSON(text) || getDefaultStocks();
+async function genSector(dt){
+  const txt=await claude(`日本株アナリストとして${dt.y}年${dt.m}月${dt.d}日時点の主要セクターの動向を8つJSONのみで返してください:
+[{"name":"商社","icon":"🏢","trend":"up","trend_label":"↑ 強気","desc":"決算好調・連続増配で資金流入。商社株全体が買われている","stocks":"伊藤忠・住友商・三菱商","reason":"決算シーズンで好業績が相次ぐ"}]
+trendはup/down/flatのいずれか。${dt.m}月の相場環境を反映してください。`,700);
+  return parseJSON(txt)||defSec();
 }
 
-// テーマ株生成
-async function generateThemes(date) {
-  const prompt = `
-${date.y}年${date.m}月の日本株市場で注目されているテーマ株を5つ、JSON形式のみで返してください:
-
-[
-  {
-    "icon": "🤖",
-    "name": "AI・半導体",
-    "desc": "テーマの説明を50字で",
-    "stocks": "関連銘柄3つをカンマ区切りで"
-  }
-]
-
-最新の市場動向・政策・経済ニュースを反映したリアルなテーマにしてください。`;
-
-  const text = await callClaude(prompt, 800);
-  return safeParseJSON(text) || getDefaultThemes();
+async function genWeek(dt){
+  const txt=await claude(`${dt.y}年${dt.m}月${dt.d}日を含む直近5営業日の日経平均推移をJSONのみで返してください:
+[{"date":"4/28","day":"月","value":"59,780","change":"+0.8","dir":"up","isToday":false}]
+祝日は value="休場" dir="none"。${dt.m}月${dt.d}日がisToday:true。`,400);
+  return parseJSON(txt)||defWeek();
 }
 
-// 週間カレンダー生成
-async function generateWeek(date) {
-  const prompt = `
-${date.str}を含む最近1週間（月〜金）の日経平均株価の推移をJSON形式のみで返してください:
-
-[
-  { "date": "4/28", "day": "月", "value": "59,780", "change": "+0.8", "direction": "up", "isToday": false },
-  { "date": "4/29", "day": "火", "value": "休場", "change": "昭和の日", "direction": "none", "isToday": false },
-  { "date": "4/30", "day": "水", "value": "59,100", "change": "-1.1", "direction": "down", "isToday": false },
-  { "date": "5/1", "day": "木", "value": "59,676", "change": "+0.66", "direction": "up", "isToday": true },
-  { "date": "5/2", "day": "金", "value": "59,513", "change": "-0.27", "direction": "down", "isToday": false }
-]
-
-実際の${date.m}月の週に合わせたリアルな数値にしてください。祝日は「休場」としてください。`;
-
-  const text = await callClaude(prompt, 600);
-  return safeParseJSON(text) || getDefaultWeek();
-}
-
-// ===== 描画関数 =====
-function renderIndexGrid(data) {
-  const grid = document.getElementById("indexGrid");
-  if (!data) return;
-  grid.innerHTML = `
-    <div class="index-card">
-      <div class="index-name">日経平均株価</div>
-      <div class="index-value">${data.nikkei?.value || "---"}円</div>
-      <div class="index-change ${data.nikkei?.direction === 'up' ? 'up' : 'down'}">
-        ${data.nikkei?.direction === 'up' ? '△' : '▼'}${data.nikkei?.change}（${data.nikkei?.pct}%）
-      </div>
-      <div class="index-note">${data.mood || ""}相場</div>
-    </div>
-    <div class="index-card">
-      <div class="index-name">TOPIX</div>
-      <div class="index-value">${data.topix?.value || "---"}pt</div>
-      <div class="index-change ${data.topix?.direction === 'up' ? 'up' : 'down'}">
-        ${data.topix?.direction === 'up' ? '△' : '▼'}${Math.abs(data.topix?.change || 0)}（${data.topix?.pct}%）
-      </div>
-    </div>
-    <div class="index-card">
-      <div class="index-name">グロース250</div>
-      <div class="index-value">${data.growth250?.value || "---"}pt</div>
-      <div class="index-change ${data.growth250?.direction === 'up' ? 'up' : 'down'}">
-        ${data.growth250?.direction === 'up' ? '△' : '▼'}${Math.abs(data.growth250?.change || 0)}
-      </div>
-    </div>
-    <div class="index-card">
-      <div class="index-name">ドル円</div>
-      <div class="index-value">${data.usdjpy?.value || "---"}円</div>
-      <div class="index-change ${data.usdjpy?.direction === 'up' ? 'up' : 'down'}">
-        ${data.usdjpy?.direction === 'up' ? '円安' : '円高'}傾向
-      </div>
-    </div>
-    <div class="index-card">
-      <div class="index-name">長期金利（10年）</div>
-      <div class="index-value">${data.longrate?.value || "---"}%</div>
-      <div class="index-change ${data.longrate?.direction === 'up' ? 'down' : 'up'}">
-        ${data.longrate?.direction === 'up' ? '▲上昇' : '▼低下'}
-      </div>
-    </div>
+/* ===== 描画 ===== */
+function renderIdx(d){
+  if(!d)return;
+  document.getElementById("idxGrid").innerHTML=`
+    <div class="idx-card"><div class="idx-name">日経平均</div><div class="idx-val">${d.nikkei?.value||"---"}円</div><div class="idx-chg ${d.nikkei?.dir==='up'?'up':'dn'}">${d.nikkei?.dir==='up'?'△':'▼'}${d.nikkei?.change}（${d.nikkei?.pct}%）</div><div class="idx-note">${d.mood||""}相場</div></div>
+    <div class="idx-card"><div class="idx-name">TOPIX</div><div class="idx-val">${d.topix?.value||"---"}pt</div><div class="idx-chg ${d.topix?.dir==='up'?'up':'dn'}">${d.topix?.dir==='up'?'△':'▼'}${Math.abs(d.topix?.change||0)}（${d.topix?.pct}%）</div></div>
+    <div class="idx-card"><div class="idx-name">グロース250</div><div class="idx-val">${d.growth250?.value||"---"}pt</div><div class="idx-chg ${d.growth250?.dir==='up'?'up':'dn'}">${d.growth250?.dir==='up'?'△':'▼'}${Math.abs(d.growth250?.change||0)}</div></div>
+    <div class="idx-card"><div class="idx-name">ドル円</div><div class="idx-val">${d.usdjpy?.value||"---"}円</div><div class="idx-chg ${d.usdjpy?.dir==='up'?'dn':'up'}">${d.usdjpy?.dir==='up'?'円安':'円高'}傾向</div></div>
+    <div class="idx-card"><div class="idx-name">長期金利</div><div class="idx-val">${d.longrate?.value||"---"}%</div><div class="idx-chg ${d.longrate?.dir==='up'?'dn':'up'}">${d.longrate?.dir==='up'?'▲上昇':'▼低下'}</div></div>
   `;
 }
 
-function renderMarket(data) {
-  const el = document.getElementById("marketContent");
-  if (!data) { el.innerHTML = '<div class="error-box">データ取得に失敗しました</div>'; return; }
-  el.innerHTML = `
-    <div class="market-summary-text">${data.summary || "市況データを取得中..."}</div>
-    ${data.nextweek ? `<div style="background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:.7rem 1rem;margin-top:.8rem;font-size:.83rem;color:#92400e">
-      📌 <strong>来週の注目ポイント：</strong>${data.nextweek}
-    </div>` : ''}
+function renderMarket(d){
+  const el=document.getElementById("marketContent");
+  if(!d){el.innerHTML='<div class="err">データ取得失敗</div>';return;}
+  el.innerHTML=`
+    <div class="market-text">${d.summary||"市況情報を取得中..."}</div>
+    ${d.nextweek?`<div class="alert-box alert-amber">📌 <strong>来週の注目：</strong>${d.nextweek}</div>`:""}
   `;
 }
 
-function renderStocks(stocks) {
-  const el = document.getElementById("stocksContent");
-  if (!stocks || !stocks.length) { el.innerHTML = '<div class="error-box">データ取得に失敗しました</div>'; return; }
-
-  const verdictMap = {
-    buy: { cls: 'verdict-buy', label: '📈 編集部評価：注目買い' },
-    watch: { cls: 'verdict-watch', label: '👀 編集部評価：要注目' },
-    hold: { cls: 'verdict-hold', label: '⏸ 編集部評価：様子見' }
-  };
-
-  const tagColors = ['stag-b','stag-g','stag-r','stag-y'];
-
-  el.innerHTML = `<div class="stocks-grid">${stocks.map(s => {
-    const v = verdictMap[s.verdict] || verdictMap.watch;
-    const tags = (s.tags || []).map((t, i) => `<span class="stag ${tagColors[i % 4]}">${t}</span>`).join('');
-    return `
-      <div class="stock-card${s.featured ? ' featured' : ''}">
-        <div class="stock-header">
-          <div>
-            <div class="stock-name">${s.name}</div>
-            <div class="stock-code">${s.code} ｜ ${s.market} ｜ ${s.sector}</div>
-          </div>
-          <div>
-            <div class="stock-price">${s.price}円</div>
-            <div class="stock-chg ${s.direction === 'up' ? 'chg-up' : 'chg-dn'}">
-              ${s.direction === 'up' ? '▲' : '▼'}${Math.abs(s.change)}%
-            </div>
-          </div>
-        </div>
-        <div class="stock-reason">${s.reason}</div>
-        <div class="stock-tags">${tags}</div>
-        <div class="stock-metrics">
-          <div class="metric"><div class="metric-l">PER</div><div class="metric-v">${s.per}倍</div></div>
-          <div class="metric"><div class="metric-l">配当利回り</div><div class="metric-v">${s.yield}%</div></div>
-          <div class="metric"><div class="metric-l">時価総額</div><div class="metric-v">${s.cap}</div></div>
-        </div>
-        <div class="verdict ${v.cls}">${s.verdict_label ? '📈 編集部評価：' + s.verdict_label : v.label}</div>
+function renderStocks(stocks){
+  const el=document.getElementById("stocksContent");
+  if(!stocks?.length){el.innerHTML='<div class="err">データ取得失敗</div>';return;}
+  const vm={buy:{c:'vb',l:'📈 注目買い'},watch:{c:'vw',l:'👀 要注目'},hold:{c:'vh',l:'⏸ 様子見'}};
+  const tc=['st-b','st-g','st-r','st-y'];
+  el.innerHTML=`<div class="stocks-grid">${stocks.map(s=>`
+    <div class="stock${s.featured?' top':''}">
+      <div class="stock-hd">
+        <div><div class="sname">${s.name}</div><div class="scode">${s.code}｜${s.market}｜${s.sector}</div></div>
+        <div><div class="sprice">${s.price}円</div><div class="schg ${s.dir==='up'?'cu':'cd'}">${s.dir==='up'?'▲':'▼'}${Math.abs(s.change)}%</div></div>
       </div>
-    `;
-  }).join('')}</div>
-  <div class="disclaimer-box">※上記は情報提供を目的としたものです。投資助言ではありません。投資判断はご自身の責任で行ってください。</div>`;
-}
-
-function renderThemes(themes) {
-  const el = document.getElementById("themeContent");
-  if (!themes || !themes.length) { el.innerHTML = '<div class="error-box">データ取得に失敗しました</div>'; return; }
-  el.innerHTML = `<div class="theme-grid">${themes.map(t => `
-    <div class="theme-card">
-      <div class="theme-icon">${t.icon}</div>
-      <div class="theme-name">${t.name}</div>
-      <div class="theme-desc">${t.desc}</div>
-      <div class="theme-stocks">関連：${t.stocks}</div>
-    </div>
-  `).join('')}</div>`;
-}
-
-function renderWeek(week) {
-  const el = document.getElementById("weekContent");
-  if (!week || !week.length) { el.innerHTML = '<div class="error-box">データ取得に失敗しました</div>'; return; }
-  el.innerHTML = `<div class="week-grid">${week.map(d => `
-    <div class="day-card${d.isToday ? ' today' : ''}">
-      <div class="day-date">${d.date}（${d.day}）</div>
-      <div class="day-val">${d.value !== '休場' ? d.value + '円' : '休場'}</div>
-      <div class="day-chg ${d.direction === 'up' ? 'up' : d.direction === 'down' ? 'down' : ''}" style="color:${d.direction === 'none' ? 'var(--text-muted)' : ''}">
-        ${d.direction === 'up' ? '▲' : d.direction === 'down' ? '▼' : ''}${d.change}${d.direction !== 'none' ? '%' : ''}
+      <div class="sreason">${s.reason}</div>
+      <div class="stags">${(s.tags||[]).map((t,i)=>`<span class="stag ${tc[i%4]}">${t}</span>`).join("")}</div>
+      <div class="smet">
+        <div class="met"><div class="ml">PER</div><div class="mv">${s.per}倍</div></div>
+        <div class="met"><div class="ml">配当利回り</div><div class="mv">${s.yield}%</div></div>
+        <div class="met"><div class="ml">時価総額</div><div class="mv">${s.cap}</div></div>
       </div>
+      <div class="verd ${(vm[s.verdict]||vm.watch).c}">${s.verdict_label?'📈 '+s.verdict_label:(vm[s.verdict]||vm.watch).l}</div>
     </div>
-  `).join('')}</div>`;
+  `).join("")}</div>
+  <div class="disc">※上記は情報提供を目的としており投資助言ではありません。投資判断はご自身の責任で行ってください。</div>`;
 }
 
-// フォールバック（API失敗時）
-function renderFallback() {
-  document.getElementById("heroLoading").innerHTML = `
-    <div style="color:rgba(255,255,255,.7);font-size:.85rem;padding:1rem">
-      ⚠️ AIコンテンツの読み込みに失敗しました。<br>最新情報は各証券会社の公式サイトをご確認ください。
-    </div>`;
-  document.getElementById("indexGrid").style.display = "none";
-  const sections = ['marketContent','stocksContent','themeContent','weekContent'];
-  sections.forEach(id => {
-    document.getElementById(id).innerHTML = `<div class="error-box">コンテンツ読み込みエラー。ページを再読み込みしてください。</div>`;
+function renderTechnical(d){
+  const el=document.getElementById("technicalContent");
+  if(!d){el.innerHTML='<div class="err">データ取得失敗</div>';return;}
+  const typeMap={buy:'signal-buy',sell:'signal-sell',watch:'signal-watch'};
+  el.innerHTML=`
+    <div class="tech-grid">${(d.indicators||[]).map(ind=>`
+      <div class="tech-card">
+        <div class="tech-icon">${ind.icon}</div>
+        <div class="tech-name">${ind.name}</div>
+        <div class="tech-formula">${(ind.formula||"").replace(/\n/g,'<br>')}</div>
+        <ul class="tech-signals">${(ind.signals||[]).map(s=>`
+          <li><span class="${typeMap[s.type]||''}">[${s.label}]</span> ${s.desc}</li>
+        `).join("")}</ul>
+        <div class="tech-tip">💡 ${ind.tip}</div>
+      </div>
+    `).join("")}</div>
+
+    <div style="margin-top:1.2rem">
+      <div style="font-size:.88rem;font-weight:700;margin-bottom:.6rem;color:var(--text)">🔗 指標の組み合わせテクニック（精度UP）</div>
+      <table class="combo-table">
+        <thead><tr><th>組み合わせ</th><th>シグナル</th><th>説明</th><th>精度</th></tr></thead>
+        <tbody>${(d.combos||[]).map(c=>`
+          <tr>
+            <td style="font-weight:700;white-space:nowrap">${c.name}</td>
+            <td><span class="signal-buy">${c.signal}</span></td>
+            <td>${c.desc}</td>
+            <td><span class="signal-strong">${c.strength}</span></td>
+          </tr>
+        `).join("")}</tbody>
+      </table>
+    </div>
+
+    ${d.current_market?`<div class="alert-box alert-blue" style="margin-top:.8rem">📊 <strong>現在の相場状況：</strong>${d.current_market}</div>`:""}
+    <div class="disc">※テクニカル分析はあくまで参考情報です。単独での投資判断は避け、複数の情報を総合的に判断してください。</div>
+  `;
+}
+
+function renderScreening(scr){
+  const el=document.getElementById("screeningContent");
+  if(!scr?.length){el.innerHTML='<div class="err">データ取得失敗</div>';return;}
+  el.innerHTML=`
+    <p style="font-size:.83rem;color:var(--text-mid);margin-bottom:1rem;line-height:1.65">以下のスクリーニング条件を証券会社のスクリーナーに入力することで、条件に合った銘柄を効率よく絞り込めます。口座開設後すぐに無料で使えます。</p>
+    <div class="screening-grid">${scr.map(s=>`
+      <div class="scr-card">
+        <div class="scr-header" style="background:${s.color||'#2563eb'}">${s.icon||'🔍'} ${s.title}</div>
+        <div class="scr-body">
+          <div class="scr-desc">${s.desc}</div>
+          <div style="font-size:.75rem;font-weight:700;color:var(--text);margin-bottom:.4rem">📋 スクリーニング条件</div>
+          <ul class="scr-conditions">${(s.conditions||[]).map(c=>`<li>${c}</li>`).join("")}</ul>
+          <div class="scr-expected">✅ 期待できる結果：${s.expected}</div>
+          <a href="${AFF[s.tool_link]||AFF.matsui}" rel="nofollow" class="scr-btn">→ ${s.tool_name||"スクリーナーを使う"}（無料）</a>
+        </div>
+      </div>
+    `).join("")}</div>
+    <div class="disc">※スクリーニング条件は参考情報です。条件を満たす銘柄への投資を推奨するものではありません。</div>
+  `;
+}
+
+function renderSector(sec){
+  const el=document.getElementById("sectorContent");
+  if(!sec?.length){el.innerHTML='<div class="err">データ取得失敗</div>';return;}
+  const tmap={up:'trend-up',down:'trend-dn',flat:'trend-flat'};
+  const tlbl={up:'↑ 強気',down:'↓ 弱気',flat:'→ 横ばい'};
+  el.innerHTML=`
+    <div class="sector-grid">${sec.map(s=>`
+      <div class="sec-card">
+        <div class="sec-icon">${s.icon}</div>
+        <div class="sec-name">${s.name}</div>
+        <div class="sec-trend ${tmap[s.trend]||'trend-flat'}">${s.trend_label||tlbl[s.trend]||'→'}</div>
+        <div class="sec-desc">${s.desc}</div>
+        <div class="sec-stocks">関連：${s.stocks}</div>
+      </div>
+    `).join("")}</div>
+    <div class="disc" style="margin-top:.8rem">※セクター動向はAIによる分析です。実際の投資判断の際はご自身でご確認ください。</div>
+  `;
+}
+
+function renderWeek(week){
+  const el=document.getElementById("weekContent");
+  if(!week?.length){el.innerHTML='<div class="err">データ取得失敗</div>';return;}
+  el.innerHTML=`<div class="week-grid">${week.map(d=>`
+    <div class="day${d.isToday?' today':''}">
+      <div class="day-d">${d.date}（${d.day}）</div>
+      <div class="day-v">${d.value!=='休場'?d.value+'円':'休場'}</div>
+      <div class="day-c ${d.dir==='up'?'up':d.dir==='down'?'dn':''}">${d.dir==='up'?'▲':d.dir==='down'?'▼':''}${d.change}${d.dir!=='none'?'%':''}</div>
+    </div>
+  `).join("")}</div>`;
+}
+
+function renderFallback(){
+  document.getElementById("heroLoading").innerHTML='<div style="color:rgba(255,255,255,.6);font-size:.83rem;padding:.8rem">⚠️ AIコンテンツの読み込みに失敗しました。ページを再読み込みしてください。</div>';
+  ['marketContent','stocksContent','technicalContent','screeningContent','sectorContent','weekContent'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el)el.innerHTML='<div class="err">コンテンツ読み込みエラー。ページを再読み込みしてください。</div>';
   });
 }
 
-// デフォルトデータ（フォールバック用）
-function getDefaultMarket() {
-  return {
-    nikkei: { value: "59,676", change: "+391", pct: "+0.66", direction: "up" },
-    topix: { value: "3,724", change: "-2.88", pct: "-0.08", direction: "down" },
-    growth250: { value: "777", change: "+10.94", pct: "+1.43", direction: "up" },
-    usdjpy: { value: "155.20", change: "-0.80", direction: "down" },
-    longrate: { value: "2.52", change: "+0.05", direction: "up" },
-    summary: "本日の東京株式市場は日経平均が3日ぶりに反発しました。米国株高の波及に加え、商社株が決算好調を受けて急伸。一方でTOPIXは小幅続落となっており、日経平均との乖離が広がっています。5月は3月期決算企業の発表がピークを迎えるため、個別銘柄の値動きが激しくなる点に注意が必要です。",
-    nextweek: "決算発表がピーク。大型株の業績内容に注目。FOMCの動向も要チェック。",
-    mood: "やや強気"
-  };
-}
+/* デフォルトデータ */
+function defMkt(){return{nikkei:{value:"59,676",change:"+391",pct:"+0.66",dir:"up"},topix:{value:"3,724",change:"-2.88",pct:"-0.08",dir:"down"},growth250:{value:"777",change:"+10.94",pct:"+1.43",dir:"up"},usdjpy:{value:"155.20",dir:"down"},longrate:{value:"2.52",dir:"up"},summary:"本日の東京株式市場は日経平均が3日ぶりに反発しました。米国株高の波及に加え、商社株が決算好調を受けて急伸。5月は3月期決算企業の発表がピークを迎えるため、個別銘柄の値動きが激しくなる点に注意が必要です。",nextweek:"決算発表がピーク。大型株の業績内容に注目。FOMCの動向も要チェック。",mood:"やや強気"};}
+function defStocks(){return[{name:"伊藤忠商事",code:"8001",sector:"卸売業",market:"東証プライム",price:"8,234",change:"+17.12",dir:"up",reason:"3年連続最高益・連続増配が評価。商社株全体に資金流入が続いており中長期的な成長も期待できる。",tags:["増配","好決算","商社"],per:"12.4",yield:"3.2",cap:"11.8兆円",verdict:"buy",verdict_label:"注目買い",featured:true},{name:"東京エレクトロン",code:"8035",sector:"電気機器",market:"東証プライム",price:"24,580",change:"+2.3",dir:"up",reason:"AI向け半導体製造装置の需要が拡大。次世代チップ対応の新製品が好評で受注残が増加中。",tags:["AI","半導体","成長"],per:"28.7",yield:"1.8",cap:"10.9兆円",verdict:"watch",verdict_label:"要注目",featured:false},{name:"松井証券",code:"8628",sector:"証券業",market:"東証プライム",price:"1,450",change:"+1.2",dir:"up",reason:"NISA口座開設数が急増。使いやすさと手数料の安さで若年層からの評価が高い高配当株。",tags:["NISA","高配当","金融"],per:"15.2",yield:"3.8",cap:"2,200億円",verdict:"buy",verdict_label:"高配当注目",featured:false},{name:"川崎重工業",code:"7012",sector:"機械",market:"東証プライム",price:"6,180",change:"+2.1",dir:"up",reason:"防衛・航空宇宙部門の受注が急拡大。水素エネルギー事業にも注目が集まりアナリストが強気評価。",tags:["防衛","水素","機械"],per:"18.7",yield:"1.4",cap:"9,800億円",verdict:"hold",verdict_label:"中長期保有",featured:false}];}
+function defTech(){return{indicators:[{name:"RSI（相対力指数）",icon:"📊",formula:"RS= 直近14日の平均上昇幅÷平均下落幅\nRSI=100-(100÷(1+RS))",signals:[{label:"買いシグナル",type:"buy",desc:"RSIが30%以下→売られすぎ、反発期待"},{label:"売りシグナル",type:"sell",desc:"RSIが70%以上→買われすぎ、調整注意"},{label:"ダイバージェンス",type:"watch",desc:"価格とRSIが逆方向→トレンド転換の前兆"}],tip:"期間は14日が標準。単独より他指標と組み合わせると精度UP"},{name:"MACD（移動平均収束拡散法）",icon:"📈",formula:"MACD=EMA12-EMA26\nシグナル=MACDの9日EMA\nヒストグラム=MACD-シグナル",signals:[{label:"ゴールデンクロス",type:"buy",desc:"MACDがシグナルを下から上抜け→買いサイン"},{label:"デッドクロス",type:"sell",desc:"MACDがシグナルを上から下抜け→売りサイン"},{label:"ヒストグラム拡大",type:"watch",desc:"バーが伸びる方向にモメンタムが強い"}],tip:"トレンド系指標。RSIと組み合わせで精度向上"},{name:"ボリンジャーバンド",icon:"📉",formula:"中央線=20日移動平均\n±1σ=標準偏差1つ分\n±2σ=標準偏差2つ分",signals:[{label:"順張り",type:"buy",desc:"+2σ上抜けバンドウォーク→上昇トレンド継続"},{label:"逆張り",type:"watch",desc:"-2σに接触→反発の可能性（RSIで確認）"},{label:"スクイーズ",type:"watch",desc:"バンドが収縮→大きな値動きの前兆"}],tip:"±2σに価格が収まる確率は約95%"}],combos:[{name:"RSI×MACD",signal:"ゴールデンクロス確認",desc:"MACDのゴールデンクロス＋RSIが50%超→強い買いサイン",strength:"強"},{name:"RSI×ボリンジャー",signal:"底打ち確認",desc:"RSI30%以下＋株価が-2σ以下→底打ちの可能性",strength:"強"},{name:"MACD×ボリンジャー",signal:"トレンド転換",desc:"バンド拡大中にMACDがゴールデンクロス→上昇トレンド発生",strength:"最強"}],current_market:"5月の日経平均は59,000〜61,000円のレンジで推移。RSIは中立圏、MACDは横ばい。決算シーズンで個別株の動きが激しい。"};}
+function defScr(){return[{title:"高配当×割安スクリーニング",icon:"💰",color:"#16a34a",desc:"配当利回りが高く、かつ割安な銘柄を探す基本条件",conditions:["配当利回り3%以上","PER15倍以下","PBR1.5倍以下","自己資本比率40%以上","時価総額500億円以上"],expected:"財務健全・高配当で長期保有向きの銘柄が絞り込める",tool_name:"松井証券スクリーナー",tool_link:"matsui"},{title:"RSI×出来高急増スクリーニング",icon:"📊",color:"#7c3aed",desc:"売られすぎでかつ出来高が急増している反発狙い銘柄を探す",conditions:["RSI30以下","出来高が25日平均の2倍以上","株価が52週安値から20%以内","自己資本比率30%以上"],expected:"短期リバウンド狙いの候補銘柄が見つかる",tool_name:"TOSSYスクリーナー",tool_link:"tossy"},{title:"決算シーズン成長株スクリーニング",icon:"📈",color:"#2563eb",desc:"増収増益が続いており今後も成長が期待できる銘柄を探す",conditions:["売上高成長率10%以上（前期比）","営業利益成長率15%以上","ROE10%以上","PBR3倍以下","自己資本比率40%以上"],expected:"業績成長が続く中長期投資向き銘柄が絞り込める",tool_name:"DMM株スクリーナー",tool_link:"dmm_kabu"},{title:"NISA向き連続増配スクリーニング",icon:"🏆",color:"#d97706",desc:"長期保有・NISA活用に最適な連続増配銘柄を探す",conditions:["連続増配年数5年以上","配当利回り2%以上","配当性向40〜70%","自己資本比率50%以上","時価総額1,000億円以上"],expected:"安定した配当収入が期待できるNISA向き銘柄が見つかる",tool_name:"松井証券スクリーナー",tool_link:"matsui"}];}
+function defSec(){return[{name:"商社",icon:"🏢",trend:"up",trend_label:"↑ 強気",desc:"決算好調・連続増配で資金流入",stocks:"伊藤忠・住友商・三菱商"},{name:"AI・半導体",icon:"🤖",trend:"up",trend_label:"↑ 強気",desc:"AI需要拡大でデータセンター関連が好調",stocks:"東エレク・ファナック・アドバンテスト"},{name:"防衛",icon:"🛡️",trend:"up",trend_label:"↑ 強気",desc:"防衛費増額政策で受注拡大",stocks:"川崎重工・三菱重工・IHI"},{name:"不動産",icon:"🏗️",trend:"down",trend_label:"↓ 弱気",desc:"長期金利上昇が逆風。金利2.5%超が重荷",stocks:"三井不動産・住友不動産・東急不動産"},{name:"食品",icon:"🍱",trend:"up",trend_label:"↑ 強気",desc:"値上げ効果が利益率改善に貢献",stocks:"ヤクルト・明治HD・日本ハム"},{name:"金融・銀行",icon:"🏦",trend:"up",trend_label:"↑ 強気",desc:"金利上昇で利ザヤ改善期待",stocks:"三菱UFJ・三井住友・みずほ"},{name:"自動車",icon:"🚗",trend:"flat",trend_label:"→ 横ばい",desc:"円安効果あるも米国関税リスクが懸念材料",stocks:"トヨタ・ホンダ・マツダ"},{name:"インバウンド",icon:"🌏",trend:"up",trend_label:"↑ 強気",desc:"GWで訪日外国人数が回復。レジャー関連も好調",stocks:"OLC・TOTO・日本航空"}];}
+function defWeek(){return[{date:"4/28",day:"月",value:"59,780",change:"+0.8",dir:"up",isToday:false},{date:"4/29",day:"火",value:"休場",change:"昭和の日",dir:"none",isToday:false},{date:"4/30",day:"水",value:"59,100",change:"-1.1",dir:"down",isToday:false},{date:"5/1",day:"木",value:"59,676",change:"+0.66",dir:"up",isToday:true},{date:"5/2",day:"金",value:"59,513",change:"-0.27",dir:"down",isToday:false}];}
 
-function getDefaultStocks() {
-  return [
-    { name:"伊藤忠商事", code:"8001", sector:"卸売業", market:"東証プライム", price:"8,234", change:"+17.12", direction:"up", reason:"3年連続最高益・連続増配が評価。商社株全体に資金流入が続いており中長期的な成長も期待できる。", tags:["増配","好決算","商社"], per:"12.4", yield:"3.2", cap:"11.8兆円", verdict:"buy", verdict_label:"注目買い", featured:true },
-    { name:"東京エレクトロン", code:"8035", sector:"電気機器", market:"東証プライム", price:"24,580", change:"+2.3", direction:"up", reason:"AI向け半導体製造装置の需要が拡大。次世代チップ対応の新製品が好評で受注残が増加中。", tags:["AI","半導体","成長"], per:"28.7", yield:"1.8", cap:"10.9兆円", verdict:"watch", verdict_label:"要注目", featured:false },
-    { name:"松井証券", code:"8628", sector:"証券業", market:"東証プライム", price:"1,450", change:"+1.2", direction:"up", reason:"NISA口座開設数が急増。ネット証券の中でも使いやすさと手数料の安さで若年層からの評価が高い。", tags:["NISA","高配当","金融"], per:"15.2", yield:"3.8", cap:"2,200億円", verdict:"buy", verdict_label:"高配当注目", featured:false },
-    { name:"川崎重工業", code:"7012", sector:"機械", market:"東証プライム", price:"6,180", change:"+2.1", direction:"up", reason:"防衛・航空宇宙部門の受注が急拡大。水素エネルギー事業にも注目が集まりアナリストが強気評価。", tags:["防衛","水素","機械"], per:"18.7", yield:"1.4", cap:"9,800億円", verdict:"hold", verdict_label:"中長期保有", featured:false }
-  ];
-}
-
-function getDefaultThemes() {
-  return [
-    { icon:"🤖", name:"AI・半導体", desc:"生成AI普及でデータセンター・半導体需要が急拡大。日本企業が強い分野。", stocks:"東京エレクトロン・ファナック・アドバンテスト" },
-    { icon:"🛡️", name:"防衛・安全保障", desc:"防衛費増額政策で防衛関連株に資金流入が継続。", stocks:"川崎重工・三菱重工・IHI" },
-    { icon:"🏢", name:"商社・高配当", desc:"決算好調・連続増配の商社株が注目を集める。", stocks:"伊藤忠・住友商・三菱商" },
-    { icon:"🌏", name:"インバウンド", desc:"訪日外国人数の回復が続き関連銘柄の業績改善が期待。", stocks:"OLC・TOTO・日本航空" },
-    { icon:"💰", name:"NISA・高配当", desc:"新NISAで安定配当株への投資需要が拡大中。", stocks:"第一生命HD・日本郵船・商船三井" }
-  ];
-}
-
-function getDefaultWeek() {
-  return [
-    { date:"4/28", day:"月", value:"59,780", change:"+0.8", direction:"up", isToday:false },
-    { date:"4/29", day:"火", value:"休場", change:"昭和の日", direction:"none", isToday:false },
-    { date:"4/30", day:"水", value:"59,100", change:"-1.1", direction:"down", isToday:false },
-    { date:"5/1", day:"木", value:"59,676", change:"+0.66", direction:"up", isToday:true },
-    { date:"5/2", day:"金", value:"59,513", change:"-0.27", direction:"down", isToday:false }
-  ];
-}
-
-// 起動
-window.addEventListener("DOMContentLoaded", init);
+window.addEventListener("DOMContentLoaded",init);
 </script>
 </body>
 </html>
