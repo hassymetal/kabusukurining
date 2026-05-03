@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="株式テクニカル分析の完全ガイド。RSI・MACD・ボリンジャーバンド・移動平均線・ストキャスティクス・一目均衡表・RCI・出来高を実践的に解説。組み合わせ手法で利益を上げる方法を伝授。">
+<meta name="keywords" content="テクニカル分析,RSI,MACD,ボリンジャーバンド,移動平均線,ストキャスティクス,一目均衡表,RCI,出来高,株式投資,買いシグナル">
+<title>テクニカル分析 完全ガイド｜RSI・MACD・ボリンジャーバンドから一目均衡表まで実践解説</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#2563eb;--blue-dark:#1d4ed8;--blue-pale:#eff6ff;--blue-border:#bfdbfe;
+  --green:#16a34a;--green-pale:#f0fdf4;--green-border:#bbf7d0;
+  --red:#dc2626;--red-pale:#fef2f2;--red-border:#fecaca;
+  --amber:#d97706;--amber-pale:#fffbeb;
+  --purple:#7c3aed;--purple-pale:#f5f3ff;
+  --teal:#0d9488;--teal-pale:#f0fdfa;
+  --orange:#ea580c;--orange-pale:#fff7ed;
+  --text:#0f172a;--text-mid:#475569;--text-muted:#94a3b8;
+  --bg:#f8faff;--white:#fff;--border:#e2e8f0;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+
+/* HEADER */
+header{background:var(--white);border-bottom:2px solid var(--blue);padding:0 1.5rem;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(37,99,235,.1)}
+.header-inner{max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:58px}
+.logo{font-size:1rem;font-weight:900;color:var(--blue);text-decoration:none}
+.header-nav{display:flex;gap:.6rem;overflow-x:auto}
+.header-nav a{font-size:.78rem;color:var(--text-mid);text-decoration:none;padding:5px 9px;border-radius:6px;white-space:nowrap}
+.header-nav a:hover,.header-nav a.active{color:var(--blue);background:var(--blue-pale);font-weight:700}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#1e1b4b 0%,#3730a3 50%,#7c3aed 100%);color:#fff;padding:3rem 1.5rem}
+.hero-inner{max-width:1040px;margin:0 auto}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:.75rem;padding:4px 14px;border-radius:20px;margin-bottom:1rem;font-weight:700}
+.hero h1{font-size:clamp(1.4rem,3vw,2rem);font-weight:900;line-height:1.4;margin-bottom:.8rem}
+.hero h1 em{font-style:normal;color:#c4b5fd}
+.hero-lead{font-size:.9rem;color:rgba(255,255,255,.82);line-height:1.75;margin-bottom:1.5rem;max-width:680px}
+.hero-stats{display:flex;gap:2rem;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat-num{font-size:1.5rem;font-weight:900;color:#c4b5fd}
+.hero-stat-label{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:2px}
+
+/* 目次 */
+.toc{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.4rem;margin-bottom:1.5rem}
+.toc-title{font-size:.92rem;font-weight:700;margin-bottom:.8rem;color:var(--text);display:flex;align-items:center;gap:8px}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:6px}
+.toc-item{font-size:.8rem;padding:6px 10px;border-radius:6px;background:var(--bg);border:1px solid var(--border);text-decoration:none;color:var(--text-mid);display:flex;align-items:center;gap:6px;transition:all .15s}
+.toc-item:hover{background:var(--blue-pale);border-color:var(--blue-border);color:var(--blue)}
+
+/* MAIN */
+.main{max-width:1040px;margin:0 auto;padding:1.8rem 1.5rem}
+
+/* 指標カード */
+.indicator-section{background:var(--white);border:1px solid var(--border);border-radius:16px;margin-bottom:2rem;overflow:hidden}
+.indicator-header{padding:1.4rem 1.6rem;display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--border)}
+.indicator-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.indicator-title{font-size:1.15rem;font-weight:900;color:var(--text)}
+.indicator-subtitle{font-size:.8rem;color:var(--text-muted);margin-top:2px}
+.indicator-badge{margin-left:auto;font-size:.72rem;padding:4px 12px;border-radius:20px;font-weight:700;white-space:nowrap}
+.badge-beginner{background:#dcfce7;color:#15803d}
+.badge-mid{background:#fef3c7;color:#92400e}
+.badge-advanced{background:#fee2e2;color:#b91c1c}
+
+.indicator-body{padding:1.6rem}
+
+/* 概要 */
+.overview-box{background:var(--bg);border-radius:10px;padding:1.1rem 1.3rem;margin-bottom:1.2rem;border-left:4px solid var(--blue)}
+.overview-text{font-size:.87rem;color:var(--text-mid);line-height:1.8}
+
+/* 計算式 */
+.formula-box{background:#0f172a;border-radius:10px;padding:1.1rem 1.3rem;margin-bottom:1.2rem}
+.formula-title{font-size:.72rem;color:#64748b;margin-bottom:.5rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.formula-code{font-family:'DM Mono',monospace;font-size:.82rem;color:#a5f3fc;line-height:1.8}
+
+/* 2カラム */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.2rem}
+@media(max-width:600px){.two-col{grid-template-columns:1fr}}
+
+/* シグナルリスト */
+.signal-list{list-style:none;padding:0}
+.signal-list li{padding:8px 0 8px 1.3rem;border-bottom:1px dashed var(--border);font-size:.83rem;color:var(--text-mid);position:relative;line-height:1.6}
+.signal-list li:last-child{border-bottom:none}
+.signal-buy{color:var(--red);font-weight:700}
+.signal-sell{color:var(--blue);font-weight:700}
+.signal-watch{color:var(--amber);font-weight:700}
+.signal-list li::before{position:absolute;left:0;top:10px;font-size:.75rem}
+.buy-item::before{content:'▲';color:var(--red)}
+.sell-item::before{content:'▼';color:var(--blue)}
+.watch-item::before{content:'◆';color:var(--amber)}
+
+/* 実践コツ */
+.tips-box{border-radius:10px;padding:1rem 1.2rem;margin-bottom:1.2rem}
+.tips-title{font-size:.8rem;font-weight:700;margin-bottom:.5rem;display:flex;align-items:center;gap:6px}
+.tips-text{font-size:.82rem;line-height:1.75}
+
+/* チャートイメージ（SVG） */
+.chart-demo{background:var(--bg);border-radius:10px;padding:1rem;margin-bottom:1.2rem;border:1px solid var(--border);overflow:hidden}
+.chart-demo-title{font-size:.75rem;color:var(--text-muted);margin-bottom:.5rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+
+/* 組み合わせテーブル */
+.combo-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.combo-table th{background:var(--purple);color:#fff;padding:.65rem .9rem;text-align:left;font-weight:700;font-size:.76rem}
+.combo-table td{padding:.65rem .9rem;border-bottom:1px solid var(--border);color:var(--text-mid);vertical-align:top}
+.combo-table tr:hover td{background:var(--purple-pale)}
+.combo-strong{font-weight:700;color:var(--green)}
+.combo-max{font-weight:700;color:var(--red)}
+
+/* 実践例カード */
+.practice-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:1.2rem}
+.practice-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:1.1rem}
+.practice-title{font-size:.88rem;font-weight:700;margin-bottom:.4rem;display:flex;align-items:center;gap:6px}
+.practice-text{font-size:.81rem;color:var(--text-mid);line-height:1.7}
+.practice-steps{list-style:none;margin-top:.6rem}
+.practice-steps li{font-size:.79rem;color:var(--text-mid);padding:3px 0 3px 1.2rem;position:relative}
+.practice-steps li::before{content:counter(step);counter-increment:step;position:absolute;left:0;background:var(--blue);color:#fff;border-radius:50%;width:16px;height:16px;font-size:.65rem;display:flex;align-items:center;justify-content:center;top:5px;line-height:1}
+.practice-steps{counter-reset:step}
+
+/* 注意事項 */
+.caution-box{background:var(--amber-pale);border:1px solid #fde68a;border-radius:8px;padding:.8rem 1rem;margin-bottom:1rem;font-size:.8rem;color:#92400e;line-height:1.65}
+
+/* 証券口座CTA */
+.broker-cta{background:linear-gradient(135deg,#1e40af,#2563eb);border-radius:12px;padding:1.5rem;text-align:center;color:#fff;margin-top:1.5rem}
+.broker-cta h3{font-size:1rem;font-weight:700;margin-bottom:.4rem}
+.broker-cta p{font-size:.83rem;color:rgba(255,255,255,.82);margin-bottom:1rem}
+.broker-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.broker-btn{background:#fff;color:var(--blue-dark);padding:8px 18px;border-radius:8px;font-size:.82rem;font-weight:700;text-decoration:none;display:inline-block}
+
+/* フッター */
+footer{background:#0f172a;color:#64748b;padding:2rem 1.5rem;text-align:center;font-size:.77rem;line-height:1.8;margin-top:2rem}
+.f-links{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;margin-bottom:.8rem}
+.f-links a{color:#64748b;text-decoration:none}.f-links a:hover{color:#93c5fd}
+
+@media(max-width:600px){.header-nav{display:none}.hero{padding:2rem 1rem}.main{padding:1.2rem 1rem}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">📈 株式投資ナビ</a>
+    <nav class="header-nav">
+      <a href="index.html">📊 今日の市況</a>
+      <a href="technical.html" class="active">📉 テクニカル分析</a>
+      <a href="screening.html">🔍 スクリーニング</a>
+      <a href="index.html#broker">🏦 口座比較</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">📉 テクニカル分析 完全ガイド</div>
+    <h1>テクニカル分析で<em>利益を上げる</em>ための<br>完全実践ガイド</h1>
+    <p class="hero-lead">RSI・MACD・ボリンジャーバンド・移動平均線・ストキャスティクス・一目均衡表・RCI・出来高分析を実践的に解説。各指標の組み合わせで精度を高め、勝率を上げるテクニックを伝授します。</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num">8</div><div class="hero-stat-label">主要指標を完全解説</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">12+</div><div class="hero-stat-label">組み合わせ手法</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">実践</div><div class="hero-stat-label">具体的な使い方</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="main">
+
+  <!-- 目次 -->
+  <div class="toc">
+    <div class="toc-title">📋 目次 — 見たい指標に直接ジャンプ</div>
+    <div class="toc-grid">
+      <a href="#rsi" class="toc-item">📊 RSI（相対力指数）</a>
+      <a href="#macd" class="toc-item">📈 MACD</a>
+      <a href="#bollinger" class="toc-item">📉 ボリンジャーバンド</a>
+      <a href="#ma" class="toc-item">📏 移動平均線</a>
+      <a href="#stochastics" class="toc-item">🌀 ストキャスティクス</a>
+      <a href="#ichimoku" class="toc-item">☁️ 一目均衡表</a>
+      <a href="#rci" class="toc-item">🔄 RCI</a>
+      <a href="#volume" class="toc-item">📦 出来高分析</a>
+      <a href="#combo" class="toc-item">🔗 組み合わせ実践</a>
+    </div>
+  </div>
+
+  <!-- ① RSI -->
+  <div class="indicator-section" id="rsi">
+    <div class="indicator-header">
+      <div class="indicator-icon" style="background:#fef2f2">📊</div>
+      <div>
+        <div class="indicator-title">RSI（相対力指数）</div>
+        <div class="indicator-subtitle">Relative Strength Index｜最も使われるオシレーター指標</div>
+      </div>
+      <span class="indicator-badge badge-beginner">初心者向け</span>
+    </div>
+    <div class="indicator-body">
+      <div class="overview-box">
+        <div class="overview-text">RSIは「相場の過熱感」を0〜100の数値で表す指標です。J・W・ワイルダーが1978年に考案。一定期間の「上昇幅の合計÷（上昇幅＋下落幅の合計）×100」で計算します。<strong>30以下が売られすぎ（買いチャンス）、70以上が買われすぎ（売りチャンス）</strong>が基本ですが、それだけでは不十分です。トレンド相場では70超でも上昇が続く「だまし」が多発するため、他の指標との組み合わせが必須です。</div>
+      </div>
+
+      <div class="formula-box">
+        <div class="formula-title">計算式</div>
+        <div class="formula-code">RS = 直近n日の平均上昇幅 ÷ 直近n日の平均下落幅
+RSI = 100 − (100 ÷ (1 + RS))
+
+標準期間：14日
+売られすぎ：30%以下 → 買いシグナル
+買われすぎ：70%以上 → 売りシグナル
+中立ゾーン：40〜60%</div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <div style="font-size:.85rem;font-weight:700;margin-bottom:.6rem;color:var(--text)">📈 買いシグナル</div>
+          <ul class="signal-list">
+            <li class="buy-item"><span class="signal-buy">【基本】</span> RSIが30%以下 → 売られすぎ・反発期待</li>
+            <li class="buy-item"><span class="signal-buy">【強力】</span> RSIが30%割れ後に30%を上回った瞬間</li>
+            <li class="buy-item"><span class="signal-buy">【上昇トレンド】</span> RSIが50%付近まで下落後に反発</li>
+            <li class="buy-item"><span class="signal-buy">【ダイバージェンス】</span> 株価が安値更新もRSIが前回安値を上回る</li>
+            <li class="buy-item"><span class="signal-buy">【2本RSI】</span> 短期RSI（9日）が長期RSI（14日）を下から上抜け</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:.85rem;font-weight:700;margin-bottom:.6rem;color:var(--text)">📉 売りシグナル・注意点</div>
+          <ul class="signal-list">
+            <li class="sell-item"><span class="signal-sell">【基本】</span> RSIが70%以上 → 買われすぎ・調整注意</li>
+            <li class="sell-item"><span class="signal-sell">【強力】</span> RSIが70%超から70%を下回った瞬間</li>
+            <li class="sell-item"><span class="signal-sell">【ダイバージェンス】</span> 株価が高値更新もRSIが前回高値を下回る</li>
+            <li class="watch-item"><span class="signal-watch">【注意】</span> 強いトレンド時は80〜90%継続も。トレンドフォローが優先</li>
+            <li class="watch-item"><span class="signal-watch">【だまし対策】</span> MACDやボリンジャーと組み合わせて確認必須</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tips-box" style="background:#fef2f2;border:1px solid var(--red-border)">
+        <div class="tips-title" style="color:var(--red)">🔥 実践テクニック：RSIを使った押し目買い</div>
+        <div class="tips-text" style="color:#7f1d1d">上昇トレンド中はRSIが50〜70%のレンジで動く。RSIが50%付近まで下落したタイミングが最高の押し目買いポイント。RSI30%割れを待つ必要はない。「上昇トレンド＋RSI50%付近の反発」＋「MACDゴールデンクロス」の3条件が重なった時が最強の買いエントリーポイント。</div>
+      </div>
+
+      <div class="caution-box">⚠️ <strong>よくある失敗：</strong>「RSI30%以下だから買い」だけで判断するのは危険。下降トレンド中はRSI30%以下でも更に下落することがある。必ずトレンド方向を確認してから使うこと。</div>
+    </div>
+  </div>
+
+  <!-- ② MACD -->
+  <div class="indicator-section" id="macd">
+    <div class="indicator-header">
+      <div class="indicator-icon" style="background:#eff6ff">📈</div>
+      <div>
+        <div class="indicator-title">MACD（移動平均収束拡散法）</div>
+        <div class="indicator-subtitle">Moving Average Convergence/Divergence｜トレンド転換を捉える</div>
+      </div>
+      <span class="indicator-badge badge-beginner">初心者向け</span>
+    </div>
+    <div class="indicator-body">
+      <div class="overview-box">
+        <div class="overview-text">MACDは「2本の指数移動平均線の差」を使ってトレンドの方向と強さを捉える指標です。<strong>MACDラインとシグナルラインのクロスが売買サイン</strong>。ゼロラインに対する位置も重要で、ゼロラインをMACDが上抜けると強気相場への転換を意味します。ヒストグラムが縮小→拡大するタイミングがエントリーの好機です。</div>
+      </div>
+
+      <div class="formula-box">
+        <div class="formula-title">計算式</div>
+        <div class="formula-code">MACD     = EMA(12) − EMA(26)     ← 短期MAと長期MAの差
+シグナル  = MACDの9日EMA          ← MACDを平滑化したもの
+ヒストグラム = MACD − シグナル   ← 2線の差（棒グラフ表示）
+
+標準設定：12・26・9（変更も可）
+強い買い：ゼロライン下でのGC → ゼロラインを上抜け
+強い売り：ゼロライン上でのDC → ゼロラインを下抜け</div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <div style="font-size:.85rem;font-weight:700;margin-bottom:.6rem;color:var(--text)">📈 買いシグナル（精度順）</div>
+          <ul class="signal-list">
+            <li class="buy-item"><span class="signal-buy">【最強】</span> ゼロライン下でGC → ゼロライン上抜け</li>
+            <li class="buy-item"><span class="signal-buy">【強い】</span> マイナス圏低位でのゴールデンクロス</li>
+            <li class="buy-item"><span class="signal-buy">【標準】</span> MACDがシグナルを下から上抜け（GC）</li>
+            <li class="buy-item"><span class="signal-buy">【先行】</span> ヒストグラムがマイナス圏で縮小→拡大転換</li>
+            <li class="buy-item"><span class="signal-buy">【確認】</span> MACDとシグナルが共に上向き</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:.85rem;font-weight:700;margin-bottom:.6rem;color:var(--text)">📉 売り・注意シグナル</div>
+          <ul class="signal-list">
+            <li class="sell-item"><span class="signal-sell">【最強】</span> ゼロライン上でDC → ゼロライン下抜け</li>
+            <li class="sell-item"><span class="signal-sell">【強い】</span> プラス圏高位でのデッドクロス</li>
+            <li class="sell-item"><span class="signal-sell">【標準】</span> MACDがシグナルを上から下抜け（DC）</li>
+            <li class="watch-item"><span class="signal-watch">【注意】</span> 保ち合い相場ではGC・DCを繰り返す（だまし多発）</li>
+            <li class="watch-item"><span class="signal-watch">【遅れ】</span> 急騰・急落には反応が遅いため注意</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tips-box" style="background:var(--blue-pale);border:1px solid var(--blue-border)">
+        <div class="tips-title" style="color:var(--blue-dark)">💡 実践テクニック：ヒストグラムで先行シグナルを掴む</div>
+        <div class="tips-text" style="color:#1e3a8a">MACDのクロスより「ヒストグラムの縮小→拡大」の方が1〜2足早くシグナルが出る。ヒストグラムがマイナス圏で縮小し始めたら上昇転換の予兆。この段階でRSIが30%以下なら最高の仕込みタイミング。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ③ ボリンジャーバンド -->
+  <div class="indicator-section" id="bollinger">
+    <div class="indicator-header">
+      <div class="indicator-icon" style="background:#f0fdf4">📉</div>
+      <div>
+        <div class="indicator-title">ボリンジャーバンド</div>
+        <div class="indicator-subtitle">Bollinger Bands｜値動きの幅と過熱感を視覚化</div>
+      </div>
+      <span class="indicator-badge badge-beginner">初心者向け</span>
+    </div>
+    <div class="indicator-body">
+      <div class="overview-box">
+        <div class="overview-text">ボリンジャーバンドは移動平均線を中心に、上下に標準偏差の幅のバンドを描く指標です。<strong>株価は±2σの範囲内に約95%の確率で収まる</strong>という統計的性質を利用します。バンドの幅（スクイーズ）と拡大が重要なシグナルになります。順張り・逆張りどちらにも使える汎用性の高い指標です。</div>
+      </div>
+
+      <div class="formula-box">
+        <div class="formula-title">計算式</div>
+        <div class="formula-code">中央線（ミドルバンド） = 20日単純移動平均（SMA）
+上部バンド（+1σ） = 中央線 + 標準偏差×1  →確率68%
+上部バンド（+2σ） = 中央線 + 標準偏差×2  →確率95%
+下部バンド（−1σ） = 中央線 − 標準偏差×1
+下部バンド（−2σ） = 中央線 − 標準偏差×2
+
+スクイーズ：バンド幅が収縮 → 大きな値動きの予兆
+エクスパンション：バンド幅が拡大 → トレンド発生中</div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <div style="font-size:.85rem;font-weight:700;margin-bottom:.6rem;color:var(--text)">🔄 逆張り手法（レンジ相場向き）</div>
+          <ul class="signal-list">
+            <li class="buy-item"><span class="signal-buy">【買い】</span> 株価が−2σに接触・バンド内に戻る → 反発買い</li>
+            <li class="buy-item"><span class="signal-buy">【買い強】</span> −2σ以下＋RSI30%以下の同時発生</li>
+            <li class="sell-item"><span class="signal-sell">【売り】</span> 株価が+2σに接触・バンド内に戻る → 利確・空売り</li>
+            <li class="watch-item"><span class="signal-watch">【注意】</span> トレンド相場では逆張りは危険。必ず環境確認を</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:.85rem;font-weight:700;margin-bottom:.6rem;color:var(--text)">🚀 順張り手法（トレンド相場向き）</div>
+          <ul class="signal-list">
+            <li class="buy-item"><span class="signal-buy">【バンドウォーク】</span> +2σをブレイク後もバンドに沿って上昇継続</li>
+            <li class="buy-item"><span class="signal-buy">【スクイーズ後】</span> バンド収縮後に+2σ上抜け → 上昇トレンド開始</li>
+            <li class="sell-item"><span class="signal-sell">【下落ウォーク】</span> −2σ以下でバンドに沿って下落継続</li>
+            <li class="watch-item"><span class="signal-watch">【スクイーズ】</span> バンド収縮中は方向不明。ブレイク方向に注目</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tips-box" style="background:#f0fdf4;border:1px solid var(--green-border)">
+        <div class="tips-title" style="color:var(--green)">🔥 実践テクニック：スクイーズを使った飛躍前の仕込み</div>
+        <div class="tips-text" style="color:#14532d">バンド幅が極端に狭くなった（スクイーズ）後に、どちらかにブレイクする。ブレイクした方向にトレンドが発生する確率が高い。スクイーズ中に仕込み、ブレイク方向に乗るのが最も勝率が高い手法の一つ。出来高の急増を伴うブレイクは特に信頼性が高い。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ④ 移動平均線 -->
+  <div class="indicator-section" id="ma">
+    <div class="indicator-header">
+      <div class="indicator-icon" style="background:var(--amber-pale)">📏</div>
+      <div>
+        <div class="indicator-title">移動平均線（MA）</div>
+        <div class="indicator-subtitle">Moving Average｜トレンドの方向を掴む最基本指標</div>
+      </div>
+      <span class="indicator-badge badge-beginner">初心者向け</span>
+    </div>
+    <div class="indicator-body">
+      <div class="overview-box">
+        <div class="overview-text">移動平均線は一定期間の株価平均を結んだ曲線で、トレンドの方向・強さ・転換点を見る最も基本的な指標です。<strong>5日・25日・75日・200日の4本が実践でよく使われます</strong>。複数の移動平均線の並び順（パーフェクトオーダー）と交差（ゴールデンクロス・デッドクロス）が主要シグナルです。</div>
+      </div>
+
+      <div class="formula-box">
+        <div class="formula-title">主要期間と意味</div>
+        <div class="formula-code">SMA5   = 直近5日の終値平均   → 超短期・デイトレ向き
+SMA25  = 直近25日の終値平均  → 短期・スイング向き
+SMA75  = 直近75日の終値平均  → 中期・波動の軸
+SMA200 = 直近200日の終値平均 → 長期・大局のトレンド
+
+EMA（指数移動平均）= 直近を重視した平滑化版（反応が速い）
+パーフェクトオーダー上昇：5日 > 25日 > 75日 → 強い上昇相場</div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <div style="font-size:.85rem;font-weight:700;margin-bottom:.6rem;color:var(--text)">📈 強気サイン</div>
+          <ul class="signal-list">
+            <li class="buy-item"><span class="signal-buy">【GC】</span> 短期MAが長期MAを下から上抜け（ゴールデンクロス）</li>
+            <li class="buy-item"><span class="signal-buy">【PO】</span> 5日>25日>75日のパーフェクトオーダー達成</li>
+            <li class="buy-item"><span class="signal-buy">【反発】</span> 25日MAがサポートとなり株価が反発</li>
+            <li class="buy-item"><span class="signal-buy">【上向き】</span> 全MAが右肩上がりで株価がMA上方</li>
+            <li class="buy-item"><span class="signal-buy">【200日】</span> 株価が200日MA上を推移 → 長期上昇トレンド確認</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:.85rem;font-weight:700;margin-bottom:.6rem;color:var(--text)">📉 弱気・注意サイン</div>
+          <ul class="signal-list">
+            <li class="sell-item"><span class="signal-sell">【DC】</span> 短期MAが長期MAを上から下抜け（デッドクロス）</li>
+            <li class="sell-item"><span class="signal-sell">【逆PO】</span> 5日＜25日＜75日の逆パーフェクトオーダー</li>
+            <li class="sell-item"><span class="signal-sell">【抵抗】</span> 25日MAが上値抵抗として機能し上抜けられない</li>
+            <li class="watch-item"><span class="signal-watch">【だまし】</span> 小幅なGC・DCはだましが多い。乖離率も確認を</li>
+            <li class="watch-item"><span class="signal-watch">【乖離】</span> 乖離率が±10%超は平均回帰に注意</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tips-box" style="background:var(--amber-pale);border:1px solid #fde68a">
+        <div class="tips-title" style="color:var(--amber)">💡 実践テクニック：パーフェクトオーダーへの移行で大きく取る</div>
+        <div class="tips-text" style="color:#78350f">「逆パーフェクトオーダー → ゴールデンクロス → パーフェクトオーダー」の移行局面が最大の買いチャンス。特に75日MAと200日MAの上向き転換を確認した後にパーフェクトオーダーが完成した銘柄は大きなトレンドが発生しやすい。決算発表前にこの形になっている銘柄は特に注目。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑤ ストキャスティクス -->
+  <div class="indicator-section" id="stochastics">
+    <div class="indicator-header">
+      <div class="indicator-icon" style="background:var(--purple-pale)">🌀</div>
+      <div>
+        <div class="indicator-title">ストキャスティクス</div>
+        <div class="indicator-subtitle">Stochastics｜高値・安値の位置から過熱感を測る</div>
+      </div>
+      <span class="indicator-badge badge-mid">中級者向け</span>
+    </div>
+    <div class="indicator-body">
+      <div class="overview-box">
+        <div class="overview-text">ストキャスティクスは「一定期間の高値・安値の範囲の中で現在の株価がどの位置にいるか」を0〜100%で表します。RSIと似ていますが、<strong>高値・安値を使うため短期の値動きに敏感</strong>で、特に短期トレードで威力を発揮します。%KラインとSlowDラインの交差がシグナルです。</div>
+      </div>
+
+      <div class="formula-box">
+        <div class="formula-title">計算式（スロー・ストキャスティクス）</div>
+        <div class="formula-code">%K  = (現在値 − 過去n日最安値) ÷ (過去n日最高値 − 最安値) × 100
+%D  = %Kの3日単純移動平均（SMA）
+Slow%D = %Dの3日単純移動平均
+
+売られすぎ：20%以下（RSIの30%相当）
+買われすぎ：80%以上（RSIの70%相当）
+最強シグナル：20%以下でSlowDが%Kを上抜け</div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <div style="font-size:.85rem;font-weight:700;margin-bottom:.6rem;color:var(--text)">📈 買いシグナル</div>
+          <ul class="signal-list">
+            <li class="buy-item"><span class="signal-buy">【最強】</span> 20%以下で%KがSlowDを上抜け（GC）</li>
+            <li class="buy-item"><span class="signal-buy">【強い】</span> 20%以下から両線が上向き転換</li>
+            <li class="buy-item"><span class="signal-buy">【ダイバージェンス】</span> 安値更新でも%Kが前回安値を上回る</li>
+            <li class="buy-item"><span class="signal-buy">【押し目】</span> 上昇トレンドで50%付近まで下落後の反発</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:.85rem;font-weight:700;margin-bottom:.6rem;color:var(--text)">📉 売りシグナル・注意</div>
+          <ul class="signal-list">
+            <li class="sell-item"><span class="signal-sell">【最強】</span> 80%以上で%KがSlowDを下抜け（DC）</li>
+            <li class="sell-item"><span class="signal-sell">【強い】</span> 80%以上から両線が下向き転換</li>
+            <li class="watch-item"><span class="signal-watch">【だまし】</span> トレンド相場では80%超が継続することも</li>
+            <li class="watch-item"><span class="signal-watch">【RSI比較】</span> RSIとストキャスが同時に売られすぎなら確度UP</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tips-box" style="background:var(--purple-pale);border:1px solid #ddd6fe">
+        <div class="tips-title" style="color:var(--purple)">💡 実践テクニック：RSIとのダブル確認で精度を大幅アップ</div>
+        <div class="tips-text" style="color:#4c1d95">「ストキャスティクスが20%以下でGC」＋「RSIが30%以下」の両方が同時に発生した銘柄は、底打ちのシグナルとして非常に信頼性が高い。さらにMACDがゴールデンクロスを形成すれば三重確認となり、勝率がさらに向上する。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑥ 一目均衡表 -->
+  <div class="indicator-section" id="ichimoku">
+    <div class="indicator-header">
+      <div class="indicator-icon" style="background:#f0fdfa">☁️</div>
+      <div>
+        <div class="indicator-title">一目均衡表</div>
+        <div class="indicator-subtitle">Ichimoku Cloud｜日本生まれの総合トレンド指標</div>
+      </div>
+      <span class="indicator-badge badge-advanced">上級者向け</span>
+    </div>
+    <div class="indicator-body">
+      <div class="overview-box">
+        <div class="overview-text">一目均衡表は戦前の日本人アナリスト「一目山人」が考案した指標で、現在では世界中のプロトレーダーが使用します。<strong>5本の線と「雲（くも）」で構成され、トレンド・サポート・レジスタンス・転換点を一目で把握</strong>できるのが特徴。習得難度は高いですが、使いこなせると強力な武器になります。</div>
+      </div>
+
+      <div class="formula-box">
+        <div class="formula-title">5本の線の計算式</div>
+        <div class="formula-code">転換線 = (9日高値 + 9日安値) ÷ 2       → 短期トレンド
+基準線 = (26日高値 + 26日安値) ÷ 2      → 中期トレンド（重要）
+先行スパン1 = (転換線 + 基準線) ÷ 2      → 26日先に描画
+先行スパン2 = (52日高値 + 52日安値) ÷ 2  → 26日先に描画
+遅行スパン = 当日の終値を26日前に描画
+
+雲（くも） = 先行スパン1と先行スパン2の間のエリア</div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <div style="font-size:.85rem;font-weight:700;margin-bottom:.6rem;color:var(--text)">📈 強気サイン</div>
+          <ul class="signal-list">
+            <li class="buy-item"><span class="signal-buy">【最強】</span> 株価・転換線・基準線・遅行スパンが全て雲の上</li>
+            <li class="buy-item"><span class="signal-buy">【三役好転】</span> ①株価が雲上 ②転換線が基準線を上抜け ③遅行スパンが株価上</li>
+            <li class="buy-item"><span class="signal-buy">【雲抜け】</span> 株価が雲を上抜けた瞬間</li>
+            <li class="buy-item"><span class="signal-buy">【雲が薄い】</span> 雲が薄い（ねじれ）部分は株価が抜けやすい</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:.85rem;font-weight:700;margin-bottom:.6rem;color:var(--text)">📉 弱気サイン</div>
+          <ul class="signal-list">
+            <li class="sell-item"><span class="signal-sell">【三役逆転】</span> ①株価が雲下 ②転換線が基準線を下抜け ③遅行スパンが株価下</li>
+            <li class="sell-item"><span class="signal-sell">【雲割れ】</span> 株価が雲を下抜けた瞬間</li>
+            <li class="sell-item"><span class="signal-sell">【雲の中】</span> 株価が雲の中にある → トレンドなし・売買見送り</li>
+            <li class="watch-item"><span class="signal-watch">【注意】</span> 雲が厚いところは強い抵抗帯・サポート帯</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tips-box" style="background:#f0fdfa;border:1px solid #99f6e4">
+        <div class="tips-title" style="color:var(--teal)">💡 実践テクニック：三役好転は最強の買いサイン</div>
+        <div class="tips-text" style="color:#134e4a">「三役好転」（株価が雲上・転換線が基準線上抜け・遅行スパンが株価上）が揃った銘柄は、大きな上昇トレンドに乗れる可能性が高い。さらにMACDのゴールデンクロスを同時確認できれば、信頼性は最高水準。長期的な上昇トレンドを掴む手法として有効。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑦ RCI -->
+  <div class="indicator-section" id="rci">
+    <div class="indicator-header">
+      <div class="indicator-icon" style="background:var(--orange-pale)">🔄</div>
+      <div>
+        <div class="indicator-title">RCI（順位相関指数）</div>
+        <div class="indicator-subtitle">Rank Correlation Index｜時間と価格の相関を見る</div>
+      </div>
+      <span class="indicator-badge badge-mid">中級者向け</span>
+    </div>
+    <div class="indicator-body">
+      <div class="overview-box">
+        <div class="overview-text">RCIは「時間の経過」と「価格の順位」の相関係数で、−100%〜+100%の値を取ります。<strong>+80%以上が買われすぎ、−80%以下が売られすぎ</strong>の目安です。短期（9日）・中期（26日）・長期（52日）の3本を使うのが実践的で、日本独自のオシレーター指標として人気があります。</div>
+      </div>
+
+      <div class="formula-box">
+        <div class="formula-title">計算式の考え方</div>
+        <div class="formula-code">時間順位：最新が1位、古いものが最下位
+価格順位：高値を1位、低値を最下位
+D = 各日の（時間順位 − 価格順位）²の合計
+RCI = (1 − 6D/(n(n²−1))) × 100
+
++100%：期間中一直線で上昇（上昇トレンド最強）
+−100%：期間中一直線で下落（下落トレンド最強）
+短期9日・中期26日・長期52日の3本を使用</div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <div style="font-size:.85rem;font-weight:700;margin-bottom:.6rem;color:var(--text)">📈 買いシグナル</div>
+          <ul class="signal-list">
+            <li class="buy-item"><span class="signal-buy">【逆張り】</span> 短期RCIが−80%以下から上向き転換</li>
+            <li class="buy-item"><span class="signal-buy">【強い】</span> 短期・中期・長期の3本が全て−80%以下</li>
+            <li class="buy-item"><span class="signal-buy">【順張り】</span> 長期RCIが+80%超で短期RCIが−80%から反発</li>
+            <li class="buy-item"><span class="signal-buy">【交差】</span> 短期RCIが中期RCIを下から上抜け</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:.85rem;font-weight:700;margin-bottom:.6rem;color:var(--text)">📉 売りシグナル</div>
+          <ul class="signal-list">
+            <li class="sell-item"><span class="signal-sell">【逆張り】</span> 短期RCIが+80%以上から下向き転換</li>
+            <li class="sell-item"><span class="signal-sell">【強い】</span> 短期・中期・長期の3本が全て+80%以上</li>
+            <li class="sell-item"><span class="signal-sell">【順張り】</span> 長期RCIが−80%超で短期RCIが+80%から反落</li>
+            <li class="watch-item"><span class="signal-watch">【注意】</span> RSI・ストキャスとの組み合わせで精度UP</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tips-box" style="background:var(--orange-pale);border:1px solid #fed7aa">
+        <div class="tips-title" style="color:var(--orange)">💡 実践テクニック：3本RCIのトリプルシグナル</div>
+        <div class="tips-text" style="color:#7c2d12">短期・中期・長期RCIの3本が全て−80%以下になる「トリプルシグナル」は底打ちの強力なサイン。このタイミングでRSIも30%以下であれば、買いエントリーの確度が大幅に高まる。3本のRCIが同時に+80%以上に達した場合は利益確定の目安にもなる。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑧ 出来高分析 -->
+  <div class="indicator-section" id="volume">
+    <div class="indicator-header">
+      <div class="indicator-icon" style="background:#fdf4ff">📦</div>
+      <div>
+        <div class="indicator-title">出来高分析</div>
+        <div class="indicator-subtitle">Volume Analysis｜価格変動の信頼性を確認する</div>
+      </div>
+      <span class="indicator-badge badge-mid">中級者向け</span>
+    </div>
+    <div class="indicator-body">
+      <div class="overview-box">
+        <div class="overview-text">出来高は「取引された株数」で、価格変動の信頼性を確認する重要な指標です。<strong>「出来高を伴う価格変動は信頼性が高く、伴わないものは弱い」</strong>というのが基本原則です。出来高急増は大口投資家の参入を示す場合が多く、株価転換の重要なシグナルになります。</div>
+      </div>
+
+      <div class="formula-box">
+        <div class="formula-title">主要な出来高指標</div>
+        <div class="formula-code">出来高移動平均（25日）：平均的な売買水準を把握
+出来高比率：当日出来高 ÷ 25日平均出来高
+  2倍以上 → 大口参入の可能性・要注目
+  5倍以上 → 強い転換シグナルの可能性
+
+OBV（オンバランスボリューム）：
+  上昇日は出来高を加算、下落日は減算
+  OBVが株価に先行して動く → トレンド転換の予兆</div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <div style="font-size:.85rem;font-weight:700;margin-bottom:.6rem;color:var(--text)">📈 強気の出来高パターン</div>
+          <ul class="signal-list">
+            <li class="buy-item"><span class="signal-buy">【急増上昇】</span> 大出来高を伴う株価上昇 → 強い上昇サイン</li>
+            <li class="buy-item"><span class="signal-buy">【底値急増】</span> 長期下落後の底値圏での出来高急増 → 底打ちの可能性</li>
+            <li class="buy-item"><span class="signal-buy">【OBV先行】</span> 株価横ばいでもOBVが上昇 → 上昇の予兆</li>
+            <li class="buy-item"><span class="signal-buy">【少量押し目】</span> 上昇トレンド中の調整で出来高が少ない → 健全な押し目</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:.85rem;font-weight:700;margin-bottom:.6rem;color:var(--text)">📉 弱気・注意パターン</div>
+          <ul class="signal-list">
+            <li class="sell-item"><span class="signal-sell">【急増下落】</span> 大出来高を伴う株価下落 → 売り圧力が強い</li>
+            <li class="sell-item"><span class="signal-sell">【高値急増】</span> 高値圏での出来高急増後の反落 → 天井形成の可能性</li>
+            <li class="watch-item"><span class="signal-watch">【少量上昇】</span> 出来高が少ない上昇 → 信頼性が低い・追いかけない</li>
+            <li class="watch-item"><span class="signal-watch">【OBV乖離】</span> 株価上昇でもOBVが下落 → 上昇トレンド崩壊の予兆</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tips-box" style="background:#fdf4ff;border:1px solid #e9d5ff">
+        <div class="tips-title" style="color:var(--purple)">💡 実践テクニック：出来高急増＋陽線でエントリー</div>
+        <div class="tips-text" style="color:#4c1d95">「25日平均の3倍以上の出来高」＋「陽線（終値＞始値）」が発生した銘柄は翌日以降も上昇継続することが多い。特に「長期下落後の底値圏」での発生は、機関投資家の参入を示す強力な底打ちサイン。RSI・MACDと組み合わせて確認すれば確度が高まる。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 組み合わせ実践 -->
+  <div class="indicator-section" id="combo">
+    <div class="indicator-header">
+      <div class="indicator-icon" style="background:linear-gradient(135deg,#eff6ff,#f5f3ff)">🔗</div>
+      <div>
+        <div class="indicator-title">指標の組み合わせ実践ガイド</div>
+        <div class="indicator-subtitle">複数指標を組み合わせて精度・勝率を最大化する方法</div>
+      </div>
+      <span class="indicator-badge badge-advanced">実践編</span>
+    </div>
+    <div class="indicator-body">
+
+      <div class="overview-box">
+        <div class="overview-text">単一指標だけで売買判断するのは危険です。<strong>複数の指標が同じ方向を示した時だけエントリーする「多重確認」</strong>が勝率を高める最重要テクニックです。以下に実践で使える組み合わせを精度順に掲載します。</div>
+      </div>
+
+      <div style="overflow-x:auto;margin-bottom:1.2rem">
+        <table class="combo-table">
+          <thead>
+            <tr>
+              <th>組み合わせ</th>
+              <th>シグナル条件</th>
+              <th>得意な相場</th>
+              <th>精度</th>
+              <th>実践コメント</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight:700;white-space:nowrap">RSI + MACD + ボリンジャー</td>
+              <td>RSI≤30 ＋ MACDのGC ＋ −2σ接触</td>
+              <td>レンジ・押し目</td>
+              <td><span class="combo-max">★★★★★</span></td>
+              <td>3指標が同時に買いシグナルを出す最強の組み合わせ。月に数回しか出ないが確度が非常に高い</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;white-space:nowrap">移動平均線 + MACD</td>
+              <td>パーフェクトオーダー ＋ MACDのGC</td>
+              <td>上昇トレンド</td>
+              <td><span class="combo-max">★★★★★</span></td>
+              <td>トレンドフォロー戦略の基本。パーフェクトオーダー完成後にMACDがGCした押し目が最高の買い場</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;white-space:nowrap">一目均衡表 + MACD</td>
+              <td>三役好転 ＋ MACDのGC</td>
+              <td>中長期トレンド</td>
+              <td><span class="combo-strong">★★★★☆</span></td>
+              <td>中長期の大きなトレンドを掴む手法。月足・週足で確認してから日足で買い場を探す</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;white-space:nowrap">RSI + ストキャスティクス</td>
+              <td>RSI≤30 ＋ ストキャス20%以下でGC</td>
+              <td>底打ち狙い</td>
+              <td><span class="combo-strong">★★★★☆</span></td>
+              <td>2つのオシレーターで底打ちを二重確認。両方が売られすぎゾーンから反転するタイミングが最高</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;white-space:nowrap">ボリンジャー + 出来高</td>
+              <td>スクイーズ後のブレイク ＋ 出来高急増</td>
+              <td>トレンド転換</td>
+              <td><span class="combo-strong">★★★★☆</span></td>
+              <td>出来高を伴うブレイクは特に信頼性が高い。バンド収縮後に3倍以上の出来高でブレイクしたら追いかけ可</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;white-space:nowrap">RCI(3本) + RSI</td>
+              <td>短中長期RCI全て−80%以下 ＋ RSI≤30</td>
+              <td>底値圏の反転</td>
+              <td><span class="combo-strong">★★★★☆</span></td>
+              <td>トリプルシグナルで底値を確認する手法。稀にしか出ないが出たら高確度の反転シグナル</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;white-space:nowrap">MA(200日) + RSI</td>
+              <td>200日MA上 ＋ RSI40〜50で反発</td>
+              <td>長期上昇トレンド押し目</td>
+              <td><span class="combo-strong">★★★★☆</span></td>
+              <td>長期上昇トレンドの押し目買いに最適。200日MAより上にある銘柄限定で使うと勝率UP</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="font-size:.9rem;font-weight:700;margin-bottom:.8rem;color:var(--text)">🏆 実践シナリオ：最強の買いエントリー手順</div>
+      <div class="practice-grid">
+        <div class="practice-card">
+          <div class="practice-title" style="color:var(--red)">🔥 シナリオ①：底値からの大反発狙い</div>
+          <div class="practice-text">長期下落後の底値圏で複数指標が反転するタイミングを狙う手法。大きなリターンが期待できる。</div>
+          <ol class="practice-steps">
+            <li>RSIが30%以下まで下落していることを確認</li>
+            <li>ストキャスティクスも20%以下であることを確認</li>
+            <li>MACDヒストグラムが縮小し始めたことを確認</li>
+            <li>出来高が平均の2倍以上の陽線が出現したらエントリー</li>
+            <li>MACDがGCしたら買い増し検討</li>
+          </ol>
+        </div>
+        <div class="practice-card">
+          <div class="practice-title" style="color:var(--blue)">📈 シナリオ②：上昇トレンドの押し目買い</div>
+          <div class="practice-text">確認済みの上昇トレンド銘柄の押し目を拾う手法。勝率が最も高い手法の一つ。</div>
+          <ol class="practice-steps">
+            <li>週足でパーフェクトオーダーを確認（大局の上昇）</li>
+            <li>日足でRSIが50%付近まで下落しているか確認</li>
+            <li>日足MACDがGC、またはGC寸前か確認</li>
+            <li>25日MAがサポートとして機能したらエントリー</li>
+            <li>ボリンジャー中央線上を維持している間はホールド</li>
+          </ol>
+        </div>
+        <div class="practice-card">
+          <div class="practice-title" style="color:var(--purple)">☁️ シナリオ③：一目均衡表の三役好転狙い</div>
+          <div class="practice-text">一目均衡表で大局の転換を確認してからエントリーする中長期手法。</div>
+          <ol class="practice-steps">
+            <li>週足で三役好転（株価が雲上・転換線が基準線上）を確認</li>
+            <li>日足でMACDがGCしているか確認</li>
+            <li>日足RSIが50〜60%のエネルギー充填状態を確認</li>
+            <li>出来高を伴う陽線でエントリー</li>
+            <li>基準線割れを損切りラインに設定してリスク管理</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="caution-box">⚠️ <strong>最重要：リスク管理を必ず行ってください。</strong>どんなに精度の高い手法でも必ず損失が出る取引はあります。損切りラインを事前に決め、1回の取引で許容するリスクを資産の2〜3%以内に抑えることが長期的に生き残るための鉄則です。テクニカル分析はあくまでも確率を高めるツールであり、100%の予測は不可能です。</div>
+
+      <!-- 証券口座CTA -->
+      <div class="broker-cta">
+        <h3>テクニカル分析を実践しよう</h3>
+        <p>証券口座を開設すれば、RSI・MACD・ボリンジャーバンドなどのチャートが全て無料で使えます。</p>
+        <div class="broker-btns">
+          <a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1JYRN6+1WP2+1HL85U" rel="nofollow" class="broker-btn">📊 TOSSY（DMM証券）無料開設</a>
+          <a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1L5MUQ+3XCC+6AZAQ" rel="nofollow" class="broker-btn">🏦 松井証券 無料開設</a>
+          <a href="https://px.a8.net/svt/ejp?a8mat=4B1U9U+1QIJAQ+1WP2+15QHIA" rel="nofollow" class="broker-btn">💹 DMM株 無料開設</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="f-links">
+    <a href="index.html">📊 今日の市況</a>
+    <a href="technical.html">📉 テクニカル分析</a>
+    <a href="screening.html">🔍 スクリーニング</a>
+    <a href="index.html#broker">🏦 口座比較</a>
+  </div>
+  <p>© 2026 株式投資ナビ｜テクニカル分析完全ガイド</p>
+  <p style="margin-top:.5rem;font-size:.72rem;color:#475569">
+    ※掲載内容は情報提供を目的としており、投資助言ではありません。投資判断は必ずご自身の責任で行ってください。<br>
+    ※当サイトはアフィリエイト広告（A8.net）を掲載しています。
+  </p>
+</footer>
+
+</body>
+</html>
