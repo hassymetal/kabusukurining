@@ -311,77 +311,417 @@ footer{background:#0f172a;color:#64748b;padding:2rem 1.5rem;font-size:.77rem;tex
     <div class="disc">※上記は情報提供を目的としたものです。投資助言ではありません。投資判断は必ずご自身の責任で行ってください。</div>
   </div>
 
-  <!-- テクニカル分析 -->
+<!-- テクニカル分析 -->
   <div class="card" id="technical">
-    <div class="card-title"><span class="card-label lbl-purple">TECHNICAL</span>📉 テクニカル分析 完全解説</div>
-    <div class="tech-grid">
-      <div class="tech-card">
-        <div class="tech-icon">📊</div>
-        <div class="tech-name">RSI（相対力指数）</div>
-        <div class="tech-formula">RS = 直近14日の平均上昇幅 ÷ 平均下落幅<br>RSI = 100 - (100 ÷ (1 + RS))</div>
-        <ul class="tech-signals">
-          <li><span class="sig-buy">【買いシグナル】</span> RSIが30%以下→売られすぎ・反発期待</li>
-          <li><span class="sig-sell">【売りシグナル】</span> RSIが70%以上→買われすぎ・調整注意</li>
-          <li><span class="sig-watch">【要注目】</span> ダイバージェンス→価格とRSIが逆方向→転換の前兆</li>
-        </ul>
-        <div class="tech-tip">💡 現在の日経平均RSIは約55〜60の中立圏。過熱感はなし。期間14日が標準設定。</div>
+    <div class="card-title"><span class="card-label lbl-purple">TECHNICAL</span>📉 テクニカル分析 完全解説（8指標）</div>
+
+    <style>
+    .tech-section{background:var(--bg);border:1px solid var(--border);border-radius:12px;margin-bottom:1.2rem;overflow:hidden}
+    .tech-section-header{padding:1rem 1.2rem;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border)}
+    .tech-section-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+    .tech-section-title{font-size:.97rem;font-weight:700;color:var(--text)}
+    .tech-section-sub{font-size:.72rem;color:var(--text-muted);margin-top:1px}
+    .tech-section-badge{margin-left:auto;font-size:.68rem;padding:3px 10px;border-radius:20px;font-weight:700;white-space:nowrap}
+    .badge-beg{background:#dcfce7;color:#15803d}
+    .badge-mid{background:#fef3c7;color:#92400e}
+    .badge-adv{background:#fee2e2;color:#b91c1c}
+    .tech-section-body{padding:1.2rem}
+    .tech-overview{background:var(--white);border-left:4px solid var(--blue);border-radius:6px;padding:.8rem 1rem;margin-bottom:1rem;font-size:.83rem;color:var(--text-mid);line-height:1.8}
+    .tech-formula-dark{background:#0f172a;border-radius:8px;padding:.9rem 1.1rem;margin-bottom:1rem;font-family:'DM Mono',monospace;font-size:.75rem;color:#a5f3fc;line-height:1.85}
+    .tech-formula-label{font-size:.68rem;color:#64748b;margin-bottom:.4rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+    .tech-two-col{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+    @media(max-width:640px){.tech-two-col{grid-template-columns:1fr}}
+    .tech-signal-group-title{font-size:.82rem;font-weight:700;margin-bottom:.5rem;color:var(--text)}
+    .tech-sigs{list-style:none;padding:0}
+    .tech-sigs li{font-size:.79rem;color:var(--text-mid);padding:6px 0 6px 1.1rem;border-bottom:1px dashed var(--border);line-height:1.55;position:relative}
+    .tech-sigs li:last-child{border-bottom:none}
+    .tech-sigs li::before{position:absolute;left:0;top:8px;font-size:.7rem}
+    .li-buy::before{content:'▲';color:var(--red)}
+    .li-sell::before{content:'▼';color:var(--blue)}
+    .li-watch::before{content:'◆';color:var(--amber)}
+    .s-buy{color:var(--red);font-weight:700}
+    .s-sell{color:var(--blue);font-weight:700}
+    .s-watch{color:var(--amber);font-weight:700}
+    .tech-tip-box{border-radius:8px;padding:.8rem 1rem;margin-bottom:.8rem;font-size:.8rem;line-height:1.7}
+    .tech-caution{background:var(--amber-pale);border:1px solid #fde68a;border-radius:7px;padding:.7rem 1rem;font-size:.77rem;color:#92400e;line-height:1.65;margin-bottom:.5rem}
+    </style>
+
+    <!-- ① RSI -->
+    <div class="tech-section">
+      <div class="tech-section-header">
+        <div class="tech-section-icon" style="background:#fef2f2">📊</div>
+        <div>
+          <div class="tech-section-title">① RSI（相対力指数）</div>
+          <div class="tech-section-sub">Relative Strength Index｜最も使われるオシレーター指標</div>
+        </div>
+        <span class="tech-section-badge badge-beg">初心者向け</span>
       </div>
-      <div class="tech-card">
-        <div class="tech-icon">📈</div>
-        <div class="tech-name">MACD（移動平均収束拡散法）</div>
-        <div class="tech-formula">MACD = EMA12 - EMA26<br>シグナル = MACDの9日EMA<br>ヒストグラム = MACD - シグナル</div>
-        <ul class="tech-signals">
-          <li><span class="sig-buy">【ゴールデンクロス】</span> MACDがシグナルを下から上抜け→買いサイン</li>
-          <li><span class="sig-sell">【デッドクロス】</span> MACDがシグナルを上から下抜け→売りサイン</li>
-          <li><span class="sig-watch">【ヒストグラム拡大】</span> バーが伸びる方向にモメンタムが強い</li>
-        </ul>
-        <div class="tech-tip">💡 5月相場はMACDが横ばい気味。決算発表で個別株が大きく動くため個別でチェックを。</div>
-      </div>
-      <div class="tech-card">
-        <div class="tech-icon">📉</div>
-        <div class="tech-name">ボリンジャーバンド</div>
-        <div class="tech-formula">中央線 = 20日移動平均<br>±1σ = 標準偏差1つ分<br>±2σ = 標準偏差2つ分（確率約95%）</div>
-        <ul class="tech-signals">
-          <li><span class="sig-buy">【順張り】</span> +2σ上抜けバンドウォーク→上昇トレンド継続</li>
-          <li><span class="sig-watch">【逆張り】</span> -2σ接触→反発の可能性（RSIと組み合わせ確認）</li>
-          <li><span class="sig-watch">【スクイーズ】</span> バンド収縮→大きな値動きの前兆サイン</li>
-        </ul>
-        <div class="tech-tip">💡 決算発表後に±2σを大きく超える銘柄が続出中。スクイーズ後のバンド拡大に注目。</div>
+      <div class="tech-section-body">
+        <div class="tech-overview">RSIは「相場の過熱感」を0〜100の数値で表す指標です。<strong>30以下が売られすぎ（買いチャンス）、70以上が買われすぎ（売りチャンス）</strong>が基本ですが、トレンド相場では70超でも上昇が続く「だまし」が多発するため、他の指標との組み合わせが必須です。</div>
+        <div class="tech-formula-dark">
+          <div class="tech-formula-label">計算式</div>
+RS = 直近14日の平均上昇幅 ÷ 直近14日の平均下落幅
+RSI = 100 − (100 ÷ (1 + RS))
+標準期間：14日 ／ 売られすぎ：30%以下 ／ 買われすぎ：70%以上</div>
+        <div class="tech-two-col">
+          <div>
+            <div class="tech-signal-group-title">📈 買いシグナル</div>
+            <ul class="tech-sigs">
+              <li class="li-buy"><span class="s-buy">【基本】</span> RSIが30%以下→売られすぎ・反発期待</li>
+              <li class="li-buy"><span class="s-buy">【強力】</span> RSIが30%割れ後に30%を上回った瞬間</li>
+              <li class="li-buy"><span class="s-buy">【押し目】</span> 上昇トレンド中にRSIが50%付近まで下落後の反発</li>
+              <li class="li-buy"><span class="s-buy">【ダイバージェンス】</span> 株価が安値更新もRSIが前回安値を上回る→転換の前兆</li>
+            </ul>
+          </div>
+          <div>
+            <div class="tech-signal-group-title">📉 売り・注意シグナル</div>
+            <ul class="tech-sigs">
+              <li class="li-sell"><span class="s-sell">【基本】</span> RSIが70%以上→買われすぎ・調整注意</li>
+              <li class="li-sell"><span class="s-sell">【強力】</span> RSIが70%超から70%を下回った瞬間</li>
+              <li class="li-sell"><span class="s-sell">【ダイバージェンス】</span> 株価が高値更新もRSIが前回高値を下回る</li>
+              <li class="li-watch"><span class="s-watch">【注意】</span> 強トレンド時は80〜90%継続も。MACDと組み合わせ確認必須</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tech-tip-box" style="background:#fef2f2;border:1px solid var(--red-border);color:#7f1d1d">🔥 <strong>実践テクニック：</strong>上昇トレンド中はRSIが50〜70%のレンジで動く。「上昇トレンド＋RSI50%付近の反発」＋「MACDゴールデンクロス」の3条件が重なった時が最強の買いエントリーポイント。</div>
+        <div class="tech-caution">⚠️ <strong>よくある失敗：</strong>下降トレンド中はRSI30%以下でも更に下落することがある。必ずトレンド方向を確認してから使うこと。</div>
+        <div class="alert-box alert-blue">📊 <strong>現在の日経平均RSI（5/2時点）：</strong>約55〜60の中立圏。過熱感はなし。期間14日が標準設定。</div>
       </div>
     </div>
 
-    <div style="margin-top:.5rem">
-      <div style="font-size:.88rem;font-weight:700;margin-bottom:.6rem;color:var(--text)">🔗 指標の組み合わせテクニック（精度UP）</div>
-      <table class="combo-table">
-        <thead><tr><th>組み合わせ</th><th>シグナル</th><th>説明</th><th>精度</th></tr></thead>
-        <tbody>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:.55rem .8rem;font-weight:700">イチカワ</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace">3513</td><td style="padding:.55rem .8rem;text-align:center">繊維</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace;font-weight:700">412円</td><td style="padding:.55rem .8rem;text-align:center"><span style="color:var(--green);font-weight:700">19%</span></td><td style="padding:.55rem .8rem;text-align:center">↗上向き</td><td style="padding:.55rem .8rem;text-align:center">-2σ以下</td><td style="padding:.55rem .8rem;text-align:center"><span style="background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:4px;font-size:.7rem;font-weight:700">4条件</span></td><td style="padding:.55rem .8rem;font-size:.75rem;color:var(--text-mid)">RSI19%と極度な売られすぎ。乖離率-14%・サイコロジカルライン8%と複数シグナル点灯</td></tr>
-          <tr style="background:#fafbff;border-bottom:1px solid var(--border);"><td style="padding:.55rem .8rem;font-weight:700">三菱UFJ FG</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace">8306</td><td style="padding:.55rem .8rem;text-align:center">銀行</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace;font-weight:700">1,890円</td><td style="padding:.55rem .8rem;text-align:center"><span style="color:var(--amber);font-weight:700">42%</span></td><td style="padding:.55rem .8rem;text-align:center">↗GC</td><td style="padding:.55rem .8rem;text-align:center">-1σ付近</td><td style="padding:.55rem .8rem;text-align:center"><span style="background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:4px;font-size:.7rem;font-weight:700">3条件</span></td><td style="padding:.55rem .8rem;font-size:.75rem;color:var(--text-mid)">長期金利2.5%超えで利ザヤ改善期待。GW明け後の動向に注目。高配当3.8%</td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:.55rem .8rem;font-weight:700">ファナック</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace">6954</td><td style="padding:.55rem .8rem;text-align:center">機械</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace;font-weight:700">4,218円</td><td style="padding:.55rem .8rem;text-align:center"><span style="color:var(--green);font-weight:700">35%</span></td><td style="padding:.55rem .8rem;text-align:center">↗上向き転換</td><td style="padding:.55rem .8rem;text-align:center">-1σ〜中央</td><td style="padding:.55rem .8rem;text-align:center"><span style="background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:4px;font-size:.7rem;font-weight:700">3条件</span></td><td style="padding:.55rem .8rem;font-size:.75rem;color:var(--text-mid)">フィジカルAI・産業ロボット関連。来期2ケタ増益予想でRSI売られすぎ圏</td></tr>
-          <tr style="background:#fafbff;border-bottom:1px solid var(--border);"><td style="padding:.55rem .8rem;font-weight:700">川崎重工業</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace">7012</td><td style="padding:.55rem .8rem;text-align:center">機械</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace;font-weight:700">6,180円</td><td style="padding:.55rem .8rem;text-align:center"><span style="color:var(--amber);font-weight:700">45%</span></td><td style="padding:.55rem .8rem;text-align:center">↗GC確認中</td><td style="padding:.55rem .8rem;text-align:center">中央線付近</td><td style="padding:.55rem .8rem;text-align:center"><span style="background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:4px;font-size:.7rem;font-weight:700">3条件</span></td><td style="padding:.55rem .8rem;font-size:.75rem;color:var(--text-mid)">防衛・水素の本命株。MACDゴールデンクロス確認中。日米首脳会談期待</td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:.55rem .8rem;font-weight:700">日立製作所</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace">6501</td><td style="padding:.55rem .8rem;text-align:center">電気機器</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace;font-weight:700">3,872円</td><td style="padding:.55rem .8rem;text-align:center"><span style="color:var(--amber);font-weight:700">40%</span></td><td style="padding:.55rem .8rem;text-align:center">↗上向き</td><td style="padding:.55rem .8rem;text-align:center">-1σ付近</td><td style="padding:.55rem .8rem;text-align:center"><span style="background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:4px;font-size:.7rem;font-weight:700">3条件</span></td><td style="padding:.55rem .8rem;font-size:.75rem;color:var(--text-mid)">ITシステム・AIインフラで過去最高益更新見通し。押し目水準と判断</td></tr>
-          <tr style="background:#fafbff;border-bottom:1px solid var(--border);"><td style="padding:.55rem .8rem;font-weight:700">第一生命HD</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace">8750</td><td style="padding:.55rem .8rem;text-align:center">保険</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace;font-weight:700">3,241円</td><td style="padding:.55rem .8rem;text-align:center"><span style="color:var(--green);font-weight:700">38%</span></td><td style="padding:.55rem .8rem;text-align:center">↗GC</td><td style="padding:.55rem .8rem;text-align:center">-1σ〜-2σ</td><td style="padding:.55rem .8rem;text-align:center"><span style="background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:4px;font-size:.7rem;font-weight:700">4条件</span></td><td style="padding:.55rem .8rem;font-size:.75rem;color:var(--text-mid)">金利上昇恩恵の保険株。配当性向引き上げ期待。RSI・MACD・BBの3指標で好転</td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:.55rem .8rem;font-weight:700">三菱重工業</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace">7011</td><td style="padding:.55rem .8rem;text-align:center">機械</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace;font-weight:700">2,890円</td><td style="padding:.55rem .8rem;text-align:center"><span style="color:var(--amber);font-weight:700">44%</span></td><td style="padding:.55rem .8rem;text-align:center">↗上向き</td><td style="padding:.55rem .8rem;text-align:center">中央線付近</td><td style="padding:.55rem .8rem;text-align:center"><span style="background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:4px;font-size:.7rem;font-weight:700">3条件</span></td><td style="padding:.55rem .8rem;font-size:.75rem;color:var(--text-mid)">防衛・電力需要増で受注急拡大。移動平均線サポート確認。長期保有向き</td></tr>
-          <tr style="background:#fafbff;border-bottom:1px solid var(--border);"><td style="padding:.55rem .8rem;font-weight:700">きんでん</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace">1942</td><td style="padding:.55rem .8rem;text-align:center">建設</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace;font-weight:700">2,340円</td><td style="padding:.55rem .8rem;text-align:center"><span style="color:var(--green);font-weight:700">37%</span></td><td style="padding:.55rem .8rem;text-align:center">↗上向き転換</td><td style="padding:.55rem .8rem;text-align:center">-1σ付近</td><td style="padding:.55rem .8rem;text-align:center"><span style="background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:4px;font-size:.7rem;font-weight:700">3条件</span></td><td style="padding:.55rem .8rem;font-size:.75rem;color:var(--text-mid)">2028年まで最高益更新見込み・連続増配。NISA長期保有向き高配当株</td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:.55rem .8rem;font-weight:700">アドバンテスト</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace">6857</td><td style="padding:.55rem .8rem;text-align:center">電気機器</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace;font-weight:700">9,870円</td><td style="padding:.55rem .8rem;text-align:center"><span style="color:var(--green);font-weight:700">32%</span></td><td style="padding:.55rem .8rem;text-align:center">↗GC</td><td style="padding:.55rem .8rem;text-align:center">-2σ付近</td><td style="padding:.55rem .8rem;text-align:center"><span style="background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:4px;font-size:.7rem;font-weight:700">4条件</span></td><td style="padding:.55rem .8rem;font-size:.75rem;color:var(--text-mid)">半導体テスタの世界最大手。AI需要急拡大で過去最高益見通し。RSI売られすぎ</td></tr>
-          <tr style="background:#fafbff;border-bottom:1px solid var(--border);"><td style="padding:.55rem .8rem;font-weight:700">日本郵船</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace">9101</td><td style="padding:.55rem .8rem;text-align:center">海運</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace;font-weight:700">4,892円</td><td style="padding:.55rem .8rem;text-align:center"><span style="color:var(--green);font-weight:700">33%</span></td><td style="padding:.55rem .8rem;text-align:center">↗上向き</td><td style="padding:.55rem .8rem;text-align:center">-1σ〜-2σ</td><td style="padding:.55rem .8rem;text-align:center"><span style="background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:4px;font-size:.7rem;font-weight:700">4条件</span></td><td style="padding:.55rem .8rem;font-size:.75rem;color:var(--text-mid)">来期増益転換期待。米関税影響限定的。高配当利回りで長期保有向き</td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:.55rem .8rem;font-weight:700">三菱HCキャピタル</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace">8593</td><td style="padding:.55rem .8rem;text-align:center">その他金融</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace;font-weight:700">1,024円</td><td style="padding:.55rem .8rem;text-align:center"><span style="color:var(--amber);font-weight:700">43%</span></td><td style="padding:.55rem .8rem;text-align:center">↗GC</td><td style="padding:.55rem .8rem;text-align:center">中央線付近</td><td style="padding:.55rem .8rem;text-align:center"><span style="background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:4px;font-size:.7rem;font-weight:700">3条件</span></td><td style="padding:.55rem .8rem;font-size:.75rem;color:var(--text-mid)">26期連続増配の高配当株。PBR0.9倍台と割安感あり。NISA長期保有に最適</td></tr>
-          <tr style="background:#fafbff;border-bottom:1px solid var(--border);"><td style="padding:.55rem .8rem;font-weight:700">富士通</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace">6702</td><td style="padding:.55rem .8rem;text-align:center">電気機器</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace;font-weight:700">3,156円</td><td style="padding:.55rem .8rem;text-align:center"><span style="color:var(--green);font-weight:700">36%</span></td><td style="padding:.55rem .8rem;text-align:center">↗上向き転換</td><td style="padding:.55rem .8rem;text-align:center">-1σ付近</td><td style="padding:.55rem .8rem;text-align:center"><span style="background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:4px;font-size:.7rem;font-weight:700">3条件</span></td><td style="padding:.55rem .8rem;font-size:.75rem;color:var(--text-mid)">DX・ITシステム関連で最高益更新見通し。MACD好転中。来期も増益予想</td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:.55rem .8rem;font-weight:700">安川電機</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace">6506</td><td style="padding:.55rem .8rem;text-align:center">電気機器</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace;font-weight:700">4,320円</td><td style="padding:.55rem .8rem;text-align:center"><span style="color:var(--green);font-weight:700">34%</span></td><td style="padding:.55rem .8rem;text-align:center">↗上向き</td><td style="padding:.55rem .8rem;text-align:center">-1σ〜-2σ</td><td style="padding:.55rem .8rem;text-align:center"><span style="background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:4px;font-size:.7rem;font-weight:700">4条件</span></td><td style="padding:.55rem .8rem;font-size:.75rem;color:var(--text-mid)">フィジカルAI・産業用ロボットの本命。ソフトバンクと協業。ボリンジャー底値圏</td></tr>
-          <tr style="background:#fafbff;border-bottom:1px solid var(--border);"><td style="padding:.55rem .8rem;font-weight:700">IHI</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace">7013</td><td style="padding:.55rem .8rem;text-align:center">機械</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace;font-weight:700">8,940円</td><td style="padding:.55rem .8rem;text-align:center"><span style="color:var(--amber);font-weight:700">41%</span></td><td style="padding:.55rem .8rem;text-align:center">↗GC</td><td style="padding:.55rem .8rem;text-align:center">中央線付近</td><td style="padding:.55rem .8rem;text-align:center"><span style="background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:4px;font-size:.7rem;font-weight:700">3条件</span></td><td style="padding:.55rem .8rem;font-size:.75rem;color:var(--text-mid)">防衛・宇宙・航空エンジンの重要銘柄。受注残高が過去最高水準。MACD好転</td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:.55rem .8rem;font-weight:700">三井住友FG</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace">8316</td><td style="padding:.55rem .8rem;text-align:center">銀行</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace;font-weight:700">3,874円</td><td style="padding:.55rem .8rem;text-align:center"><span style="color:var(--amber);font-weight:700">44%</span></td><td style="padding:.55rem .8rem;text-align:center">↗上向き</td><td style="padding:.55rem .8rem;text-align:center">-1σ付近</td><td style="padding:.55rem .8rem;text-align:center"><span style="background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:4px;font-size:.7rem;font-weight:700">3条件</span></td><td style="padding:.55rem .8rem;font-size:.75rem;color:var(--text-mid)">金利上昇恩恵。配当利回り3.9%と高水準。機関投資家の買い継続中</td></tr>
-          <tr style="background:#fafbff;border-bottom:1px solid var(--border);"><td style="padding:.55rem .8rem;font-weight:700">東京エレクトロン</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace">8035</td><td style="padding:.55rem .8rem;text-align:center">電気機器</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace;font-weight:700">24,580円</td><td style="padding:.55rem .8rem;text-align:center"><span style="color:var(--green);font-weight:700">38%</span></td><td style="padding:.55rem .8rem;text-align:center">↗上向き転換</td><td style="padding:.55rem .8rem;text-align:center">-1σ〜-2σ</td><td style="padding:.55rem .8rem;text-align:center"><span style="background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:4px;font-size:.7rem;font-weight:700">4条件</span></td><td style="padding:.55rem .8rem;font-size:.75rem;color:var(--text-mid)">半導体製造装置の世界大手。AI需要拡大で受注残が急増。RSI売られすぎ解消中</td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:.55rem .8rem;font-weight:700">野村総合研究所</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace">4307</td><td style="padding:.55rem .8rem;text-align:center">情報・通信</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace;font-weight:700">4,892円</td><td style="padding:.55rem .8rem;text-align:center"><span style="color:var(--amber);font-weight:700">42%</span></td><td style="padding:.55rem .8rem;text-align:center">↗GC</td><td style="padding:.55rem .8rem;text-align:center">中央線付近</td><td style="padding:.55rem .8rem;text-align:center"><span style="background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:4px;font-size:.7rem;font-weight:700">3条件</span></td><td style="padding:.55rem .8rem;font-size:.75rem;color:var(--text-mid)">ITコンサル・DX需要で安定成長。来期増益予想。GW明け決算に注目</td></tr>
-          <tr style="background:#fafbff;border-bottom:1px solid var(--border);"><td style="padding:.55rem .8rem;font-weight:700">ENEOSホールディングス</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace">5020</td><td style="padding:.55rem .8rem;text-align:center">石油・石炭</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace;font-weight:700">894円</td><td style="padding:.55rem .8rem;text-align:center"><span style="color:var(--green);font-weight:700">36%</span></td><td style="padding:.55rem .8rem;text-align:center">↗上向き</td><td style="padding:.55rem .8rem;text-align:center">-1σ付近</td><td style="padding:.55rem .8rem;text-align:center"><span style="background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:4px;font-size:.7rem;font-weight:700">3条件</span></td><td style="padding:.55rem .8rem;font-size:.75rem;color:var(--text-mid)">原油高・水素事業展開で注目。配当利回り4.1%と高水準。連続増配継続</td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:.55rem .8rem;font-weight:700">グローバルセキュリティエキスパート</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace">4417</td><td style="padding:.55rem .8rem;text-align:center">サービス</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace;font-weight:700">3,240円</td><td style="padding:.55rem .8rem;text-align:center"><span style="color:var(--green);font-weight:700">39%</span></td><td style="padding:.55rem .8rem;text-align:center">↗急騰後調整</td><td style="padding:.55rem .8rem;text-align:center">-1σ付近</td><td style="padding:.55rem .8rem;text-align:center"><span style="background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:4px;font-size:.7rem;font-weight:700">3条件</span></td><td style="padding:.55rem .8rem;font-size:.75rem;color:var(--text-mid)">今3月期25%増収・大幅増益見通し。サイバーセキュリティ専門。押し目狙い</td></tr>
-          <tr style="background:#fafbff;"><td style="padding:.55rem .8rem;font-weight:700">住友商事</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace">8053</td><td style="padding:.55rem .8rem;text-align:center">卸売業</td><td style="padding:.55rem .8rem;text-align:center;font-family:'DM Mono',monospace;font-weight:700">4,680円</td><td style="padding:.55rem .8rem;text-align:center"><span style="color:var(--amber);font-weight:700">48%</span></td><td style="padding:.55rem .8rem;text-align:center">↗GC</td><td style="padding:.55rem .8rem;text-align:center">中央線〜+1σ</td><td style="padding:.55rem .8rem;text-align:center"><span style="background:#dcfce7;color:#15803d;padding:2px 7px;border-radius:4px;font-size:.7rem;font-weight:700">3条件</span></td><td style="padding:.55rem .8rem;font-size:.75rem;color:var(--text-mid)">決算急騰後も上昇トレンド継続。高配当4.1%・増配継続でNISA向き</td></tr>
-        </tbody>
-      </table>
+    <!-- ② MACD -->
+    <div class="tech-section">
+      <div class="tech-section-header">
+        <div class="tech-section-icon" style="background:#eff6ff">📈</div>
+        <div>
+          <div class="tech-section-title">② MACD（移動平均収束拡散法）</div>
+          <div class="tech-section-sub">Moving Average Convergence/Divergence｜トレンド転換を捉える</div>
+        </div>
+        <span class="tech-section-badge badge-beg">初心者向け</span>
+      </div>
+      <div class="tech-section-body">
+        <div class="tech-overview">MACDは「2本の指数移動平均線の差」でトレンドの方向と強さを捉える指標です。<strong>MACDラインとシグナルラインのクロスが売買サイン</strong>。ゼロラインの上下も重要で、ゼロラインをMACDが上抜けると強気相場への転換を意味します。</div>
+        <div class="tech-formula-dark">
+          <div class="tech-formula-label">計算式</div>
+MACD      = EMA(12) − EMA(26)       ← 短期MAと長期MAの差
+シグナル   = MACDの9日EMA            ← MACDを平滑化したもの
+ヒストグラム = MACD − シグナル      ← 2線の差（棒グラフ表示）
+標準設定：12・26・9</div>
+        <div class="tech-two-col">
+          <div>
+            <div class="tech-signal-group-title">📈 買いシグナル（精度順）</div>
+            <ul class="tech-sigs">
+              <li class="li-buy"><span class="s-buy">【最強】</span> ゼロライン下でGC→ゼロライン上抜け</li>
+              <li class="li-buy"><span class="s-buy">【強い】</span> マイナス圏低位でのゴールデンクロス</li>
+              <li class="li-buy"><span class="s-buy">【標準】</span> MACDがシグナルを下から上抜け（GC）</li>
+              <li class="li-buy"><span class="s-buy">【先行】</span> ヒストグラムがマイナス圏で縮小→拡大転換</li>
+            </ul>
+          </div>
+          <div>
+            <div class="tech-signal-group-title">📉 売り・注意シグナル</div>
+            <ul class="tech-sigs">
+              <li class="li-sell"><span class="s-sell">【最強】</span> ゼロライン上でDC→ゼロライン下抜け</li>
+              <li class="li-sell"><span class="s-sell">【強い】</span> プラス圏高位でのデッドクロス</li>
+              <li class="li-sell"><span class="s-sell">【標準】</span> MACDがシグナルを上から下抜け（DC）</li>
+              <li class="li-watch"><span class="s-watch">【注意】</span> 保ち合い相場ではGC・DCを繰り返す（だまし多発）</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tech-tip-box" style="background:var(--blue-pale);border:1px solid var(--blue-border);color:#1e3a8a">💡 <strong>実践テクニック：</strong>MACDのクロスより「ヒストグラムの縮小→拡大」の方が1〜2足早くシグナルが出る。ヒストグラムがマイナス圏で縮小し始めたら上昇転換の予兆。この段階でRSIが30%以下なら最高の仕込みタイミング。</div>
+        <div class="alert-box alert-blue">📊 <strong>5月相場のMACD：</strong>横ばい気味。決算発表で個別株が大きく動くため個別でチェックを。</div>
+      </div>
     </div>
+
+    <!-- ③ ボリンジャーバンド -->
+    <div class="tech-section">
+      <div class="tech-section-header">
+        <div class="tech-section-icon" style="background:#f0fdf4">📉</div>
+        <div>
+          <div class="tech-section-title">③ ボリンジャーバンド</div>
+          <div class="tech-section-sub">Bollinger Bands｜値動きの幅と過熱感を視覚化</div>
+        </div>
+        <span class="tech-section-badge badge-beg">初心者向け</span>
+      </div>
+      <div class="tech-section-body">
+        <div class="tech-overview"><strong>株価は±2σの範囲内に約95%の確率で収まる</strong>という統計的性質を利用します。バンドの幅（スクイーズ）と拡大が重要なシグナルになります。順張り・逆張りどちらにも使える汎用性の高い指標です。</div>
+        <div class="tech-formula-dark">
+          <div class="tech-formula-label">計算式</div>
+中央線（ミドルバンド） = 20日単純移動平均（SMA）
+±1σ = 標準偏差1つ分（確率約68%）
+±2σ = 標準偏差2つ分（確率約95%）
+スクイーズ：バンド幅収縮 → 大きな値動きの予兆</div>
+        <div class="tech-two-col">
+          <div>
+            <div class="tech-signal-group-title">🔄 逆張り手法（レンジ相場向き）</div>
+            <ul class="tech-sigs">
+              <li class="li-buy"><span class="s-buy">【買い】</span> 株価が−2σに接触・バンド内に戻る→反発買い</li>
+              <li class="li-buy"><span class="s-buy">【買い強】</span> −2σ以下＋RSI30%以下の同時発生</li>
+              <li class="li-sell"><span class="s-sell">【売り】</span> 株価が+2σに接触・バンド内に戻る→利確</li>
+              <li class="li-watch"><span class="s-watch">【注意】</span> トレンド相場では逆張りは危険。環境確認を</li>
+            </ul>
+          </div>
+          <div>
+            <div class="tech-signal-group-title">🚀 順張り手法（トレンド相場向き）</div>
+            <ul class="tech-sigs">
+              <li class="li-buy"><span class="s-buy">【バンドウォーク】</span> +2σをブレイク後もバンドに沿って上昇継続</li>
+              <li class="li-buy"><span class="s-buy">【スクイーズ後】</span> バンド収縮後に+2σ上抜け→上昇トレンド開始</li>
+              <li class="li-sell"><span class="s-sell">【下落ウォーク】</span> −2σ以下でバンドに沿って下落継続</li>
+              <li class="li-watch"><span class="s-watch">【スクイーズ】</span> バンド収縮中は方向不明。ブレイク方向に注目</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tech-tip-box" style="background:#f0fdf4;border:1px solid var(--green-border);color:#14532d">🔥 <strong>実践テクニック：</strong>バンド幅が極端に狭くなった（スクイーズ）後に、どちらかにブレイクする。出来高の急増を伴うブレイクは特に信頼性が高い。スクイーズ中に仕込み、ブレイク方向に乗るのが最も勝率が高い手法の一つ。</div>
+        <div class="alert-box alert-blue">📊 <strong>決算発表後に±2σを大きく超える銘柄が続出中。</strong>スクイーズ後のバンド拡大に注目。</div>
+      </div>
+    </div>
+
+    <!-- ④ 移動平均線 -->
+    <div class="tech-section">
+      <div class="tech-section-header">
+        <div class="tech-section-icon" style="background:#fffbeb">📏</div>
+        <div>
+          <div class="tech-section-title">④ 移動平均線（MA）</div>
+          <div class="tech-section-sub">Moving Average｜トレンドの方向を掴む最基本指標</div>
+        </div>
+        <span class="tech-section-badge badge-beg">初心者向け</span>
+      </div>
+      <div class="tech-section-body">
+        <div class="tech-overview">移動平均線はトレンドの方向・強さ・転換点を見る最も基本的な指標です。<strong>5日・25日・75日・200日の4本が実践でよく使われます</strong>。複数の移動平均線の並び順（パーフェクトオーダー）と交差（ゴールデンクロス・デッドクロス）が主要シグナルです。</div>
+        <div class="tech-formula-dark">
+          <div class="tech-formula-label">主要期間と意味</div>
+SMA5   = 直近5日の終値平均   → 超短期・デイトレ向き
+SMA25  = 直近25日の終値平均  → 短期・スイング向き
+SMA75  = 直近75日の終値平均  → 中期・波動の軸
+SMA200 = 直近200日の終値平均 → 長期・大局のトレンド
+パーフェクトオーダー上昇：5日 ＞ 25日 ＞ 75日 → 強い上昇相場</div>
+        <div class="tech-two-col">
+          <div>
+            <div class="tech-signal-group-title">📈 強気サイン</div>
+            <ul class="tech-sigs">
+              <li class="li-buy"><span class="s-buy">【GC】</span> 短期MAが長期MAを下から上抜け（ゴールデンクロス）</li>
+              <li class="li-buy"><span class="s-buy">【PO】</span> 5日＞25日＞75日のパーフェクトオーダー達成</li>
+              <li class="li-buy"><span class="s-buy">【反発】</span> 25日MAがサポートとなり株価が反発</li>
+              <li class="li-buy"><span class="s-buy">【200日】</span> 株価が200日MA上を推移→長期上昇トレンド確認</li>
+            </ul>
+          </div>
+          <div>
+            <div class="tech-signal-group-title">📉 弱気・注意サイン</div>
+            <ul class="tech-sigs">
+              <li class="li-sell"><span class="s-sell">【DC】</span> 短期MAが長期MAを上から下抜け（デッドクロス）</li>
+              <li class="li-sell"><span class="s-sell">【逆PO】</span> 5日＜25日＜75日の逆パーフェクトオーダー</li>
+              <li class="li-sell"><span class="s-sell">【抵抗】</span> 25日MAが上値抵抗として機能し上抜けられない</li>
+              <li class="li-watch"><span class="s-watch">【乖離】</span> 乖離率が±10%超は平均回帰に注意</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tech-tip-box" style="background:var(--amber-pale);border:1px solid #fde68a;color:#78350f">💡 <strong>実践テクニック：</strong>「逆パーフェクトオーダー → ゴールデンクロス → パーフェクトオーダー」の移行局面が最大の買いチャンス。75日MAと200日MAの上向き転換を確認した後にパーフェクトオーダーが完成した銘柄は大きなトレンドが発生しやすい。</div>
+      </div>
+    </div>
+
+    <!-- ⑤ ストキャスティクス -->
+    <div class="tech-section">
+      <div class="tech-section-header">
+        <div class="tech-section-icon" style="background:var(--purple-pale)">🌀</div>
+        <div>
+          <div class="tech-section-title">⑤ ストキャスティクス</div>
+          <div class="tech-section-sub">Stochastics｜高値・安値の位置から過熱感を測る</div>
+        </div>
+        <span class="tech-section-badge badge-mid">中級者向け</span>
+      </div>
+      <div class="tech-section-body">
+        <div class="tech-overview">ストキャスティクスは「一定期間の高値・安値の範囲の中で現在の株価がどの位置にいるか」を0〜100%で表します。<strong>高値・安値を使うため短期の値動きに敏感</strong>で、特に短期トレードで威力を発揮します。%KラインとSlowDラインの交差がシグナルです。</div>
+        <div class="tech-formula-dark">
+          <div class="tech-formula-label">計算式（スロー・ストキャスティクス）</div>
+%K   = (現在値 − 過去n日最安値) ÷ (過去n日最高値 − 最安値) × 100
+%D   = %Kの3日単純移動平均
+Slow%D = %Dの3日単純移動平均
+売られすぎ：20%以下 ／ 買われすぎ：80%以上</div>
+        <div class="tech-two-col">
+          <div>
+            <div class="tech-signal-group-title">📈 買いシグナル</div>
+            <ul class="tech-sigs">
+              <li class="li-buy"><span class="s-buy">【最強】</span> 20%以下で%KがSlowDを上抜け（GC）</li>
+              <li class="li-buy"><span class="s-buy">【強い】</span> 20%以下から両線が上向き転換</li>
+              <li class="li-buy"><span class="s-buy">【ダイバージェンス】</span> 安値更新でも%Kが前回安値を上回る</li>
+              <li class="li-buy"><span class="s-buy">【押し目】</span> 上昇トレンドで50%付近まで下落後の反発</li>
+            </ul>
+          </div>
+          <div>
+            <div class="tech-signal-group-title">📉 売りシグナル・注意</div>
+            <ul class="tech-sigs">
+              <li class="li-sell"><span class="s-sell">【最強】</span> 80%以上で%KがSlowDを下抜け（DC）</li>
+              <li class="li-sell"><span class="s-sell">【強い】</span> 80%以上から両線が下向き転換</li>
+              <li class="li-watch"><span class="s-watch">【だまし】</span> トレンド相場では80%超が継続することも</li>
+              <li class="li-watch"><span class="s-watch">【RSI比較】</span> RSIとストキャスが同時に売られすぎなら確度UP</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tech-tip-box" style="background:var(--purple-pale);border:1px solid #ddd6fe;color:#4c1d95">💡 <strong>実践テクニック：</strong>「ストキャスティクスが20%以下でGC」＋「RSIが30%以下」の両方が同時に発生した銘柄は、底打ちのシグナルとして非常に信頼性が高い。さらにMACDがゴールデンクロスを形成すれば三重確認となり勝率が大幅に向上する。</div>
+      </div>
+    </div>
+
+    <!-- ⑥ 一目均衡表 -->
+    <div class="tech-section">
+      <div class="tech-section-header">
+        <div class="tech-section-icon" style="background:#f0fdfa">☁️</div>
+        <div>
+          <div class="tech-section-title">⑥ 一目均衡表</div>
+          <div class="tech-section-sub">Ichimoku Cloud｜日本生まれの総合トレンド指標</div>
+        </div>
+        <span class="tech-section-badge badge-adv">上級者向け</span>
+      </div>
+      <div class="tech-section-body">
+        <div class="tech-overview">一目均衡表は戦前の日本人アナリスト「一目山人」が考案した指標で、世界中のプロトレーダーが使用します。<strong>5本の線と「雲（くも）」で、トレンド・サポート・レジスタンス・転換点を一目で把握</strong>できるのが特徴です。</div>
+        <div class="tech-formula-dark">
+          <div class="tech-formula-label">5本の線の計算式</div>
+転換線     = (9日高値 + 9日安値) ÷ 2          → 短期トレンド
+基準線     = (26日高値 + 26日安値) ÷ 2         → 中期トレンド（重要）
+先行スパン1 = (転換線 + 基準線) ÷ 2           → 26日先に描画
+先行スパン2 = (52日高値 + 52日安値) ÷ 2       → 26日先に描画
+遅行スパン  = 当日の終値を26日前に描画
+雲（くも）  = 先行スパン1と先行スパン2の間のエリア</div>
+        <div class="tech-two-col">
+          <div>
+            <div class="tech-signal-group-title">📈 強気サイン</div>
+            <ul class="tech-sigs">
+              <li class="li-buy"><span class="s-buy">【最強】</span> 株価・転換線・基準線・遅行スパンが全て雲の上</li>
+              <li class="li-buy"><span class="s-buy">【三役好転】</span> ①株価が雲上 ②転換線が基準線を上抜け ③遅行スパンが株価上</li>
+              <li class="li-buy"><span class="s-buy">【雲抜け】</span> 株価が雲を上抜けた瞬間</li>
+              <li class="li-buy"><span class="s-buy">【雲薄い】</span> 雲が薄い（ねじれ）部分は株価が抜けやすい</li>
+            </ul>
+          </div>
+          <div>
+            <div class="tech-signal-group-title">📉 弱気サイン</div>
+            <ul class="tech-sigs">
+              <li class="li-sell"><span class="s-sell">【三役逆転】</span> ①株価が雲下 ②転換線が基準線を下抜け ③遅行スパンが株価下</li>
+              <li class="li-sell"><span class="s-sell">【雲割れ】</span> 株価が雲を下抜けた瞬間</li>
+              <li class="li-sell"><span class="s-sell">【雲の中】</span> 株価が雲の中にある→トレンドなし・売買見送り</li>
+              <li class="li-watch"><span class="s-watch">【注意】</span> 雲が厚いところは強い抵抗帯・サポート帯</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tech-tip-box" style="background:#f0fdfa;border:1px solid #99f6e4;color:#134e4a">💡 <strong>実践テクニック：</strong>「三役好転」が揃った銘柄は、大きな上昇トレンドに乗れる可能性が高い。さらにMACDのゴールデンクロスを同時確認できれば、信頼性は最高水準。長期的な上昇トレンドを掴む手法として有効。</div>
+      </div>
+    </div>
+
+    <!-- ⑦ RCI -->
+    <div class="tech-section">
+      <div class="tech-section-header">
+        <div class="tech-section-icon" style="background:#fff7ed">🔄</div>
+        <div>
+          <div class="tech-section-title">⑦ RCI（順位相関指数）</div>
+          <div class="tech-section-sub">Rank Correlation Index｜時間と価格の相関を見る日本独自指標</div>
+        </div>
+        <span class="tech-section-badge badge-mid">中級者向け</span>
+      </div>
+      <div class="tech-section-body">
+        <div class="tech-overview">RCIは「時間の経過」と「価格の順位」の相関係数で、−100%〜+100%の値を取ります。<strong>+80%以上が買われすぎ、−80%以下が売られすぎ</strong>の目安です。短期（9日）・中期（26日）・長期（52日）の3本を使うのが実践的で、日本独自のオシレーター指標として人気があります。</div>
+        <div class="tech-formula-dark">
+          <div class="tech-formula-label">計算式の考え方</div>
+時間順位：最新が1位、古いものが最下位
+価格順位：高値を1位、低値を最下位
+D = 各日の（時間順位 − 価格順位）²の合計
+RCI = (1 − 6D/(n(n²−1))) × 100
+短期9日・中期26日・長期52日の3本を使用</div>
+        <div class="tech-two-col">
+          <div>
+            <div class="tech-signal-group-title">📈 買いシグナル</div>
+            <ul class="tech-sigs">
+              <li class="li-buy"><span class="s-buy">【逆張り】</span> 短期RCIが−80%以下から上向き転換</li>
+              <li class="li-buy"><span class="s-buy">【強い】</span> 短期・中期・長期の3本が全て−80%以下</li>
+              <li class="li-buy"><span class="s-buy">【順張り】</span> 長期RCIが+80%超で短期RCIが−80%から反発</li>
+              <li class="li-buy"><span class="s-buy">【交差】</span> 短期RCIが中期RCIを下から上抜け</li>
+            </ul>
+          </div>
+          <div>
+            <div class="tech-signal-group-title">📉 売りシグナル</div>
+            <ul class="tech-sigs">
+              <li class="li-sell"><span class="s-sell">【逆張り】</span> 短期RCIが+80%以上から下向き転換</li>
+              <li class="li-sell"><span class="s-sell">【強い】</span> 短期・中期・長期の3本が全て+80%以上</li>
+              <li class="li-sell"><span class="s-sell">【順張り】</span> 長期RCIが−80%超で短期RCIが+80%から反落</li>
+              <li class="li-watch"><span class="s-watch">【組み合わせ】</span> RSI・ストキャスとの組み合わせで精度UP</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tech-tip-box" style="background:#fff7ed;border:1px solid #fed7aa;color:#7c2d12">💡 <strong>実践テクニック：トリプルシグナル</strong>短期・中期・長期RCIの3本が全て−80%以下になる「トリプルシグナル」は底打ちの強力なサイン。RSIも30%以下であれば買いエントリーの確度が大幅に高まる。3本が同時に+80%以上に達した場合は利益確定の目安にもなる。</div>
+      </div>
+    </div>
+
+    <!-- ⑧ 出来高分析 -->
+    <div class="tech-section">
+      <div class="tech-section-header">
+        <div class="tech-section-icon" style="background:#fdf4ff">📦</div>
+        <div>
+          <div class="tech-section-title">⑧ 出来高分析</div>
+          <div class="tech-section-sub">Volume Analysis｜価格変動の信頼性を確認する</div>
+        </div>
+        <span class="tech-section-badge badge-mid">中級者向け</span>
+      </div>
+      <div class="tech-section-body">
+        <div class="tech-overview"><strong>「出来高を伴う価格変動は信頼性が高く、伴わないものは弱い」</strong>というのが基本原則です。出来高急増は大口投資家の参入を示す場合が多く、株価転換の重要なシグナルになります。</div>
+        <div class="tech-formula-dark">
+          <div class="tech-formula-label">主要な出来高指標</div>
+出来高移動平均（25日）：平均的な売買水準を把握
+出来高比率：当日出来高 ÷ 25日平均出来高
+  2倍以上 → 大口参入の可能性・要注目
+  5倍以上 → 強い転換シグナルの可能性
+OBV（オンバランスボリューム）：
+  上昇日は出来高を加算、下落日は減算
+  OBVが株価に先行して動く → トレンド転換の予兆</div>
+        <div class="tech-two-col">
+          <div>
+            <div class="tech-signal-group-title">📈 強気の出来高パターン</div>
+            <ul class="tech-sigs">
+              <li class="li-buy"><span class="s-buy">【急増上昇】</span> 大出来高を伴う株価上昇→強い上昇サイン</li>
+              <li class="li-buy"><span class="s-buy">【底値急増】</span> 長期下落後の底値圏での出来高急増→底打ちの可能性</li>
+              <li class="li-buy"><span class="s-buy">【OBV先行】</span> 株価横ばいでもOBVが上昇→上昇の予兆</li>
+              <li class="li-buy"><span class="s-buy">【少量押し目】</span> 上昇トレンド中の調整で出来高が少ない→健全な押し目</li>
+            </ul>
+          </div>
+          <div>
+            <div class="tech-signal-group-title">📉 弱気・注意パターン</div>
+            <ul class="tech-sigs">
+              <li class="li-sell"><span class="s-sell">【急増下落】</span> 大出来高を伴う株価下落→売り圧力が強い</li>
+              <li class="li-sell"><span class="s-sell">【高値急増】</span> 高値圏での出来高急増後の反落→天井形成の可能性</li>
+              <li class="li-watch"><span class="s-watch">【少量上昇】</span> 出来高が少ない上昇→信頼性が低い・追いかけない</li>
+              <li class="li-watch"><span class="s-watch">【OBV乖離】</span> 株価上昇でもOBVが下落→上昇トレンド崩壊の予兆</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tech-tip-box" style="background:#fdf4ff;border:1px solid #e9d5ff;color:#4c1d95">💡 <strong>実践テクニック：</strong>「25日平均の3倍以上の出来高」＋「陽線（終値＞始値）」が発生した銘柄は翌日以降も上昇継続することが多い。特に「長期下落後の底値圏」での発生は機関投資家の参入を示す強力な底打ちサイン。</div>
+      </div>
+    </div>
+
+    <!-- 組み合わせ実践 -->
+    <div style="background:var(--white);border:2px solid var(--purple);border-radius:12px;padding:1.4rem;margin-bottom:1rem">
+      <div style="font-size:.97rem;font-weight:700;color:var(--purple);margin-bottom:1rem">🔗 指標の組み合わせ実践ガイド（精度順）</div>
+      <div style="font-size:.83rem;color:var(--text-mid);margin-bottom:1rem;line-height:1.7">複数の指標が同じ方向を示した時だけエントリーする「多重確認」が勝率を高める最重要テクニックです。</div>
+      <div style="overflow-x:auto">
+        <table style="width:100%;border-collapse:collapse;font-size:.79rem;min-width:600px">
+          <thead>
+            <tr style="background:var(--purple);color:#fff">
+              <th style="padding:.55rem .8rem;text-align:left">組み合わせ</th>
+              <th style="padding:.55rem .8rem;text-align:left">シグナル条件</th>
+              <th style="padding:.55rem .8rem;text-align:center">精度</th>
+              <th style="padding:.55rem .8rem;text-align:left">実践コメント</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border)"><td style="padding:.55rem .8rem;font-weight:700">RSI＋MACD＋ボリンジャー</td><td style="padding:.55rem .8rem;color:var(--text-mid)">RSI≤30＋MACDのGC＋−2σ接触</td><td style="padding:.55rem .8rem;text-align:center;color:var(--red);font-weight:700">★★★★★</td><td style="padding:.55rem .8rem;color:var(--text-mid)">3指標が同時に買いシグナル。月に数回しか出ないが確度が非常に高い</td></tr>
+            <tr style="background:#fafbff;border-bottom:1px solid var(--border)"><td style="padding:.55rem .8rem;font-weight:700">移動平均線＋MACD</td><td style="padding:.55rem .8rem;color:var(--text-mid)">パーフェクトオーダー＋MACDのGC</td><td style="padding:.55rem .8rem;text-align:center;color:var(--red);font-weight:700">★★★★★</td><td style="padding:.55rem .8rem;color:var(--text-mid)">トレンドフォロー戦略の基本。パーフェクトオーダー後にGCした押し目が最高の買い場</td></tr>
+            <tr style="border-bottom:1px solid var(--border)"><td style="padding:.55rem .8rem;font-weight:700">一目均衡表＋MACD</td><td style="padding:.55rem .8rem;color:var(--text-mid)">三役好転＋MACDのGC</td><td style="padding:.55rem .8rem;text-align:center;color:var(--green);font-weight:700">★★★★☆</td><td style="padding:.55rem .8rem;color:var(--text-mid)">中長期の大きなトレンドを掴む手法。月足・週足で確認してから日足で買い場を探す</td></tr>
+            <tr style="background:#fafbff;border-bottom:1px solid var(--border)"><td style="padding:.55rem .8rem;font-weight:700">RSI＋ストキャスティクス</td><td style="padding:.55rem .8rem;color:var(--text-mid)">RSI≤30＋ストキャス20%以下でGC</td><td style="padding:.55rem .8rem;text-align:center;color:var(--green);font-weight:700">★★★★☆</td><td style="padding:.55rem .8rem;color:var(--text-mid)">2つのオシレーターで底打ちを二重確認。両方が売られすぎゾーンから反転するタイミングが最高</td></tr>
+            <tr style="border-bottom:1px solid var(--border)"><td style="padding:.55rem .8rem;font-weight:700">ボリンジャー＋出来高</td><td style="padding:.55rem .8rem;color:var(--text-mid)">スクイーズ後のブレイク＋出来高急増</td><td style="padding:.55rem .8rem;text-align:center;color:var(--green);font-weight:700">★★★★☆</td><td style="padding:.55rem .8rem;color:var(--text-mid)">出来高を伴うブレイクは特に信頼性が高い。3倍以上の出来高でブレイクしたら追いかけ可</td></tr>
+            <tr style="background:#fafbff"><td style="padding:.55rem .8rem;font-weight:700">RCI（3本）＋RSI</td><td style="padding:.55rem .8rem;color:var(--text-mid)">短中長期RCI全て−80%以下＋RSI≤30</td><td style="padding:.55rem .8rem;text-align:center;color:var(--green);font-weight:700">★★★★☆</td><td style="padding:.55rem .8rem;color:var(--text-mid)">トリプルシグナルで底値を確認する手法。稀にしか出ないが出たら高確度の反転シグナル</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
     <div class="alert-box alert-blue">📊 <strong>5月2日時点の日経平均テクニカル：</strong>RSI約58（中立圏）・MACD横ばい・ボリンジャーバンド中央線付近推移。過熱感なく上値余地あり。ただし決算後の個別株の値動きが激しい点に注意。</div>
-    <div class="disc">※テクニカル分析はあくまで参考情報です。単独での投資判断は避け、複数の情報を総合的に判断してください。</div>
+    <div class="disc">※テクニカル分析はあくまで参考情報です。単独での投資判断は避け、複数の情報を総合的に判断してください。投資判断は必ずご自身の責任で行ってください。</div>
   </div>
-
+  
   <!-- スクリーニング -->
   <div class="card" id="screening">
     <div class="card-title"><span class="card-label lbl-green">SCREENING</span>🔍 今日のおすすめスクリーニング条件（5月版）</div>
