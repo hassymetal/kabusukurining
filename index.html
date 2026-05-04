@@ -757,6 +757,273 @@ OBV：上昇日は加算、下落日は減算 → 株価に先行してトレン
     <div class="disc">※当サイトはアフィリエイト広告を掲載しています。口座開設・維持費は全て無料です。</div>
   </div>
 
+  <!-- 割安成長株レポート -->
+  <div class="card" id="growth-report">
+    <div class="card-title"><span class="card-label lbl-green">GROWTH</span>💎 割安成長株レポート（2026年5月4日版・中期目線3年）</div>
+    <div style="background:var(--green-pale);border:1px solid var(--green-border);border-radius:10px;padding:.9rem 1.2rem;margin-bottom:1.2rem;font-size:.83rem;color:#14532d;line-height:1.75">
+      📋 <strong>レポート概要：</strong>3年で株価2倍を狙える割安成長株を独自基準でスコアリング。成長性・割安性・直近決算・AI代替耐性・財務健全性の5項目（計100点）で評価。不定期更新。
+    </div>
+
+    <style>
+    .growth-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-bottom:1.2rem}
+    .growth-card{background:var(--bg);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:box-shadow .2s}
+    .growth-card:hover{box-shadow:0 4px 18px rgba(22,163,74,.12)}
+    .growth-card-header{padding:.9rem 1.1rem;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:10px}
+    .growth-rank{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:900;flex-shrink:0;color:#fff}
+    .growth-name{font-size:.95rem;font-weight:700;color:var(--text)}
+    .growth-code{font-size:.7rem;color:var(--text-muted);margin-top:2px}
+    .growth-score{margin-left:auto;text-align:center;flex-shrink:0}
+    .growth-score-num{font-size:1.4rem;font-weight:900;font-family:'DM Mono',monospace;line-height:1}
+    .growth-score-label{font-size:.6rem;color:var(--text-muted);margin-top:2px}
+    .growth-card-body{padding:.9rem 1.1rem}
+    .growth-biz{font-size:.78rem;color:var(--text-mid);line-height:1.7;margin-bottom:.8rem;padding:.5rem .7rem;background:var(--white);border-radius:6px;border-left:2px solid var(--green)}
+    .growth-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:.8rem}
+    .growth-met{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:.4rem;text-align:center}
+    .growth-met-label{font-size:.6rem;color:var(--text-muted)}
+    .growth-met-val{font-size:.8rem;font-weight:700;font-family:'DM Mono',monospace;color:var(--text)}
+    .growth-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:.8rem}
+    .growth-tag{font-size:.67rem;padding:2px 8px;border-radius:4px;font-weight:600}
+    .gt-green{background:#dcfce7;color:#15803d}
+    .gt-blue{background:#dbeafe;color:#1d4ed8}
+    .gt-amber{background:#fef3c7;color:#92400e}
+    .gt-red{background:#fee2e2;color:#b91c1c}
+    .gt-purple{background:#f3e8ff;color:#7c3aed}
+    .growth-comment{font-size:.78rem;color:var(--text-mid);line-height:1.7;margin-bottom:.7rem}
+    .growth-risk{font-size:.74rem;color:#92400e;background:var(--amber-pale);border-radius:6px;padding:.4rem .7rem;line-height:1.65}
+    .growth-score-bar{height:6px;border-radius:3px;background:var(--border);margin-bottom:.8rem;overflow:hidden}
+    .growth-score-fill{height:100%;border-radius:3px}
+    .growth-verdict{font-size:.75rem;font-weight:700;padding:5px 10px;border-radius:6px;text-align:center;margin-top:.5rem}
+    .gv-buy{background:#dcfce7;color:#15803d}
+    .gv-watch{background:#fef3c7;color:#92400e}
+    .gv-caution{background:#fee2e2;color:#b91c1c}
+    .growth-warning{background:var(--amber-pale);border:2px solid var(--amber);border-radius:8px;padding:.7rem 1rem;margin-bottom:.8rem;font-size:.76rem;color:#78350f;line-height:1.65}
+    </style>
+
+    <!-- 採点サマリー -->
+    <div style="overflow-x:auto;margin-bottom:1.4rem">
+      <table style="width:100%;border-collapse:collapse;font-size:.81rem;min-width:500px">
+        <thead>
+          <tr style="background:var(--green);color:#fff">
+            <th style="padding:.55rem .8rem;text-align:center">順位</th>
+            <th style="padding:.55rem .8rem;text-align:left">銘柄名</th>
+            <th style="padding:.55rem .8rem;text-align:center">コード</th>
+            <th style="padding:.55rem .8rem;text-align:center">総合点</th>
+            <th style="padding:.55rem .8rem;text-align:center">PER目安</th>
+            <th style="padding:.55rem .8rem;text-align:center">投資判断</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border);background:#f0fdf4"><td style="padding:.5rem .8rem;text-align:center;font-weight:900;color:var(--green)">🥇1位</td><td style="padding:.5rem .8rem;font-weight:700">アルトナー</td><td style="padding:.5rem .8rem;text-align:center;font-family:'DM Mono',monospace">2163</td><td style="padding:.5rem .8rem;text-align:center;font-weight:900;color:var(--green);font-size:1rem">82点</td><td style="padding:.5rem .8rem;text-align:center">16.6倍</td><td style="padding:.5rem .8rem;text-align:center"><span style="background:#dcfce7;color:#15803d;padding:2px 8px;border-radius:4px;font-size:.72rem;font-weight:700">買い検討</span></td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:.5rem .8rem;text-align:center;font-weight:900;color:#d97706">🥈2位</td><td style="padding:.5rem .8rem;font-weight:700">三浦工業</td><td style="padding:.5rem .8rem;text-align:center;font-family:'DM Mono',monospace">6005</td><td style="padding:.5rem .8rem;text-align:center;font-weight:900;color:#d97706;font-size:1rem">81点</td><td style="padding:.5rem .8rem;text-align:center">14.7倍</td><td style="padding:.5rem .8rem;text-align:center"><span style="background:#dcfce7;color:#15803d;padding:2px 8px;border-radius:4px;font-size:.72rem;font-weight:700">買い検討</span></td></tr>
+          <tr style="border-bottom:1px solid var(--border);background:#fafbff"><td style="padding:.5rem .8rem;text-align:center;font-weight:900;color:#92400e">🥉3位</td><td style="padding:.5rem .8rem;font-weight:700">日本ビジネスシステムズ（JBS）</td><td style="padding:.5rem .8rem;text-align:center;font-family:'DM Mono',monospace">5036</td><td style="padding:.5rem .8rem;text-align:center;font-weight:900;color:#92400e;font-size:1rem">80点</td><td style="padding:.5rem .8rem;text-align:center">11.7倍</td><td style="padding:.5rem .8rem;text-align:center"><span style="background:#dcfce7;color:#15803d;padding:2px 8px;border-radius:4px;font-size:.72rem;font-weight:700">買い検討</span></td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:.5rem .8rem;text-align:center">4位</td><td style="padding:.5rem .8rem;font-weight:700">ランディックス</td><td style="padding:.5rem .8rem;text-align:center;font-family:'DM Mono',monospace">2981</td><td style="padding:.5rem .8rem;text-align:center;font-weight:700">78点</td><td style="padding:.5rem .8rem;text-align:center">7〜10倍</td><td style="padding:.5rem .8rem;text-align:center"><span style="background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:4px;font-size:.72rem;font-weight:700">高リスク・高リターン</span></td></tr>
+          <tr style="border-bottom:1px solid var(--border);background:#fafbff"><td style="padding:.5rem .8rem;text-align:center">5位</td><td style="padding:.5rem .8rem;font-weight:700">NexTone</td><td style="padding:.5rem .8rem;text-align:center;font-family:'DM Mono',monospace">7094</td><td style="padding:.5rem .8rem;text-align:center;font-weight:700">76点</td><td style="padding:.5rem .8rem;text-align:center">25〜30倍</td><td style="padding:.5rem .8rem;text-align:center"><span style="background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:4px;font-size:.72rem;font-weight:700">様子見</span></td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:.5rem .8rem;text-align:center">6位</td><td style="padding:.5rem .8rem;font-weight:700">GMOグローバルサイン・HD</td><td style="padding:.5rem .8rem;text-align:center;font-family:'DM Mono',monospace">3788</td><td style="padding:.5rem .8rem;text-align:center;font-weight:700">74点</td><td style="padding:.5rem .8rem;text-align:center">22〜25倍</td><td style="padding:.5rem .8rem;text-align:center"><span style="background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:4px;font-size:.72rem;font-weight:700">様子見</span></td></tr>
+          <tr style="border-bottom:1px solid var(--border);background:#fafbff"><td style="padding:.5rem .8rem;text-align:center">7位</td><td style="padding:.5rem .8rem;font-weight:700">建設技術研究所</td><td style="padding:.5rem .8rem;text-align:center;font-family:'DM Mono',monospace">9621</td><td style="padding:.5rem .8rem;text-align:center;font-weight:700">71点</td><td style="padding:.5rem .8rem;text-align:center">11.8倍</td><td style="padding:.5rem .8rem;text-align:center"><span style="background:#fee2e2;color:#b91c1c;padding:2px 8px;border-radius:4px;font-size:.72rem;font-weight:700">利益率低下に注意</span></td></tr>
+          <tr><td style="padding:.5rem .8rem;text-align:center">8位</td><td style="padding:.5rem .8rem;font-weight:700">エスプール</td><td style="padding:.5rem .8rem;text-align:center;font-family:'DM Mono',monospace">2471</td><td style="padding:.5rem .8rem;text-align:center;font-weight:700">62点</td><td style="padding:.5rem .8rem;text-align:center">—</td><td style="padding:.5rem .8rem;text-align:center"><span style="background:#fee2e2;color:#b91c1c;padding:2px 8px;border-radius:4px;font-size:.72rem;font-weight:700">様子見</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 上位5社カード -->
+    <div style="font-size:.92rem;font-weight:700;color:var(--text);margin-bottom:.8rem">🏆 上位5社 詳細分析</div>
+    <div class="growth-grid">
+
+      <!-- 1位：アルトナー -->
+      <div class="growth-card">
+        <div class="growth-card-header">
+          <div class="growth-rank" style="background:var(--green)">1</div>
+          <div>
+            <div class="growth-name">アルトナー</div>
+            <div class="growth-code">2163｜東証プライム｜技術者派遣</div>
+          </div>
+          <div class="growth-score">
+            <div class="growth-score-num" style="color:var(--green)">82</div>
+            <div class="growth-score-label">/ 100点</div>
+          </div>
+        </div>
+        <div class="growth-card-body">
+          <div class="growth-score-bar"><div class="growth-score-fill" style="width:82%;background:var(--green)"></div></div>
+          <div class="growth-biz">設計・開発系エンジニア（機械・電気・ソフトウェア）を正社員として採用・育成し、メーカーへ長期派遣（常用型）。ホンダ・ニコン・ボッシュなどが顧客。未経験者育成の独自研修が強み。</div>
+          <div class="growth-metrics">
+            <div class="growth-met"><div class="growth-met-label">PER</div><div class="growth-met-val">16.6倍</div></div>
+            <div class="growth-met"><div class="growth-met-label">ROE</div><div class="growth-met-val">23.9%</div></div>
+            <div class="growth-met"><div class="growth-met-label">配当利回り</div><div class="growth-met-val">4.41%</div></div>
+            <div class="growth-met"><div class="growth-met-label">増益継続</div><div class="growth-met-val">13期</div></div>
+          </div>
+          <div class="growth-tags">
+            <span class="growth-tag gt-green">13期連続増収増益</span>
+            <span class="growth-tag gt-blue">エンジニア派遣</span>
+            <span class="growth-tag gt-green">高配当4.4%</span>
+            <span class="growth-tag gt-purple">AI代替耐性◎</span>
+          </div>
+          <div class="growth-comment">13期連続増収増益という圧倒的な実績が最大の魅力。PER16.6倍・ROE24%・配当利回り4.4%の組み合わせは日本株で極めて稀。3年間で利益が30%以上成長し、PERが18〜20倍に見直されれば株価は50〜70%の上昇余地。配当のインカムゲインもサポート。</div>
+          <div class="growth-risk">⚠️ リスク：ホンダ等顧客集中リスク・採用コスト高騰・12年超の増益記録が途絶えると株価大幅下落の可能性</div>
+          <div class="growth-verdict gv-buy">📈 最もリスク・リターンのバランスが良い候補</div>
+        </div>
+      </div>
+
+      <!-- 2位：三浦工業 -->
+      <div class="growth-card">
+        <div class="growth-card-header">
+          <div class="growth-rank" style="background:#d97706">2</div>
+          <div>
+            <div class="growth-name">三浦工業</div>
+            <div class="growth-code">6005｜東証プライム｜産業用ボイラー</div>
+          </div>
+          <div class="growth-score">
+            <div class="growth-score-num" style="color:#d97706">81</div>
+            <div class="growth-score-label">/ 100点</div>
+          </div>
+        </div>
+        <div class="growth-card-body">
+          <div class="growth-score-bar"><div class="growth-score-fill" style="width:81%;background:#d97706"></div></div>
+          <div class="growth-biz">産業用小型ボイラーの国内トップメーカー。全国3,000拠点超の保守・メンテナンスネットワークが安定収益の柱。米国クリーバーブルックス社買収で北米市場を大幅強化。</div>
+          <div class="growth-metrics">
+            <div class="growth-met"><div class="growth-met-label">PER</div><div class="growth-met-val">14.7倍</div></div>
+            <div class="growth-met"><div class="growth-met-label">ROE</div><div class="growth-met-val">11.5%</div></div>
+            <div class="growth-met"><div class="growth-met-label">配当利回り</div><div class="growth-met-val">1.98%</div></div>
+            <div class="growth-met"><div class="growth-met-label">最高益継続</div><div class="growth-met-val">5期</div></div>
+          </div>
+          <div class="growth-tags">
+            <span class="growth-tag gt-green">5期連続最高益</span>
+            <span class="growth-tag gt-blue">北米事業拡大</span>
+            <span class="growth-tag gt-green">AI代替リスク最低</span>
+            <span class="growth-tag gt-amber">ストック収益</span>
+          </div>
+          <div class="growth-comment">AI代替リスクが最も低く、利益成長が継続している優良企業。5期連続最高益更新予定で、北米事業の本格化が3年内に株価を大きく押し上げるカタリストになりうる。1.5〜1.7倍の上昇は十分に視野に入る。</div>
+          <div class="growth-risk">⚠️ リスク：米関税による米国経済減速・円高進行で海外事業の円換算額減少・クリーバーブルックス統合リスク</div>
+          <div class="growth-verdict gv-buy">📈 安定成長型・長期保有向き</div>
+        </div>
+      </div>
+
+      <!-- 3位：JBS -->
+      <div class="growth-card">
+        <div class="growth-card-header">
+          <div class="growth-rank" style="background:#2563eb">3</div>
+          <div>
+            <div class="growth-name">日本ビジネスシステムズ（JBS）</div>
+            <div class="growth-code">5036｜東証スタンダード｜クラウドDX</div>
+          </div>
+          <div class="growth-score">
+            <div class="growth-score-num" style="color:#2563eb">80</div>
+            <div class="growth-score-label">/ 100点</div>
+          </div>
+        </div>
+        <div class="growth-card-body">
+          <div class="growth-score-bar"><div class="growth-score-fill" style="width:80%;background:#2563eb"></div></div>
+          <div class="growth-biz">独立系クラウドインテグレーター。Microsoft 365・Azure等を中心に大企業向けクラウドDX支援を提供。ライセンス販売・クラウドインテグレーション・クラウドサービスの3事業。</div>
+          <div class="growth-metrics">
+            <div class="growth-met"><div class="growth-met-label">PER</div><div class="growth-met-val">11.7倍</div></div>
+            <div class="growth-met"><div class="growth-met-label">ROE</div><div class="growth-met-val">21.7%</div></div>
+            <div class="growth-met"><div class="growth-met-label">売上成長</div><div class="growth-met-val">+22.5%</div></div>
+            <div class="growth-met"><div class="growth-met-label">純利益成長</div><div class="growth-met-val">+68%</div></div>
+          </div>
+          <div class="growth-tags">
+            <span class="growth-tag gt-blue">割安PER11.7倍</span>
+            <span class="growth-tag gt-red">AI活用支援</span>
+            <span class="growth-tag gt-purple">Copilot導入No.1</span>
+            <span class="growth-tag gt-amber">スタンダード市場</span>
+          </div>
+          <div class="growth-comment">PER11.7倍・ROE21.7%という組み合わせは成長企業として明らかな割安。純利益68%増という実績を出しながら今期予想が保守的。スタンダード市場という認知度の低さが割安の原因で、再評価余地が最も大きい。</div>
+          <div class="growth-risk">⚠️ リスク：マイクロソフト依存・ライセンス体系変更の影響大・グローバル大手との競争激化</div>
+          <div class="growth-verdict gv-buy">📈 最も再評価余地が大きい割安成長株</div>
+        </div>
+      </div>
+
+      <!-- 4位：ランディックス -->
+      <div class="growth-card">
+        <div class="growth-card-header">
+          <div class="growth-rank" style="background:#7c3aed">4</div>
+          <div>
+            <div class="growth-name">ランディックス</div>
+            <div class="growth-code">2981｜東証グロース｜不動産テック</div>
+          </div>
+          <div class="growth-score">
+            <div class="growth-score-num" style="color:#7c3aed">78</div>
+            <div class="growth-score-label">/ 100点</div>
+          </div>
+        </div>
+        <div class="growth-card-body">
+          <div class="growth-score-bar"><div class="growth-score-fill" style="width:78%;background:#7c3aed"></div></div>
+          <div class="growth-biz">富裕層向け不動産テック企業。東京・城南エリア特化の注文住宅「sumuzu」と不動産開発「Grande」を展開。紹介・リピート率30%超が強み。</div>
+          <div class="growth-metrics">
+            <div class="growth-met"><div class="growth-met-label">PER</div><div class="growth-met-val">7〜10倍</div></div>
+            <div class="growth-met"><div class="growth-met-label">ROE</div><div class="growth-met-val">16.8%</div></div>
+            <div class="growth-met"><div class="growth-met-label">3Q営業利益</div><div class="growth-met-val">+95%</div></div>
+            <div class="growth-met"><div class="growth-met-label">自己資本比率</div><div class="growth-met-val">38.3%</div></div>
+          </div>
+          <div class="growth-tags">
+            <span class="growth-tag gt-purple">超割安PER7倍</span>
+            <span class="growth-tag gt-red">爆発的利益成長</span>
+            <span class="growth-tag gt-blue">富裕層不動産</span>
+            <span class="growth-tag gt-amber">プライム移行期待</span>
+          </div>
+          <div class="growth-comment">PER7〜10倍という超低バリュエーションと直近3Q営業利益が前年比95%増という爆発的な利益成長のギャップが最大の魅力。プライム市場移行と配当開始がバリュエーション是正のトリガーになりうる。</div>
+          <div class="growth-risk">⚠️ リスク：業績の季節変動が激しい・金利上昇で住宅需要減退・小型株で流動性が低い</div>
+          <div class="growth-verdict gv-watch">⚡ 高リスク・高リターン型｜ポジション管理重要</div>
+        </div>
+      </div>
+
+      <!-- 5位：NexTone -->
+      <div class="growth-card">
+        <div class="growth-card-header">
+          <div class="growth-rank" style="background:#0d9488">5</div>
+          <div>
+            <div class="growth-name">NexTone</div>
+            <div class="growth-code">7094｜東証グロース｜音楽著作権管理</div>
+          </div>
+          <div class="growth-score">
+            <div class="growth-score-num" style="color:#0d9488">76</div>
+            <div class="growth-score-label">/ 100点</div>
+          </div>
+        </div>
+        <div class="growth-card-body">
+          <div class="growth-score-bar"><div class="growth-score-fill" style="width:76%;background:#0d9488"></div></div>
+          <div class="growth-biz">音楽著作権管理（JASRAC対抗の唯一の管理団体）、デジタルコンテンツ配信（DD事業）、音楽配信（レコチョクグループ連結）の3本柱。ストリーミング市場拡大の恩恵を直接受けるビジネスモデル。</div>
+          <div class="growth-metrics">
+            <div class="growth-met"><div class="growth-met-label">PER</div><div class="growth-met-val">25〜30倍</div></div>
+            <div class="growth-met"><div class="growth-met-label">時価総額</div><div class="growth-met-val">150億円</div></div>
+            <div class="growth-met"><div class="growth-met-label">営業利益成長</div><div class="growth-met-val">+52.6%</div></div>
+            <div class="growth-met"><div class="growth-met-label">初配当</div><div class="growth-met-val">20円</div></div>
+          </div>
+          <div class="growth-tags">
+            <span class="growth-tag gt-green">参入障壁最高</span>
+            <span class="growth-tag gt-blue">著作権管理</span>
+            <span class="growth-tag gt-amber">初配当開始</span>
+            <span class="growth-tag gt-purple">ストック型収益</span>
+          </div>
+          <div class="growth-comment">音楽著作権管理という高い参入障壁を持つ成長株。ストリーミング市場の恩恵を受け続ける構造は良好。PERは高めだが営業利益52%超の成長ペースを維持。初配当開始で新たな投資家層の流入が見込まれる。</div>
+          <div class="growth-risk">⚠️ リスク：ストリーミング市場の成長鈍化・JASRACとの競争激化・3Q進捗率がやや低め</div>
+          <div class="growth-verdict gv-watch">👀 PER高めだが成長性で許容範囲・長期目線で</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 注意銘柄 -->
+    <div style="font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:.7rem">⚠️ 注意が必要な銘柄（6〜8位）</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-bottom:1.2rem">
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:1rem">
+        <div style="font-size:.88rem;font-weight:700;margin-bottom:.4rem">GMOグローバルサイン・HD <span style="font-size:.7rem;color:var(--text-muted);font-weight:400">3788｜74点</span></div>
+        <div style="font-size:.77rem;color:var(--text-mid);line-height:1.7;margin-bottom:.5rem">AI時代の「信頼インフラ」という独自ポジションが強み。GMOサインの黒字化・ARR急拡大は利益成長の加速シグナル。ただし利益絶対額がまだ小さく、PER22〜25倍は成長前提。</div>
+        <div style="font-size:.72rem;background:var(--amber-pale);border-radius:5px;padding:.3rem .6rem;color:#92400e">⚠️ DX事業は依然赤字・GMOグループガバナンスリスク</div>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:1rem">
+        <div style="font-size:.88rem;font-weight:700;margin-bottom:.4rem">建設技術研究所 <span style="font-size:.7rem;color:var(--text-muted);font-weight:400">9621｜71点</span></div>
+        <div style="font-size:.77rem;color:var(--text-mid);line-height:1.7;margin-bottom:.5rem">受注高急増（前期比16%増）が次期以降の業績回復を示唆。PER11.8倍は割安。ただし直近で利益率が低下中（20.9%→19.5%）。受注残の業績転換確認後が買い場。</div>
+        <div style="font-size:.72rem;background:var(--amber-pale);border-radius:5px;padding:.3rem .6rem;color:#92400e">⚠️ 増収だが利益が追いついていない状況に注意</div>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:1rem">
+        <div style="font-size:.88rem;font-weight:700;margin-bottom:.4rem">エスプール <span style="font-size:.7rem;color:var(--text-muted);font-weight:400">2471｜62点</span></div>
+        <div style="font-size:.77rem;color:var(--text-mid);line-height:1.7;margin-bottom:.5rem">障がい者雇用支援の法定雇用率引き上げ（2026年7月）というカタリストがあるが、直近1Qで営業利益が前年比86%減。前年の一時収益の反動とはいえ業績変動が激しく透明性が低い。</div>
+        <div style="font-size:.72rem;background:var(--red-pale);border-radius:5px;padding:.3rem .6rem;color:#b91c1c">🔴 現時点では「様子見」が妥当</div>
+      </div>
+    </div>
+
+    <div class="disc">⚠️ <strong>免責事項：</strong>本レポートは情報提供を目的としたものであり、特定の銘柄への投資を推奨するものではありません。株式投資にはリスクが伴い、過去の業績や成長性が将来の株価を保証するものではありません。投資判断は必ずご自身でご確認・ご判断ください。</div>
+  </div>
+
   <!-- テクニカル条件該当銘柄20選 -->
   <div class="card" id="technical-picks">
     <div class="card-title"><span class="card-label lbl-purple">TECHNICAL PICKS</span>📡 テクニカル条件該当銘柄 20選（2026/05/03更新）</div>
