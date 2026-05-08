@@ -219,6 +219,132 @@ footer{background:#0f172a;color:#64748b;padding:2rem 1.5rem;font-size:.77rem;tex
     <div class="alert-box alert-amber">📌 <strong>来週以降の戦略ポイント：</strong>①SBG・キオクシア等の急騰銘柄は高値追いせず押し目待ちが基本 ②米雇用統計の結果次第で週明けの方向性が決定 ③SBG決算（5/13）・キオクシア決算（5/15）がAI・半導体セクター全体の方向性を左右。</div>
   </div>
 
+  <!-- 日経平均テクニカル詳細分析 -->
+  <div class="card" id="nikkei-technical">
+    <div class="card-title"><span class="card-label lbl-purple">CHART</span>📈 日経平均株価のテクニカル詳細分析（2026/05/08大引け後）</div>
+    <div style="background:#f3e8ff;border:1px solid #d8b4fe;border-radius:10px;padding:.9rem 1.2rem;margin-bottom:1.2rem;font-size:.83rem;color:#6b21a8;line-height:1.75">
+      📊 <strong>分析概要：</strong>5/7に過去最大の上げ幅+3,320円で最高値更新後、5/8は小幅反落。短期過熱感はあるものの、移動平均線・MACD・ボリンジャーバンドはいずれも強気シグナルを継続。テクニカル要素を視覚的に解説します。
+    </div>
+
+    <style>
+    .ntech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:1.2rem}
+    .ntech-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:.9rem 1rem}
+    .ntech-label{font-size:.7rem;color:var(--text-muted);font-weight:700;letter-spacing:.04em;margin-bottom:.3rem}
+    .ntech-value{font-size:1.15rem;font-weight:900;font-family:'DM Mono',monospace;color:var(--text);margin-bottom:.3rem;line-height:1.2}
+    .ntech-detail{font-size:.74rem;color:var(--text-mid);line-height:1.55}
+    .signal-badge{display:inline-block;padding:1px 8px;border-radius:4px;font-size:.66rem;font-weight:700;margin-right:4px;margin-top:3px}
+    .sb-buy{background:#dcfce7;color:#15803d}
+    .sb-sell{background:#fee2e2;color:#b91c1c}
+    .sb-neutral{background:#fef3c7;color:#92400e}
+    .sb-trend{background:#dbeafe;color:#1d4ed8}
+    .levels-table{width:100%;border-collapse:collapse;font-size:.78rem}
+    .levels-table th{background:#7c3aed;color:#fff;padding:.5rem .7rem;text-align:left}
+    .levels-table td{padding:.5rem .7rem;border-bottom:1px solid var(--border)}
+    .levels-table tr:nth-child(even) td{background:#fafbff}
+    .price-bar{position:relative;height:36px;background:linear-gradient(to right,#dcfce7 0%,#dcfce7 25%,#fef3c7 25%,#fef3c7 75%,#fee2e2 75%,#fee2e2 100%);border-radius:18px;margin:.5rem 0}
+    .price-marker{position:absolute;top:-4px;width:3px;height:44px;background:var(--text);border-radius:2px}
+    .price-label{position:absolute;top:-22px;font-size:.65rem;color:var(--text);font-weight:700;font-family:'DM Mono',monospace;transform:translateX(-50%);white-space:nowrap}
+    </style>
+
+    <!-- 主要指標サマリー -->
+    <div style="font-size:.92rem;font-weight:700;color:var(--text);margin-bottom:.7rem">📊 主要テクニカル指標（5/8終値ベース）</div>
+    <div class="ntech-grid">
+      <div class="ntech-card">
+        <div class="ntech-label">📍 現在値</div>
+        <div class="ntech-value" style="color:var(--blue)">62,713.65円</div>
+        <div class="ntech-detail">前日比 −120.19円（−0.19%）<br>3日ぶり反落も下げ渋り</div>
+      </div>
+      <div class="ntech-card">
+        <div class="ntech-label">📈 25日移動平均線</div>
+        <div class="ntech-value" style="color:var(--green)">約 57,800円</div>
+        <div class="ntech-detail">乖離率 +8.5%（過熱気味）<br><span class="signal-badge sb-trend">↑強い上昇トレンド</span></div>
+      </div>
+      <div class="ntech-card">
+        <div class="ntech-label">📊 75日移動平均線</div>
+        <div class="ntech-value" style="color:var(--green)">約 56,200円</div>
+        <div class="ntech-detail">乖離率 +11.6%<br><span class="signal-badge sb-buy">パーフェクトオーダー継続</span></div>
+      </div>
+      <div class="ntech-card">
+        <div class="ntech-label">📉 200日移動平均線</div>
+        <div class="ntech-value" style="color:var(--green)">約 51,500円</div>
+        <div class="ntech-detail">乖離率 +21.8%<br>長期上昇トレンド健在</div>
+      </div>
+      <div class="ntech-card">
+        <div class="ntech-label">⚡ RSI（14日）</div>
+        <div class="ntech-value" style="color:var(--amber)">約 65</div>
+        <div class="ntech-detail"><span class="signal-badge sb-neutral">過熱圏（70未満）</span><br>5/7急騰で60→65へ上昇</div>
+      </div>
+      <div class="ntech-card">
+        <div class="ntech-label">📊 MACD</div>
+        <div class="ntech-value" style="color:var(--green)">+1,200円</div>
+        <div class="ntech-detail"><span class="signal-badge sb-buy">ゴールデンクロス継続</span><br>シグナル線上抜け確認済み</div>
+      </div>
+      <div class="ntech-card">
+        <div class="ntech-label">📐 ボリンジャーバンド</div>
+        <div class="ntech-value" style="color:var(--purple)">+2σ付近</div>
+        <div class="ntech-detail">上方エクスパンション中<br>+2σ ≒ 63,500円・中央線 57,800円</div>
+      </div>
+      <div class="ntech-card">
+        <div class="ntech-label">🌌 一目均衡表</div>
+        <div class="ntech-value" style="color:var(--green)">三役好転</div>
+        <div class="ntech-detail">転換線・基準線・遅行線すべて<br><span class="signal-badge sb-buy">強気シグナル全点灯</span></div>
+      </div>
+    </div>
+
+    <!-- 重要価格帯 -->
+    <div style="font-size:.92rem;font-weight:700;color:var(--text);margin:1.4rem 0 .7rem">🎯 重要なサポート・レジスタンスライン</div>
+    <div style="overflow-x:auto;margin-bottom:1rem">
+      <table class="levels-table" style="min-width:500px">
+        <thead><tr>
+          <th>区分</th><th>価格水準</th><th>意味・根拠</th><th>反応</th>
+        </tr></thead>
+        <tbody>
+          <tr><td><strong style="color:var(--red)">★レジスタンス1</strong></td><td><strong>63,091円</strong></td><td>5/7につけた取引時間中の史上最高値</td><td>強い上値抵抗</td></tr>
+          <tr><td>レジスタンス2</td><td>63,500円</td><td>ボリンジャーバンド+2σ水準</td><td>テクニカル抵抗</td></tr>
+          <tr><td>レジスタンス3</td><td>65,000円</td><td>心理的節目・次のターゲット</td><td>達成は来週以降</td></tr>
+          <tr><td><strong>現在値</strong></td><td><strong>62,713円</strong></td><td>5/8大引け値・5/7終値の直下</td><td>—</td></tr>
+          <tr><td>サポート1</td><td>62,000円</td><td>本日朝の安値圏・心理的節目</td><td>下値支え</td></tr>
+          <tr><td>サポート2</td><td>61,000円</td><td>5/7寄付水準・先物節目</td><td>強いサポート</td></tr>
+          <tr><td><strong style="color:var(--green)">★サポート3</strong></td><td><strong>60,537円</strong></td><td>4/27高値・最高値更新時のブレイクポイント</td><td>下値の最終防衛線</td></tr>
+          <tr><td>サポート4</td><td>57,800円</td><td>25日移動平均線</td><td>中期サポート</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- トレンド判定 -->
+    <div style="font-size:.92rem;font-weight:700;color:var(--text);margin:1.4rem 0 .7rem">📊 短期・中期・長期トレンド判定</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:1rem">
+      <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:10px;padding:.9rem 1rem">
+        <div style="font-size:.78rem;font-weight:700;color:#15803d;margin-bottom:.4rem">📈 短期トレンド（〜1週間）</div>
+        <div style="font-size:1.15rem;font-weight:900;color:var(--green);margin-bottom:.3rem">↗ 強気</div>
+        <div style="font-size:.74rem;color:var(--text-mid);line-height:1.6">5/7急騰でトレンド転換確認。本日の小幅反落は健全な調整。米雇用統計待ち。</div>
+      </div>
+      <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:10px;padding:.9rem 1rem">
+        <div style="font-size:.78rem;font-weight:700;color:#15803d;margin-bottom:.4rem">📊 中期トレンド（1〜3ヶ月）</div>
+        <div style="font-size:1.15rem;font-weight:900;color:var(--green);margin-bottom:.3rem">↗↗ 超強気</div>
+        <div style="font-size:.74rem;color:var(--text-mid);line-height:1.6">25日線↑75日線↑200日線のパーフェクトオーダー。中期上昇継続。</div>
+      </div>
+      <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:10px;padding:.9rem 1rem">
+        <div style="font-size:.78rem;font-weight:700;color:#15803d;margin-bottom:.4rem">📉 長期トレンド（半年〜）</div>
+        <div style="font-size:1.15rem;font-weight:900;color:var(--green);margin-bottom:.3rem">↗ 強気継続</div>
+        <div style="font-size:.74rem;color:var(--text-mid);line-height:1.6">200日線+21.8%乖離は過熱気味。サナエノミクス・AI投資が下支え。</div>
+      </div>
+    </div>
+
+    <!-- 注目ポイント -->
+    <div style="background:var(--blue-pale);border:1px solid var(--blue-border);border-radius:10px;padding:.9rem 1.2rem;margin-bottom:1rem">
+      <div style="font-size:.85rem;font-weight:700;color:var(--blue-dark);margin-bottom:.5rem">🔍 5/8時点のテクニカル注目ポイント</div>
+      <ul style="font-size:.78rem;color:var(--text-mid);line-height:1.85;padding-left:1.3rem;margin:0">
+        <li><strong>25日線乖離率+8.5%は過熱圏入り。</strong>過去パターンでは+10%超で短期調整入りが多く、短期は63,000円付近が当面の天井圏</li>
+        <li><strong>RSI65・MACD好転は買い継続シグナル。</strong>RSI70超まではトレンドフォロー継続が定石</li>
+        <li><strong>ボリンジャーバンドが+2σでエクスパンション中。</strong>強い上昇トレンドの典型的形状で、短期は乗っても良い</li>
+        <li><strong>61,000円のサポートが崩れない限り強気継続。</strong>割れた場合は60,000円・57,800円（25日線）まで調整可能性</li>
+        <li><strong>来週の重要レジスタンスは63,091円（5/7高値）。</strong>これを上抜けすれば65,000円台が視野に</li>
+      </ul>
+    </div>
+    <div class="disc">※テクニカル分析は確率論であり、必ず的中するものではありません。ファンダメンタル分析と組み合わせてご活用ください。</div>
+  </div>
+
   <!-- テクニカル条件該当銘柄20選 -->
   <div class="card" id="technical-picks">
     <div class="card-title"><span class="card-label lbl-purple">TECHNICAL PICKS</span>📡 テクニカル条件該当銘柄 20選（2026/05/08更新）</div>
@@ -711,6 +837,300 @@ footer{background:#0f172a;color:#64748b;padding:2rem 1.5rem;font-size:.77rem;tex
     <div class="disc" style="margin-top:.8rem">※セクター動向はあくまで参考情報です。実際の投資判断の際はご自身でご確認ください。</div>
   </div>
 
+  <!-- 今後の有望セクター（中長期テーマ） -->
+  <div class="card" id="future-sectors">
+    <div class="card-title"><span class="card-label lbl-purple">FUTURE</span>🚀 今後3〜5年の有望セクター・テーマ株（中長期目線）</div>
+    <div style="background:#f3e8ff;border:1px solid #d8b4fe;border-radius:10px;padding:.9rem 1.2rem;margin-bottom:1.2rem;font-size:.83rem;color:#6b21a8;line-height:1.75">
+      📋 <strong>レポート概要：</strong>2026〜2030年を見据えた構造的成長テーマを「成熟度」「成長性」「リスク」で評価。野村證券・楽天証券・SBI証券等のストラテジスト見解を参考に、政策テーマ（サナエノミクス）・技術革新・社会構造変化の3軸で整理しました。
+    </div>
+
+    <style>
+    .future-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-bottom:1.2rem}
+    .future-card{background:var(--bg);border:2px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+    .future-card-header{padding:.85rem 1rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+    .future-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;color:#fff}
+    .future-name{font-size:.95rem;font-weight:700;color:var(--text)}
+    .future-tier{font-size:.65rem;color:var(--text-muted);margin-top:1px}
+    .future-rank{margin-left:auto;font-size:.95rem;font-weight:900;font-family:'DM Mono',monospace}
+    .future-card-body{padding:.85rem 1rem;flex:1;display:flex;flex-direction:column}
+    .future-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:.7rem}
+    .future-met{background:var(--white);border:1px solid var(--border);border-radius:5px;padding:.3rem;text-align:center}
+    .future-met-l{font-size:.58rem;color:var(--text-muted)}
+    .future-met-v{font-size:.72rem;font-weight:700;font-family:'DM Mono',monospace;color:var(--text)}
+    .future-desc{font-size:.78rem;color:var(--text-mid);line-height:1.7;margin-bottom:.7rem;flex:1}
+    .future-stocks{font-size:.72rem;color:var(--text-mid);background:var(--white);border-left:3px solid var(--purple);padding:.4rem .6rem;border-radius:4px;margin-bottom:.5rem}
+    .future-stocks strong{color:var(--text)}
+    .future-tag-row{display:flex;gap:5px;flex-wrap:wrap}
+    .ftag{font-size:.62rem;padding:2px 7px;border-radius:4px;font-weight:600}
+    .ftag-policy{background:#fee2e2;color:#b91c1c}
+    .ftag-tech{background:#dbeafe;color:#1d4ed8}
+    .ftag-macro{background:#dcfce7;color:#15803d}
+    .ftag-cycle{background:#fef3c7;color:#92400e}
+    </style>
+
+    <!-- 最有望テーマ Sランク -->
+    <div style="font-size:.92rem;font-weight:700;color:var(--purple);margin-bottom:.7rem;padding-bottom:.4rem;border-bottom:2px solid #e9d5ff">⭐ Sランク（最有望・5年で2倍以上の可能性）</div>
+    <div class="future-grid">
+
+      <div class="future-card" style="border-color:#dc2626">
+        <div class="future-card-header">
+          <div class="future-icon" style="background:#dc2626">🤖</div>
+          <div><div class="future-name">フィジカルAI・ヒューマノイドロボット</div><div class="future-tier">産業用ロボット×AI×自律動作</div></div>
+          <div class="future-rank" style="color:#dc2626">S+</div>
+        </div>
+        <div class="future-card-body">
+          <div class="future-meta">
+            <div class="future-met"><div class="future-met-l">成熟度</div><div class="future-met-v">初期</div></div>
+            <div class="future-met"><div class="future-met-l">成長性</div><div class="future-met-v" style="color:var(--red)">★★★★★</div></div>
+            <div class="future-met"><div class="future-met-l">5年後</div><div class="future-met-v">10兆円市場</div></div>
+          </div>
+          <div class="future-desc">2026年は「AIインフラからAI活用」へ物色シフトの転換点。NVIDIAが2025年に「フィジカルAI」を提唱、ロボット×生成AIで工場自動化・物流・建設・介護まで波及見込み。ファナックがNVIDIAと協業発表で先行。</div>
+          <div class="future-stocks"><strong>本命：</strong>ファナック・安川電機・SMC｜<strong>準本命：</strong>キーエンス・ＨＡＲＭＯＮＩＣ・THK</div>
+          <div class="future-tag-row"><span class="ftag ftag-tech">技術革新</span><span class="ftag ftag-macro">構造的成長</span><span class="ftag ftag-cycle">設備投資循環</span></div>
+        </div>
+      </div>
+
+      <div class="future-card" style="border-color:#7c3aed">
+        <div class="future-card-header">
+          <div class="future-icon" style="background:#7c3aed">⚡</div>
+          <div><div class="future-name">電力インフラ・送配電・SMR</div><div class="future-tier">データセンター電力需要×原発再稼働</div></div>
+          <div class="future-rank" style="color:#7c3aed">S</div>
+        </div>
+        <div class="future-card-body">
+          <div class="future-meta">
+            <div class="future-met"><div class="future-met-l">成熟度</div><div class="future-met-v">中期</div></div>
+            <div class="future-met"><div class="future-met-l">成長性</div><div class="future-met-v" style="color:var(--red)">★★★★★</div></div>
+            <div class="future-met"><div class="future-met-l">追い風</div><div class="future-met-v">国策×AI需要</div></div>
+          </div>
+          <div class="future-desc">AI・データセンターの電力需要は2030年に現在の3倍見通し。日本の発電容量増強・送配電網強化・SMR（小型モジュール原子炉）の3本柱で構造的成長。サナエノミクスの政策追い風も。</div>
+          <div class="future-stocks"><strong>本命：</strong>関西電力・東電HD・電源開発｜<strong>送配電：</strong>古河電工・フジクラ・住友電工｜<strong>SMR：</strong>三菱重工・IHI</div>
+          <div class="future-tag-row"><span class="ftag ftag-policy">国策テーマ</span><span class="ftag ftag-macro">AI需要</span><span class="ftag ftag-tech">原発回帰</span></div>
+        </div>
+      </div>
+
+      <div class="future-card" style="border-color:#0891b2">
+        <div class="future-card-header">
+          <div class="future-icon" style="background:#0891b2">🛡️</div>
+          <div><div class="future-name">防衛・宇宙・造船</div><div class="future-tier">防衛費GDP比2%・宇宙ビジネス</div></div>
+          <div class="future-rank" style="color:#0891b2">S</div>
+        </div>
+        <div class="future-card-body">
+          <div class="future-meta">
+            <div class="future-met"><div class="future-met-l">成熟度</div><div class="future-met-v">中期</div></div>
+            <div class="future-met"><div class="future-met-l">成長性</div><div class="future-met-v" style="color:var(--red)">★★★★★</div></div>
+            <div class="future-met"><div class="future-met-l">予算</div><div class="future-met-v">5年で43兆円</div></div>
+          </div>
+          <div class="future-desc">日本の防衛費はGDP比2%目標で5年間総額43兆円。サナエノミクスでも国防は最重要政策。受注残高は5年分超えが続出。宇宙ビジネス（ロケット・衛星）・造船（艦艇）・サイバー防衛も伸長。</div>
+          <div class="future-stocks"><strong>本命：</strong>三菱重工・川崎重工・IHI｜<strong>準本命：</strong>豊和工業・石川製作所・日本電気｜<strong>宇宙：</strong>三菱電機・ispace</div>
+          <div class="future-tag-row"><span class="ftag ftag-policy">国策テーマ</span><span class="ftag ftag-macro">構造的成長</span><span class="ftag ftag-cycle">受注10年分</span></div>
+        </div>
+      </div>
+
+      <div class="future-card" style="border-color:#16a34a">
+        <div class="future-card-header">
+          <div class="future-icon" style="background:#16a34a">🏦</div>
+          <div><div class="future-name">銀行・保険・地銀再編</div><div class="future-tier">金利ある世界×M&A加速</div></div>
+          <div class="future-rank" style="color:#16a34a">S-</div>
+        </div>
+        <div class="future-card-body">
+          <div class="future-meta">
+            <div class="future-met"><div class="future-met-l">成熟度</div><div class="future-met-v">成熟</div></div>
+            <div class="future-met"><div class="future-met-l">成長性</div><div class="future-met-v" style="color:var(--amber)">★★★★☆</div></div>
+            <div class="future-met"><div class="future-met-l">配当</div><div class="future-met-v">3.5〜4.5%</div></div>
+          </div>
+          <div class="future-desc">日銀の金融政策正常化で「金利ある世界」へ。銀行の利ザヤ改善・保険の運用利回り向上が継続。地方銀行は再編加速で2026年も大型M&Aの可能性。配当利回りも高くNISA向き。</div>
+          <div class="future-stocks"><strong>メガ：</strong>三菱UFJ・三井住友・みずほ｜<strong>地銀：</strong>千葉銀行・静岡銀行・ふくおかFG｜<strong>保険：</strong>東京海上・第一生命</div>
+          <div class="future-tag-row"><span class="ftag ftag-macro">金利上昇恩恵</span><span class="ftag ftag-cycle">M&A活発化</span><span class="ftag ftag-policy">日銀政策</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Aランク -->
+    <div style="font-size:.92rem;font-weight:700;color:var(--blue);margin-bottom:.7rem;padding-bottom:.4rem;border-bottom:2px solid #bfdbfe;margin-top:1.5rem">🌟 Aランク（有望・3年で50%上昇期待）</div>
+    <div class="future-grid">
+
+      <div class="future-card" style="border-color:#2563eb">
+        <div class="future-card-header">
+          <div class="future-icon" style="background:#2563eb">🧠</div>
+          <div><div class="future-name">AI半導体・先端パッケージング</div><div class="future-tier">AI推論需要・3D実装・HBM</div></div>
+          <div class="future-rank" style="color:#2563eb">A+</div>
+        </div>
+        <div class="future-card-body">
+          <div class="future-meta">
+            <div class="future-met"><div class="future-met-l">成熟度</div><div class="future-met-v">中期</div></div>
+            <div class="future-met"><div class="future-met-l">成長性</div><div class="future-met-v" style="color:var(--red)">★★★★★</div></div>
+            <div class="future-met"><div class="future-met-l">注意</div><div class="future-met-v">過熱感</div></div>
+          </div>
+          <div class="future-desc">中核テーマは継続するが、2025年の急騰で短期的にバブル懸念。2026年は「裾野拡大」がキーワード。HBM・先端パッケージ（CoWoS）・テスト装置・電子材料に物色シフト。AI推論市場は2030年に200兆円規模。</div>
+          <div class="future-stocks"><strong>大手：</strong>東エレク・アドバンテスト・SCREEN｜<strong>中堅：</strong>イビデン・SUMCO・キオクシア｜<strong>電子材料：</strong>日東紡績・信越化学</div>
+          <div class="future-tag-row"><span class="ftag ftag-tech">技術革新</span><span class="ftag ftag-macro">AI需要</span><span class="ftag ftag-cycle">サイクル変動</span></div>
+        </div>
+      </div>
+
+      <div class="future-card" style="border-color:#ea580c">
+        <div class="future-card-header">
+          <div class="future-icon" style="background:#ea580c">☀️</div>
+          <div><div class="future-name">ペロブスカイト太陽電池</div><div class="future-tier">日本発の次世代太陽電池</div></div>
+          <div class="future-rank" style="color:#ea580c">A</div>
+        </div>
+        <div class="future-card-body">
+          <div class="future-meta">
+            <div class="future-met"><div class="future-met-l">成熟度</div><div class="future-met-v">初期</div></div>
+            <div class="future-met"><div class="future-met-l">成長性</div><div class="future-met-v" style="color:var(--red)">★★★★★</div></div>
+            <div class="future-met"><div class="future-met-l">実用化</div><div class="future-met-v">2026〜2028</div></div>
+          </div>
+          <div class="future-desc">日本発の次世代太陽電池技術。軽量・薄膜・曲面対応で建物の壁面・窓ガラスに設置可能。経産省が2025年予算増額で国策化。サナエノミクスでも重点支援テーマ。実用化が見え始めた2026年は仕込み時。</div>
+          <div class="future-stocks"><strong>本命：</strong>積水化学・カネカ・東芝｜<strong>準本命：</strong>アイシン・キヤノン・パナソニック</div>
+          <div class="future-tag-row"><span class="ftag ftag-policy">国策テーマ</span><span class="ftag ftag-tech">日本発技術</span><span class="ftag ftag-macro">脱炭素</span></div>
+        </div>
+      </div>
+
+      <div class="future-card" style="border-color:#0d9488">
+        <div class="future-card-header">
+          <div class="future-icon" style="background:#0d9488">⚛️</div>
+          <div><div class="future-name">核融合発電</div><div class="future-tier">次世代エネルギーの本命</div></div>
+          <div class="future-rank" style="color:#0d9488">A-</div>
+        </div>
+        <div class="future-card-body">
+          <div class="future-meta">
+            <div class="future-met"><div class="future-met-l">成熟度</div><div class="future-met-v">研究段階</div></div>
+            <div class="future-met"><div class="future-met-l">成長性</div><div class="future-met-v" style="color:var(--red)">★★★★★</div></div>
+            <div class="future-met"><div class="future-met-l">商用化</div><div class="future-met-v">2030年代</div></div>
+          </div>
+          <div class="future-desc">「夢のエネルギー」が現実に。2025年12月にヘリカルフュージョンが国内初の核融合電力売買契約締結。商用化は2030年代だが、米マイクロソフトやGoogleが既に確保契約。サナエノミクスの最重要政策の1つ。</div>
+          <div class="future-stocks"><strong>本命：</strong>三菱重工・東芝・日立｜<strong>準本命：</strong>古河機械金属・神戸製鋼・住友重機械｜<strong>素材：</strong>古河電工</div>
+          <div class="future-tag-row"><span class="ftag ftag-policy">国策テーマ</span><span class="ftag ftag-tech">超長期</span><span class="ftag ftag-macro">エネルギー安保</span></div>
+        </div>
+      </div>
+
+      <div class="future-card" style="border-color:#9333ea">
+        <div class="future-card-header">
+          <div class="future-icon" style="background:#9333ea">🤝</div>
+          <div><div class="future-name">AIエージェント・SaaS</div><div class="future-tier">AI活用ビジネスの本命</div></div>
+          <div class="future-rank" style="color:#9333ea">A</div>
+        </div>
+        <div class="future-card-body">
+          <div class="future-meta">
+            <div class="future-met"><div class="future-met-l">成熟度</div><div class="future-met-v">初期</div></div>
+            <div class="future-met"><div class="future-met-l">成長性</div><div class="future-met-v" style="color:var(--red)">★★★★★</div></div>
+            <div class="future-met"><div class="future-met-l">市場</div><div class="future-met-v">2030年に20兆円</div></div>
+          </div>
+          <div class="future-desc">業務自動化AIエージェントが本格普及。営業・カスタマーサポート・経理・法務など全業務に展開見込み。日本企業のDX需要×人手不足で構造的成長。AIインフラから「使いこなす側」への投資シフト。</div>
+          <div class="future-stocks"><strong>本命：</strong>サイバーエージェント・ラクス・freee｜<strong>SI：</strong>JBS・伊藤忠テクノ｜<strong>独自AI：</strong>PKSHA・Brain Pad</div>
+          <div class="future-tag-row"><span class="ftag ftag-tech">DX加速</span><span class="ftag ftag-macro">人手不足</span><span class="ftag ftag-cycle">SaaS課金</span></div>
+        </div>
+      </div>
+
+      <div class="future-card" style="border-color:#65a30d">
+        <div class="future-card-header">
+          <div class="future-icon" style="background:#65a30d">💊</div>
+          <div><div class="future-name">GLP-1・肥満治療薬</div><div class="future-tier">米Eli Lilly・Novo Nordisk追随</div></div>
+          <div class="future-rank" style="color:#65a30d">A-</div>
+        </div>
+        <div class="future-card-body">
+          <div class="future-meta">
+            <div class="future-met"><div class="future-met-l">成熟度</div><div class="future-met-v">中期</div></div>
+            <div class="future-met"><div class="future-met-l">成長性</div><div class="future-met-v" style="color:var(--amber)">★★★★☆</div></div>
+            <div class="future-met"><div class="future-met-l">市場</div><div class="future-met-v">2030年20兆円</div></div>
+          </div>
+          <div class="future-desc">米Eli Lilly・Novo Nordiskが寡占の肥満治療薬市場。日本の製薬・医療機器・受託製造業界もサプライチェーンの一翼を担う。経口GLP-1や次世代肥満治療薬の開発も活発化。</div>
+          <div class="future-stocks"><strong>製薬：</strong>武田薬品・第一三共・小野薬品｜<strong>受託：</strong>富士フイルム・JCRファーマ・住友ファーマ</div>
+          <div class="future-tag-row"><span class="ftag ftag-tech">創薬</span><span class="ftag ftag-macro">高齢化</span><span class="ftag ftag-cycle">グローバル需要</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bランク -->
+    <div style="font-size:.92rem;font-weight:700;color:var(--amber);margin-bottom:.7rem;padding-bottom:.4rem;border-bottom:2px solid #fde68a;margin-top:1.5rem">📈 Bランク（注目テーマ・選別必要）</div>
+    <div class="future-grid">
+
+      <div class="future-card" style="border-color:#92400e">
+        <div class="future-card-header">
+          <div class="future-icon" style="background:#92400e">🔒</div>
+          <div><div class="future-name">サイバーセキュリティ</div><div class="future-tier">AI時代の必須インフラ</div></div>
+          <div class="future-rank" style="color:#92400e">B+</div>
+        </div>
+        <div class="future-card-body">
+          <div class="future-meta">
+            <div class="future-met"><div class="future-met-l">成熟度</div><div class="future-met-v">中期</div></div>
+            <div class="future-met"><div class="future-met-l">成長性</div><div class="future-met-v" style="color:var(--amber)">★★★★☆</div></div>
+            <div class="future-met"><div class="future-met-l">市場拡大</div><div class="future-met-v">年率15%</div></div>
+          </div>
+          <div class="future-desc">生成AIがサイバー攻撃も高度化。日本企業の対策投資も急増中。経産省サイバーセキュリティ政策も後押し。中堅銘柄でも市場成長率が高く成長余地大きい。</div>
+          <div class="future-stocks"><strong>本命：</strong>GSEX・GMOグローバルサイン・トレンドマイクロ｜<strong>準本命：</strong>ラック・SCSK・FFRI</div>
+          <div class="future-tag-row"><span class="ftag ftag-tech">DX加速</span><span class="ftag ftag-macro">構造的需要</span></div>
+        </div>
+      </div>
+
+      <div class="future-card" style="border-color:#a16207">
+        <div class="future-card-header">
+          <div class="future-icon" style="background:#a16207">⚛️</div>
+          <div><div class="future-name">量子コンピューティング</div><div class="future-tier">米国主導・日本も追走</div></div>
+          <div class="future-rank" style="color:#a16207">B</div>
+        </div>
+        <div class="future-card-body">
+          <div class="future-meta">
+            <div class="future-met"><div class="future-met-l">成熟度</div><div class="future-met-v">研究段階</div></div>
+            <div class="future-met"><div class="future-met-l">成長性</div><div class="future-met-v" style="color:var(--amber)">★★★★☆</div></div>
+            <div class="future-met"><div class="future-met-l">商用化</div><div class="future-met-v">2030年代</div></div>
+          </div>
+          <div class="future-desc">米IBM・Googleが先行も日本も2026年に国産量子コンピュータ商用展開予定。創薬・暗号・物流最適化で実用化期待。短期は思惑買いで動きやすいが、長期は本命銘柄を厳選。</div>
+          <div class="future-stocks"><strong>本命：</strong>富士通・NEC・日立｜<strong>関連：</strong>NTTデータ・ANAホールディングス</div>
+          <div class="future-tag-row"><span class="ftag ftag-tech">超長期</span><span class="ftag ftag-policy">国策</span></div>
+        </div>
+      </div>
+
+      <div class="future-card" style="border-color:#b45309">
+        <div class="future-card-header">
+          <div class="future-icon" style="background:#b45309">⚒️</div>
+          <div><div class="future-name">レアアース・重要鉱物</div><div class="future-tier">経済安全保障×脱中国</div></div>
+          <div class="future-rank" style="color:#b45309">B</div>
+        </div>
+        <div class="future-card-body">
+          <div class="future-meta">
+            <div class="future-met"><div class="future-met-l">成熟度</div><div class="future-met-v">中期</div></div>
+            <div class="future-met"><div class="future-met-l">成長性</div><div class="future-met-v" style="color:var(--amber)">★★★☆☆</div></div>
+            <div class="future-met"><div class="future-met-l">特徴</div><div class="future-met-v">地政学敏感</div></div>
+          </div>
+          <div class="future-desc">EV・モーター・半導体・防衛装備に必須のレアアース・銅・ニッケル等の資源確保戦略。日本は「経済安全保障」でサプライチェーン再構築。短期はボラティリティ高いが構造的需要は確実。</div>
+          <div class="future-stocks"><strong>本命：</strong>住友金属鉱山・三井金属・JX金属｜<strong>商社：</strong>三菱商事・伊藤忠</div>
+          <div class="future-tag-row"><span class="ftag ftag-policy">経済安保</span><span class="ftag ftag-cycle">市況連動</span></div>
+        </div>
+      </div>
+
+      <div class="future-card" style="border-color:#7e22ce">
+        <div class="future-card-header">
+          <div class="future-icon" style="background:#7e22ce">🏗️</div>
+          <div><div class="future-name">建設・インフラ更新</div><div class="future-tier">老朽インフラ更新需要</div></div>
+          <div class="future-rank" style="color:#7e22ce">B-</div>
+        </div>
+        <div class="future-card-body">
+          <div class="future-meta">
+            <div class="future-met"><div class="future-met-l">成熟度</div><div class="future-met-v">成熟</div></div>
+            <div class="future-met"><div class="future-met-l">成長性</div><div class="future-met-v" style="color:var(--amber)">★★★☆☆</div></div>
+            <div class="future-met"><div class="future-met-l">需要</div><div class="future-met-v">2030年代まで</div></div>
+          </div>
+          <div class="future-desc">高度経済成長期建設のインフラ（橋・トンネル・水道）が老朽化、更新需要が拡大。建設DX・i-Constructionで生産性向上も。ゼネコン4社の最高益・建設技術研究所等のコンサルが恩恵。</div>
+          <div class="future-stocks"><strong>ゼネコン：</strong>大林組・鹿島建設・大成建設｜<strong>コンサル：</strong>建設技術研究所・日本工営</div>
+          <div class="future-tag-row"><span class="ftag ftag-policy">公共事業</span><span class="ftag ftag-macro">老朽化対応</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ⚠️ 逆風セクター -->
+    <div style="background:#fee2e2;border:1px solid #fca5a5;border-radius:10px;padding:.9rem 1.2rem;margin-top:1.2rem;font-size:.81rem;color:#7f1d1d;line-height:1.75">
+      ⚠️ <strong>逆風セクター（中長期で慎重に）：</strong>
+      ①<strong>不動産・REIT</strong>（金利上昇継続が逆風）
+      ②<strong>輸出依存の自動車</strong>（円高・米関税のダブルパンチ）
+      ③<strong>商品先物関連</strong>（原油下落リスク）
+      ④<strong>百貨店・インバウンド規制対象</strong>（規制強化リスク）
+    </div>
+    <div class="disc" style="margin-top:.8rem">※本セクションは中長期の方向性を示す参考情報です。実際の銘柄選定は決算・財務・テクニカルを総合的に判断してください。</div>
+  </div>
+
   <!-- 週間カレンダー -->
   <div class="card">
     <div class="card-title"><span class="card-label lbl-blue">WEEKLY</span>📅 今週の日経平均推移と来週の予定</div>
@@ -1109,15 +1529,532 @@ OBV：上昇日は加算、下落日は減算 → 株価に先行してトレン
     </div>
 
     <div class="alert-box alert-blue">📊 <strong>5月8日時点の日経平均テクニカル：</strong>5/7の急騰でRSIが約60（中立〜やや過熱圏）に上昇。MACDは急激にプラス圏に浮上しゴールデンクロス確認。ボリンジャーバンドは上方向にエクスパンション中。5/8の反落は「健全な調整」と見なせる。本日21:30の米雇用統計が来週の方向性を決める。</div>
+
+    <!-- チャートパターン解説（13種類） -->
+    <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:2px solid var(--purple)">
+      <div class="card-title" style="margin-bottom:.5rem"><span class="card-label lbl-purple">PATTERN</span>📐 チャートパターン完全解説（13種類）</div>
+      <div style="background:#f3e8ff;border:1px solid #d8b4fe;border-radius:10px;padding:.9rem 1.2rem;margin-bottom:1.2rem;font-size:.83rem;color:#6b21a8;line-height:1.75">
+        📊 株価チャートに現れる「形」には統計的に意味があります。代表的な13パターンを<strong>SVG図解＋出現条件＋売買シグナル</strong>で解説。テクニカル指標と組み合わせることで判断精度が大幅に向上します。
+      </div>
+
+      <style>
+      .pattern-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-bottom:1.2rem}
+      .pattern-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+      .pattern-card-header{padding:.7rem 1rem;background:var(--white);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+      .pattern-name{font-size:.92rem;font-weight:700;color:var(--text)}
+      .pattern-en{font-size:.65rem;color:var(--text-muted);font-family:'DM Mono',monospace}
+      .pattern-type{margin-left:auto;font-size:.65rem;padding:2px 8px;border-radius:4px;font-weight:700}
+      .pt-bull{background:#dcfce7;color:#15803d}
+      .pt-bear{background:#fee2e2;color:#b91c1c}
+      .pt-neutral{background:#fef3c7;color:#92400e}
+      .pt-cont{background:#dbeafe;color:#1d4ed8}
+      .pattern-svg-container{padding:.5rem;background:var(--white);display:flex;justify-content:center;border-bottom:1px solid var(--border)}
+      .pattern-card-body{padding:.7rem 1rem .9rem}
+      .pattern-section{margin-bottom:.5rem}
+      .pattern-section-title{font-size:.7rem;font-weight:700;color:var(--text-muted);letter-spacing:.04em;margin-bottom:.2rem}
+      .pattern-section-text{font-size:.76rem;color:var(--text-mid);line-height:1.55}
+      .pattern-signal{font-size:.74rem;font-weight:700;padding:.4rem .7rem;border-radius:5px;margin-top:.4rem;line-height:1.5}
+      .ps-buy{background:#dcfce7;color:#15803d}
+      .ps-sell{background:#fee2e2;color:#b91c1c}
+      .ps-watch{background:#fef3c7;color:#92400e}
+      </style>
+
+      <!-- 反転パターン（天井） -->
+      <div style="font-size:.92rem;font-weight:700;color:var(--red);margin-bottom:.7rem;padding-bottom:.4rem;border-bottom:2px solid #fecaca">📉 天井圏で出現する反転パターン（売りサイン）</div>
+      <div class="pattern-grid">
+
+        <!-- ダブルトップ -->
+        <div class="pattern-card">
+          <div class="pattern-card-header">
+            <div><div class="pattern-name">ダブルトップ（毛抜き天井）</div><div class="pattern-en">Double Top / M字型</div></div>
+            <span class="pattern-type pt-bear">反転・売り</span>
+          </div>
+          <div class="pattern-svg-container">
+            <svg width="280" height="120" viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="100" x2="260" y2="100" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="20" y1="60" x2="260" y2="60" stroke="#dc2626" stroke-width="1" stroke-dasharray="4,3"/>
+              <line x1="20" y1="80" x2="260" y2="80" stroke="#16a34a" stroke-width="1" stroke-dasharray="4,3"/>
+              <polyline points="20,100 50,70 80,30 110,80 140,30 170,80 200,55 230,90" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+              <circle cx="80" cy="30" r="3" fill="#dc2626"/>
+              <circle cx="140" cy="30" r="3" fill="#dc2626"/>
+              <text x="80" y="20" font-size="9" fill="#dc2626" text-anchor="middle" font-weight="bold">山1</text>
+              <text x="140" y="20" font-size="9" fill="#dc2626" text-anchor="middle" font-weight="bold">山2</text>
+              <text x="265" y="63" font-size="8" fill="#dc2626">レジスタンス</text>
+              <text x="265" y="83" font-size="8" fill="#16a34a">ネックライン</text>
+            </svg>
+          </div>
+          <div class="pattern-card-body">
+            <div class="pattern-section">
+              <div class="pattern-section-title">📍 出現条件</div>
+              <div class="pattern-section-text">同じ価格水準で2回高値をつけ、間の安値（ネックライン）を割り込むとパターン完成。「M字」の形を描く。</div>
+            </div>
+            <div class="pattern-signal ps-sell">⚠️ ネックライン割れで売りシグナル。下げ幅は「山の高さ」と同程度が目安</div>
+          </div>
+        </div>
+
+        <!-- 三尊天井 -->
+        <div class="pattern-card">
+          <div class="pattern-card-header">
+            <div><div class="pattern-name">三尊天井（ヘッドアンドショルダー）</div><div class="pattern-en">Head and Shoulders Top</div></div>
+            <span class="pattern-type pt-bear">反転・売り</span>
+          </div>
+          <div class="pattern-svg-container">
+            <svg width="280" height="120" viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="100" x2="260" y2="100" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="20" y1="75" x2="260" y2="75" stroke="#16a34a" stroke-width="1" stroke-dasharray="4,3"/>
+              <polyline points="20,100 45,70 70,40 95,70 130,15 165,70 195,40 220,70 245,90" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+              <circle cx="70" cy="40" r="3" fill="#dc2626"/>
+              <circle cx="130" cy="15" r="3" fill="#dc2626"/>
+              <circle cx="195" cy="40" r="3" fill="#dc2626"/>
+              <text x="70" y="32" font-size="9" fill="#dc2626" text-anchor="middle" font-weight="bold">左肩</text>
+              <text x="130" y="8" font-size="9" fill="#dc2626" text-anchor="middle" font-weight="bold">頭</text>
+              <text x="195" y="32" font-size="9" fill="#dc2626" text-anchor="middle" font-weight="bold">右肩</text>
+              <text x="265" y="78" font-size="8" fill="#16a34a">ネックライン</text>
+            </svg>
+          </div>
+          <div class="pattern-card-body">
+            <div class="pattern-section">
+              <div class="pattern-section-title">📍 出現条件</div>
+              <div class="pattern-section-text">中央が一番高い3つの山。最も信頼性の高い天井サインの1つ。仏像の三尊形に似ることから命名。</div>
+            </div>
+            <div class="pattern-signal ps-sell">⚠️ ネックライン割れで本格的な下落トレンド入りシグナル</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 反転パターン（底） -->
+      <div style="font-size:.92rem;font-weight:700;color:var(--green);margin-bottom:.7rem;padding-bottom:.4rem;border-bottom:2px solid #86efac;margin-top:1.3rem">📈 底値圏で出現する反転パターン（買いサイン）</div>
+      <div class="pattern-grid">
+
+        <!-- ダブルボトム -->
+        <div class="pattern-card">
+          <div class="pattern-card-header">
+            <div><div class="pattern-name">ダブルボトム（毛抜き底）</div><div class="pattern-en">Double Bottom / W字型</div></div>
+            <span class="pattern-type pt-bull">反転・買い</span>
+          </div>
+          <div class="pattern-svg-container">
+            <svg width="280" height="120" viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="100" x2="260" y2="100" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="20" y1="40" x2="260" y2="40" stroke="#16a34a" stroke-width="1" stroke-dasharray="4,3"/>
+              <line x1="20" y1="90" x2="260" y2="90" stroke="#dc2626" stroke-width="1" stroke-dasharray="4,3"/>
+              <polyline points="20,30 50,60 80,90 110,40 140,90 170,40 200,60 230,30" fill="none" stroke="#16a34a" stroke-width="2.5"/>
+              <circle cx="80" cy="90" r="3" fill="#16a34a"/>
+              <circle cx="140" cy="90" r="3" fill="#16a34a"/>
+              <text x="80" y="105" font-size="9" fill="#16a34a" text-anchor="middle" font-weight="bold">谷1</text>
+              <text x="140" y="105" font-size="9" fill="#16a34a" text-anchor="middle" font-weight="bold">谷2</text>
+              <text x="265" y="43" font-size="8" fill="#16a34a">ネックライン</text>
+              <text x="265" y="93" font-size="8" fill="#dc2626">サポート</text>
+            </svg>
+          </div>
+          <div class="pattern-card-body">
+            <div class="pattern-section">
+              <div class="pattern-section-title">📍 出現条件</div>
+              <div class="pattern-section-text">同じ価格水準で2回安値をつけ、間の高値（ネックライン）を上抜けするとパターン完成。「W字」の形を描く。</div>
+            </div>
+            <div class="pattern-signal ps-buy">✅ ネックライン上抜けで買いシグナル。上昇幅は「谷の深さ」と同程度が目安</div>
+          </div>
+        </div>
+
+        <!-- 逆三尊 -->
+        <div class="pattern-card">
+          <div class="pattern-card-header">
+            <div><div class="pattern-name">逆三尊底（インバースH&S）</div><div class="pattern-en">Inverse Head and Shoulders</div></div>
+            <span class="pattern-type pt-bull">反転・買い</span>
+          </div>
+          <div class="pattern-svg-container">
+            <svg width="280" height="120" viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="100" x2="260" y2="100" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="20" y1="40" x2="260" y2="40" stroke="#16a34a" stroke-width="1" stroke-dasharray="4,3"/>
+              <polyline points="20,20 45,50 70,80 95,50 130,105 165,50 195,80 220,50 245,30" fill="none" stroke="#16a34a" stroke-width="2.5"/>
+              <circle cx="70" cy="80" r="3" fill="#16a34a"/>
+              <circle cx="130" cy="105" r="3" fill="#16a34a"/>
+              <circle cx="195" cy="80" r="3" fill="#16a34a"/>
+              <text x="70" y="95" font-size="9" fill="#16a34a" text-anchor="middle" font-weight="bold">左肩</text>
+              <text x="130" y="118" font-size="9" fill="#16a34a" text-anchor="middle" font-weight="bold">頭</text>
+              <text x="195" y="95" font-size="9" fill="#16a34a" text-anchor="middle" font-weight="bold">右肩</text>
+              <text x="265" y="43" font-size="8" fill="#16a34a">ネックライン</text>
+            </svg>
+          </div>
+          <div class="pattern-card-body">
+            <div class="pattern-section">
+              <div class="pattern-section-title">📍 出現条件</div>
+              <div class="pattern-section-text">中央が最も深い3つの谷。三尊天井の逆形で、底値圏での反転シグナルとして信頼性が高い。</div>
+            </div>
+            <div class="pattern-signal ps-buy">✅ ネックライン上抜けで本格的な上昇トレンド入りシグナル</div>
+          </div>
+        </div>
+
+        <!-- カップアンドハンドル -->
+        <div class="pattern-card">
+          <div class="pattern-card-header">
+            <div><div class="pattern-name">カップアンドハンドル</div><div class="pattern-en">Cup and Handle</div></div>
+            <span class="pattern-type pt-bull">継続・買い</span>
+          </div>
+          <div class="pattern-svg-container">
+            <svg width="280" height="120" viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="100" x2="260" y2="100" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="20" y1="35" x2="260" y2="35" stroke="#16a34a" stroke-width="1" stroke-dasharray="4,3"/>
+              <path d="M 20 35 Q 80 100, 140 100 T 200 35 L 220 50 L 235 40 L 250 25" fill="none" stroke="#16a34a" stroke-width="2.5"/>
+              <text x="115" y="115" font-size="9" fill="#16a34a" text-anchor="middle" font-weight="bold">カップ（U字）</text>
+              <text x="225" y="65" font-size="9" fill="#1d4ed8" text-anchor="middle" font-weight="bold">ハンドル</text>
+              <text x="265" y="38" font-size="8" fill="#16a34a">ブレイクライン</text>
+            </svg>
+          </div>
+          <div class="pattern-card-body">
+            <div class="pattern-section">
+              <div class="pattern-section-title">📍 出現条件</div>
+              <div class="pattern-section-text">U字型のカップ（数ヶ月）+ 小さな調整（ハンドル）で構成。米国株の典型的成長株パターン。形成期間が長いほど信頼性高い。</div>
+            </div>
+            <div class="pattern-signal ps-buy">✅ ハンドル上抜け（出来高急増を伴う）で強い買いシグナル</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 継続・保ち合いパターン -->
+      <div style="font-size:.92rem;font-weight:700;color:var(--blue);margin-bottom:.7rem;padding-bottom:.4rem;border-bottom:2px solid #bfdbfe;margin-top:1.3rem">🔄 トレンド継続・保ち合いパターン</div>
+      <div class="pattern-grid">
+
+        <!-- 上昇三角形 -->
+        <div class="pattern-card">
+          <div class="pattern-card-header">
+            <div><div class="pattern-name">上昇三角形</div><div class="pattern-en">Ascending Triangle</div></div>
+            <span class="pattern-type pt-cont">継続・買い</span>
+          </div>
+          <div class="pattern-svg-container">
+            <svg width="280" height="120" viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="100" x2="260" y2="100" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="40" y1="30" x2="220" y2="30" stroke="#dc2626" stroke-width="1.5"/>
+              <line x1="40" y1="100" x2="220" y2="30" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="3,3"/>
+              <polyline points="20,100 40,30 60,75 80,30 100,65 120,30 140,55 160,30 180,45 200,30 220,30 240,15 260,5" fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+              <text x="265" y="33" font-size="8" fill="#dc2626">水平レジスタンス</text>
+              <text x="60" y="115" font-size="8" fill="#16a34a">切り上がる安値</text>
+            </svg>
+          </div>
+          <div class="pattern-card-body">
+            <div class="pattern-section">
+              <div class="pattern-section-title">📍 出現条件</div>
+              <div class="pattern-section-text">水平のレジスタンスと切り上がる安値で形成される三角形。買い圧力が徐々に強まり、上ブレイク確率が高い。</div>
+            </div>
+            <div class="pattern-signal ps-buy">✅ レジスタンス上抜けで強い買いシグナル。出来高急増を伴うことが多い</div>
+          </div>
+        </div>
+
+        <!-- 下降三角形 -->
+        <div class="pattern-card">
+          <div class="pattern-card-header">
+            <div><div class="pattern-name">下降三角形</div><div class="pattern-en">Descending Triangle</div></div>
+            <span class="pattern-type pt-bear">継続・売り</span>
+          </div>
+          <div class="pattern-svg-container">
+            <svg width="280" height="120" viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="100" x2="260" y2="100" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="40" y1="90" x2="220" y2="90" stroke="#16a34a" stroke-width="1.5"/>
+              <line x1="40" y1="20" x2="220" y2="90" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3,3"/>
+              <polyline points="20,30 40,20 60,55 80,30 100,60 120,40 140,70 160,55 180,80 200,70 220,90 240,105 260,115" fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+              <text x="265" y="93" font-size="8" fill="#16a34a">水平サポート</text>
+              <text x="60" y="14" font-size="8" fill="#dc2626">切り下がる高値</text>
+            </svg>
+          </div>
+          <div class="pattern-card-body">
+            <div class="pattern-section">
+              <div class="pattern-section-title">📍 出現条件</div>
+              <div class="pattern-section-text">水平のサポートと切り下がる高値で形成される三角形。売り圧力が強まり、下ブレイク確率が高い。</div>
+            </div>
+            <div class="pattern-signal ps-sell">⚠️ サポート割れで強い売りシグナル。逃げる準備を</div>
+          </div>
+        </div>
+
+        <!-- 対称三角形 -->
+        <div class="pattern-card">
+          <div class="pattern-card-header">
+            <div><div class="pattern-name">対称三角形（持ち合い）</div><div class="pattern-en">Symmetrical Triangle</div></div>
+            <span class="pattern-type pt-neutral">中立・どちらも</span>
+          </div>
+          <div class="pattern-svg-container">
+            <svg width="280" height="120" viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="100" x2="260" y2="100" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="40" y1="20" x2="220" y2="60" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3,3"/>
+              <line x1="40" y1="100" x2="220" y2="60" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="3,3"/>
+              <polyline points="20,30 40,20 60,90 80,30 100,80 120,40 140,75 160,50 180,70 200,55 220,60" fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+              <polyline points="220,60 240,30 260,15" fill="none" stroke="#16a34a" stroke-width="2.5"/>
+              <text x="240" y="20" font-size="9" fill="#16a34a" font-weight="bold">↑上抜け</text>
+            </svg>
+          </div>
+          <div class="pattern-card-body">
+            <div class="pattern-section">
+              <div class="pattern-section-title">📍 出現条件</div>
+              <div class="pattern-section-text">高値切り下げ＋安値切り上げで収束する三角形。方向感に欠ける状態が一定期間続いた後、どちらかにブレイク。</div>
+            </div>
+            <div class="pattern-signal ps-watch">👁 ブレイク方向に追随。出来高急増の方向が信頼性高い</div>
+          </div>
+        </div>
+
+        <!-- フラッグ -->
+        <div class="pattern-card">
+          <div class="pattern-card-header">
+            <div><div class="pattern-name">フラッグ（旗）</div><div class="pattern-en">Flag Pattern</div></div>
+            <span class="pattern-type pt-cont">継続・買い</span>
+          </div>
+          <div class="pattern-svg-container">
+            <svg width="280" height="120" viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="100" x2="260" y2="100" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3,3"/>
+              <polyline points="20,100 60,30" fill="none" stroke="#16a34a" stroke-width="3"/>
+              <line x1="60" y1="30" x2="180" y2="65" stroke="#dc2626" stroke-width="1.5"/>
+              <line x1="60" y1="50" x2="180" y2="85" stroke="#dc2626" stroke-width="1.5"/>
+              <polyline points="60,30 80,50 100,40 120,60 140,55 160,75 180,65" fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+              <polyline points="180,65 220,15 260,5" fill="none" stroke="#16a34a" stroke-width="2.5"/>
+              <text x="40" y="65" font-size="9" fill="#16a34a" font-weight="bold">急騰</text>
+              <text x="120" y="42" font-size="9" fill="#dc2626" font-weight="bold">調整（旗）</text>
+              <text x="220" y="20" font-size="9" fill="#16a34a" font-weight="bold">再上昇</text>
+            </svg>
+          </div>
+          <div class="pattern-card-body">
+            <div class="pattern-section">
+              <div class="pattern-section-title">📍 出現条件</div>
+              <div class="pattern-section-text">急騰後の小幅な調整。旗竿（急騰）と旗（平行な調整）で構成。短期間（1〜3週間）で完成。</div>
+            </div>
+            <div class="pattern-signal ps-buy">✅ 旗の上限を上抜けで再上昇。上昇幅は旗竿と同程度が目安</div>
+          </div>
+        </div>
+
+        <!-- ペナント -->
+        <div class="pattern-card">
+          <div class="pattern-card-header">
+            <div><div class="pattern-name">ペナント</div><div class="pattern-en">Pennant</div></div>
+            <span class="pattern-type pt-cont">継続・買い/売り</span>
+          </div>
+          <div class="pattern-svg-container">
+            <svg width="280" height="120" viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="100" x2="260" y2="100" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3,3"/>
+              <polyline points="20,100 60,30" fill="none" stroke="#16a34a" stroke-width="3"/>
+              <line x1="60" y1="30" x2="180" y2="55" stroke="#dc2626" stroke-width="1.5"/>
+              <line x1="60" y1="60" x2="180" y2="55" stroke="#dc2626" stroke-width="1.5"/>
+              <polyline points="60,30 80,55 100,40 120,55 140,45 160,55 180,55" fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+              <polyline points="180,55 220,15 260,5" fill="none" stroke="#16a34a" stroke-width="2.5"/>
+              <text x="40" y="65" font-size="9" fill="#16a34a" font-weight="bold">急騰</text>
+              <text x="120" y="32" font-size="9" fill="#dc2626" font-weight="bold">三角収束</text>
+              <text x="220" y="20" font-size="9" fill="#16a34a" font-weight="bold">再上昇</text>
+            </svg>
+          </div>
+          <div class="pattern-card-body">
+            <div class="pattern-section">
+              <div class="pattern-section-title">📍 出現条件</div>
+              <div class="pattern-section-text">急騰後の小幅な三角形保合い。フラッグと似るが、保合い部分が三角形。短期間（1〜3週間）で完成し、トレンド方向にブレイク。</div>
+            </div>
+            <div class="pattern-signal ps-buy">✅ ペナント上限上抜けで再上昇開始。トレンド継続パターンの代表</div>
+          </div>
+        </div>
+
+        <!-- ボックス -->
+        <div class="pattern-card">
+          <div class="pattern-card-header">
+            <div><div class="pattern-name">ボックス（レンジ）</div><div class="pattern-en">Box / Rectangle</div></div>
+            <span class="pattern-type pt-neutral">保合い</span>
+          </div>
+          <div class="pattern-svg-container">
+            <svg width="280" height="120" viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="100" x2="260" y2="100" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="20" y1="30" x2="220" y2="30" stroke="#dc2626" stroke-width="1.5"/>
+              <line x1="20" y1="80" x2="220" y2="80" stroke="#16a34a" stroke-width="1.5"/>
+              <polyline points="20,55 40,30 60,75 80,30 100,80 120,35 140,75 160,30 180,80 200,40 220,55" fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+              <polyline points="220,55 240,20 260,10" fill="none" stroke="#16a34a" stroke-width="2.5"/>
+              <text x="265" y="33" font-size="8" fill="#dc2626">レジスタンス</text>
+              <text x="265" y="83" font-size="8" fill="#16a34a">サポート</text>
+            </svg>
+          </div>
+          <div class="pattern-card-body">
+            <div class="pattern-section">
+              <div class="pattern-section-title">📍 出現条件</div>
+              <div class="pattern-section-text">水平な上限・下限の中で揉み合い。長期間続くほど、ブレイク後の値幅が大きくなる傾向。スイングトレード向き。</div>
+            </div>
+            <div class="pattern-signal ps-watch">👁 ボックスの中で逆張り、ブレイク後は追随が基本</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 出来高・ローソク足パターン -->
+      <div style="font-size:.92rem;font-weight:700;color:var(--purple);margin-bottom:.7rem;padding-bottom:.4rem;border-bottom:2px solid #d8b4fe;margin-top:1.3rem">🕯️ ローソク足・出来高パターン</div>
+      <div class="pattern-grid">
+
+        <!-- 包み線 -->
+        <div class="pattern-card">
+          <div class="pattern-card-header">
+            <div><div class="pattern-name">包み線（抱き線）</div><div class="pattern-en">Engulfing Pattern</div></div>
+            <span class="pattern-type pt-bull">反転シグナル</span>
+          </div>
+          <div class="pattern-svg-container">
+            <svg width="280" height="120" viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
+              <text x="65" y="20" font-size="11" fill="#15803d" text-anchor="middle" font-weight="bold">底値圏（買い）</text>
+              <line x1="50" y1="35" x2="50" y2="75" stroke="#1e293b" stroke-width="1"/>
+              <rect x="42" y="40" width="16" height="30" fill="#1e293b"/>
+              <line x1="80" y1="30" x2="80" y2="80" stroke="#1e293b" stroke-width="1"/>
+              <rect x="72" y="40" width="16" height="35" fill="#fff" stroke="#dc2626" stroke-width="2"/>
+              <text x="65" y="100" font-size="9" fill="#dc2626" text-anchor="middle">陰線→陽線で包む</text>
+              <line x1="150" y1="50" x2="270" y2="50" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="2,2"/>
+              <text x="215" y="20" font-size="11" fill="#b91c1c" text-anchor="middle" font-weight="bold">天井圏（売り）</text>
+              <line x1="200" y1="35" x2="200" y2="80" stroke="#1e293b" stroke-width="1"/>
+              <rect x="192" y="40" width="16" height="30" fill="#fff" stroke="#dc2626" stroke-width="1"/>
+              <line x1="230" y1="30" x2="230" y2="75" stroke="#1e293b" stroke-width="1"/>
+              <rect x="222" y="35" width="16" height="35" fill="#1e293b"/>
+              <text x="215" y="100" font-size="9" fill="#1e293b" text-anchor="middle">陽線→陰線で包む</text>
+            </svg>
+          </div>
+          <div class="pattern-card-body">
+            <div class="pattern-section">
+              <div class="pattern-section-title">📍 出現条件</div>
+              <div class="pattern-section-text">前日のローソク足の実体を全て包み込む形。底値圏での陽線包みは強い買いサイン、天井圏での陰線包みは強い売りサイン。</div>
+            </div>
+            <div class="pattern-signal ps-buy">✅ 底値圏での出現は反転確率が非常に高い。出来高増加を伴うとさらに信頼度UP</div>
+          </div>
+        </div>
+
+        <!-- ハンマー（タクリ足） -->
+        <div class="pattern-card">
+          <div class="pattern-card-header">
+            <div><div class="pattern-name">ハンマー（タクリ足）</div><div class="pattern-en">Hammer / Hanging Man</div></div>
+            <span class="pattern-type pt-bull">反転シグナル</span>
+          </div>
+          <div class="pattern-svg-container">
+            <svg width="280" height="120" viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="100" x2="260" y2="100" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3,3"/>
+              <polyline points="20,30 50,55 80,75 110,90" fill="none" stroke="#dc2626" stroke-width="2"/>
+              <line x1="140" y1="40" x2="140" y2="95" stroke="#1e293b" stroke-width="1"/>
+              <rect x="132" y="40" width="16" height="20" fill="#fff" stroke="#16a34a" stroke-width="2"/>
+              <text x="140" y="115" font-size="9" fill="#16a34a" text-anchor="middle" font-weight="bold">ハンマー</text>
+              <polyline points="170,55 200,40 230,30 260,20" fill="none" stroke="#16a34a" stroke-width="2"/>
+              <text x="225" y="62" font-size="9" fill="#16a34a" text-anchor="middle" font-weight="bold">↑反転上昇</text>
+              <text x="60" y="20" font-size="9" fill="#dc2626" text-anchor="middle">↓下落トレンド</text>
+            </svg>
+          </div>
+          <div class="pattern-card-body">
+            <div class="pattern-section">
+              <div class="pattern-section-title">📍 出現条件</div>
+              <div class="pattern-section-text">下ヒゲが実体の2倍以上、上ヒゲがほぼない形。下落トレンドの底で出現すると強い反転シグナル。日本ではタクリ足とも呼ばれる。</div>
+            </div>
+            <div class="pattern-signal ps-buy">✅ 下落の最終局面で出現すれば底打ち確認。翌日の上昇で確証</div>
+          </div>
+        </div>
+
+        <!-- 出来高急増 -->
+        <div class="pattern-card">
+          <div class="pattern-card-header">
+            <div><div class="pattern-name">出来高急増を伴う上昇</div><div class="pattern-en">Volume Breakout</div></div>
+            <span class="pattern-type pt-bull">継続・買い</span>
+          </div>
+          <div class="pattern-svg-container">
+            <svg width="280" height="120" viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="65" x2="260" y2="65" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3,3"/>
+              <polyline points="20,55 50,55 80,60 110,55 140,30 170,20 200,10 230,15 260,5" fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+              <rect x="22" y="100" width="14" height="10" fill="#94a3b8"/>
+              <rect x="52" y="98" width="14" height="12" fill="#94a3b8"/>
+              <rect x="82" y="100" width="14" height="10" fill="#94a3b8"/>
+              <rect x="112" y="95" width="14" height="15" fill="#94a3b8"/>
+              <rect x="142" y="75" width="14" height="35" fill="#dc2626"/>
+              <rect x="172" y="80" width="14" height="30" fill="#dc2626"/>
+              <rect x="202" y="85" width="14" height="25" fill="#dc2626"/>
+              <text x="180" y="65" font-size="9" fill="#dc2626" text-anchor="middle" font-weight="bold">↑出来高急増</text>
+              <text x="60" y="40" font-size="8" fill="#94a3b8">通常時</text>
+            </svg>
+          </div>
+          <div class="pattern-card-body">
+            <div class="pattern-section">
+              <div class="pattern-section-title">📍 出現条件</div>
+              <div class="pattern-section-text">過去20日平均の2倍以上の出来高を伴う上昇。機関投資家の本気の買いを意味し、信頼性が非常に高い。</div>
+            </div>
+            <div class="pattern-signal ps-buy">✅ 5/7の日経平均急騰（売買代金10兆円超）はこの典型例。出来高急増の方向に追随</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 心理的ライン・トレンドライン -->
+      <div style="font-size:.92rem;font-weight:700;color:var(--amber);margin-bottom:.7rem;padding-bottom:.4rem;border-bottom:2px solid #fde68a;margin-top:1.3rem">📏 トレンドライン・心理的ライン</div>
+      <div class="pattern-grid">
+
+        <!-- トレンドライン -->
+        <div class="pattern-card">
+          <div class="pattern-card-header">
+            <div><div class="pattern-name">上昇トレンドライン</div><div class="pattern-en">Uptrend Line</div></div>
+            <span class="pattern-type pt-bull">トレンド継続</span>
+          </div>
+          <div class="pattern-svg-container">
+            <svg width="280" height="120" viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="100" x2="260" y2="100" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="20" y1="100" x2="260" y2="20" stroke="#16a34a" stroke-width="2.5" stroke-dasharray="6,3"/>
+              <polyline points="20,90 40,60 60,75 80,40 100,55 120,30 140,40 160,20 180,30 200,15 220,25 240,10" fill="none" stroke="#1d4ed8" stroke-width="2"/>
+              <circle cx="40" cy="60" r="3" fill="#16a34a"/>
+              <circle cx="80" cy="40" r="3" fill="#16a34a"/>
+              <circle cx="120" cy="30" r="3" fill="#16a34a"/>
+              <circle cx="160" cy="20" r="3" fill="#16a34a"/>
+              <text x="265" y="23" font-size="8" fill="#16a34a">↗トレンドライン</text>
+              <text x="50" y="115" font-size="9" fill="#16a34a" text-anchor="middle" font-weight="bold">安値が切り上がる</text>
+            </svg>
+          </div>
+          <div class="pattern-card-body">
+            <div class="pattern-section">
+              <div class="pattern-section-title">📍 引き方</div>
+              <div class="pattern-section-text">2つ以上の安値を結んだ右肩上がりの直線。3点以上で接していると信頼性が高い。トレンドラインに接近時が押し目買いのチャンス。</div>
+            </div>
+            <div class="pattern-signal ps-buy">✅ トレンドラインのタッチで押し目買い。ライン割れは要注意（トレンド転換の初動）</div>
+          </div>
+        </div>
+
+        <!-- 節目価格 -->
+        <div class="pattern-card">
+          <div class="pattern-card-header">
+            <div><div class="pattern-name">節目（キリ番）の心理的抵抗</div><div class="pattern-en">Round Number Effect</div></div>
+            <span class="pattern-type pt-neutral">参考</span>
+          </div>
+          <div class="pattern-svg-container">
+            <svg width="280" height="120" viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="20" x2="260" y2="20" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4,3"/>
+              <line x1="20" y1="60" x2="260" y2="60" stroke="#1d4ed8" stroke-width="1.5" stroke-dasharray="4,3"/>
+              <line x1="20" y1="100" x2="260" y2="100" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="4,3"/>
+              <polyline points="20,80 50,40 80,25 110,40 140,30 170,55 200,50 230,80 260,70" fill="none" stroke="#1e293b" stroke-width="2"/>
+              <text x="265" y="23" font-size="8" fill="#dc2626" font-weight="bold">65,000円</text>
+              <text x="265" y="63" font-size="8" fill="#1d4ed8" font-weight="bold">62,500円</text>
+              <text x="265" y="103" font-size="8" fill="#16a34a" font-weight="bold">60,000円</text>
+              <text x="140" y="115" font-size="9" fill="var(--text-mid)" text-anchor="middle">キリ番で反応しやすい</text>
+            </svg>
+          </div>
+          <div class="pattern-card-body">
+            <div class="pattern-section">
+              <div class="pattern-section-title">📍 特徴</div>
+              <div class="pattern-section-text">60,000円・62,500円・65,000円など「キリの良い数字」では売買が集中しやすく、サポート・レジスタンスとして機能。日経平均の場合500円・1,000円単位が特に重要。</div>
+            </div>
+            <div class="pattern-signal ps-watch">👁 節目価格は予想に組み込み、ブレイク・反発の両方を想定する</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 実践のコツ -->
+      <div style="background:var(--white);border:2px solid var(--purple);border-radius:12px;padding:1.4rem;margin-top:1.5rem">
+        <div style="font-size:.97rem;font-weight:700;color:var(--purple);margin-bottom:.7rem">💡 チャートパターン活用の実践ポイント</div>
+        <ul style="font-size:.8rem;color:var(--text-mid);line-height:1.85;padding-left:1.3rem;margin:0">
+          <li><strong>パターンは「完成」してから判断する。</strong>形成途中のパターンは想像で動かず、ネックライン突破などの「確定シグナル」を待つ</li>
+          <li><strong>出来高を必ずチェック。</strong>ブレイク時に出来高急増を伴うパターンは信頼性が圧倒的に高い</li>
+          <li><strong>テクニカル指標と組み合わせる。</strong>パターン単独より、RSI・MACD・ボリンジャーバンドと併用すると精度向上</li>
+          <li><strong>ダマシ（False Breakout）に注意。</strong>ブレイク後すぐに戻る場合は撤退ルールを決めておく（例：ブレイク値の3%反対方向で損切り）</li>
+          <li><strong>長期パターンほど信頼性高い。</strong>形成期間が数日のパターンより、数ヶ月の三尊・カップアンドハンドルの方が重要</li>
+          <li><strong>逆張りより順張り。</strong>反転パターンは確定後にエントリー、継続パターンはトレンド方向に追随する方が勝率高い</li>
+        </ul>
+      </div>
+      <div class="disc" style="margin-top:.8rem">※チャートパターンは過去の傾向を示すものであり、未来の値動きを保証するものではありません。リスク管理を徹底してください。</div>
+    </div>
+
     <div class="disc">※テクニカル分析はあくまで参考情報です。単独での投資判断は避け、複数の情報を総合的に判断してください。投資判断は必ずご自身の責任で行ってください。</div>
   </div>
 </div>
 
 <footer>
   <div class="f-links">
-    <a href="#">トップ</a><a href="#market">今週の市況</a><a href="#hot-stocks">急騰銘柄</a>
-    <a href="#technical">テクニカル</a><a href="#screening">スクリーニング</a>
-    <a href="#sector">セクター</a><a href="#broker">口座比較</a>
+    <a href="#">トップ</a><a href="#market">今週の市況</a><a href="#nikkei-technical">日経テクニカル</a>
+    <a href="#hot-stocks">急騰銘柄</a><a href="#technical">テクニカル</a><a href="#screening">スクリーニング</a>
+    <a href="#sector">セクター</a><a href="#future-sectors">有望テーマ</a><a href="#broker">口座比較</a>
     <a href="#">プライバシーポリシー</a>
   </div>
   <p>© 2026 株式投資ナビ｜毎日更新の日本株情報メディア</p>
