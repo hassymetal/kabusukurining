@@ -1,0 +1,34 @@
+# robots.txt - 株式投資ナビ
+# 検索エンジンクローラーへの指示ファイル
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.pdf$
+
+# サイトマップの場所を指定
+Sitemap: https://your-domain.example.com/sitemap.xml
+
+# 主要クローラー個別設定
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# AI関連クローラー（学習データ収集を許可するか個別判断）
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# 悪質なクローラーをブロック
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
