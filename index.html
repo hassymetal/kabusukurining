@@ -173,10 +173,13 @@ header{background:var(--white);border-bottom:2px solid var(--blue);padding:0 1.5
 .hero h1{font-size:clamp(1.3rem,3vw,1.9rem);font-weight:900;line-height:1.4;margin-bottom:.5rem}
 .hero h1 em{font-style:normal;color:#93c5fd}
 .hero-sub{font-size:.85rem;color:rgba(255,255,255,.7);margin-bottom:1.5rem}
-.idx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
-.idx-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:.85rem;display:flex;flex-direction:column;justify-content:flex-start}
+.idx-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media(max-width:1000px){.idx-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:680px){.idx-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:380px){.idx-grid{grid-template-columns:1fr}}
+.idx-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:.85rem;display:flex;flex-direction:column;justify-content:flex-start;min-width:0}
 .idx-name{font-size:.72rem;color:rgba(255,255,255,.6);margin-bottom:.3rem;font-weight:600;letter-spacing:.02em}
-.idx-val{font-size:1.2rem;font-weight:700;font-family:'DM Mono',monospace;color:#fff;line-height:1.2;word-break:keep-all}
+.idx-val{font-size:1.2rem;font-weight:700;font-family:'DM Mono',monospace;color:#fff;line-height:1.2;word-break:keep-all;overflow-wrap:break-word}
 .idx-chg{font-size:.8rem;font-weight:700;margin-top:.3rem;line-height:1.4}
 .up{color:#4ade80}.dn{color:#f87171}.neutral{color:#fbbf24}
 .idx-note{font-size:.7rem;color:rgba(255,255,255,.45);margin-top:.35rem;line-height:1.4}
@@ -663,7 +666,9 @@ footer{background:#0f172a;color:#64748b;padding:2rem 1.5rem;font-size:.77rem;tex
       🔄 <strong>5/8の見直しポイント：</strong>5/7に決算で爆発的増益を発表した日東紡績（純利益+196%）を新規追加（1位・88点）。AI×電子材料という本質的な成長性とまだ十分に評価されていない割安性を高評価。一方、業績変動が大きく直近データが古いエスプールを除外。</div>
 
     <style>
-    .growth-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-bottom:1.2rem}
+    .growth-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:1.2rem}
+    @media(max-width:900px){.growth-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.growth-grid{grid-template-columns:1fr}}
     .growth-card{background:var(--bg);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:box-shadow .2s}
     .growth-card:hover{box-shadow:0 4px 18px rgba(22,163,74,.12)}
     .growth-card-header{padding:.9rem 1.1rem;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:10px}
@@ -873,12 +878,11 @@ footer{background:#0f172a;color:#64748b;padding:2rem 1.5rem;font-size:.77rem;tex
           <div class="growth-verdict gv-watch">⚡ 高リスク・高リターン型｜ポジション管理重要</div>
         </div>
       </div>
-        </div>
-      </div>
     </div>
 
     <div style="font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:.7rem">⚠️ 注意が必要な銘柄（6〜8位）</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-bottom:1.2rem">
+    <div class="growth-grid">
+      <!-- 下の3カードを上と同じ「growth-grid」クラスで揃える -->
       <div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:1rem">
         <div style="font-size:.88rem;font-weight:700;margin-bottom:.4rem">NexTone <span style="font-size:.7rem;color:var(--text-muted);font-weight:400">7094｜76点</span></div>
         <div style="font-size:.77rem;color:var(--text-mid);line-height:1.7;margin-bottom:.5rem">音楽著作権管理（JASRAC対抗の唯一の管理団体）として高い参入障壁。ストリーミング市場拡大の恩恵を直接享受。営業利益+52.6%・初配当開始も評価高い。ただしPER25〜30倍と高めで、3Q進捗率がやや低めな点に注意。</div>
