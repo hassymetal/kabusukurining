@@ -8,7 +8,7 @@ Disallow: /private/
 Disallow: /*.pdf$
 
 # サイトマップの場所を指定
-Sitemap: https://your-domain.example.com/sitemap.xml
+Sitemap: https://hassymetal.github.io/kabusukurining/sitemap.xml
 
 # 主要クローラー個別設定
 User-agent: Googlebot
