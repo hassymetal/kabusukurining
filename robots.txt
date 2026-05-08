@@ -1,34 +1,35 @@
 # robots.txt - 株式投資ナビ
 # 検索エンジンクローラーへの指示ファイル
 
+# ===== 全クローラー共通の基本ルール =====
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /private/
 Disallow: /*.pdf$
 
-# サイトマップの場所を指定
-Sitemap: https://hassymetal.github.io/kabusukurining/sitemap.xml
-
-# 主要クローラー個別設定
+# ===== 主要検索エンジン =====
 User-agent: Googlebot
 Allow: /
+Disallow: /*.pdf$
 Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Disallow: /*.pdf$
 Crawl-delay: 1
 
-# AI関連クローラー（学習データ収集を許可するか個別判断）
+# ===== AI関連クローラー（学習データ収集を許可）=====
 User-agent: GPTBot
 Allow: /
 
 User-agent: ClaudeBot
 Allow: /
 
-# 悪質なクローラーをブロック
+# ===== 悪質なクローラーをブロック =====
 User-agent: AhrefsBot
 Disallow: /
 
 User-agent: SemrushBot
 Disallow: /
+
+# ===== サイトマップの場所 =====
+Sitemap: https://hassymetal.github.io/kabusukurining/sitemap.xml
