@@ -4,12 +4,20 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  <!-- トップページ -->
+  <!-- トップページ（毎日更新） -->
   <url>
     <loc>https://hassymetal.github.io/kabusukurining/</loc>
-    <lastmod>2026-05-09T00:30:00+09:00</lastmod>
+    <lastmod>2026-05-11T09:00:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- テクニカル分析完全ガイド（エバーグリーン記事） -->
+  <url>
+    <loc>https://hassymetal.github.io/kabusukurining/technical.html</loc>
+    <lastmod>2026-05-03T00:00:00+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- 過去の日次更新ページ（運用開始後に追加していく） -->
@@ -19,34 +27,6 @@
     <lastmod>2026-05-07T16:00:00+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  -->
-
-  <!-- カテゴリページ（将来作成する場合） -->
-  <!--
-  <url>
-    <loc>https://hassymetal.github.io/kabusukurining/technical-analysis/</loc>
-    <lastmod>2026-05-08T22:30:00+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hassymetal.github.io/kabusukurining/growth-stocks/</loc>
-    <lastmod>2026-05-08T22:30:00+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hassymetal.github.io/kabusukurining/sector-trends/</loc>
-    <lastmod>2026-05-08T22:30:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://hassymetal.github.io/kabusukurining/chart-patterns/</loc>
-    <lastmod>2026-05-08T22:30:00+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
   -->
 
